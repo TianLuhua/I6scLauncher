@@ -21,7 +21,8 @@ import java.io.IOException;
  */
 public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, CleanCachePersenter> implements CleanCacheView {
 
-    private String totalCacheSize ;
+
+    private String totalCacheSize;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -29,25 +30,21 @@ public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, Clea
 
             switch (msg.what) {
                 case Config.HandlerGlod.ACTIVITY_CLEANCACHE_START_CLEANCACHE:
-//                    Toast.makeText(CleanCacheActivity.this, "CleanCache start", Toast.LENGTH_SHORT).show();
                     try {
-                        totalCacheSize= DataCleanManager.getTotalCacheSize(getApplicationContext());
+                        totalCacheSize = DataCleanManager.getTotalCacheSize(getApplicationContext());
                         DataCleanManager.clearAllCache(getApplicationContext());
                     } catch (Exception e) {
                         e.printStackTrace();
-                        totalCacheSize="0.0Byte";
+                        totalCacheSize = "0.0Byte";
                     }
 
                     break;
 
                 case Config.HandlerGlod.ACTIVITY_CLEANCACHE_END_CLEANCACHE:
-                    Toast.makeText(CleanCacheActivity.this, "共清理掉垃圾:"+totalCacheSize, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CleanCacheActivity.this, "共清理掉垃圾:" + totalCacheSize, Toast.LENGTH_SHORT).show();
                     finish();
                     overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
-
-
                     break;
-
 
                 default:
                     break;

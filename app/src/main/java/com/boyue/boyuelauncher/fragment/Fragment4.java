@@ -25,8 +25,6 @@ public class Fragment4 extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_layout, null);
-        TextView tv = (TextView) view.findViewById(R.id.textView);
-        tv.setText(this.getClass().getSimpleName());
         Button btn = (Button) view.findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
