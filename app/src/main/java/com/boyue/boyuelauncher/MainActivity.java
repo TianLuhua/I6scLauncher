@@ -1,11 +1,18 @@
 package com.boyue.boyuelauncher;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -21,15 +28,18 @@ import com.boyue.boyuelauncher.function.FunctionWithParamAndResult;
 import com.boyue.boyuelauncher.function.FunctionWithParamOnly;
 import com.boyue.boyuelauncher.function.FunctionWithResultOnly;
 import com.boyue.boyuelauncher.utils.HideSystemUIUtils;
+import com.boyue.boyuelauncher.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener {
 
 
     private ViewPager viewpager;
     private RadioGroup radioGroup;
+    private ImageView cleanCache;
+    private ImageView settings;
 
     private List<Fragment> fragments = new ArrayList<>();
     private MyPagerAdapter adapter;
@@ -39,7 +49,16 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         super.onCreate(savedInstanceState);
         HideSystemUIUtils.hideSystemUI(this);
         setContentView(R.layout.activity_main);
+
+        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         viewpager = (ViewPager) findViewById(R.id.viewpager);
+        cleanCache = findViewById(R.id.cleancache);
+        cleanCache.setOnClickListener(this);
+        settings = findViewById(R.id.settings);
+        settings.setOnClickListener(this);
         viewpager.setOnPageChangeListener(this);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(this);
@@ -83,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        Log.e("tlh", "onCheckedChanged:" + checkedId);
+        LogUtils.e("tlh", "onCheckedChanged:" + checkedId);
         switch (checkedId) {
             case R.id.radio1:
                 viewpager.setCurrentItem(0);
@@ -127,5 +146,40 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.cleancache:
+                startCleanCache(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_CLEANCACHE);
+                break;
+            case R.id.settings:
+
+                break;
+        }
+    }
+
+
+    /**
+     * 清楚当前APP缓存数据
+     *
+     * @param mContext
+     * @param action
+     */
+    public void startCleanCache(Context mContext, String action) {
+        Intent intent = new Intent(action);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (mContext.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
+            try {
+                mContext.startActivity(intent);
+                overridePendingTransition(R.anim.activity_in_alpha_0_to_1,R.anim.activity_out_alpha_1_to_0);
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(mContext, "Start Activity Error", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(mContext, "Not Found CleanCacheActivity", Toast.LENGTH_SHORT).show();
+        }
     }
 }

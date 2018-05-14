@@ -8,7 +8,7 @@ import com.boyue.boyuelauncher.MainActivity;
 import com.boyue.boyuelauncher.function.FunctionMnanger;
 
 /**
- * Created by Tianluhua on 2018/4/3.
+ * Created by Tianluhua on 2018/5/11.
  */
 
 public class BaseFragment extends Fragment {
