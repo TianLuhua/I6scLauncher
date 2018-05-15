@@ -11,6 +11,7 @@ import android.net.wifi.WifiManager;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import android.util.Log;
 
 /**
  * Created by Tianluhua on 2018/5/15.
@@ -21,20 +22,24 @@ public class WIFIStatusView extends AppCompatImageView {
 
 
     public WIFIStatusView(Context context) {
-        super(context,null);
+        super(context, null);
+        Log.e("tlh", "WIFIStatusView---1");
     }
 
     public WIFIStatusView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs,0);
-    }
-
-    public WIFIStatusView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super(context, attrs, 0);
+        Log.e("tlh", "WIFIStatusView---2");
         wifiManager = (WifiManager) getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
     }
 
+    public WIFIStatusView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
 
-    private final BroadcastReceiver wifiBroadcasterReceiver=new BroadcastReceiver() {
+        super(context, attrs, defStyleAttr);
+        Log.e("tlh", "WIFIStatusView---3");
+    }
+
+
+    private final BroadcastReceiver wifiBroadcasterReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
 
@@ -53,8 +58,9 @@ public class WIFIStatusView extends AppCompatImageView {
                 }
             } else if (WifiManager.RSSI_CHANGED_ACTION.equals(action)) {
                 //信号强度变化
-                 int currentWiFiStrength=getCurrentWiFiStrength();
-                 getDrawable().setLevel(currentWiFiStrength);
+                int currentWiFiStrength = getCurrentWiFiStrength();
+                Log.e("tlh", "currentWiFiStrength:" + currentWiFiStrength);
+                getDrawable().setLevel(currentWiFiStrength);
 
             }
 
@@ -65,7 +71,7 @@ public class WIFIStatusView extends AppCompatImageView {
         // Wifi的连接速度及信号强度：
         int strength = 0;
         WifiInfo info = wifiManager.getConnectionInfo();
-        if (info.getBSSID() != null) {
+        if (info != null && info.getBSSID() != null) {
             // 链接信号强度，5为获取的信号强度值在5以内
             strength = WifiManager.calculateSignalLevel(info.getRssi(), 5);
         }
@@ -75,11 +81,11 @@ public class WIFIStatusView extends AppCompatImageView {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        IntentFilter intentFilter=new IntentFilter();
+        IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);//wifi的打开与关闭
         intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);//wifi连接成功
         intentFilter.addAction(WifiManager.RSSI_CHANGED_ACTION);//wifi信号强度
-        getContext().registerReceiver(wifiBroadcasterReceiver,intentFilter,null,getHandler());
+        getContext().registerReceiver(wifiBroadcasterReceiver, intentFilter, null, getHandler());
 
     }
 

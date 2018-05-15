@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -43,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     private List<Fragment> fragments = new ArrayList<>();
     private MyPagerAdapter adapter;
+    private boolean isGranted;
+    private static final int REQUEST_CODE = 11000;//权限请求code
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         if (mContext.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
             try {
                 mContext.startActivity(intent);
-                overridePendingTransition(R.anim.activity_in_alpha_0_to_1,R.anim.activity_out_alpha_1_to_0);
+                overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
             } catch (ActivityNotFoundException e) {
                 Toast.makeText(mContext, "Start Activity Error", Toast.LENGTH_SHORT).show();
             }
@@ -182,4 +186,31 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             Toast.makeText(mContext, "Not Found CleanCacheActivity", Toast.LENGTH_SHORT).show();
         }
     }
+
+//    /**
+//     * 检查权限
+//     */
+//    private void checkPermission() {
+//        int perm = ContextCompat.checkSelfPermission(MainActivity.this, Config.Permission.LOCATION_PERMISSION);
+//        if (perm == PackageManager.PERMISSION_GRANTED) {
+//            isGranted = true;
+//        } else {
+//            isGranted = false;
+//            ActivityCompat.requestPermissions(MainActivity.this,
+//                    new String[]{Config.Permission.LOCATION_PERMISSION}, REQUEST_CODE);
+//        }
+//    }
+//
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+//        if (requestCode == REQUEST_CODE) {//请求权限结果
+//            int perm = ContextCompat.checkSelfPermission(MainActivity.this, Config.Permission.LOCATION_PERMISSION);
+//            if (perm == PackageManager.PERMISSION_GRANTED) {
+//                isGranted = true;
+//
+//            } else {
+//                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//            }
+//        }
+//    }
 }
