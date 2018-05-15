@@ -23,21 +23,24 @@ public class WIFIStatusView extends AppCompatImageView {
 
     public WIFIStatusView(Context context) {
         super(context, null);
-        Log.e("tlh", "WIFIStatusView---1");
+        init();
     }
 
     public WIFIStatusView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs, 0);
-        Log.e("tlh", "WIFIStatusView---2");
-        wifiManager = (WifiManager) getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        init();
+
     }
 
     public WIFIStatusView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
 
         super(context, attrs, defStyleAttr);
-        Log.e("tlh", "WIFIStatusView---3");
+        init();
     }
 
+    private void init() {
+        wifiManager = (WifiManager) getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+    }
 
     private final BroadcastReceiver wifiBroadcasterReceiver = new BroadcastReceiver() {
         @Override

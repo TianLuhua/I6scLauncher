@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff000000"
+    android:background="#969696"
     android:orientation="vertical">
 
     <com.boyue.boyuelauncher.widget.BatteryView

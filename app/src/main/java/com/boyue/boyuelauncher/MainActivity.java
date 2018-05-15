@@ -54,10 +54,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         HideSystemUIUtils.hideSystemUI(this);
         setContentView(R.layout.activity_main);
 
-        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
         viewpager = (ViewPager) findViewById(R.id.viewpager);
         cleanCache = findViewById(R.id.cleancache);
         cleanCache.setOnClickListener(this);
