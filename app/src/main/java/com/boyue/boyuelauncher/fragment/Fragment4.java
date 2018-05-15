@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.BaseFragment;
@@ -24,7 +22,7 @@ public class Fragment4 extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_layout, null);
+        View view = inflater.inflate(R.layout.fragment_fragment_4, null);
         Button btn = (Button) view.findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
