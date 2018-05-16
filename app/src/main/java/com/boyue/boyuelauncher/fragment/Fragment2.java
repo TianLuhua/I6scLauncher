@@ -19,6 +19,14 @@ import com.boyue.boyuelauncher.function.FunctionExcepstion;
 public class Fragment2 extends BaseFragment {
     public static final String INTERFACE_RESULT = Fragment2.class.getName() + "WithResault";
 
+    public static Fragment2 newInstance() {
+        return new Fragment2();
+    }
+
+    public Fragment2() {
+        // Required empty public constructor
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

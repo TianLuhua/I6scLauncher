@@ -2,6 +2,7 @@ package com.boyue.boyuelauncher.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,14 @@ import com.boyue.boyuelauncher.widget.FragmentTilteBar;
 public class Fragment1 extends BaseFragment {
 
     public static final String INTERFACE_RESULT = Fragment1.class.getName() + "NPNR";
+
+    public static Fragment1 newInstance() {
+        return new Fragment1();
+    }
+
+    public Fragment1() {
+        // Required empty public constructor
+    }
 
     @Nullable
     @Override

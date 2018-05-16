@@ -134,14 +134,6 @@ public class FunctionMnanger {
     }
 
     public void clear() {
-        mFunctionNoParamNoResult.clear();
-        mFunctionWithParamAndResult.clear();
-        mFunctionWithParaOnly.clear();
-        mFunctionWithResultOnly.clear();
 
-        mFunctionNoParamNoResult = null;
-        mFunctionWithParamAndResult = null;
-        mFunctionWithParaOnly = null;
-        mFunctionWithResultOnly = null;
     }
 }

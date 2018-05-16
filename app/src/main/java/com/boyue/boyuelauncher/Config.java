@@ -11,6 +11,8 @@ public class Config {
 
     public static class BoYueAction {
         public static final String ACTIVITY_ACTION_CLEANCACHE = "com.boyue.boyurlauncher.activity.action.cleancache";
+        public static final String ACTIVITY_ACTION_WIFIMANAGER = "com.boyue.boyurlauncher.activity.action.wifimanager";
+
     }
 
     public static class HandlerGlod {

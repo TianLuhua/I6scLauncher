@@ -40,6 +40,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".wifimanager.WiFiManagerActivity"
+            android:label="Tianluhua"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.boyue.boyurlauncher.activity.action.wifimanager" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

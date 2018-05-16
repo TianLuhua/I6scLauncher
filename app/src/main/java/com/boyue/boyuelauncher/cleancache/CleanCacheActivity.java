@@ -2,6 +2,8 @@ package com.boyue.boyuelauncher.cleancache;
 
 import android.os.Handler;
 import android.os.Message;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -148,4 +150,13 @@ public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, Clea
         }
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        /**
+         * 启动清理垃圾动画时，Back键无作用
+         */
+        if (keyCode == KeyEvent.KEYCODE_BACK)
+            return false;
+        return super.onKeyDown(keyCode, event);
+    }
 }

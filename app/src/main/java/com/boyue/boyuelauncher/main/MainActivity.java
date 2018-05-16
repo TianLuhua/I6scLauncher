@@ -50,13 +50,13 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     protected void initView() {
-        viewpager = (ViewPager) findViewById(R.id.viewpager);
+        viewpager =findViewById(R.id.viewpager);
         cleanCache = findViewById(R.id.cleancache);
         cleanCache.setOnClickListener(this);
         settings = findViewById(R.id.settings);
         settings.setOnClickListener(this);
-        viewpager.setOnPageChangeListener(this);
-        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        viewpager.addOnPageChangeListener(this);
+        radioGroup = findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(this);
         fragments.add(new Fragment1());
         fragments.add(new Fragment2());
@@ -159,7 +159,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
                 startCleanCache(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_CLEANCACHE);
                 break;
             case R.id.settings:
-
+                startWiFiManager(MainActivity.this,Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
                 break;
         }
     }
@@ -172,6 +172,19 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
      * @param action
      */
     public void startCleanCache(Context mContext, String action) {
+      setActivityConfig(mContext,action);
+    }
+
+    /**
+     * 启动当前WiFi管理界面
+     * @param mContext
+     * @param action
+     */
+    public void startWiFiManager(Context mContext, String action) {
+        setActivityConfig(mContext,action);
+    }
+
+    private void setActivityConfig(Context mContext, String action){
         Intent intent = new Intent(action);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         if (mContext.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
