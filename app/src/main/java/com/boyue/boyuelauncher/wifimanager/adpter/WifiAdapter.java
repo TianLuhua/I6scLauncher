@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.boyue.boyuelauncher.R;
@@ -87,23 +88,8 @@ public class WifiAdapter extends RecyclerView.Adapter {
             } else {
 //                viewHolder.ivIntensity.setTextColor(ContextCompat.getColor(context, R.color.font_text));
             }
-            switch (data.getIntensity()) {
-                case 0:
-//                    viewHolder.ivIntensity.setText(R.string.icon_signal_off);
-                    break;
-                case 1:
-//                    viewHolder.ivIntensity.setText(R.string.icon_signal_one);
-                    break;
-                case 2:
-//                    viewHolder.ivIntensity.setText(R.string.icon_signal_two);
-                    break;
-                case 3:
-//                    viewHolder.ivIntensity.setText(R.string.icon_signal_three);
-                    break;
-                case 4:
-//                    viewHolder.ivIntensity.setText(R.string.icon_signal_four);
-                    break;
-            }
+            viewHolder.ivIntensity.getDrawable().setLevel(data.getIntensity());
+
         }
     }
 
@@ -116,12 +102,17 @@ public class WifiAdapter extends RecyclerView.Adapter {
 
         TextView tvWifiName;
         TextView tvWifiDetail;
-        TextView ivIntensity;
+        ImageView ivIntensity;
         TextView ivNeedCode;
         TextView ivDetail;
 
         public CustomViewHolder(View itemView) {
             super(itemView);
+            tvWifiName=itemView.findViewById(R.id.tvWifiName);
+            tvWifiDetail=itemView.findViewById(R.id.tvWifiDetail);
+            ivIntensity=itemView.findViewById(R.id.ivIntensity);
+            ivNeedCode=itemView.findViewById(R.id.ivNeedCode);
+            ivDetail=itemView.findViewById(R.id.ivDetail);
         }
     }
 }
