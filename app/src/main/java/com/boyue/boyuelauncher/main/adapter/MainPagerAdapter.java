@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher;
+package com.boyue.boyuelauncher.main.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,11 +12,11 @@ import java.util.List;
  * Created by Tianluhua on 2017/10/16.
  */
 
-public class MyPagerAdapter extends FragmentPagerAdapter {
+public class MainPagerAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragments;
 
-    public MyPagerAdapter(FragmentManager fm, List<Fragment> fragments) {
+    public MainPagerAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
         this.fragments = fragments;
     }
@@ -36,7 +36,6 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
      * 销毁ViewPager Item的方法
      *
      * @param container
-     *
      * @param position
      * @param object
      */

@@ -5,34 +5,11 @@
     android:background="#969696"
     android:orientation="vertical">
 
-    <com.boyue.boyuelauncher.widget.WIFIStatusView
-        android:id="@+id/wifistatusview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="120dp"
-        android:gravity="center"
-        android:src="@drawable/custom_status_icon_wifi" />
+    <com.boyue.boyuelauncher.widget.FragmentTilteBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
-    <com.boyue.boyuelauncher.widget.BatteryView
-        android:id="@+id/batteryView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="80dp"
-        android:gravity="center" />
-
-    <com.boyue.boyuelauncher.widget.ClockView
-        android:id="@+id/clockview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="25dp"
-        android:gravity="center"
-        android:textColor="#ffffffff" />
 
     <LinearLayout
         android:layout_width="match_parent"

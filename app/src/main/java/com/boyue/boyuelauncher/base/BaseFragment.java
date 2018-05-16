@@ -4,7 +4,7 @@ package com.boyue.boyuelauncher.base;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
-import com.boyue.boyuelauncher.MainActivity;
+import com.boyue.boyuelauncher.main.MainActivity;
 import com.boyue.boyuelauncher.function.FunctionMnanger;
 
 /**
@@ -29,5 +29,12 @@ public class BaseFragment extends Fragment {
             mBaseActivity = (MainActivity) context;
             mBaseActivity.setFunctionsForFragment(getTag());
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mFunctionManager != null)
+            mFunctionManager.clear();
     }
 }

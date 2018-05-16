@@ -1,24 +1,20 @@
-package com.boyue.boyuelauncher;
+package com.boyue.boyuelauncher.main;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-
+import com.boyue.boyuelauncher.Config;
+import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.base.BaseFragment;
 import com.boyue.boyuelauncher.fragment.Fragment1;
 import com.boyue.boyuelauncher.fragment.Fragment2;
@@ -29,13 +25,13 @@ import com.boyue.boyuelauncher.function.FunctionNoParamNoResult;
 import com.boyue.boyuelauncher.function.FunctionWithParamAndResult;
 import com.boyue.boyuelauncher.function.FunctionWithParamOnly;
 import com.boyue.boyuelauncher.function.FunctionWithResultOnly;
-import com.boyue.boyuelauncher.utils.HideSystemUIUtils;
+import com.boyue.boyuelauncher.main.adapter.MainPagerAdapter;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener {
+public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp> implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener, MainView {
 
 
     private ViewPager viewpager;
@@ -44,16 +40,16 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     private ImageView settings;
 
     private List<Fragment> fragments = new ArrayList<>();
-    private MyPagerAdapter adapter;
-    private boolean isGranted;
-    private static final int REQUEST_CODE = 11000;//权限请求code
+    private MainPagerAdapter adapter;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        HideSystemUIUtils.hideSystemUI(this);
-        setContentView(R.layout.activity_main);
+    protected int getContentViewID() {
+        return R.layout.activity_main;
+    }
 
+    @Override
+    protected void initView() {
         viewpager = (ViewPager) findViewById(R.id.viewpager);
         cleanCache = findViewById(R.id.cleancache);
         cleanCache.setOnClickListener(this);
@@ -66,11 +62,18 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         fragments.add(new Fragment2());
         fragments.add(new Fragment3());
         fragments.add(new Fragment4());
-        adapter = new MyPagerAdapter(getSupportFragmentManager(), fragments);
+        adapter = new MainPagerAdapter(getSupportFragmentManager(), fragments);
         viewpager.setAdapter(adapter);
         viewpager.setCurrentItem(0, false);
         viewpager.setOffscreenPageLimit(4);
+
     }
+
+    @Override
+    protected MainPresenterImp createPresenter() {
+        return new MainPresenterImp();
+    }
+
 
     public void setFunctionsForFragment(String tag) {
         FragmentManager fm = getSupportFragmentManager();
@@ -163,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
 
     /**
-     * 清楚当前APP缓存数据
+     * 清除当前APP缓存数据
      *
      * @param mContext
      * @param action

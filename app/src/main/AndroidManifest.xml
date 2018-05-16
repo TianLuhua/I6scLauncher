@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +34,7 @@
             android:name=".cleancache.CleanCacheActivity"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            android:theme="@style/NoTitleTranslucentTheme">
             <intent-filter>
                 <action android:name="com.boyue.boyurlauncher.activity.action.cleancache" />
                 <category android:name="android.intent.category.DEFAULT" />

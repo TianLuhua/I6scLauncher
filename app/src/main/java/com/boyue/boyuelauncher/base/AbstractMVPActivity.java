@@ -1,10 +1,8 @@
 package com.boyue.boyuelauncher.base;
 
-import android.app.Activity;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
-import android.view.WindowManager;
 
 import com.boyue.boyuelauncher.utils.HideSystemUIUtils;
 
@@ -15,7 +13,7 @@ import com.boyue.boyuelauncher.utils.HideSystemUIUtils;
  * @param <P>
  */
 public abstract class AbstractMVPActivity<V extends BaseView, P extends AbstractPresenter<V>>
-        extends Activity {
+        extends AppCompatActivity {
 
     private P mPresenter;
     private long mExitTime = 0;
