@@ -9,7 +9,7 @@ import android.os.Bundle;
  * @param <P>
  */
 public abstract class AbstractMVPFragment<V extends BaseView, P extends AbstractPresenter<V>>
-		extends Fragment {
+		extends BaseFragment {
 
 	protected P mPresenter;
 

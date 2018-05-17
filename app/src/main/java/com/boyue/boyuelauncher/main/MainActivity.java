@@ -4,10 +4,16 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -16,10 +22,10 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.base.BaseFragment;
-import com.boyue.boyuelauncher.fragment.Fragment1;
-import com.boyue.boyuelauncher.fragment.Fragment2;
-import com.boyue.boyuelauncher.fragment.Fragment3;
-import com.boyue.boyuelauncher.fragment.Fragment4;
+import com.boyue.boyuelauncher.main.fragment.fragment1.Fragment1;
+import com.boyue.boyuelauncher.main.fragment.fragment2.Fragment2;
+import com.boyue.boyuelauncher.main.fragment.fragment3.Fragment3;
+import com.boyue.boyuelauncher.main.fragment.fragment4.Fragment4;
 import com.boyue.boyuelauncher.function.FunctionMnanger;
 import com.boyue.boyuelauncher.function.FunctionNoParamNoResult;
 import com.boyue.boyuelauncher.function.FunctionWithParamAndResult;
@@ -27,6 +33,8 @@ import com.boyue.boyuelauncher.function.FunctionWithParamOnly;
 import com.boyue.boyuelauncher.function.FunctionWithResultOnly;
 import com.boyue.boyuelauncher.main.adapter.MainPagerAdapter;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +47,8 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     private ImageView cleanCache;
     private ImageView settings;
 
+    private FrameLayout content;
+
     private List<Fragment> fragments = new ArrayList<>();
     private MainPagerAdapter adapter;
 
@@ -50,7 +60,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     protected void initView() {
-        viewpager =findViewById(R.id.viewpager);
+        viewpager = findViewById(R.id.viewpager);
         cleanCache = findViewById(R.id.cleancache);
         cleanCache.setOnClickListener(this);
         settings = findViewById(R.id.settings);
@@ -58,15 +68,38 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         viewpager.addOnPageChangeListener(this);
         radioGroup = findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(this);
-        fragments.add(new Fragment1());
-        fragments.add(new Fragment2());
-        fragments.add(new Fragment3());
-        fragments.add(new Fragment4());
+        content = findViewById(R.id.content);
+        fragments.add(Fragment1.newInstance());
+        fragments.add(Fragment2.newInstance());
+        fragments.add(Fragment3.newInstance());
+        fragments.add(Fragment4.newInstance());
         adapter = new MainPagerAdapter(getSupportFragmentManager(), fragments);
         viewpager.setAdapter(adapter);
         viewpager.setCurrentItem(0, false);
         viewpager.setOffscreenPageLimit(4);
+        setBG();
+    }
 
+    private void setBG() {
+        Picasso.get().load(R.mipmap.bg).resize(250,250).into(new Target() {
+            @Override
+            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                if (content!=null)
+                    content.setBackground(new BitmapDrawable(bitmap));
+                Log.e("tlh","onBitmapLoaded");
+            }
+
+            @Override
+            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+                Log.e("tlh","onBitmapFailed");
+
+            }
+
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
+                Log.e("tlh","onBitmapFailed");
+            }
+        });
     }
 
     @Override
@@ -159,7 +192,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
                 startCleanCache(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_CLEANCACHE);
                 break;
             case R.id.settings:
-                startWiFiManager(MainActivity.this,Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
+                startWiFiManager(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
                 break;
         }
     }
@@ -172,19 +205,20 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
      * @param action
      */
     public void startCleanCache(Context mContext, String action) {
-      setActivityConfig(mContext,action);
+        setActivityConfig(mContext, action);
     }
 
     /**
      * 启动当前WiFi管理界面
+     *
      * @param mContext
      * @param action
      */
     public void startWiFiManager(Context mContext, String action) {
-        setActivityConfig(mContext,action);
+        setActivityConfig(mContext, action);
     }
 
-    private void setActivityConfig(Context mContext, String action){
+    private void setActivityConfig(Context mContext, String action) {
         Intent intent = new Intent(action);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         if (mContext.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
@@ -199,30 +233,5 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         }
     }
 
-//    /**
-//     * 检查权限
-//     */
-//    private void checkPermission() {
-//        int perm = ContextCompat.checkSelfPermission(MainActivity.this, Config.Permission.LOCATION_PERMISSION);
-//        if (perm == PackageManager.PERMISSION_GRANTED) {
-//            isGranted = true;
-//        } else {
-//            isGranted = false;
-//            ActivityCompat.requestPermissions(MainActivity.this,
-//                    new String[]{Config.Permission.LOCATION_PERMISSION}, REQUEST_CODE);
-//        }
-//    }
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-//        if (requestCode == REQUEST_CODE) {//请求权限结果
-//            int perm = ContextCompat.checkSelfPermission(MainActivity.this, Config.Permission.LOCATION_PERMISSION);
-//            if (perm == PackageManager.PERMISSION_GRANTED) {
-//                isGranted = true;
-//
-//            } else {
-//                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//            }
-//        }
-//    }
+
 }
