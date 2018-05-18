@@ -1,6 +1,7 @@
 package com.boyue.boyuelauncher.main.fragment.fragment1;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
@@ -25,12 +26,13 @@ import java.util.Map;
  * Created by Tianluhua on 2018/4/3.
  */
 
-public class Fragment1 extends AbstractMVPFragment<Fragment_1_View, Fragment_1_Persenter> implements Fragment_1_View {
+public class Fragment1 extends AbstractMVPFragment<Fragment_1_View, Fragment_1_PersenterImp> implements Fragment_1_View {
 
     public static final String INTERFACE_RESULT = Fragment1.class.getName() + "NPNR";
 
 
-    private AppCompatImageView iocn;
+
+    private AppCompatImageView iocnView;
     private GridView displayApps;
     private SimpleAdapter simpleAdapter;
     private List<Map<String, Object>> dataList;
@@ -78,12 +80,13 @@ public class Fragment1 extends AbstractMVPFragment<Fragment_1_View, Fragment_1_P
 
 
     @Override
-    public void displayIocn(Bitmap icon) {
-
+    public void displayIocn(Drawable icon) {
+        if (icon!=null&&iocnView!=null)
+            iocnView.setImageDrawable(icon);
     }
 
     private void init(View rootView) {
-        iocn = rootView.findViewById(R.id.iocn);
+        iocnView = rootView.findViewById(R.id.iocn);
         displayApps = rootView.findViewById(R.id.display_apps);
         //初始化数据
         initData();
@@ -100,7 +103,7 @@ public class Fragment1 extends AbstractMVPFragment<Fragment_1_View, Fragment_1_P
             }
         });
 
-
+        getPresenter().getIconDrawble();
 
     }
 
@@ -118,10 +121,9 @@ public class Fragment1 extends AbstractMVPFragment<Fragment_1_View, Fragment_1_P
         }
     }
 
+
     @Override
-    protected Fragment_1_Persenter createPresenter() {
-        return new Fragment_1_Persenter();
+    protected Fragment_1_PersenterImp createPresenter() {
+        return new Fragment_1_PersenterImp(getActivity().getApplication());
     }
-
-
 }

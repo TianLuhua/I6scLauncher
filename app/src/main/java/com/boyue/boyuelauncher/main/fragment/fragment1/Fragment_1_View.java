@@ -1,6 +1,7 @@
 package com.boyue.boyuelauncher.main.fragment.fragment1;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.base.BaseView;
 
@@ -9,5 +10,5 @@ import com.boyue.boyuelauncher.base.BaseView;
  */
 public interface Fragment_1_View extends BaseView {
 
-    public void displayIocn(Bitmap icon);
+     void displayIocn(Drawable icon);
 }

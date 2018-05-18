@@ -5,7 +5,9 @@ import com.boyue.boyuelauncher.base.AbstractPresenter;
 /**
  * Created by Tianluhua on 2018/5/17.
  */
-public class Fragment_1_Persenter extends AbstractPresenter<Fragment_1_View> {
+public abstract class Fragment_1_Persenter extends AbstractPresenter<Fragment_1_View>{
+
+    public abstract void getIconDrawble();
 
 
 }

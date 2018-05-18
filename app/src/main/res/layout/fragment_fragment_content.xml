@@ -7,11 +7,10 @@
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/iocn"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
         android:layout_weight="1"
-        android:background="@color/colorTransparent"
-        android:src="@mipmap/ic_launcher_round" />
+        android:background="@color/colorTransparent" />
 
     <GridView
         android:id="@+id/display_apps"
