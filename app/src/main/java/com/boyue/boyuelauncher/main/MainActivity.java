@@ -4,14 +4,9 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -22,19 +17,23 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.base.BaseFragment;
-import com.boyue.boyuelauncher.main.fragment.fragment1.Fragment1;
-import com.boyue.boyuelauncher.main.fragment.fragment2.Fragment2;
-import com.boyue.boyuelauncher.main.fragment.fragment3.Fragment3;
-import com.boyue.boyuelauncher.main.fragment.fragment4.Fragment4;
 import com.boyue.boyuelauncher.function.FunctionMnanger;
 import com.boyue.boyuelauncher.function.FunctionNoParamNoResult;
 import com.boyue.boyuelauncher.function.FunctionWithParamAndResult;
 import com.boyue.boyuelauncher.function.FunctionWithParamOnly;
 import com.boyue.boyuelauncher.function.FunctionWithResultOnly;
 import com.boyue.boyuelauncher.main.adapter.MainPagerAdapter;
+import com.boyue.boyuelauncher.main.fragment.fragment1.Fragment1;
+import com.boyue.boyuelauncher.main.fragment.fragment2.Fragment2;
+import com.boyue.boyuelauncher.main.fragment.fragment3.Fragment3;
+import com.boyue.boyuelauncher.main.fragment.fragment4.Fragment4;
 import com.boyue.boyuelauncher.utils.LogUtils;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.BaseTarget;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.target.SizeReadyCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,25 +80,33 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     }
 
     private void setBG() {
-        Picasso.get().load(R.mipmap.bg).resize(250,250).into(new Target() {
+
+        Glide.with(MainActivity.this).load(R.mipmap.bg).into(new SimpleTarget<GlideDrawable>(1024,600) {
             @Override
-            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+            public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
                 if (content!=null)
-                    content.setBackground(new BitmapDrawable(bitmap));
-                Log.e("tlh","onBitmapLoaded");
-            }
-
-            @Override
-            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-                Log.e("tlh","onBitmapFailed");
-
-            }
-
-            @Override
-            public void onPrepareLoad(Drawable placeHolderDrawable) {
-                Log.e("tlh","onBitmapFailed");
+                     content.setBackground(resource.getCurrent());
             }
         });
+//        Picasso.get().load(R.mipmap.bg).config(Bitmap.Config.RGB_565).resize(300, 300).into(new Target() {
+//            @Override
+//            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+//                if (content != null)
+//                    content.setBackground(new BitmapDrawable(bitmap));
+//                LogUtils.e("tlh", "onBitmapLoaded");
+//            }
+//
+//            @Override
+//            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+//                LogUtils.e("tlh", "onBitmapFailed");
+//
+//            }
+//
+//            @Override
+//            public void onPrepareLoad(Drawable placeHolderDrawable) {
+//                LogUtils.e("tlh", "onBitmapFailed");
+//            }
+//        });
     }
 
     @Override
@@ -157,7 +164,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+        LogUtils.e("tlh", "onPageScrolled---position:" + position + " ,positionOffset:" + positionOffset + ",positionOffsetPixels:" + positionOffsetPixels);
     }
 
     @Override
@@ -181,7 +188,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
+        LogUtils.e("tlh", "onPageScrollStateChanged:" + state);
     }
 
 
