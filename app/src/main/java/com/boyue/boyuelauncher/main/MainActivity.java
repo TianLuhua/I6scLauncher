@@ -31,9 +31,7 @@ import com.boyue.boyuelauncher.utils.LogUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.BaseTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.SizeReadyCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,11 +79,11 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     private void setBG() {
 
-        Glide.with(MainActivity.this).load(R.mipmap.bg).into(new SimpleTarget<GlideDrawable>(1024,600) {
+        Glide.with(MainActivity.this).load(R.mipmap.bg).into(new SimpleTarget<GlideDrawable>(1024, 600) {
             @Override
             public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
-                if (content!=null)
-                     content.setBackground(resource.getCurrent());
+                if (content != null)
+                    content.setBackground(resource.getCurrent());
             }
         });
 //        Picasso.get().load(R.mipmap.bg).config(Bitmap.Config.RGB_565).resize(300, 300).into(new Target() {
@@ -162,9 +160,23 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         }
     }
 
+    private boolean isDragging = false;
+
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         LogUtils.e("tlh", "onPageScrolled---position:" + position + " ,positionOffset:" + positionOffset + ",positionOffsetPixels:" + positionOffsetPixels);
+
+        if (isDragging) {
+            if (position == 0 && positionOffset == 0.0 && positionOffsetPixels == 0) {
+
+                Toast.makeText(MainActivity.this, "别往右拉了，跑不动了", Toast.LENGTH_SHORT).show();
+
+            }
+            if (position == 3 && positionOffset == 0.0 && positionOffsetPixels == 0) {
+
+                Toast.makeText(MainActivity.this, "别往左拉了，跑不动了", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override
@@ -189,6 +201,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     @Override
     public void onPageScrollStateChanged(int state) {
         LogUtils.e("tlh", "onPageScrollStateChanged:" + state);
+        isDragging = state == 1;
     }
 
 

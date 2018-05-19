@@ -142,6 +142,7 @@ public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, Clea
             LogUtils.e("tlh", "onAnimationEnd");
             if (mVisibilityView.getId() == R.id.rocket)
                 mHandler.sendEmptyMessage(Config.HandlerGlod.ACTIVITY_CLEANCACHE_END_CLEANCACHE);
+            mVisibilityView.clearAnimation();
 
         }
 
