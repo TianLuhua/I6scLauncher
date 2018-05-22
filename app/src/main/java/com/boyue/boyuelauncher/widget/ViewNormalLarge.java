@@ -39,7 +39,7 @@ public class ViewNormalLarge extends AppCompatImageView {
                 viewW = getWidth() / 2;
                 if (animation == null){
 
-                    animation = new EnlargeAndNarrowAnimation(1.0f, 1.20f, 1.0f, 1.20f, viewW, viewH);
+                    animation = new EnlargeAndNarrowAnimation(1.0f, 1.05f, 1.0f, 1.05f, viewW, viewH);
                 animation.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
