@@ -36,32 +36,32 @@
             <RadioButton
                 android:id="@+id/radio1"
                 style="@style/fragment_autoplay_tab_center"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:drawableTop="@drawable/fragment_autoplay_file_selector"
                 android:gravity="center" />
 
             <RadioButton
                 android:id="@+id/radio2"
                 style="@style/fragment_autoplay_tab_center"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:drawableTop="@drawable/fragment_autoplay_file_selector"
                 android:gravity="center" />
 
             <RadioButton
                 android:id="@+id/radio3"
                 style="@style/fragment_autoplay_tab_center"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:drawableTop="@drawable/fragment_autoplay_file_selector"
                 android:gravity="center" />
 
             <RadioButton
                 android:id="@+id/radio4"
                 style="@style/fragment_autoplay_tab_center"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:drawableTop="@drawable/fragment_autoplay_file_selector"
                 android:gravity="center" />
         </RadioGroup>
@@ -73,10 +73,11 @@
             android:layout_weight="0"
             android:src="@mipmap/ic_launcher" />
     </LinearLayout>
+
     <com.boyue.boyuelauncher.widget.MainTilteBar
-        android:layout_marginTop="20dp"
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top" />
+        android:layout_gravity="top"
+        android:layout_marginTop="20dp" />
 </FrameLayout>

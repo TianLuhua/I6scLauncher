@@ -20,4 +20,31 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="TextStyle_Launcher">
+
+    </style>
+
+    <style name="TextStyle_Settings">
+
+
+    </style>
+
+    <style name="TextStyle_Settings_Item" parent="TextStyle_Settings">
+
+    </style>
+
+    <style name="TextStyle_Settings_Info" parent="TextStyle_Settings">
+
+    </style>
+
+    <style name="TextStyle_WifiManager">
+
+
+    </style>
+
+    <style name="Stlye_setting_item">
+        <item name="android:background">@drawable/select_settings_item_check</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
 </resources>

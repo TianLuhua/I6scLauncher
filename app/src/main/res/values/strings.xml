@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BoYueLauncher</string>
+    <string name="system_settings">系统设置</string>
 </resources>

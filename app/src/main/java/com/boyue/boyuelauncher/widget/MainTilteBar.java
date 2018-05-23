@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.boyue.boyuelauncher.R;
 
@@ -16,6 +17,7 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     private RelativeLayout backButton;
     private ImageView settingsButton;
     private WIFIStatusView wifiStatusView;
+    private TextView volumeNumberView;
 
     public MainTilteBar(Context context) {
         this(context, null);
@@ -31,13 +33,14 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     }
 
     private void initView(Context mContext) {
-        View.inflate(mContext, R.layout.fragment_title_bar, this);
+        View.inflate(mContext, R.layout.main_title_bar, this);
         backButton = findViewById(R.id.set_system_volume);
         backButton.setOnClickListener(this);
         settingsButton = findViewById(R.id.settings);
         settingsButton.setOnClickListener(this);
         wifiStatusView = findViewById(R.id.wifistatusview);
         wifiStatusView.setOnClickListener(this);
+        volumeNumberView = findViewById(R.id.titlebar_text);
     }
 
     private OnTitleBarClickListener onTitleBarClickListener;
@@ -66,6 +69,18 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
             default:
                 break;
         }
+    }
+
+    public void setVolumeMumber(int volumeMumber) {
+        if (volumeNumberView == null) return;
+        volumeNumberView.setText(String.valueOf(volumeMumber));
+
+    }
+
+    public void setVolumeMumberColor(int volumeMumberColor) {
+        if (volumeNumberView == null) return;
+        volumeNumberView.setTextColor(volumeMumberColor);
+
     }
 
     public interface OnTitleBarClickListener {
