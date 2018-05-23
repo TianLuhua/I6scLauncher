@@ -1,6 +1,5 @@
 package com.boyue.boyuelauncher.main.fragment.fragment1;
 
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,11 +10,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
-import com.boyue.boyuelauncher.widget.FragmentTilteBar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,18 +47,7 @@ public class Fragment1 extends AbstractMVPFragment<Fragment_1_View, Fragment_1_P
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment_1, null);
-        FragmentTilteBar tilteBar = view.findViewById(R.id.title_bar);
-        tilteBar.setOnTitleBarClickListener(new FragmentTilteBar.OnTitleBarClickListener() {
-            @Override
-            public void onBackClick(View view) {
-                Toast.makeText(getContext(), "BACK", Toast.LENGTH_SHORT).show();
-            }
 
-            @Override
-            public void onSettingsClick(View view) {
-                Toast.makeText(getContext(), "SETTINGS", Toast.LENGTH_SHORT).show();
-            }
-        });
 //        Button btn = (Button) view.findViewById(R.id.button);
 //        btn.setOnClickListener(new View.OnClickListener() {
 //            @Override

@@ -28,6 +28,7 @@ import com.boyue.boyuelauncher.main.fragment.fragment2.Fragment2;
 import com.boyue.boyuelauncher.main.fragment.fragment3.Fragment3;
 import com.boyue.boyuelauncher.main.fragment.fragment4.Fragment4;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.widget.MainTilteBar;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
@@ -75,6 +76,31 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         viewpager.setCurrentItem(0, false);
         viewpager.setOffscreenPageLimit(4);
         setBG();
+        initTitle();
+    }
+
+    private void initTitle() {
+        MainTilteBar tilteBar = findViewById(R.id.title_bar);
+        tilteBar.setOnTitleBarClickListener(new MainTilteBar.OnTitleBarClickListener() {
+            @Override
+            public void onBackClick(View view) {
+                Toast.makeText(MainActivity.this, "Set System volume", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onSettingsClick(View view) {
+                Toast.makeText(MainActivity.this, "SETTINGS", Toast.LENGTH_SHORT).show();
+                startSettings();
+
+            }
+
+            @Override
+            public void onWiFiManagerClick(View view) {
+                Toast.makeText(MainActivity.this, "WIFI", Toast.LENGTH_SHORT).show();
+                startWiFiManager();
+
+            }
+        });
     }
 
     private void setBG() {
@@ -86,25 +112,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
                     content.setBackground(resource.getCurrent());
             }
         });
-//        Picasso.get().load(R.mipmap.bg).config(Bitmap.Config.RGB_565).resize(300, 300).into(new Target() {
-//            @Override
-//            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-//                if (content != null)
-//                    content.setBackground(new BitmapDrawable(bitmap));
-//                LogUtils.e("tlh", "onBitmapLoaded");
-//            }
-//
-//            @Override
-//            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
-//                LogUtils.e("tlh", "onBitmapFailed");
-//
-//            }
-//
-//            @Override
-//            public void onPrepareLoad(Drawable placeHolderDrawable) {
-//                LogUtils.e("tlh", "onBitmapFailed");
-//            }
-//        });
+
     }
 
     @Override
@@ -169,12 +177,12 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         if (isDragging) {
             if (position == 0 && positionOffset == 0.0 && positionOffsetPixels == 0) {
 
-                Toast.makeText(MainActivity.this, "别往右拉了，跑不动了", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "别往右拉了，跑不动了", Toast.LENGTH_SHORT).show();
 
             }
             if (position == 3 && positionOffset == 0.0 && positionOffsetPixels == 0) {
 
-                Toast.makeText(MainActivity.this, "别往左拉了，跑不动了", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "别往左拉了，跑不动了", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -209,10 +217,10 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.cleancache:
-                startCleanCache(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_CLEANCACHE);
+                startCleanCache();
                 break;
             case R.id.settings:
-                startWiFiManager(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
+//                startWiFiManager();
                 break;
         }
     }
@@ -220,22 +228,24 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     /**
      * 清除当前APP缓存数据
-     *
-     * @param mContext
-     * @param action
      */
-    public void startCleanCache(Context mContext, String action) {
-        setActivityConfig(mContext, action);
+    public void startCleanCache() {
+        setActivityConfig(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_CLEANCACHE);
     }
 
     /**
      * 启动当前WiFi管理界面
-     *
-     * @param mContext
-     * @param action
      */
-    public void startWiFiManager(Context mContext, String action) {
-        setActivityConfig(mContext, action);
+    public void startWiFiManager() {
+        setActivityConfig(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
+    }
+
+    /**
+     * 启动Setting界面
+     */
+
+    public void startSettings() {
+        setActivityConfig(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_SETTINGS);
     }
 
     private void setActivityConfig(Context mContext, String action) {

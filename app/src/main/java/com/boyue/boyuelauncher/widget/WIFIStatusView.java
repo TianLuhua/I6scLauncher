@@ -16,7 +16,7 @@ import android.util.Log;
 /**
  * Created by Tianluhua on 2018/5/15.
  */
-public class WIFIStatusView extends AppCompatImageView {
+public class WIFIStatusView extends EnlargeAndNarrowAnimationView {
 
     private WifiManager wifiManager;
 

@@ -73,4 +73,10 @@
             android:layout_weight="0"
             android:src="@mipmap/ic_launcher" />
     </LinearLayout>
+    <com.boyue.boyuelauncher.widget.MainTilteBar
+        android:layout_marginTop="20dp"
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top" />
 </FrameLayout>

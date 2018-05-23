@@ -11,30 +11,33 @@ import com.boyue.boyuelauncher.R;
 /**
  * Created by Tianluhua on 2018/5/16.
  */
-public class FragmentTilteBar extends RelativeLayout implements View.OnClickListener {
+public class MainTilteBar extends RelativeLayout implements View.OnClickListener {
 
-    private ImageView backButton;
+    private RelativeLayout backButton;
     private ImageView settingsButton;
+    private WIFIStatusView wifiStatusView;
 
-    public FragmentTilteBar(Context context) {
+    public MainTilteBar(Context context) {
         this(context, null);
     }
 
-    public FragmentTilteBar(Context context, AttributeSet attrs) {
+    public MainTilteBar(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public FragmentTilteBar(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MainTilteBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initView(context);
     }
 
     private void initView(Context mContext) {
         View.inflate(mContext, R.layout.fragment_title_bar, this);
-        backButton = findViewById(R.id.back);
+        backButton = findViewById(R.id.set_system_volume);
         backButton.setOnClickListener(this);
         settingsButton = findViewById(R.id.settings);
         settingsButton.setOnClickListener(this);
+        wifiStatusView = findViewById(R.id.wifistatusview);
+        wifiStatusView.setOnClickListener(this);
     }
 
     private OnTitleBarClickListener onTitleBarClickListener;
@@ -46,7 +49,7 @@ public class FragmentTilteBar extends RelativeLayout implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.back:
+            case R.id.set_system_volume:
                 if (onTitleBarClickListener != null)
                     onTitleBarClickListener.onBackClick(v);
                 break;
@@ -54,6 +57,10 @@ public class FragmentTilteBar extends RelativeLayout implements View.OnClickList
             case R.id.settings:
                 if (onTitleBarClickListener != null)
                     onTitleBarClickListener.onSettingsClick(v);
+                break;
+            case R.id.wifistatusview:
+                if (onTitleBarClickListener != null)
+                    onTitleBarClickListener.onWiFiManagerClick(v);
                 break;
 
             default:
@@ -68,6 +75,9 @@ public class FragmentTilteBar extends RelativeLayout implements View.OnClickList
 
         //设置按钮事件回调
         void onSettingsClick(View view);
+
+        //设置WIFIManager事件的回调
+        void onWiFiManagerClick(View view);
     }
 
 

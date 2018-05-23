@@ -7,11 +7,7 @@
 
     <include layout="@layout/fragment_fragment_content" />
 
-    <com.boyue.boyuelauncher.widget.FragmentTilteBar
-        android:id="@+id/title_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top" />
+
 
 
 </FrameLayout>
