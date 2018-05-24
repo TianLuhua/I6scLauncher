@@ -7,20 +7,20 @@
     android:oneshot="false">
     <item
         android:drawable="@mipmap/icon_chargeing_00"
-        android:duration="150"></item>
+        android:duration="200"></item>
     <item
         android:drawable="@mipmap/icon_chargeing_01"
-        android:duration="150"></item>
+        android:duration="200"></item>
     <item
         android:drawable="@mipmap/icon_chargeing_02"
-        android:duration="150"></item>
+        android:duration="200"></item>
     <item
         android:drawable="@mipmap/icon_chargeing_03"
-        android:duration="150"></item>
+        android:duration="200"></item>
     <item
         android:drawable="@mipmap/icon_chargeing_04"
-        android:duration="150"></item>
+        android:duration="200"></item>
     <item
         android:drawable="@mipmap/icon_chargeing_05"
-        android:duration="150"></item>
+        android:duration="200"></item>
 </animation-list>
