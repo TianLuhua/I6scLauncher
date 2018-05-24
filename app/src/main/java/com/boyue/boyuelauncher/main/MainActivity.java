@@ -51,6 +51,8 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     private MainPagerAdapter adapter;
 
 
+    private MainTilteBar tilteBar;
+
     @Override
     protected int getContentViewID() {
         return R.layout.activity_main;
@@ -60,13 +62,13 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     protected void initView() {
         viewpager = findViewById(R.id.viewpager);
         cleanCache = findViewById(R.id.cleancache);
-        cleanCache.setOnClickListener(this);
         settings = findViewById(R.id.settings);
+        radioGroup = findViewById(R.id.radioGroup);
+        content = findViewById(R.id.content);
+        cleanCache.setOnClickListener(this);
         settings.setOnClickListener(this);
         viewpager.addOnPageChangeListener(this);
-        radioGroup = findViewById(R.id.radioGroup);
         radioGroup.setOnCheckedChangeListener(this);
-        content = findViewById(R.id.content);
         fragments.add(Fragment1.newInstance());
         fragments.add(Fragment2.newInstance());
         fragments.add(Fragment3.newInstance());
@@ -80,7 +82,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     }
 
     private void initTitle() {
-        MainTilteBar tilteBar = findViewById(R.id.title_bar);
+        tilteBar = findViewById(R.id.title_bar);
         tilteBar.setOnTitleBarClickListener(new MainTilteBar.OnTitleBarClickListener() {
             @Override
             public void onBackClick(View view) {
@@ -101,11 +103,12 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
             }
         });
+        tilteBar.setVolumeMumber(40);
     }
 
     private void setBG() {
 
-        Glide.with(MainActivity.this).load(R.mipmap.bg).into(new SimpleTarget<GlideDrawable>(1024, 600) {
+        Glide.with(MainActivity.this).load(R.mipmap.launcher_bg).into(new SimpleTarget<GlideDrawable>() {
             @Override
             public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
                 if (content != null)
@@ -248,6 +251,12 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         setActivityConfig(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_SETTINGS);
     }
 
+    /**
+     * 启动对应的Activity根据不同的Action
+     *
+     * @param mContext
+     * @param action
+     */
     private void setActivityConfig(Context mContext, String action) {
         Intent intent = new Intent(action);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

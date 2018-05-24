@@ -14,10 +14,9 @@ import com.boyue.boyuelauncher.R;
  */
 public class MainTilteBar extends RelativeLayout implements View.OnClickListener {
 
-    private RelativeLayout backButton;
+    private TextView volumeNumberView;
     private ImageView settingsButton;
     private WIFIStatusView wifiStatusView;
-    private TextView volumeNumberView;
 
     public MainTilteBar(Context context) {
         this(context, null);
@@ -34,13 +33,12 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
 
     private void initView(Context mContext) {
         View.inflate(mContext, R.layout.main_title_bar, this);
-        backButton = findViewById(R.id.set_system_volume);
-        backButton.setOnClickListener(this);
+        volumeNumberView = findViewById(R.id.set_system_volume);
+        volumeNumberView.setOnClickListener(this);
         settingsButton = findViewById(R.id.settings);
         settingsButton.setOnClickListener(this);
         wifiStatusView = findViewById(R.id.wifistatusview);
         wifiStatusView.setOnClickListener(this);
-        volumeNumberView = findViewById(R.id.titlebar_text);
     }
 
     private OnTitleBarClickListener onTitleBarClickListener;

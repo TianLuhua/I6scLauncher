@@ -17,16 +17,16 @@ public class Fragment_1_Mode implements BaseMode {
 
     private Context mContext;
 
-    public Fragment_1_Mode(Context mContext,CallBack callBack) {
-        this.callBack=callBack;
-        this.mContext=mContext;
+    public Fragment_1_Mode(Context mContext, CallBack callBack) {
+        this.callBack = callBack;
+        this.mContext = mContext;
     }
 
-    public void getIconDrawble(){
-        Glide.with(mContext).load(R.mipmap.ic_launcher_round).into(new SimpleTarget<GlideDrawable>(500,500) {
+    public void getIconDrawble() {
+        Glide.with(mContext).load(R.mipmap.imager_101).into(new SimpleTarget<GlideDrawable>(480, 402) {
             @Override
             public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
-                if (callBack!=null){
+                if (callBack != null) {
                     callBack.getIcon(resource.getCurrent());
                 }
             }
@@ -34,12 +34,12 @@ public class Fragment_1_Mode implements BaseMode {
     }
 
     private CallBack callBack;
-    public interface CallBack{
+
+    public interface CallBack {
 
         void getIcon(Drawable iconDrawble);
 
     }
-
 
 
 }

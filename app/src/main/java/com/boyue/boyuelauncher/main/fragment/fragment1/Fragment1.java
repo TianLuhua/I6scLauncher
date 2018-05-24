@@ -28,7 +28,6 @@ public class Fragment1 extends AbstractMVPFragment<Fragment_1_View, Fragment_1_P
     public static final String INTERFACE_RESULT = Fragment1.class.getName() + "NPNR";
 
 
-
     private AppCompatImageView iocnView;
     private GridView displayApps;
     private SimpleAdapter simpleAdapter;
@@ -47,19 +46,6 @@ public class Fragment1 extends AbstractMVPFragment<Fragment_1_View, Fragment_1_P
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_fragment_1, null);
-
-//        Button btn = (Button) view.findViewById(R.id.button);
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                try {
-//                    mFunctionManager.invokeFunction(INTERFACE_RESULT);
-//                } catch (FunctionExcepstion functionExcepstion) {
-//                    functionExcepstion.printStackTrace();
-//                }
-//            }
-//        });
-
         init(view);
         return view;
     }
@@ -67,7 +53,7 @@ public class Fragment1 extends AbstractMVPFragment<Fragment_1_View, Fragment_1_P
 
     @Override
     public void displayIocn(Drawable icon) {
-        if (icon!=null&&iocnView!=null)
+        if (icon != null && iocnView != null)
             iocnView.setImageDrawable(icon);
     }
 
@@ -79,7 +65,7 @@ public class Fragment1 extends AbstractMVPFragment<Fragment_1_View, Fragment_1_P
         String[] from = {"img", "text"};
         int[] to = {R.id.item_img, R.id.item_text};
 
-        simpleAdapter=new SimpleAdapter(getActivity(), dataList, R.layout.gridview_item, from, to);
+        simpleAdapter = new SimpleAdapter(getActivity(), dataList, R.layout.gridview_item, from, to);
         displayApps.setAdapter(simpleAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -97,7 +83,7 @@ public class Fragment1 extends AbstractMVPFragment<Fragment_1_View, Fragment_1_P
         //图标
         int icno[] = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
         //图标下的文字
-        String name[] = {"时钟", "信号", "宝箱", "秒钟", "大象", "FF"};
+        String name[] = {"早教英语", "早教学堂", "数学逻辑", "传统国学", "多元智能", "安全知识"};
         dataList = new ArrayList<Map<String, Object>>();
         for (int i = 0; i < icno.length; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
