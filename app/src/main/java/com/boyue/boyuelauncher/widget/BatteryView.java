@@ -32,6 +32,9 @@ public class BatteryView extends AppCompatImageView {
     private boolean isConnected = false;
     private boolean isFull = false;
     private AnimationDrawable animationDrawable;
+    //当拔出电源的时候，会收到获取到电量改变和拔出充电器的广播。拔出是总电量和电量等级均为默认值。所有这里保存了，当电量改变时候的总电量和电量等级的比值
+    private float currentPrecent;
+
     private int[] chargeDrawables = new int[]{
             R.mipmap.ic_dc_00,
             R.mipmap.ic_dc_01,
@@ -64,13 +67,14 @@ public class BatteryView extends AppCompatImageView {
             if (intent != null) {
                 String acyion = intent.getAction();
                 if (TextUtils.isEmpty(acyion)) return;
-                Log.e("zhang", "acyion: " + acyion);
+
+                int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, 0);
+                int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, 100);
+                float percent = level / (float) scale;
 
                 switch (acyion) {
                     case Intent.ACTION_BATTERY_CHANGED://电量发生改变
-                        int current = intent.getIntExtra("level", -1);//获得当前电量
-                        int total = intent.getIntExtra("scale", -1);//获得总电量
-                        float percent = current / (float) total;
+
                         if (!isConnected)
                             setImageResource(chargeDrawables[(int) (percent * (chargeDrawables.length - 1))]);
                         if (percent == 1) {
@@ -81,12 +85,10 @@ public class BatteryView extends AppCompatImageView {
                         } else {
                             isFull = false;
                         }
-                        /*if (drawable != null)
-                            drawable.setLevel(percent);*/
-                        Toast.makeText(getContext(), "ACTION_BATTERY_CHANGED", Toast.LENGTH_SHORT).show();
+                        currentPrecent = percent;
+                        Toast.makeText(getContext(), "ACTION_BATTERY_CHANGED--->percent：" + percent + ",current:" + level + ",total:" + scale, Toast.LENGTH_SHORT).show();
                         break;
                     case Intent.ACTION_POWER_CONNECTED://接通电源
-                        Log.e("zhang", "BatteryBroadcastReceiver --> onReceive--> ACTION_POWER_CONNECTED");
                         if (!isFull) {
                             setImageResource(R.drawable.chargeing_animation);
                             animationDrawable = (AnimationDrawable) getDrawable();
@@ -95,11 +97,14 @@ public class BatteryView extends AppCompatImageView {
                         isConnected = true;
                         Toast.makeText(getContext(), "ACTION_POWER_CONNECTED", Toast.LENGTH_SHORT).show();
                         break;
-                    case Intent.ACTION_POWER_DISCONNECTED://拔出电源
+                    case Intent.ACTION_POWER_DISCONNECTED://拔出电源current 和total均为默认值
                         isConnected = false;
                         if (animationDrawable != null)
                             animationDrawable.stop();
-                        Log.e("zhang", "BatteryBroadcastReceiver --> onReceive--> ACTION_POWER_DISCONNECTED");
+
+                        Toast.makeText(getContext(), "ACTION_POWER_DISCONNECTED--->percent：" + percent + ",current:" + level + ",total:" + scale, Toast.LENGTH_SHORT).show();
+                        setImageResource(chargeDrawables[(int) (currentPrecent * (chargeDrawables.length - 1))]);
+
                 }
             }
 
