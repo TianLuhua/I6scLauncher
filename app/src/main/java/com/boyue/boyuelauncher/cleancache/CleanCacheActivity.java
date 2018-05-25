@@ -92,21 +92,6 @@ public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, Clea
                                 rocket));
                 rocket.startAnimation(rocketAnimation);
 
-                final View cloud = findViewById(R.id.cloud);
-                Animation cloudAnimation = AnimationUtils.loadAnimation(
-                        getApplicationContext(), R.anim.activity_cleancache_cloud);
-                cloudAnimation
-                        .setAnimationListener(new VisibilityAnimationListener(
-                                cloud));
-                cloud.startAnimation(cloudAnimation);
-
-                final View launcher = findViewById(R.id.launcher);
-                Animation launcherAnimation = AnimationUtils.loadAnimation(
-                        getApplicationContext(), R.anim.activity_cleancache_launcher);
-                launcherAnimation
-                        .setAnimationListener(new VisibilityAnimationListener(
-                                launcher));
-                launcher.startAnimation(launcherAnimation);
 
             }
         }, 150);
@@ -129,8 +114,7 @@ public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, Clea
             if (mVisibilityView != null) {
                 mVisibilityView.setVisibility(View.VISIBLE);
             }
-            if (mVisibilityView.getId() == R.id.cloud)
-                mHandler.sendEmptyMessage(Config.HandlerGlod.ACTIVITY_CLEANCACHE_START_CLEANCACHE);
+            mHandler.sendEmptyMessage(Config.HandlerGlod.ACTIVITY_CLEANCACHE_START_CLEANCACHE);
 
         }
 

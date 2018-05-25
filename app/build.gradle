@@ -25,7 +25,7 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.1.0'
 
     //picasso
-    compile 'com.github.bumptech.glide:glide:3.5.2'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support:support-v4:26.1.0'
 
     //VerticalTabLayout

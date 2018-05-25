@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -23,10 +24,10 @@ import com.boyue.boyuelauncher.function.FunctionWithParamAndResult;
 import com.boyue.boyuelauncher.function.FunctionWithParamOnly;
 import com.boyue.boyuelauncher.function.FunctionWithResultOnly;
 import com.boyue.boyuelauncher.main.adapter.MainPagerAdapter;
-import com.boyue.boyuelauncher.main.fragment.fragment1.Fragment1;
-import com.boyue.boyuelauncher.main.fragment.fragment2.Fragment2;
-import com.boyue.boyuelauncher.main.fragment.fragment3.Fragment3;
-import com.boyue.boyuelauncher.main.fragment.fragment4.Fragment4;
+import com.boyue.boyuelauncher.main.fragment.hht_xt_fragment.HHT_XT_Fragment;
+import com.boyue.boyuelauncher.main.fragment.hht_ar_fragment.HHT_AR_Fragment;
+import com.boyue.boyuelauncher.main.fragment.hht_ly_fragment.HHT_LY_Fragment;
+import com.boyue.boyuelauncher.main.fragment.hht_bx_fragment.HHT_BX_Fragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.MainTilteBar;
 import com.bumptech.glide.Glide;
@@ -62,23 +63,28 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     protected void initView() {
         viewpager = findViewById(R.id.viewpager);
         cleanCache = findViewById(R.id.cleancache);
-        settings = findViewById(R.id.settings);
+        settings = findViewById(R.id.xiaoxue_ketang);
         radioGroup = findViewById(R.id.radioGroup);
         content = findViewById(R.id.content);
         cleanCache.setOnClickListener(this);
         settings.setOnClickListener(this);
         viewpager.addOnPageChangeListener(this);
         radioGroup.setOnCheckedChangeListener(this);
-        fragments.add(Fragment1.newInstance());
-        fragments.add(Fragment2.newInstance());
-        fragments.add(Fragment3.newInstance());
-        fragments.add(Fragment4.newInstance());
+        fragments.add(HHT_XT_Fragment.newInstance());
+        fragments.add(HHT_AR_Fragment.newInstance());
+        fragments.add(HHT_LY_Fragment.newInstance());
+        fragments.add(HHT_BX_Fragment.newInstance());
         adapter = new MainPagerAdapter(getSupportFragmentManager(), fragments);
         viewpager.setAdapter(adapter);
-        viewpager.setCurrentItem(0, false);
-        viewpager.setOffscreenPageLimit(4);
         setBG();
         initTitle();
+    }
+
+    private void setBG() {
+
+        if (getPresenter() == null) return;
+        getPresenter().getBG();
+
     }
 
     private void initTitle() {
@@ -106,21 +112,10 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         tilteBar.setVolumeMumber(40);
     }
 
-    private void setBG() {
-
-        Glide.with(MainActivity.this).load(R.mipmap.launcher_bg).into(new SimpleTarget<GlideDrawable>() {
-            @Override
-            public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
-                if (content != null)
-                    content.setBackground(resource.getCurrent());
-            }
-        });
-
-    }
 
     @Override
     protected MainPresenterImp createPresenter() {
-        return new MainPresenterImp();
+        return new MainPresenterImp(getApplicationContext());
     }
 
 
@@ -128,22 +123,22 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         FragmentManager fm = getSupportFragmentManager();
         BaseFragment fragment = (BaseFragment) fm.findFragmentByTag(tag);
         FunctionMnanger functionMnanger = FunctionMnanger.getInstance();
-        fragment.setmFunctionManager(functionMnanger.addFunction(new FunctionNoParamNoResult(Fragment1.INTERFACE_RESULT) {
+        fragment.setmFunctionManager(functionMnanger.addFunction(new FunctionNoParamNoResult(HHT_XT_Fragment.INTERFACE_RESULT) {
             @Override
             public void function() {
                 Toast.makeText(MainActivity.this, "成功调用无参无返回值的接口", Toast.LENGTH_SHORT).show();
             }
-        }).addFunction(new FunctionWithParamAndResult<String, String>(Fragment3.INTERFACE_RESULT) {
+        }).addFunction(new FunctionWithParamAndResult<String, String>(HHT_LY_Fragment.INTERFACE_RESULT) {
             @Override
             public String function(String param) {
                 return "系统的字符串---" + param;
             }
-        }).addFunction(new FunctionWithResultOnly<String>(Fragment2.INTERFACE_RESULT) {
+        }).addFunction(new FunctionWithResultOnly<String>(HHT_AR_Fragment.INTERFACE_RESULT) {
             @Override
             public String function() {
                 return "只有一个返回值的方法被调用！";
             }
-        }).addFunction(new FunctionWithParamOnly<String>(Fragment4.INTERFACE_RESULT) {
+        }).addFunction(new FunctionWithParamOnly<String>(HHT_BX_Fragment.INTERFACE_RESULT) {
             @Override
             public void function(String o) {
                 Toast.makeText(MainActivity.this, "成功调用有参无返回值的接口：" + o, Toast.LENGTH_SHORT).show();
@@ -156,16 +151,16 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         LogUtils.e("tlh", "onCheckedChanged:" + checkedId);
         switch (checkedId) {
-            case R.id.radio1:
+            case R.id.hht_xt:
                 viewpager.setCurrentItem(0);
                 break;
-            case R.id.radio2:
+            case R.id.hht_ar:
                 viewpager.setCurrentItem(1);
                 break;
-            case R.id.radio3:
+            case R.id.hht_ly:
                 viewpager.setCurrentItem(2);
                 break;
-            case R.id.radio4:
+            case R.id.hht_gx:
                 viewpager.setCurrentItem(3);
                 break;
         }
@@ -194,16 +189,16 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     public void onPageSelected(int position) {
         switch (position) {
             case 0:
-                radioGroup.check(R.id.radio1);
+                radioGroup.check(R.id.hht_xt);
                 break;
             case 1:
-                radioGroup.check(R.id.radio2);
+                radioGroup.check(R.id.hht_ar);
                 break;
             case 2:
-                radioGroup.check(R.id.radio3);
+                radioGroup.check(R.id.hht_ly);
                 break;
             case 3:
-                radioGroup.check(R.id.radio4);
+                radioGroup.check(R.id.hht_gx);
                 break;
         }
 
@@ -273,4 +268,9 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     }
 
 
+    @Override
+    public void setBgDrawble(Drawable bgDrawble) {
+        if (content != null)
+            content.setBackground(bgDrawble);
+    }
 }

@@ -6,21 +6,21 @@
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:oneshot="false">
     <item
-        android:drawable="@mipmap/icon_chargeing_00"
+        android:drawable="@mipmap/ic_chargeing_00"
         android:duration="200"></item>
     <item
-        android:drawable="@mipmap/icon_chargeing_01"
+        android:drawable="@mipmap/ic_chargeing_01"
         android:duration="200"></item>
     <item
-        android:drawable="@mipmap/icon_chargeing_02"
+        android:drawable="@mipmap/ic_chargeing_02"
         android:duration="200"></item>
     <item
-        android:drawable="@mipmap/icon_chargeing_03"
+        android:drawable="@mipmap/ic_chargeing_03"
         android:duration="200"></item>
     <item
-        android:drawable="@mipmap/icon_chargeing_04"
+        android:drawable="@mipmap/ic_chargeing_04"
         android:duration="200"></item>
     <item
-        android:drawable="@mipmap/icon_chargeing_05"
+        android:drawable="@mipmap/ic_chargeing_05"
         android:duration="200"></item>
 </animation-list>

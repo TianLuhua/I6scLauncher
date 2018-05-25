@@ -4,24 +4,6 @@
     android:layout_height="match_parent"
     android:background="#80000000">
 
-
-    <ImageView
-        android:id="@+id/cloud"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@mipmap/activity_cleancache_cloud"
-        android:visibility="invisible" />
-
-    <ImageView
-        android:id="@+id/launcher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:src="@mipmap/activity_cleancache_launcher"
-        android:visibility="invisible" />
-
     <ImageView
         android:id="@+id/rocket"
         android:layout_width="wrap_content"

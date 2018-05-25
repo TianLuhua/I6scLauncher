@@ -2,24 +2,24 @@
 <level-list xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:drawable="@mipmap/wifi_normal"
+        android:drawable="@mipmap/ic_top_bar_wifi_normal"
         android:maxLevel="0"/>
     <item
-        android:drawable="@mipmap/wifi01"
+        android:drawable="@mipmap/ic_top_bar_wifi01"
         android:maxLevel="1"/>
     <item
-        android:drawable="@mipmap/wifi02"
+        android:drawable="@mipmap/ic_top_bar_wifi02"
         android:maxLevel="2"/>
     <item
-        android:drawable="@mipmap/wifi03"
+        android:drawable="@mipmap/ic_top_bar_wifi03"
         android:maxLevel="3"/>
     <item
-        android:drawable="@mipmap/wifi04"
+        android:drawable="@mipmap/ic_top_bar_wifi04"
         android:maxLevel="4"/>
     <item
-        android:drawable="@mipmap/wifi_none"
+        android:drawable="@mipmap/ic_top_bar_wifi_none"
         android:maxLevel="5"/>
     <item
-        android:drawable="@mipmap/wifi_normal"
+        android:drawable="@mipmap/ic_top_bar_wifi_normal"
         android:maxLevel="6"/>
 </level-list>

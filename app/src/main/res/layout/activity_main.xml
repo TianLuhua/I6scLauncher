@@ -10,69 +10,71 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/cleancache"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_vertical"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="27dp"
+        android:layout_marginLeft="54dp"
+        android:src="@mipmap/ic_cleancache" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="188dp"
+        android:layout_marginBottom="-19dp"
+        android:checkedButton="@+id/hht_xt"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/cleancache"
+        <RadioButton
+            android:id="@+id/hht_xt"
+            style="@style/fragment_autoplay_tab_center"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_height="wrap_content"
+            android:background="@color/colorTransparent"
+            android:drawableTop="@drawable/select_main_hht_xt"
+            android:gravity="bottom" />
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1"
-            android:checkedButton="@+id/radio1"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radio1"
-                style="@style/fragment_autoplay_tab_center"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:drawableTop="@drawable/fragment_autoplay_file_selector"
-                android:gravity="center" />
-
-            <RadioButton
-                android:id="@+id/radio2"
-                style="@style/fragment_autoplay_tab_center"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:drawableTop="@drawable/fragment_autoplay_file_selector"
-                android:gravity="center" />
-
-            <RadioButton
-                android:id="@+id/radio3"
-                style="@style/fragment_autoplay_tab_center"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:drawableTop="@drawable/fragment_autoplay_file_selector"
-                android:gravity="center" />
-
-            <RadioButton
-                android:id="@+id/radio4"
-                style="@style/fragment_autoplay_tab_center"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:drawableTop="@drawable/fragment_autoplay_file_selector"
-                android:gravity="center" />
-        </RadioGroup>
-
-        <ImageView
-            android:id="@+id/settings"
+        <RadioButton
+            android:id="@+id/hht_ar"
+            style="@style/fragment_autoplay_tab_center"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0"
-            android:src="@mipmap/ic_launcher" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:background="@color/colorTransparent"
+            android:drawableTop="@drawable/select_main_hht_ar"
+            android:gravity="bottom" />
+
+        <RadioButton
+            android:id="@+id/hht_ly"
+            style="@style/fragment_autoplay_tab_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTransparent"
+            android:drawableTop="@drawable/select_main_hht_ly"
+            android:gravity="bottom" />
+
+        <RadioButton
+            android:id="@+id/hht_gx"
+            style="@style/fragment_autoplay_tab_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorTransparent"
+            android:drawableTop="@drawable/select_main_hht_gx"
+            android:gravity="bottom" />
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/xiaoxue_ketang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="36dp"
+        android:layout_marginRight="14dp"
+        android:src="@mipmap/ic_xiaoxue_ketang" />
 
     <com.boyue.boyuelauncher.widget.MainTilteBar
         android:id="@+id/title_bar"
