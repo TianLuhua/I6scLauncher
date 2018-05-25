@@ -1,5 +1,6 @@
 package com.boyue.boyuelauncher.main.fragment.hht_ar_fragment;
 
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -44,7 +45,7 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.layout_hht_ar, null);
+        View view = inflater.inflate(R.layout.layout_main_grideview, null);
         init(view);
         return view;
     }
@@ -59,17 +60,16 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
     private void init(View rootView) {
         iocnView = rootView.findViewById(R.id.iocn);
         displayApps = rootView.findViewById(R.id.display_apps);
+        String[] from = {"img", "text"};
+        int[] to = {R.id.icon, R.id.name};
+
         //初始化数据
         initData();
-        String[] from = {"icno", "name"};
-        int[] to = {R.id.icno, R.id.name};
-
-        simpleAdapter = new SimpleAdapter(getActivity(), dataList, R.layout.main_gridview_item, from, to);
+        simpleAdapter = new SimpleAdapter(getContext(), dataList, R.layout.layout_main_grideview_item, from, to);
         displayApps.setAdapter(simpleAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
 
             }
         });
@@ -78,18 +78,19 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
 
     }
 
-    private void initData() {
+
+    void initData() {
+
         //图标
-        int icno[] = getResources().getIntArray(R.array.hht_ar_items_image);
+        TypedArray icno = getResources().obtainTypedArray(R.array.hht_ar_items_image);
+
         //图标下的文字
         String name[] = getResources().getStringArray(R.array.hht_ar_items_text);
-
         dataList = new ArrayList<Map<String, Object>>();
-
-        for (int i = 0; i < icno.length; i++) {
+        for (int i = 0; i < name.length; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("icno", icno[i]);
-            map.put("name", name[i]);
+            map.put("img", icno.getResourceId(i, 0));
+            map.put("text", name[i]);
             dataList.add(map);
         }
     }

@@ -9,14 +9,14 @@
         <item>多元智能</item>
         <item>安全知识</item>
     </string-array>
-    <integer-array name="hht_xt_items_image">
+    <string-array name="hht_xt_items_image">
         <item>@mipmap/hht_xt_item_101</item>
         <item>@mipmap/hht_xt_item_102</item>
         <item>@mipmap/hht_xt_item_103</item>
         <item>@mipmap/hht_xt_item_104</item>
         <item>@mipmap/hht_xt_item_105</item>
         <item>@mipmap/hht_xt_item_106</item>
-    </integer-array>
+    </string-array>
 
 
     <string-array name="hht_ar_items_text">
@@ -27,14 +27,14 @@
         <item>恐龙</item>ar
         <item>魔幻3D</item>
     </string-array>
-    <integer-array name="hht_ar_items_image">
+    <string-array name="hht_ar_items_image">
         <item>@mipmap/hht_ar_item_101</item>
         <item>@mipmap/hht_ar_item_102</item>
         <item>@mipmap/hht_ar_item_103</item>
         <item>@mipmap/hht_ar_item_104</item>
         <item>@mipmap/hht_ar_item_105</item>
         <item>@mipmap/hht_ar_item_106</item>
-    </integer-array>
+    </string-array>
 
 
     <string-array name="hht_ly_items_text">
@@ -45,14 +45,14 @@
         <item>益智游戏</item>
         <item>宝宝相机</item>
     </string-array>
-    <integer-array name="hht_ly_items_image">
+    <string-array name="hht_ly_items_image">
         <item>@mipmap/hht_ly_item_101</item>
         <item>@mipmap/hht_ly_item_102</item>
         <item>@mipmap/hht_ly_item_103</item>
         <item>@mipmap/hht_ly_item_104</item>
         <item>@mipmap/hht_ly_item_105</item>
         <item>@mipmap/hht_ly_item_106</item>
-    </integer-array>
+    </string-array>
 
 
     <string-array name="hht_bx_items_text">
@@ -63,7 +63,7 @@
         <item>微信</item>
         <item>语音机器人</item>
     </string-array>
-    <integer-array name="hht_bx_items_image">
+    <string-array name="hht_bx_items_image">
         <item>@mipmap/hht_bx_item_101</item>
         <item>@mipmap/hht_bx_item_102</item>
         <item>@mipmap/hht_bx_item_103</item>
@@ -71,6 +71,6 @@
         <item>@mipmap/hht_bx_item_105</item>
         <item>@mipmap/hht_bx_item_106</item>
 
-    </integer-array>
+    </string-array>
 
 </resources>

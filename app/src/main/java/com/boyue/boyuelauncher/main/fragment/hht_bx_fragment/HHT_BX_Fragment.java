@@ -1,5 +1,6 @@
 package com.boyue.boyuelauncher.main.fragment.hht_bx_fragment;
 
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -45,7 +46,7 @@ public class HHT_BX_Fragment extends AbstractMVPFragment<HHT_BX_View, HHT_BX_Per
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.layout_hht_bx, null);
+        View view = inflater.inflate(R.layout.layout_main_grideview, null);
         init(view);
         return view;
     }
@@ -62,10 +63,10 @@ public class HHT_BX_Fragment extends AbstractMVPFragment<HHT_BX_View, HHT_BX_Per
         displayApps = rootView.findViewById(R.id.display_apps);
         //初始化数据
         initData();
-        String[] from = {"icno", "name"};
-        int[] to = {R.id.img, R.id.text};
+        String[] from = {"img", "text"};
+        int[] to = {R.id.icon, R.id.name};
 
-        simpleAdapter = new SimpleAdapter(getActivity(), dataList, R.layout.main_gridview_item, from, to);
+        simpleAdapter = new SimpleAdapter(getActivity(), dataList, R.layout.layout_main_grideview_item, from, to);
         displayApps.setAdapter(simpleAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -81,14 +82,15 @@ public class HHT_BX_Fragment extends AbstractMVPFragment<HHT_BX_View, HHT_BX_Per
 
     private void initData() {
         //图标
-        int icno[] = getResources().getIntArray(R.array.hht_bx_items_image);
+        TypedArray icno = getResources().obtainTypedArray(R.array.hht_bx_items_image);
+
         //图标下的文字
         String name[] = getResources().getStringArray(R.array.hht_bx_items_text);
         dataList = new ArrayList<Map<String, Object>>();
-        for (int i = 0; i < icno.length; i++) {
+        for (int i = 0; i < name.length; i++) {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("icno", icno[i]);
-            map.put("name", name[i]);
+            map.put("img", icno.getResourceId(i, 0));
+            map.put("text", name[i]);
             dataList.add(map);
         }
     }
