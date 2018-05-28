@@ -30,10 +30,6 @@ import com.boyue.boyuelauncher.main.fragment.hht_ly_fragment.HHT_LY_Fragment;
 import com.boyue.boyuelauncher.main.fragment.hht_bx_fragment.HHT_BX_Fragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.MainTilteBar;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -106,6 +102,17 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
             public void onWiFiManagerClick(View view) {
                 Toast.makeText(MainActivity.this, "WIFI", Toast.LENGTH_SHORT).show();
                 startWiFiManager();
+
+            }
+
+            @Override
+            public void onSDIconClick(View view) {
+                Toast.makeText(MainActivity.this, "SD", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onUSBIconClick(View view) {
+                Toast.makeText(MainActivity.this, "USB", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -217,7 +224,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
             case R.id.cleancache:
                 startCleanCache();
                 break;
-            case R.id.settings:
+            case R.id.ic_settings:
 //                startWiFiManager();
                 break;
         }

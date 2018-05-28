@@ -1,22 +1,26 @@
 package com.boyue.boyuelauncher.widget;
 
 import android.content.Context;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boyue.boyuelauncher.R;
 
 /**
  * Created by Tianluhua on 2018/5/16.
  */
-public class MainTilteBar extends RelativeLayout implements View.OnClickListener {
+public class MainTilteBar extends RelativeLayout implements View.OnClickListener, SDAndUSBStatusView.OnSDAndUSDViewClickListener {
 
     private TextView volumeNumberView;
     private ImageView settingsButton;
     private WIFIStatusView wifiStatusView;
+
+    private SDAndUSBStatusView sdAndUSBStatusView;
 
     public MainTilteBar(Context context) {
         this(context, null);
@@ -33,12 +37,15 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
 
     private void initView(Context mContext) {
         View.inflate(mContext, R.layout.main_title_bar, this);
-        volumeNumberView = findViewById(R.id.set_system_volume);
+        volumeNumberView = findViewById(R.id.ic_set_system_volume);
         volumeNumberView.setOnClickListener(this);
-        settingsButton = findViewById(R.id.settings);
+        settingsButton = findViewById(R.id.ic_settings);
         settingsButton.setOnClickListener(this);
-        wifiStatusView = findViewById(R.id.wifistatusview);
+        wifiStatusView = findViewById(R.id.ic_wifistatusview);
         wifiStatusView.setOnClickListener(this);
+        //SDAndUSBStatusView
+        sdAndUSBStatusView = findViewById(R.id.ic_media);
+        sdAndUSBStatusView.setOnTitleBarClickListener(this);
     }
 
     private OnTitleBarClickListener onTitleBarClickListener;
@@ -50,18 +57,26 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.set_system_volume:
-                if (onTitleBarClickListener != null)
-                    onTitleBarClickListener.onBackClick(v);
+            case R.id.ic_set_system_volume:
+
                 break;
 
-            case R.id.settings:
+            case R.id.ic_settings:
                 if (onTitleBarClickListener != null)
                     onTitleBarClickListener.onSettingsClick(v);
                 break;
-            case R.id.wifistatusview:
+            case R.id.ic_wifistatusview:
                 if (onTitleBarClickListener != null)
                     onTitleBarClickListener.onWiFiManagerClick(v);
+                break;
+
+            case R.id.sd:
+                if (onTitleBarClickListener != null)
+                    onTitleBarClickListener.onSDIconClick(v);
+                break;
+            case R.id.usb:
+                if (onTitleBarClickListener != null)
+                    onTitleBarClickListener.onUSBIconClick(v);
                 break;
 
             default:
@@ -81,6 +96,17 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
 
     }
 
+    @Override
+    public void onSDIconClick(View view) {
+        Toast.makeText(getContext(), "SD", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onUSBIconClick(View view) {
+        Toast.makeText(getContext(), "USB", Toast.LENGTH_SHORT).show();
+
+    }
+
     public interface OnTitleBarClickListener {
 
         //返回按钮事件回调
@@ -91,6 +117,12 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
 
         //设置WIFIManager事件的回调
         void onWiFiManagerClick(View view);
+
+        //设置SD图标事件的回调
+        void onSDIconClick(View view);
+
+        //设置USB图标事件的回调
+        void onUSBIconClick(View view);
     }
 
 

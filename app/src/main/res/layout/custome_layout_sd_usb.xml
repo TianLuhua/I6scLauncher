@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+        android:id="@+id/usb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_top_bar_usb" />
+
+    <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+        android:id="@+id/sd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_toEndOf="@+id/usb"
+        android:src="@mipmap/ic_top_bar_sd" />
+</RelativeLayout>
