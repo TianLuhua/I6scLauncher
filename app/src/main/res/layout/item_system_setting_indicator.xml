@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="130dp"
-    android:layout_height="40dp"
-    android:paddingLeft="15dp"
-    android:orientation="horizontal"
-    android:gravity="center_vertical"
-    android:background="#f6e4ee"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/page_item_ll"
-    >
+    android:layout_width="223dp"
+    android:layout_height="68dp">
 
-        <ImageView
-            android:id="@+id/page_item_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp" />
+    <ImageView
+        android:id="@+id/page_item_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="11dp"
+        android:src="@mipmap/ic_system_settings_auto_shutdown" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/page_item_tv"
-            />
+    <TextView
+        android:id="@+id/page_item_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="22dp"
+        android:layout_toEndOf="@+id/page_item_iv"
+        android:text="@string/app_name"
+        android:textColor="#333333"
+        android:textSize="22sp" />
 
-</LinearLayout>
+    <View
+        android:id="@+id/line"
+        style="@style/Stlye_system_setting_indicator_line"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

@@ -66,7 +66,7 @@ public class HHT_XT_Fragment extends AbstractMVPFragment<HHT_XT_View, HHT_XT_Per
         String[] from = {"img", "text"};
         int[] to = {R.id.icon, R.id.name};
 
-        simpleAdapter = new SimpleAdapter(getActivity(), dataList, R.layout.layout_main_grideview_item, from, to);
+        simpleAdapter = new SimpleAdapter(getActivity(), dataList, R.layout.item_layout_main_grideview, from, to);
         displayApps.setAdapter(simpleAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

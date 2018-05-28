@@ -6,9 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.settings.SettingsActivity;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SystemSettingAdapter extends SimpleAdapter {
+
     private Context context;
     private LayoutInflater inflater;
 
@@ -54,6 +56,7 @@ public class SystemSettingAdapter extends SimpleAdapter {
             viewHolder.ll.setBackgroundColor(Color.parseColor("#f6e4ee"));
         }
         return convertView;
+
     }
 
     public void setmCurrentItem(int mCurrentItem) {
@@ -65,7 +68,7 @@ public class SystemSettingAdapter extends SimpleAdapter {
     }
 
     class ViewHolder {
-        LinearLayout ll;
+        RelativeLayout ll;
         ImageView iv;
         TextView tv;
     }

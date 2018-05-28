@@ -65,7 +65,7 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
 
         //初始化数据
         initData();
-        simpleAdapter = new SimpleAdapter(getContext(), dataList, R.layout.layout_main_grideview_item, from, to);
+        simpleAdapter = new SimpleAdapter(getContext(), dataList, R.layout.item_layout_main_grideview, from, to);
         displayApps.setAdapter(simpleAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

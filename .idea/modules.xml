@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BoYueLauncher.iml" filepath="$PROJECT_DIR$/BoYueLauncher.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/BoYueLauncher-app.iml" filepath="$PROJECT_DIR$/app/BoYueLauncher-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/as-BoYueLauncher.iml" filepath="$PROJECT_DIR$/as-BoYueLauncher.iml" />
     </modules>
   </component>
 </project>

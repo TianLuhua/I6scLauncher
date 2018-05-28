@@ -10,7 +10,7 @@
         <View
             android:id="@+id/temp"
             android:layout_width="223dp"
-            android:layout_height="56dp"
+            android:layout_height="55dp"
             android:layout_alignParentTop="true"
             android:background="#f6e4ee" />
 
@@ -22,15 +22,16 @@
         <ListView
             android:id="@+id/page_indicator"
             android:layout_width="223dp"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/line" />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line"
+            android:scrollbars="none" />
 
         <FrameLayout
             android:id="@+id/page_content"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/page_indicator"
-            android:background="@color/colorAccent" />
+            android:layout_toEndOf="@+id/page_indicator"
+            android:background="@color/colorPrimary" />
 
     </RelativeLayout>
 
