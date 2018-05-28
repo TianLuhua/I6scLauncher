@@ -1,7 +1,6 @@
 package com.boyue.boyuelauncher.widget;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -36,7 +35,7 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     }
 
     private void initView(Context mContext) {
-        View.inflate(mContext, R.layout.main_title_bar, this);
+        View.inflate(mContext, R.layout.custome_main_title_bar, this);
         volumeNumberView = findViewById(R.id.ic_set_system_volume);
         volumeNumberView.setOnClickListener(this);
         settingsButton = findViewById(R.id.ic_settings);

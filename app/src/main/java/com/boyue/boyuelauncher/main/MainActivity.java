@@ -24,10 +24,10 @@ import com.boyue.boyuelauncher.function.FunctionWithParamAndResult;
 import com.boyue.boyuelauncher.function.FunctionWithParamOnly;
 import com.boyue.boyuelauncher.function.FunctionWithResultOnly;
 import com.boyue.boyuelauncher.main.adapter.MainPagerAdapter;
-import com.boyue.boyuelauncher.main.fragment.hht_xt_fragment.HHT_XT_Fragment;
-import com.boyue.boyuelauncher.main.fragment.hht_ar_fragment.HHT_AR_Fragment;
-import com.boyue.boyuelauncher.main.fragment.hht_ly_fragment.HHT_LY_Fragment;
-import com.boyue.boyuelauncher.main.fragment.hht_bx_fragment.HHT_BX_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_XT_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ar_fragment.HHT_AR_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.HHT_LY_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.HHT_BX_Fragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.MainTilteBar;
 

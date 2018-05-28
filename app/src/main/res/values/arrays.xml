@@ -70,7 +70,28 @@
         <item>@mipmap/hht_bx_item_104</item>
         <item>@mipmap/hht_bx_item_105</item>
         <item>@mipmap/hht_bx_item_106</item>
+    </string-array>
 
+
+    <string-array name="system_settings_items_text">
+        <item>七彩耳灯</item>
+        <item>护眼设置</item>
+        <item>音量设置</item>
+        <item>自动关机</item>
+        <item>防沉迷设置</item>
+        <item>日期与时间</item>
+        <item>高级</item>
+        <item>意见反馈</item>
+    </string-array>
+    <string-array name="system_settings_items_image">
+        <item>@mipmap/ic_system_settings_color_ear</item>
+        <item>@mipmap/ic_system_settings_protect_eye</item>
+        <item>@mipmap/ic_system_settings_volume_setting</item>
+        <item>@mipmap/ic_system_settings_auto_shutdown</item>
+        <item>@mipmap/ic_system_settings_fcm_setting</item>
+        <item>@mipmap/ic_system_settings_date_time_setting</item>
+        <item>@mipmap/ic_system_settings_advance</item>
+        <item>@mipmap/ic_system_settings_feedback</item>
     </string-array>
 
 </resources>

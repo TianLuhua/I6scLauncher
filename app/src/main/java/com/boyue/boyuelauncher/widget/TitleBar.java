@@ -35,7 +35,7 @@ public class TitleBar extends RelativeLayout implements View.OnClickListener {
 
     private void initView(Context context) {
 
-        View.inflate(context, R.layout.title_bar, this);
+        View.inflate(context, R.layout.custome_title_bar, this);
         leftIcon = findViewById(R.id.left_icon);
         rightIcon = findViewById(R.id.right_icon);
         title = findViewById(R.id.title);

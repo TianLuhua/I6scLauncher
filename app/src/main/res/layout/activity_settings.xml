@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/temp"
+            android:layout_width="223dp"
+            android:layout_height="56dp"
+            android:layout_alignParentTop="true"
+            android:background="#f6e4ee" />
+
+        <View
+            android:id="@+id/line"
+            style="@style/Stlye_system_setting_indicator_line"
+            android:layout_below="@+id/temp" />
+
+        <ListView
+            android:id="@+id/page_indicator"
+            android:layout_width="223dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/line" />
+
+        <FrameLayout
+            android:id="@+id/page_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/page_indicator"
+            android:background="@color/colorAccent" />
+
+    </RelativeLayout>
 
     <com.boyue.boyuelauncher.widget.TitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
-        android:layout_height="48dp" />
+        android:layout_height="wrap_content" />
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <q.rorbin.verticaltablayout.VerticalTabLayout
-            android:id="@+id/tablayout"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:background="#EDEDED"
-            app:indicator_color="#FFFFFF"
-            app:indicator_gravity="fill"
-            app:tab_mode="fixed" />
-
-        <FrameLayout
-            android:id="@+id/content"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/colorAccent" />
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</FrameLayout>

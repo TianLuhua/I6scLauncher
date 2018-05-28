@@ -47,4 +47,12 @@
         <item name="android:layout_weight">1</item>
     </style>
 
+    <style name="Stlye_system_setting_indicator_line">
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:background">#b5b5b5</item>
+        <item name="android:layout_width">223dp</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
 </resources>
