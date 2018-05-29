@@ -1,13 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/max_volume"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="126dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/max_volume_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/max_volume_title" />
+
+        <SeekBar
+            android:id="@+id/max_volume_screen"
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="81dp"
+            android:layout_toEndOf="@+id/max_volume_title"
+            android:background="@color/colorTransparent"
+            android:thumb="@mipmap/thumb_system_setting" />
+
+        <TextView
+            android:id="@+id/max_volume_leve"
+            style="@style/Stlye_system_setting_check_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="19dp"
+            android:layout_toEndOf="@+id/max_volume_screen"
+            android:gravity="center"
+            android:text="20" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/power_off_max_volume"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/max_volume"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/power_off_max_volume_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/power_off_max_volume_title" />
+
+        <SeekBar
+            android:id="@+id/power_off_max_volume_screen"
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="37dp"
+            android:layout_toEndOf="@+id/power_off_max_volume_title"
+            android:background="@color/colorTransparent"
+            android:thumb="@mipmap/thumb_system_setting" />
+
+        <TextView
+            android:id="@+id/power_off_max_volume_leve"
+            style="@style/Stlye_system_setting_check_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="19dp"
+            android:layout_toEndOf="@+id/power_off_max_volume_screen"
+            android:gravity="center"
+            android:text="40" />
+    </RelativeLayout>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="volume" />
+        android:id="@+id/power_off_max_volume_note"
+        style="@style/Stlye_system_setting_text_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/power_off_max_volume"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/power_off_max_volume_note" />
 
-</LinearLayout>
+
+</RelativeLayout>

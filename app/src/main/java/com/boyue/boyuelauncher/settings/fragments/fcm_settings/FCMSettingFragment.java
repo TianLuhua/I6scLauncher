@@ -7,9 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.base.BaseFragment;
 
-public class FCMSettingFragment extends BaseFragment {
+public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMSettingPersenter> implements FCMSettingView {
 
 
     public static FCMSettingFragment newInstance() {
@@ -27,5 +28,10 @@ public class FCMSettingFragment extends BaseFragment {
         View rootview = inflater.inflate(R.layout.fragment_settings_fcm_setting, null, false);
 
         return rootview;
+    }
+
+    @Override
+    protected FCMSettingPersenter createPresenter() {
+        return new FCMSettingPersenter();
     }
 }

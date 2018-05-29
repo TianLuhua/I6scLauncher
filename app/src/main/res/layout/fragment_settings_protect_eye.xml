@@ -5,7 +5,7 @@
     android:orientation="horizontal">
 
     <RelativeLayout
-        android:id="@+id/screen_of_brighness"
+        android:id="@+id/max_volume"
         android:layout_width="654dp"
         android:layout_height="56dp"
         android:layout_alignParentEnd="true"
@@ -15,7 +15,7 @@
 
 
         <TextView
-            android:id="@+id/screen_of_brighness_item_title"
+            android:id="@+id/max_volume_title"
             style="@style/Stlye_system_setting_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,14 +25,14 @@
             android:gravity="center"
             android:text="@string/color_ear" />
 
-        <ProgressBar
-            android:id="@+id/screen_of_brighness_item_screen"
-            style="@android:style/Widget.ProgressBar.Horizontal"
+        <SeekBar
+            android:id="@+id/max_volume_screen"
             android:layout_width="328dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="166dp"
-            android:layout_toEndOf="@+id/screen_of_brighness_item_title"
+            android:thumb="@mipmap/thumb_system_setting"
+            android:layout_toEndOf="@+id/max_volume_title"
             android:background="@color/colorTransparent" />
     </RelativeLayout>
 
@@ -42,7 +42,7 @@
         android:layout_width="654dp"
         android:layout_height="56dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/screen_of_brighness"
+        android:layout_below="@+id/max_volume"
         android:layout_marginEnd="75dp"
         android:layout_marginTop="15dp" />
 

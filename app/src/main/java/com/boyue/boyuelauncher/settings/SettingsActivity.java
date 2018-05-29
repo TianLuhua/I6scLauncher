@@ -96,7 +96,7 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
     public void disPlayPagerFragments(List<Fragment> fragments) {
         fragmentPagerAdapter = new SystemSettingFragmentPagerAdapter(getSupportFragmentManager(), fragments);
         fragmentPagers.setAdapter(fragmentPagerAdapter);
-        fragmentPagers.setCurrentItem(defaultPager, false);
+        fragmentPagers.setCurrentItem(defaultPager);
     }
 
 

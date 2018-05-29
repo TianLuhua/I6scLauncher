@@ -7,9 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.base.BaseFragment;
 
-public class AutoShueDownFragment extends BaseFragment {
+public class AutoShueDownFragment extends AbstractMVPFragment<AutoShueDownView, AutoShueDownPersenter> implements AutoShueDownView {
 
 
     public static AutoShueDownFragment newInstance() {
@@ -27,5 +28,10 @@ public class AutoShueDownFragment extends BaseFragment {
         View rootview = inflater.inflate(R.layout.fragment_settings_auto_shutdown, null, false);
 
         return rootview;
+    }
+
+    @Override
+    protected AutoShueDownPersenter createPresenter() {
+        return new AutoShueDownPersenter();
     }
 }

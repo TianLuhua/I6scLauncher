@@ -16,35 +16,56 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="36dp"
         android:gravity="center"
-        android:text="@string/color_ear" />
+        android:text="@string/regular_rest" />
 
     <RadioGroup
         android:id="@+id/item_switch"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginStart="76dp"
-        android:orientation="horizontal"
-        android:layout_toEndOf="@+id/item_check_title">
+        android:layout_toEndOf="@+id/item_check_title"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/item_switch_00"
+            style="@style/Stlye_system_setting_check_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorTransparent"
+            android:button="@drawable/select_settings_pager_check_item"
+            android:text="@string/never" />
 
         <RadioButton
             android:id="@+id/item_switch_01"
+            style="@style/Stlye_system_setting_check_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorTransparent"
+            android:button="@drawable/select_settings_pager_check_item"
+            android:text="@string/m_20" />
 
         <RadioButton
             android:id="@+id/item_switch_02"
+            style="@style/Stlye_system_setting_check_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorTransparent"
+            android:button="@drawable/select_settings_pager_check_item"
+            android:text="@string/m_40" />
+
         <RadioButton
             android:id="@+id/item_switch_03"
+            style="@style/Stlye_system_setting_check_text"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorTransparent"
+            android:button="@drawable/select_settings_pager_check_item"
+            android:text="@string/m_60" />
     </RadioGroup>
 
 </RelativeLayout>

@@ -7,9 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.base.BaseFragment;
 
-public class DateTimeSettingFragment extends BaseFragment {
+public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSettingView, DateTimeSettingPersenter> implements DateTimeSettingView {
 
 
     public static DateTimeSettingFragment newInstance() {
@@ -27,5 +28,10 @@ public class DateTimeSettingFragment extends BaseFragment {
         View rootview = inflater.inflate(R.layout.fragment_settings_date_time_setting, null, false);
 
         return rootview;
+    }
+
+    @Override
+    protected DateTimeSettingPersenter createPresenter() {
+        return new DateTimeSettingPersenter();
     }
 }

@@ -26,7 +26,7 @@
             android:layout_below="@+id/line"
             android:scrollbars="none" />
 
-        <android.support.v4.view.ViewPager
+        <com.boyue.boyuelauncher.widget.DisableScrollViewPager
             android:id="@+id/page_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

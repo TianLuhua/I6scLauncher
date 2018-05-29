@@ -6,11 +6,24 @@
     <string name="system_settings">系统设置</string>
     <string name="color_ear">七彩耳灯</string>
 
-    <string name="protect_eye_blue_light_note">七彩耳灯</string>
+
+    <string name="protect_eye_blue_light">去除蓝光</string>
+    <string name="protect_eye_blue_light_note">说明：去除蓝光</string>
 
 
-
+    <string name="regular_rest">定时休息</string>
+    <string name="never">从不</string>
+    <string name="m_20">20分钟</string>
+    <string name="m_40">40分钟</string>
+    <string name="m_60">60分钟</string>
     <string name="regular_rest_note">说明：定时</string>
+
+
+    <!--音量设置设置-->
+    <string name="max_volume_title">限制最大音量值</string>
+    <string name="power_off_max_volume_title">限制开机最大音量值</string>
+    <string name="power_off_max_volume_note">说明：保护听力</string>
+
 
 </resources>
 

@@ -8,9 +8,10 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.base.BaseFragment;
 
-public class AdvanceSettingFragment extends BaseFragment {
+public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingView, AdvanceSettingPersenter> implements AdvanceSettingView {
 
 
     private CheckBox colorEarSwitch;
@@ -36,5 +37,10 @@ public class AdvanceSettingFragment extends BaseFragment {
     }
 
     private void initView(View rootview) {
+    }
+
+    @Override
+    protected AdvanceSettingPersenter createPresenter() {
+        return new AdvanceSettingPersenter();
     }
 }
