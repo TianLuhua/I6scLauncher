@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
-import com.boyue.boyuelauncher.base.BaseFragment;
 
 public class ColorEarFragment extends AbstractMVPFragment<ColorEarView, ColorEarPersenter> implements ColorEarView, CheckBox.OnCheckedChangeListener {
 
@@ -39,20 +38,30 @@ public class ColorEarFragment extends AbstractMVPFragment<ColorEarView, ColorEar
     }
 
     private void initView(View rootview) {
-        colorEarSwitch = rootview.findViewById(R.id.item_switch);
+        colorEarSwitch = rootview.findViewById(R.id.item_group);
         colorEarSwitch.setOnCheckedChangeListener(this);
         itemTitle = rootview.findViewById(R.id.item_title);
         itemTitle.setText(R.string.color_ear);
+        getPresenter().getColorEarStatus();
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         Toast.makeText(getContext().getApplicationContext(), isChecked ? "on" : "off", Toast.LENGTH_SHORT).show();
+        getPresenter().setColorEarStatus(isChecked);
 
     }
 
+
     @Override
     protected ColorEarPersenter createPresenter() {
-        return new ColorEarPersenter();
+        return new ColorEarPersenter(getContext().getApplicationContext());
+    }
+
+    @Override
+    public void setColorEarStatus(boolean isOpen) {
+        if (colorEarSwitch == null) return;
+        colorEarSwitch.setChecked(isOpen);
+
     }
 }

@@ -23,7 +23,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="36dp"
             android:gravity="center"
-            android:text="@string/color_ear" />
+            android:text="@string/screen_brightness" />
 
         <SeekBar
             android:id="@+id/max_volume_screen"
@@ -31,9 +31,9 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="166dp"
-            android:thumb="@mipmap/thumb_system_setting"
             android:layout_toEndOf="@+id/max_volume_title"
-            android:background="@color/colorTransparent" />
+            android:background="@color/colorTransparent"
+            android:thumb="@mipmap/thumb_system_setting" />
     </RelativeLayout>
 
     <include
@@ -71,10 +71,11 @@
         layout="@layout/item_system_settings_pager_check_item"
         android:layout_width="654dp"
         android:layout_height="56dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="75dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/protect_eye_blue_note" />
+        android:layout_below="@+id/protect_eye_blue_note"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp" />
+
     <TextView
         android:id="@+id/regular_rest_note"
         style="@style/Stlye_system_setting_text_note"

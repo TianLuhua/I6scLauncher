@@ -3,27 +3,49 @@
 
 
     <!--系统设置-->
+    <!--通用-->
     <string name="system_settings">系统设置</string>
-    <string name="color_ear">七彩耳灯</string>
-
-
-    <string name="protect_eye_blue_light">去除蓝光</string>
-    <string name="protect_eye_blue_light_note">说明：去除蓝光</string>
-
-
-    <string name="regular_rest">定时休息</string>
     <string name="never">从不</string>
+    <string name="m_1">1分钟</string>
+    <string name="m_5">5分钟</string>
+    <string name="m_10">10分钟</string>
+    <string name="m_15">15分钟</string>
     <string name="m_20">20分钟</string>
+    <string name="m_30">30分钟</string>
     <string name="m_40">40分钟</string>
     <string name="m_60">60分钟</string>
-    <string name="regular_rest_note">说明：定时</string>
+    <string name="m_120">120分钟</string>
+
+    <!--七彩耳灯-->
+    <string name="color_ear">七彩耳灯</string>
+
+    <!--护眼设置-->
+
+    <string name="screen_brightness">屏幕亮度</string>
+    <string name="protect_eye_senser">护眼传感器</string>
+    <string name="protect_eye_blue_light">防蓝光护眼</string>
+    <string name="protect_eye_blue_light_note">说明：防蓝光护眼开启后，蓝光将大幅滤除，屏幕显示将会偏黄，变得柔和，\n这是正常现象，如希望更好的色显，可关闭防蓝光护眼。</string>
+    <string name="regular_rest">定时休息</string>
+    <string name="regular_rest_note">说明：开启定时休息后，到设定时间后将锁屏1分钟。</string>
 
 
     <!--音量设置设置-->
     <string name="max_volume_title">限制最大音量值</string>
     <string name="power_off_max_volume_title">限制开机最大音量值</string>
-    <string name="power_off_max_volume_note">说明：保护听力</string>
+    <string name="power_off_max_volume_note">说明：限制最大音量后，可避免宝宝将音量调得很大，从而保护宝宝的听力。</string>
 
+
+    <!--自动关机-->
+    <string name="screen_dormancy">屏幕休眠</string>
+    <string name="auto_shutdown">自动关机</string>
+    <string name="auto_shutdown_note">说明：开启自动关机后，检测到一定是加你内无操作将自动关机，节省电能</string>
+    <string name="timing_shutdown">定时关机</string>
+    <string name="timing_shutdown_note">说明：开启定时关机后，到设定时间后将自动关机</string>
+
+    <!--防沉迷-->
+    <!--日期与时间-->
+    <!--高级-->
+    <!--意见反馈-->
 
 </resources>
 

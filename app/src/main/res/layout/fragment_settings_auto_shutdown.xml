@@ -1,13 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/screen_dormancy"
+        layout="@layout/item_system_settings_pager_check_item" />
+
+    <include
+        android:id="@+id/auto_shutdown"
+        layout="@layout/item_system_settings_pager_check_item"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/screen_dormancy"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="auto shutdown" />
+        android:id="@+id/auto_shutdown_note"
+        style="@style/Stlye_system_setting_text_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/auto_shutdown"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/auto_shutdown_note" />
 
-</LinearLayout>
+
+    <include
+        android:id="@+id/timing_shutdown"
+        layout="@layout/item_system_settings_pager_check_item"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/auto_shutdown_note"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:id="@+id/timing_shutdown_note"
+        style="@style/Stlye_system_setting_text_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timing_shutdown"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/timing_shutdown_note" />
+
+</RelativeLayout>
