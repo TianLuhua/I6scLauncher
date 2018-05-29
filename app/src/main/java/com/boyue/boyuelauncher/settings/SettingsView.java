@@ -1,5 +1,7 @@
 package com.boyue.boyuelauncher.settings;
 
+import android.support.v4.app.Fragment;
+
 import com.boyue.boyuelauncher.base.BaseView;
 
 import java.util.List;
@@ -9,4 +11,5 @@ public interface SettingsView extends BaseView {
 
     void disPlayIndicatorItems(List<Map<String, Object>> dataList);
 
+    void disPlayPagerFragments(List<Fragment> fragments);
 }

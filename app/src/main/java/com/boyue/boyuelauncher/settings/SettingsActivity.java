@@ -1,20 +1,19 @@
 package com.boyue.boyuelauncher.settings;
 
-import android.content.res.TypedArray;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
-import com.boyue.boyuelauncher.settings.adapter.SystemSettingAdapter;
+import com.boyue.boyuelauncher.settings.adapter.SystemSettingFragmentPagerAdapter;
+import com.boyue.boyuelauncher.settings.adapter.SystemSettingIndicatorgAdapter;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.TitleBar;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,17 +21,22 @@ import java.util.Map;
  * Created by Tianluhua on 2018/5/28.
  */
 
-public class SettingsActivity extends AbstractMVPActivity<SettingsView, SettingsPersenterImp> implements SettingsView, AdapterView.OnItemClickListener {
+public class SettingsActivity extends AbstractMVPActivity<SettingsView, SettingsPersenterImp> implements SettingsView, AdapterView.OnItemClickListener, ViewPager.OnPageChangeListener {
 
     public static final String TITLE = "title";
     public static final String IMAGE = "image";
 
     private TitleBar titleBar;
     private ListView mListView;
-    private SystemSettingAdapter adapter;
+    private SystemSettingIndicatorgAdapter indicatorgAdapter;
+    private SystemSettingFragmentPagerAdapter fragmentPagerAdapter;
 
+    private ViewPager fragmentPagers;
+
+    private int defaultPager = 0;
 
     @Override
+
     protected int getContentViewID() {
         return R.layout.activity_settings;
     }
@@ -62,10 +66,11 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
         });
 
         mListView = findViewById(R.id.page_indicator);
+        fragmentPagers = findViewById(R.id.page_content);
+        fragmentPagers.addOnPageChangeListener(this);
 
         getPresenter().getIndicatorItems();
-
-
+        getPresenter().getPagerFragments();
     }
 
     @Override
@@ -75,59 +80,52 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
 
     @Override
     public void disPlayIndicatorItems(List<Map<String, Object>> dataList) {
-        adapter = new SystemSettingAdapter(getApplicationContext(), dataList, R.layout.item_system_setting_indicator, new String[]{TITLE, IMAGE},
+        indicatorgAdapter = new SystemSettingIndicatorgAdapter(getApplicationContext(), dataList, R.layout.item_system_setting_indicator, new String[]{TITLE, IMAGE},
                 new int[]{R.id.page_item_tv, R.id.page_item_iv});
-        mListView.setAdapter(adapter);
-
+        mListView.setAdapter(indicatorgAdapter);
         //设置第一个icon为选中状态
-        adapter.setmCurrentItem(0);
-        adapter.setClick(true);
+        indicatorgAdapter.setmCurrentItem(defaultPager);
+        indicatorgAdapter.setClick(true);
         mListView.setOnItemClickListener(this);
+
         LogUtils.e("tlh", "SettingsActivity--->disPlayIndicatorItems----->dataList.size():" + dataList.size());
 
+    }
+
+    @Override
+    public void disPlayPagerFragments(List<Fragment> fragments) {
+        fragmentPagerAdapter = new SystemSettingFragmentPagerAdapter(getSupportFragmentManager(), fragments);
+        fragmentPagers.setAdapter(fragmentPagerAdapter);
+        fragmentPagers.setCurrentItem(defaultPager, false);
     }
 
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        adapter.setmCurrentItem(position);
-        adapter.setClick(true);
-        adapter.notifyDataSetChanged();
-
-        switch (position) {
-
-            //七彩耳灯
-            case 0:
-                break;
-            //护眼设置
-            case 1:
-                break;
-            //音量设置
-            case 2:
-                break;
-            //自动关机
-            case 3:
-                break;
-            //防沉迷设置
-            case 4:
-                break;
-            //日期与时间
-            case 5:
-                break;
-            //高级
-            case 6:
-                break;
-            //意见反馈
-            case 7:
-                break;
-        }
+        indicatorgAdapter.setmCurrentItem(position);
+        indicatorgAdapter.setClick(true);
+        indicatorgAdapter.notifyDataSetChanged();
+        fragmentPagers.setCurrentItem(position, false);
+        LogUtils.e("tlh", "H:" + view.getHeight());
 
     }
 
 
-    protected int dp2px(float dp) {
-        final float scale = this.getResources().getDisplayMetrics().density;
-        return (int) (dp * scale + 0.5f);
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        LogUtils.e("tlh", "position:" + position);
+        indicatorgAdapter.setmCurrentItem(position);
+        indicatorgAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 
 }

@@ -13,6 +13,8 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import com.boyue.boyuelauncher.utils.LogUtils;
+
 /**
  * Created by Tianluhua on 2018/5/15.
  */
@@ -62,7 +64,7 @@ public class WIFIStatusView extends EnlargeAndNarrowAnimationView {
             } else if (WifiManager.RSSI_CHANGED_ACTION.equals(action)) {
                 //信号强度变化
                 int currentWiFiStrength = getCurrentWiFiStrength();
-                Log.e("tlh", "currentWiFiStrength:" + currentWiFiStrength);
+                LogUtils.e("tlh", "currentWiFiStrength:" + currentWiFiStrength);
                 getDrawable().setLevel(currentWiFiStrength);
 
             }

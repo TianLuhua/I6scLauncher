@@ -9,20 +9,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="11dp"
-        android:src="@mipmap/ic_system_settings_auto_shutdown" />
+        android:layout_marginTop="11dp" />
 
     <TextView
         android:id="@+id/page_item_tv"
+        style="@style/Stlye_system_setting_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="23dp"
+        android:layout_marginBottom="17dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="22dp"
-        android:layout_toEndOf="@+id/page_item_iv"
-        android:text="@string/app_name"
-        android:textColor="#333333"
-        android:textSize="22sp" />
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@+id/page_item_iv" />
 
     <View
         android:id="@+id/line"

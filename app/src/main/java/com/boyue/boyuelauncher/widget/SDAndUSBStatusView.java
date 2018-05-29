@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.utils.LogUtils;
 
 public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickListener {
 
@@ -103,10 +104,13 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
             String mountPath = uri.getPath();
 
             if (action.equals(Intent.ACTION_MEDIA_MOUNTED)) {
+                LogUtils.e("tlh","ACTION_MEDIA_MOUNTED+mountPath:"+mountPath);
+
 
 
             } else if (action.equals(Intent.ACTION_MEDIA_UNMOUNTED)) {
 
+                LogUtils.e("tlh","ACTION_MEDIA_UNMOUNTED+mountPath:"+mountPath);
 
             }
 

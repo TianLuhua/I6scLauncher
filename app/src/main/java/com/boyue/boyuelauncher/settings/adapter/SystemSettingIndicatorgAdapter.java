@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.settings.SettingsActivity;
@@ -17,7 +16,7 @@ import com.boyue.boyuelauncher.settings.SettingsActivity;
 import java.util.List;
 import java.util.Map;
 
-public class SystemSettinIndicatorgAdapter extends SimpleAdapter {
+public class SystemSettingIndicatorgAdapter extends SimpleAdapter {
 
     private Context context;
     private LayoutInflater inflater;
@@ -27,7 +26,7 @@ public class SystemSettinIndicatorgAdapter extends SimpleAdapter {
 
     private List<Map<String, Object>> data;
 
-    public SystemSettinIndicatorgAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
+    public SystemSettingIndicatorgAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
         super(context, data, resource, from, to);
         this.context = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

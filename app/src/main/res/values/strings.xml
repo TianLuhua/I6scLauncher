@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BoYueLauncher</string>
     <string name="system_settings">系统设置</string>
+    <string name="color_ear">七彩耳灯</string>
 </resources>
