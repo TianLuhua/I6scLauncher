@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+        android:id="@+id/iocn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2"
+        android:background="@color/colorTransparent" />
+
+    <GridView
+        android:id="@+id/display_apps"
+        android:listSelector="@color/colorTransparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="35dp"
+        android:verticalSpacing="25dp"
+        android:layout_weight="1"
+        android:numColumns="3" />
+
+</LinearLayout>

@@ -17,7 +17,7 @@ import com.boyue.boyuelauncher.settings.SettingsActivity;
 import java.util.List;
 import java.util.Map;
 
-public class SystemSettingAdapter extends SimpleAdapter {
+public class SystemSettinIndicatorgAdapter extends SimpleAdapter {
 
     private Context context;
     private LayoutInflater inflater;
@@ -27,7 +27,7 @@ public class SystemSettingAdapter extends SimpleAdapter {
 
     private List<Map<String, Object>> data;
 
-    public SystemSettingAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
+    public SystemSettinIndicatorgAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to) {
         super(context, data, resource, from, to);
         this.context = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
