@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">BoYueLauncher</string>
+
+
+    <!--系统设置-->
     <string name="system_settings">系统设置</string>
     <string name="color_ear">七彩耳灯</string>
+
+    <string name="protect_eye_blue_light_note">七彩耳灯</string>
+
+
+
+    <string name="regular_rest_note">说明：定时</string>
+
 </resources>
+

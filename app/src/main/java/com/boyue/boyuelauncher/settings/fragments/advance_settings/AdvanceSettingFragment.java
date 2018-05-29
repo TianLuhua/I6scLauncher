@@ -5,11 +5,15 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.BaseFragment;
 
 public class AdvanceSettingFragment extends BaseFragment {
+
+
+    private CheckBox colorEarSwitch;
 
 
     public static AdvanceSettingFragment newInstance() {
@@ -26,6 +30,11 @@ public class AdvanceSettingFragment extends BaseFragment {
 
         View rootview = inflater.inflate(R.layout.fragment_settings_advance, null, false);
 
+        initView(rootview);
+
         return rootview;
+    }
+
+    private void initView(View rootview) {
     }
 }

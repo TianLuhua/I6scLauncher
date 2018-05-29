@@ -1,13 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="huyan" />
+    <RelativeLayout
+        android:id="@+id/screen_of_brighness"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="126dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
 
-</LinearLayout>
+
+        <TextView
+            android:id="@+id/screen_of_brighness_item_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/color_ear" />
+
+        <ProgressBar
+            android:id="@+id/screen_of_brighness_item_screen"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="166dp"
+            android:layout_toEndOf="@+id/screen_of_brighness_item_title"
+            android:background="@color/colorTransparent" />
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/protect_eye_senser"
+        layout="@layout/item_system_settings_pager_switch_item"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/screen_of_brighness"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp" />
+
+    <include
+        android:id="@+id/protect_eye_blue"
+        layout="@layout/item_system_settings_pager_switch_item"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/protect_eye_senser"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:id="@+id/protect_eye_blue_note"
+        style="@style/Stlye_system_setting_text_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/protect_eye_blue"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/protect_eye_blue_light_note" />
+
+    <include
+        android:id="@+id/regular_rest"
+        layout="@layout/item_system_settings_pager_check_item"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="75dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/protect_eye_blue_note" />
+    <TextView
+        android:id="@+id/regular_rest_note"
+        style="@style/Stlye_system_setting_text_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/regular_rest"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/regular_rest_note" />
+
+</RelativeLayout>

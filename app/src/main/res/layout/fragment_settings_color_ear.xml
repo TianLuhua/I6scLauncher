@@ -1,34 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <RelativeLayout
-        android:layout_width="654dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="75dp"
-        android:layout_marginTop="126dp"
-        android:background="@mipmap/bg_system_settings_pager_item">
+    <include layout="@layout/item_system_settings_pager_switch_item" />
 
-        <TextView
-            style="@style/Stlye_system_setting_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="36dp"
-            android:gravity="center"
-            android:text="@string/color_ear" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="36dp"
-            android:button="@drawable/select_system_setting_switch"
-            android:checked="true" />
-    </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>
