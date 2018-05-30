@@ -1,13 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/enable_password"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="126dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/enable_password_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/enable_password" />
+
+        <CheckBox
+            android:id="@+id/enable_password_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="36dp"
+            android:background="@color/colorTransparent"
+            android:button="@drawable/select_system_setting_switch"
+            android:checked="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/modify_password"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/enable_password"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/modify_password_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="38dp"
+            android:gravity="center"
+            android:text="@string/modify_password" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/modify_password_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="36dp"
+            android:background="@color/colorTransparent"
+            android:button="@drawable/select_system_setting_switch"
+            android:checked="true"
+            android:src="@mipmap/ic_system_settings_fcm_setting_modify_pwd_switch" />
+    </RelativeLayout>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="fcm" />
+        android:id="@+id/modify_password_note"
+        style="@style/Stlye_system_setting_text_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/modify_password"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/modify_password_note" />
 
-</LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/fcm_switch"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/modify_password_note"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="31dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/fcm_switch_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/fcm_switch" />
+
+        <CheckBox
+            android:id="@+id/fcm_switch_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="36dp"
+            android:background="@color/colorTransparent"
+            android:button="@drawable/select_system_setting_switch"
+            android:checked="true" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/fcm_switch_note"
+        style="@style/Stlye_system_setting_text_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fcm_switch"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/fcm_switch_note" />
+
+    <RelativeLayout
+        android:id="@+id/timing_locking"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/fcm_switch_note"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="31dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/timing_locking_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/timing_locking" />
+
+        <RadioGroup
+            android:id="@+id/timing_locking_item_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="76dp"
+            android:layout_toEndOf="@+id/timing_locking_title"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/timing_locking_item_00"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/never" />
+
+            <RadioButton
+                android:id="@+id/timing_locking_item_01"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_30" />
+
+            <RadioButton
+                android:id="@+id/timing_locking_item_02"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_60" />
+
+            <RadioButton
+                android:id="@+id/timing_locking_item_03"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_120" />
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/timing_locking_note"
+        style="@style/Stlye_system_setting_text_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timing_locking"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/timing_locking_note" />
+
+
+</RelativeLayout>

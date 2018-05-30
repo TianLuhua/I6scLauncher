@@ -3,19 +3,165 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/screen_dormancy"
-        layout="@layout/item_system_settings_pager_check_item" />
 
-    <include
+    <RelativeLayout
+        android:id="@+id/screen_dormancy"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="126dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/screen_dormancy_item_check_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/screen_dormancy" />
+
+        <RadioGroup
+            android:id="@+id/screen_dormancy_item_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="76dp"
+            android:layout_toEndOf="@+id/screen_dormancy_item_check_title"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/screen_dormancy_item_00"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/never" />
+
+            <RadioButton
+                android:id="@+id/screen_dormancy_item_01"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_1" />
+
+            <RadioButton
+                android:id="@+id/screen_dormancy_item_02"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_5" />
+
+            <RadioButton
+                android:id="@+id/screen_dormancy_item_03"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_10" />
+        </RadioGroup>
+
+    </RelativeLayout>
+
+    <!--<include-->
+    <!--android:id="@+id/screen_dormancy"-->
+    <!--layout="@layout/item_system_settings_pager_check_item" />-->
+    <RelativeLayout
         android:id="@+id/auto_shutdown"
-        layout="@layout/item_system_settings_pager_check_item"
         android:layout_width="654dp"
         android:layout_height="56dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/screen_dormancy"
         android:layout_marginEnd="75dp"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/auto_shutdown_item_check_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/auto_shutdown" />
+
+        <RadioGroup
+            android:id="@+id/auto_shutdown_item_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="76dp"
+            android:layout_toEndOf="@+id/auto_shutdown_item_check_title"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/auto_shutdown_item_00"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/never" />
+
+            <RadioButton
+                android:id="@+id/auto_shutdown_item_01"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_15" />
+
+            <RadioButton
+                android:id="@+id/auto_shutdown_item_02"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_30" />
+
+            <RadioButton
+                android:id="@+id/auto_shutdown_item_03"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_60" />
+        </RadioGroup>
+
+    </RelativeLayout>
+    <!--<include-->
+    <!--android:id="@+id/auto_shutdown"-->
+    <!--layout="@layout/item_system_settings_pager_check_item"-->
+    <!--android:layout_width="654dp"-->
+    <!--android:layout_height="56dp"-->
+    <!--android:layout_alignParentEnd="true"-->
+    <!--android:layout_below="@+id/screen_dormancy"-->
+    <!--android:layout_marginEnd="75dp"-->
+    <!--android:layout_marginTop="15dp" />-->
 
     <TextView
         android:id="@+id/auto_shutdown_note"
@@ -28,22 +174,96 @@
         android:text="@string/auto_shutdown_note" />
 
 
-    <include
-        android:id="@+id/timing_shutdown"
-        layout="@layout/item_system_settings_pager_check_item"
+    <!--<include-->
+        <!--android:id="@+id/timing_shutdown"-->
+        <!--layout="@layout/item_system_settings_pager_check_item"-->
+        <!--android:layout_width="654dp"-->
+        <!--android:layout_height="56dp"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_below="@+id/auto_shutdown_note"-->
+        <!--android:layout_marginEnd="75dp"-->
+        <!--android:layout_marginTop="30dp" />-->
+
+    <RelativeLayout
+        android:id="@+id/timing_locking"
         android:layout_width="654dp"
         android:layout_height="56dp"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/auto_shutdown_note"
         android:layout_marginEnd="75dp"
-        android:layout_marginTop="30dp" />
+        android:layout_marginTop="31dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/timing_locking_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/timing_shutdown" />
+
+        <RadioGroup
+            android:id="@+id/timing_locking_item_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="76dp"
+            android:layout_toEndOf="@+id/timing_locking_title"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/timing_shutdown_item_00"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/never" />
+
+            <RadioButton
+                android:id="@+id/timing_shutdown_item_01"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_30" />
+
+            <RadioButton
+                android:id="@+id/timing_shutdown_item_02"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_60" />
+
+            <RadioButton
+                android:id="@+id/timing_shutdown_item_03"
+                style="@style/Stlye_system_setting_check_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorTransparent"
+                android:button="@drawable/select_settings_pager_check_item"
+                android:text="@string/m_120" />
+        </RadioGroup>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/timing_shutdown_note"
         style="@style/Stlye_system_setting_text_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/timing_shutdown"
+        android:layout_below="@+id/timing_locking"
         android:layout_marginStart="92dp"
         android:layout_marginTop="9dp"
         android:text="@string/timing_shutdown_note" />

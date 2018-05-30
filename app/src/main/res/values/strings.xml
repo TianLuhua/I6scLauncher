@@ -43,6 +43,20 @@
     <string name="timing_shutdown_note">说明：开启定时关机后，到设定时间后将自动关机</string>
 
     <!--防沉迷-->
+    <string name="enable_password">启用密码</string>
+    <string name="modify_password">更改密码</string>
+    <string name="modify_password_note">说明：初始密码为0000</string>
+
+    <string name="fcm_switch">防沉迷开关</string>
+    <string name="fcm_switch_note">说明：开启防沉迷开关后，开机后需要输入密码才能使用</string>
+
+    <string name="timing_locking">定时锁定</string>
+    <string name="timing_locking_note">说明：开启定时锁定后，到设定时间后将自动锁定屏幕，不能继续使用</string>
+
+
+
+
+
     <!--日期与时间-->
     <!--高级-->
     <!--意见反馈-->

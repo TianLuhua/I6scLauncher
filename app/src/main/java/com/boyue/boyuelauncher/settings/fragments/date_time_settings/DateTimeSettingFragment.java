@@ -26,8 +26,12 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View rootview = inflater.inflate(R.layout.fragment_settings_date_time_setting, null, false);
-
+        initView(rootview);
         return rootview;
+    }
+
+    private void initView(View rootview) {
+
     }
 
     @Override
