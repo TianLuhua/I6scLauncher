@@ -26,8 +26,11 @@ public class FeedBackFragment extends AbstractMVPFragment<FeedBackView, FeedBack
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View rootview = inflater.inflate(R.layout.fragment_settings_feedback, null, false);
-
+initView(rootview);
         return rootview;
+    }
+
+    private void initView(View rootview) {
     }
 
     @Override

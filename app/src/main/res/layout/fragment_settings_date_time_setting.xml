@@ -1,13 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="date and time" />
+    <RelativeLayout
+        android:id="@+id/synchronization_time"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="126dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
 
-</LinearLayout>
+
+        <TextView
+            android:id="@+id/synchronization_time_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/synchronization_time" />
+
+        <CheckBox
+            android:id="@+id/synchronization_time_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="36dp"
+            android:background="@color/colorTransparent"
+            android:button="@drawable/select_system_setting_switch"
+            android:checked="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/set_date"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/synchronization_time"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/set_date_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="38dp"
+            android:gravity="center"
+            android:text="@string/set_date" />
+
+        <TextView
+            android:id="@+id/set_date_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="36dp"
+            android:text="1910-01-01" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/set_time"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/set_date"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/set_time_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="38dp"
+            android:gravity="center"
+            android:text="@string/set_time" />
+
+        <TextView
+            android:id="@+id/set_time_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="36dp"
+            android:text="10:00" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

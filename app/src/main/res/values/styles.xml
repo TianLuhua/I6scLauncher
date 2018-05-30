@@ -64,6 +64,16 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="Stlye_system_setting_date_time_disable" parent="Stlye_system_setting_check_text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#999999</item>
+    </style>
+
+    <style name="Stlye_system_setting_date_time_enable" parent="Stlye_system_setting_check_text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#333333</item>
+    </style>
+
     <style name="Stlye_system_setting_text_note">
         <item name="android:textColor">#666</item>
         <item name="android:textSize">18sp</item>

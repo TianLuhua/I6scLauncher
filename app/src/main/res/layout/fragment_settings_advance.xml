@@ -1,13 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="advance" />
+    <RelativeLayout
+        android:id="@+id/device_model"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="126dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
 
-</LinearLayout>
+
+        <TextView
+            android:id="@+id/device_model_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/device_model" />
+
+        <TextView
+            android:id="@+id/device_model_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Stlye_system_setting_date_time_enable"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="36dp"
+            android:text="I6S+" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/firmware_version"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/device_model"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/firmware_version_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="36dp"
+            android:gravity="center"
+            android:text="@string/firmware_version" />
+
+        <TextView
+            android:id="@+id/firmware_version_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            style="@style/Stlye_system_setting_date_time_enable"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="36dp"
+            android:text="XXXX-XX-XX" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/free_capacity"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/firmware_version"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/free_capacity_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="38dp"
+            android:gravity="center"
+            android:text="@string/free_capacity" />
+
+        <TextView
+            android:id="@+id/free_capacity_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            style="@style/Stlye_system_setting_date_time_enable"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="36dp"
+            android:text="4.5G" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/factory_setting"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/free_capacity"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/factory_setting_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="38dp"
+            android:gravity="center"
+            android:text="@string/factory_setting" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/factory_setting_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="36dp"
+            android:background="@color/colorTransparent"
+            android:button="@drawable/select_system_setting_switch"
+            android:checked="true"
+            android:src="@mipmap/ic_system_settings_fcm_setting_modify_pwd_switch" />
+    </RelativeLayout>
+
+
+</RelativeLayout>
