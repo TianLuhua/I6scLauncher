@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorTransparent">#00000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="colorCommitHint">#999999</color>
+
+
 </resources>

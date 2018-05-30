@@ -5,6 +5,7 @@
     <!--系统设置-->
     <!--通用-->
     <string name="system_settings">系统设置</string>
+    <string name="commit">提交</string>
     <string name="never">从不</string>
     <string name="m_1">1分钟</string>
     <string name="m_5">5分钟</string>
@@ -53,21 +54,21 @@
     <string name="timing_locking">定时锁定</string>
     <string name="timing_locking_note">说明：开启定时锁定后，到设定时间后将自动锁定屏幕，不能继续使用</string>
 
-
     <!--日期与时间-->
     <string name="synchronization_time">自动同步网络时间</string>
     <string name="set_date">设置日期</string>
     <string name="set_time">设置时间</string>
 
-
     <!--高级-->
     <string name="device_model">型号</string>
     <string name="firmware_version">固件版本</string>
     <string name="free_capacity">内置存储剩余空间</string>
-    <string name="factory_setting">回复出厂设置</string>
-
+    <string name="factory_setting">恢复出厂设置</string>
 
     <!--意见反馈-->
+    <string name="feedback_note">我对火火兔视频机的建议：</string>
+    <string name="feedback_commit_hint">火火兔的成长离不开您的支持，您宝贵的建议，可以让我们做得更好。</string>
+
 
 </resources>
 

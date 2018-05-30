@@ -1,13 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/feedback_commit_root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/feedback_note"
+        style="@style/Stlye_system_setting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="104dp"
         android:gravity="center"
-        android:text="feedBack" />
+        android:text="@string/feedback_note" />
 
-</LinearLayout>
+    <ScrollView
+        android:layout_width="621dp"
+        android:layout_height="305dp"
+        android:layout_below="@id/feedback_note"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="24dp"
+        android:background="@mipmap/bg_system_settings_feedback_commit">
+
+        <EditText
+            android:id="@+id/feedback_commit"
+            style="@style/Stlye_system_setting_text_commit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@null"
+            android:hint="@string/feedback_commit_hint"
+            android:textColorHint="@color/colorCommitHint" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/feedback_commit_bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="26dp"
+        android:layout_marginStart="334dp"
+        android:background="@drawable/select_settings_feedback_commit_btn"
+        android:text="@string/commit" />
+</RelativeLayout>
