@@ -47,7 +47,7 @@
             android:name=".wifimanager.WiFiManagerActivity"
             android:label="Tianluhua"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.AppCompat.DayNight.Dialog">
+            android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="com.boyue.boyurlauncher.activity.action.wifimanager" />
                 <category android:name="android.intent.category.DEFAULT" />

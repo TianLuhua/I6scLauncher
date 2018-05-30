@@ -69,6 +69,9 @@
     <string name="feedback_note">我对火火兔视频机的建议：</string>
     <string name="feedback_commit_hint">火火兔的成长离不开您的支持，您宝贵的建议，可以让我们做得更好。</string>
 
-
+    <!--WIFI设置-->
+    <string name="wifi_setting">WIFI设置</string>
+    <string name="wifi">WLNA</string>
+    <string name="manually_add_network">手动添加网络</string>
 </resources>
 

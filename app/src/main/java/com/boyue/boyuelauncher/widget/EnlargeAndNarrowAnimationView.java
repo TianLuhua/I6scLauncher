@@ -4,10 +4,8 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.animation.Animation;
-import android.widget.Toast;
 
-import com.boyue.boyuelauncher.animation.EnlargeAndNarrowAnimation;
+import com.boyue.boyuelauncher.widget.animation.EnlargeAndNarrowAnimation;
 
 /**
  * Created by Tianluhua on 2018/5/22.

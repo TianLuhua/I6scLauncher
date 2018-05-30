@@ -1,13 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#51DDD8">
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/dataView"
+    <com.boyue.boyuelauncher.widget.TitleBar
+        android:id="@+id/title_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+
+    <FrameLayout
+        android:id="@+id/wifi_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/title_bar"
+        android:background="@mipmap/bg_system_settings_wifi_status" />
+
+    <RelativeLayout
+        android:id="@+id/wifi_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_bar"
+        android:layout_toEndOf="@+id/wifi_status"
+        android:background="@mipmap/bg_system_settings_wifi_list">
+
+        <RelativeLayout
+            android:id="@+id/wifi_list_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+
+            <TextView
+                style="@style/Stlye_system_setting_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="55dp"
+                android:text="@string/wifi" />
+
+            <CheckBox
+                android:id="@+id/wifi_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="70dp"
+                android:layout_marginTop="48dp"
+                android:background="@null"
+                android:button="@drawable/select_system_setting_switch" />
+
+            <View
+                android:layout_width="604dp"
+                android:layout_height="2dp"
+                android:layout_below="@+id/wifi_switch"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="#666666" />
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dataView"
+            android:layout_width="636dp"
+            android:layout_height="318dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="110dp" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/wifi_lose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_syetem_settings_wifi_wifilose" />
+
+        <TextView
+            style="@style/Stlye_wifi_add_network"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/manually_add_network" />
+    </RelativeLayout>
 
 
 </RelativeLayout>

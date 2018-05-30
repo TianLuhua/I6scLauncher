@@ -17,12 +17,15 @@ import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
@@ -40,7 +43,7 @@ import java.util.List;
 /**
  * Created by Tianluhua on 2018/5/16.
  */
-public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView,WiFiManagerPersenterImp> implements WiFiManagerView{
+public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, WiFiManagerPersenterImp> implements WiFiManagerView, View.OnClickListener {
 
     private boolean isGranted;//是否有权限
     private static final int REQUEST_CODE = 11000;//权限请求code
@@ -54,7 +57,9 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView,WiF
     private List<WifiModel> dataList;//wifi列表显示
 
 
-    private RecyclerView  dataView;
+    private AppCompatImageView backBtn;
+    private TextView tilte;
+    private RecyclerView dataView;
 
     @Override
     protected int getContentViewID() {
@@ -63,12 +68,18 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView,WiF
 
     @Override
     protected void initView() {
+
+        backBtn = findViewById(R.id.title_bar).findViewById(R.id.left_icon);
+        backBtn.setOnClickListener(this);
+        tilte = findViewById(R.id.title_bar).findViewById(R.id.title);
+        tilte.setText(R.string.wifi_setting);
+
         scanResultList = new ArrayList<>();
         wifiConfigList = new ArrayList<>();
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         dataAdapter = new WifiAdapter(WiFiManagerActivity.this, dataList = new ArrayList<>());
-        dataView=findViewById(R.id.dataView);
+        dataView = findViewById(R.id.dataView);
         dataView.setLayoutManager(new LinearLayoutManager(WiFiManagerActivity.this));
         dataView.setAdapter(dataAdapter);
         dataAdapter.setOnItemClickListener(new OnItemClickListener() {
@@ -78,7 +89,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView,WiF
                 if (data.isConnect()) {
                     getCurrentWifi();
                 } else {
-                    connectWifi(data.getWifiName(), data.getWifiType(),WiFiManagerActivity.this);
+                    connectWifi(data.getWifiName(), data.getWifiType(), WiFiManagerActivity.this);
                 }
             }
 
@@ -97,9 +108,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView,WiF
         checkPermission(WiFiManagerActivity.this);
 
     }
-    
-    
-    
+
 
     @Override
     protected WiFiManagerPersenterImp createPresenter() {
@@ -121,7 +130,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView,WiF
 
     @Override
     protected void onPause() {
-        if (wifiReceiver!=null) {
+        if (wifiReceiver != null) {
             unregisterReceiver(wifiReceiver);
             super.onPause();
         }
@@ -131,7 +140,6 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView,WiF
     protected void onDestroy() {
         super.onDestroy();
     }
-
 
 
     /**
@@ -168,7 +176,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView,WiF
     /**
      * 连接Wifi
      */
-    private void connectWifi(final String ssid, final int wifiType,final Activity activity) {
+    private void connectWifi(final String ssid, final int wifiType, final Activity activity) {
         int networkId = -1;
         for (WifiConfiguration configuration : wifiConfigList) {
             String configId = configuration.SSID.replaceAll("\"", "");
@@ -276,6 +284,15 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView,WiF
         return config;
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.left_icon:
+                this.finish();
+                break;
+        }
+    }
+
 
     /**
      * wifi广播
@@ -332,11 +349,12 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView,WiF
             openWifi();//打开WIFI
         } else {
             isGranted = false;
-            ToastUtil.showLongToast(mContext,"扫描WIFI缺少定位权限，请授予权限");
+            ToastUtil.showLongToast(mContext, "扫描WIFI缺少定位权限，请授予权限");
             ActivityCompat.requestPermissions(mContext,
                     new String[]{Config.Permission.LOCATION_PERMISSION}, REQUEST_CODE);
         }
     }
+
     /**
      * 打开wifi
      */

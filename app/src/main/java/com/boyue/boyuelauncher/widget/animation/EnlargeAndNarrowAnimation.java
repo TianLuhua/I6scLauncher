@@ -1,7 +1,5 @@
-package com.boyue.boyuelauncher.animation;
+package com.boyue.boyuelauncher.widget.animation;
 
-import android.content.Context;
-import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
