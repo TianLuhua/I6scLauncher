@@ -12,4 +12,9 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter {
     public void igonreNetwork(WifiModel data) {
 
     }
+
+    @Override
+    public void addNetwork() {
+
+    }
 }

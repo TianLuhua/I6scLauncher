@@ -15,6 +15,7 @@
 
     <TextView
         android:id="@+id/dialog_content"
+        style="@style/Stlye_system_setting_text"
         android:layout_width="328dp"
         android:layout_height="52dp"
         android:layout_marginStart="47dp"
@@ -27,9 +28,9 @@
         style="@style/Stlye_setting_wifi_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="25dp"
+        android:layout_below="@+id/dialog_content"
         android:layout_marginStart="51dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/select_settings_wifi_left"
         android:text="@string/ignore" />
 
@@ -38,9 +39,9 @@
         style="@style/Stlye_setting_wifi_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="25dp"
+        android:layout_below="@+id/dialog_content"
         android:layout_marginStart="72dp"
+        android:layout_marginTop="64dp"
         android:layout_toEndOf="@+id/dialog_left"
         android:background="@drawable/select_settings_wifi_right"
         android:text="@string/cancel" />

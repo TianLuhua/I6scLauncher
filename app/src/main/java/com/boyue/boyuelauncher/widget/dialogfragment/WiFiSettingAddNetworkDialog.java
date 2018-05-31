@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.wifimanager.listener.OnWiFiSettingDialogOnListener;
 
 public class WiFiSettingAddNetworkDialog extends DialogFragment implements View.OnClickListener {
 
@@ -19,7 +20,7 @@ public class WiFiSettingAddNetworkDialog extends DialogFragment implements View.
     private Button leftBt;
     private Button rightBt;
 
-    private WiFiSettingDialogOnListener wiFiSettingDialogOnListener;
+    private OnWiFiSettingDialogOnListener onWiFiSettingDialogOnListener;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -68,26 +69,21 @@ public class WiFiSettingAddNetworkDialog extends DialogFragment implements View.
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.dialog_left:
-                if (wiFiSettingDialogOnListener == null) return;
-                wiFiSettingDialogOnListener.onLeftClick(v);
+                if (onWiFiSettingDialogOnListener == null) return;
+                onWiFiSettingDialogOnListener.onLeftClick(v);
                 break;
 
             case R.id.dialog_right:
-                if (wiFiSettingDialogOnListener == null) return;
-                wiFiSettingDialogOnListener.onrightClick(v);
+                if (onWiFiSettingDialogOnListener == null) return;
+                onWiFiSettingDialogOnListener.onrightClick(v);
                 break;
         }
     }
 
 
-    public void setWiFiSettingDialogOnListener(WiFiSettingDialogOnListener wiFiSettingDialogOnListener) {
-        this.wiFiSettingDialogOnListener = wiFiSettingDialogOnListener;
+    public void setWiFiSettingDialogOnListener(OnWiFiSettingDialogOnListener onWiFiSettingDialogOnListener) {
+        this.onWiFiSettingDialogOnListener = onWiFiSettingDialogOnListener;
     }
 
-    public interface WiFiSettingDialogOnListener {
 
-        void onLeftClick(View view);
-
-        void onrightClick(View view);
-    }
 }
