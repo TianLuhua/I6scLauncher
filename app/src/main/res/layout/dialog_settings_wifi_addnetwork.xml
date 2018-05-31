@@ -28,7 +28,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="108dp"
         android:layout_toRightOf="@+id/dialog_net_name"
-        android:background="@mipmap/bg_settings_wifi_editor" />
+        android:background="@mipmap/bg_settings_wifi_editor"
+        android:textCursorDrawable="@drawable/edit_cursor_settings_wifi_addnetwork" />
 
     <TextView
         android:id="@+id/dialog_net_pwd"
@@ -46,8 +47,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/dialog_net_name_editor"
         android:layout_marginTop="20dp"
-        android:layout_toRightOf="@+id/dialog_net_name"
-        android:background="@mipmap/bg_settings_wifi_editor" />
+        android:layout_toEndOf="@+id/dialog_net_name"
+        android:background="@mipmap/bg_settings_wifi_editor"
+        android:textCursorDrawable="@drawable/edit_cursor_settings_wifi_addnetwork" />
 
     <Button
         android:id="@+id/dialog_left"
