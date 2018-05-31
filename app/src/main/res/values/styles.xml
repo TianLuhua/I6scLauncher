@@ -40,6 +40,15 @@
         <item name="android:textSize">30sp</item>
     </style>
 
+    <style name="Stlye_setting_wifi_title" parent="Stlye_system_setting_title">
+        <item name="android:textSize">28sp</item>
+    </style>
+
+    <style name="Stlye_setting_wifi_btn">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
     <style name="Stlye_system_setting_text">
         <item name="android:textColor">#333333</item>
         <item name="android:textSize">22sp</item>
@@ -92,6 +101,15 @@
     <style name="Stlye_wifi_add_network">
         <item name="android:textColor">#333333</item>
         <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Stlye_wifi_settings_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
     </style>
 
 </resources>

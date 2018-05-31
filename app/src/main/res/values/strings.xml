@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">BoYueLauncher</string>
+    <string name="hht">火火兔火火火火火兔火火火火火兔火火火火火兔火火火火火兔火火火火火兔火火火火火兔火火火火火兔火火火</string>
+    <string name="ignore">忽略</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
 
 
     <!--系统设置-->
@@ -77,6 +81,13 @@
     <string name="ip_address">IP地址:</string>
     <string name="mac">MAC:</string>
     <string name="manually_add_network">手动添加网络</string>
+    <string name="dialog_net_name">网络名称：</string>
+    <string name="dialog_net_pwd">密码：</string>
+
+
     <string name="wifi_enable">没有打开网络！</string>
+    <string name="has_saved">(已保存)</string>
+    <string name="ignore_network">忽略网络</string>
+
 </resources>
 

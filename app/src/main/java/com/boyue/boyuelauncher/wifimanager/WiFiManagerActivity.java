@@ -33,6 +33,8 @@ import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.utils.KeyboardUtil;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
+import com.boyue.boyuelauncher.widget.dialogfragment.WiFiSettingAddNetworkDialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.WiFiSettingDialog;
 import com.boyue.boyuelauncher.wifimanager.adpter.WifiAdapter;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 import com.boyue.boyuelauncher.wifimanager.listener.DataActionListener;
@@ -61,6 +63,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
     private AppCompatImageView backBtn;
     private TextView tilte;
     private RecyclerView dataView;
+    private TextView manuallyAddNetwork;
 
     @Override
     protected int getContentViewID() {
@@ -74,6 +77,9 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         backBtn.setOnClickListener(this);
         tilte = findViewById(R.id.title_bar).findViewById(R.id.title);
         tilte.setText(R.string.wifi_setting);
+
+        manuallyAddNetwork = findViewById(R.id.manually_add_network);
+        manuallyAddNetwork.setOnClickListener(this);
 
         scanResultList = new ArrayList<>();
         wifiConfigList = new ArrayList<>();
@@ -92,7 +98,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                 } else {
                     connectWifi(data.getWifiName(), data.getWifiType(), WiFiManagerActivity.this);
                 }
-                LogUtils.e("tlh","H:"+ dataView.getHeight()+",dataView.getWidth():"+dataView.getWidth());
+                LogUtils.e("tlh", "H:" + dataView.getHeight() + ",dataView.getWidth():" + dataView.getWidth());
             }
 
             @Override
@@ -105,6 +111,30 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                 WifiModel data = dataList.get(position);
                 data.setShowDetail(!data.isShowDetail());
                 dataAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onIgnore(int position) {
+                final WifiModel data = dataList.get(position);
+                final WiFiSettingDialog dialog = new WiFiSettingDialog();
+                dialog.setTitle(R.string.ignore_network);
+                dialog.setContent(data.getWifiName());
+                dialog.setBtnString(R.string.cancel, R.string.ignore);
+                dialog.setCancelable(false);
+                dialog.setWiFiSettingDialogOnListener(new WiFiSettingDialog.WiFiSettingDialogOnListener() {
+                    @Override
+                    public void onLeftClick(View view) {
+                        getPresenter().igonreNetwork(data);
+                    }
+
+                    @Override
+                    public void onrightClick(View view) {
+                        dialog.dismiss();
+
+                    }
+                });
+
+                dialog.show(getSupportFragmentManager(), "igonre");
             }
         });
         checkPermission(WiFiManagerActivity.this);
@@ -194,7 +224,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         } else {//新的连接
             if (wifiType != 0) {//需要密码
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("输入密码");
+//                builder.setTitle("输入密码");
                 LayoutInflater factory = LayoutInflater.from(this);
                 View view = factory.inflate(R.layout.lay_dialog_input, null);
                 final EditText etDialogInput = (EditText) view.findViewById(R.id.etDialogInput);
@@ -291,6 +321,15 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         switch (v.getId()) {
             case R.id.left_icon:
                 this.finish();
+                break;
+            case R.id.manually_add_network:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                LayoutInflater factory = LayoutInflater.from(this);
+                View view = factory.inflate(R.layout.dialog_settings_wifi, null);
+                final EditText etDialogInput = (EditText) view.findViewById(R.id.etDialogInput);
+                builder.setView(view);
+                builder.setCancelable(true);
+                builder.show();
                 break;
         }
     }

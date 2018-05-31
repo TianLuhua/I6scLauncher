@@ -5,5 +5,8 @@ package com.boyue.boyuelauncher.wifimanager.listener;
  * Created by Tianluhua on 2018/5/16.
  */
 public interface DataActionListener {
+
     void onShow(int position);
+
+    void onIgnore(int position);
 }

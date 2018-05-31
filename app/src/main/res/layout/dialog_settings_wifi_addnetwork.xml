@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/bg_dialog_settings_wifi">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        style="@style/Stlye_setting_wifi_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/manually_add_network" />
+
+    <TextView
+        android:id="@+id/dialog_net_name"
+        style="@style/Stlye_system_setting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="108dp"
+        android:text="@string/dialog_net_name" />
+
+    <EditText
+        android:id="@+id/dialog_net_name_editor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="129dp"
+        android:background="@mipmap/bg_settings_wifi_editor" />
+
+    <TextView
+        android:id="@+id/dialog_net_pwd"
+        style="@style/Stlye_system_setting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialog_net_name"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/dialog_net_pwd" />
+
+    <EditText
+        android:id="@+id/dialog_net_editor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/dialog_net_name_editor"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/bg_settings_wifi_editor" />
+
+    <Button
+        android:id="@+id/dialog_left"
+        style="@style/Stlye_setting_wifi_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginStart="51dp"
+        android:background="@drawable/select_settings_wifi_left"
+        android:text="@string/ignore" />
+
+    <Button
+        android:id="@+id/dialog_right"
+        style="@style/Stlye_setting_wifi_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginStart="72dp"
+        android:layout_toEndOf="@+id/dialog_left"
+        android:background="@drawable/select_settings_wifi_right"
+        android:text="@string/cancel" />
+
+</RelativeLayout>

@@ -1,6 +1,7 @@
 package com.boyue.boyuelauncher.wifimanager.adpter;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,15 +64,19 @@ public class WifiAdapter extends RecyclerView.Adapter {
                 viewHolder.tvWifiDetail.setVisibility(View.GONE);
             }
             if (data.getWifiType() != 0) {
-                viewHolder.ivNeedCode.setVisibility(View.VISIBLE);
+
+                //需要密码连接
+//                viewHolder.ivNeedCode.setVisibility(View.VISIBLE);
             } else {
-                viewHolder.ivNeedCode.setVisibility(View.INVISIBLE);
+                //不需要需要密码连接
+
+//                viewHolder.ivNeedCode.setVisibility(View.INVISIBLE);
             }
-            viewHolder.ivDetail.setOnClickListener(new View.OnClickListener() {
+            viewHolder.ivIgnore.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (dataActionListener != null) {
-                        dataActionListener.onShow(position);
+                        dataActionListener.onIgnore(position);
                     }
                 }
             });
@@ -103,16 +108,18 @@ public class WifiAdapter extends RecyclerView.Adapter {
         TextView tvWifiName;
         TextView tvWifiDetail;
         ImageView ivIntensity;
-        TextView ivNeedCode;
-        TextView ivDetail;
+        ImageView ivIgnore;
+        //        TextView ivNeedCode;
+//        TextView ivDetail;
 
         public CustomViewHolder(View itemView) {
             super(itemView);
-            tvWifiName=itemView.findViewById(R.id.tvWifiName);
-            tvWifiDetail=itemView.findViewById(R.id.tvWifiDetail);
-            ivIntensity=itemView.findViewById(R.id.ivIntensity);
-            ivNeedCode=itemView.findViewById(R.id.ivNeedCode);
-            ivDetail=itemView.findViewById(R.id.ivDetail);
+            tvWifiName = itemView.findViewById(R.id.wifi_name);
+            tvWifiDetail = itemView.findViewById(R.id.tvWifiDetail);
+            ivIntensity = itemView.findViewById(R.id.wifi_ic);
+            ivIgnore = itemView.findViewById(R.id.ignore_ic);
+//            ivNeedCode = itemView.findViewById(R.id.ivNeedCode);
+//            ivDetail = itemView.findViewById(R.id.ivDetail);
         }
     }
 }
