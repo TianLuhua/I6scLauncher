@@ -72,6 +72,11 @@
     <!--WIFI设置-->
     <string name="wifi_setting">WIFI设置</string>
     <string name="wifi">WLNA</string>
+    <string name="wifi_name">WIFI名称</string>
+    <string name="status">状态</string>
+    <string name="ip_address">IP地址:</string>
+    <string name="mac">MAC:</string>
     <string name="manually_add_network">手动添加网络</string>
+    <string name="wifi_enable">没有打开网络！</string>
 </resources>
 

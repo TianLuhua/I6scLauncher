@@ -11,58 +11,141 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_bar"
-        android:orientation="horizontal">
+        android:layout_below="@+id/title_bar">
 
         <RelativeLayout
             android:id="@+id/wifi_status"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/bg_system_settings_wifi_status" />
+            android:layout_width="258dp"
+            android:layout_height="513dp"
+            android:layout_marginStart="15dp"
+            android:background="@mipmap/bg_system_settings_wifi_status">
+
+            <RelativeLayout
+                android:layout_centerHorizontal="true"
+                android:id="@+id/wifi_enable_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/wifi_statuss_name_lable"
+                    style="@style/Stlye_system_setting_wifi_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="134dp"
+                    android:background="@mipmap/bg_system_settings_wifi_status_name"
+                    android:text="@string/wifi_name" />
+
+                <TextView
+                    android:id="@+id/wifi_statuss_name"
+                    style="@style/Stlye_system_setting_wifi_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wifi_statuss_name_lable"
+                    android:text="@string/wifi_name" />
+
+                <TextView
+                    android:id="@+id/wifi_statuss_status_lable"
+                    style="@style/Stlye_system_setting_wifi_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wifi_statuss_name"
+                    android:layout_marginTop="28dp"
+                    android:background="@mipmap/bg_system_settings_wifi_status_status"
+                    android:text="@string/status" />
+
+                <TextView
+                    android:id="@+id/wifi_statuss_status"
+                    style="@style/Stlye_system_setting_wifi_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wifi_statuss_status_lable"
+                    android:text="@string/status" />
+
+                <TextView
+                    android:id="@+id/wifi_statuss_ipaddress_lable"
+                    style="@style/Stlye_system_setting_wifi_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wifi_statuss_status"
+                    android:layout_marginTop="28dp"
+                    android:background="@mipmap/bg_system_settings_wifi_status_ipaddress"
+                    android:text="@string/ip_address" />
+
+                <TextView
+                    android:id="@+id/wifi_statuss_ipaddress"
+                    style="@style/Stlye_system_setting_wifi_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wifi_statuss_ipaddress_lable"
+                    android:text="@string/ip_address" />
+
+                <TextView
+                    android:id="@+id/wifi_statuss_mac_lable"
+                    style="@style/Stlye_system_setting_wifi_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wifi_statuss_ipaddress"
+                    android:layout_marginTop="28dp"
+                    android:background="@mipmap/bg_system_settings_wifi_status_mac"
+                    android:text="@string/mac" />
+
+                <TextView
+                    android:id="@+id/wifi_statuss_mac"
+                    style="@style/Stlye_system_setting_wifi_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/wifi_statuss_mac_lable"
+                    android:text="@string/mac" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/wifi_disable_note"
+                style="@style/Stlye_system_setting_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="312dp"
+                android:text="@string/wifi_enable" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/wifi_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="730dp"
+            android:layout_height="514dp"
+            android:layout_toEndOf="@+id/wifi_status"
             android:background="@mipmap/bg_system_settings_wifi_list">
 
-            <RelativeLayout
-                android:id="@+id/wifi_list_title"
+            <TextView
+                android:id="@+id/wlan"
+                style="@style/Stlye_system_setting_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true">
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="75dp"
+                android:layout_marginTop="55dp"
+                android:text="@string/wifi" />
 
+            <CheckBox
+                android:id="@+id/wlan_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="70dp"
+                android:layout_marginTop="48dp"
+                android:background="@null"
+                android:button="@drawable/select_system_setting_switch" />
 
-                <TextView
-                    style="@style/Stlye_system_setting_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="75dp"
-                    android:layout_marginTop="55dp"
-                    android:text="@string/wifi" />
-
-                <CheckBox
-                    android:id="@+id/wifi_switch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="70dp"
-                    android:layout_marginTop="48dp"
-                    android:background="@null"
-                    android:button="@drawable/select_system_setting_switch" />
-
-                <View
-                    android:layout_width="604dp"
-                    android:layout_height="2dp"
-                    android:layout_below="@+id/wifi_switch"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="16dp"
-                    android:background="#666666" />
-            </RelativeLayout>
+            <View
+                android:id="@+id/line"
+                android:layout_width="604dp"
+                android:layout_height="2dp"
+                android:layout_below="@+id/wlan"
+                android:layout_marginStart="63dp"
+                android:layout_marginTop="16dp"
+                android:background="#666666" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/dataView"
@@ -71,22 +154,24 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="110dp" />
 
-            <ImageView
-                android:id="@+id/wifi_lose"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:src="@mipmap/ic_syetem_settings_wifi_wifilose" />
-
             <TextView
                 style="@style/Stlye_wifi_add_network"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:layout_marginBottom="44dp"
+                android:layout_marginStart="282dp"
                 android:text="@string/manually_add_network" />
-        </RelativeLayout>
-    </LinearLayout>
 
+            <ImageView
+                android:id="@+id/wifi_close_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="238dp"
+                android:layout_marginTop="245dp"
+                android:src="@mipmap/ic_syetem_setting_wifi_wifilose" />
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </RelativeLayout>

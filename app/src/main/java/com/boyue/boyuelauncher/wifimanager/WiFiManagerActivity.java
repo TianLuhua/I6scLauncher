@@ -31,6 +31,7 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.utils.KeyboardUtil;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.wifimanager.adpter.WifiAdapter;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
@@ -91,6 +92,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                 } else {
                     connectWifi(data.getWifiName(), data.getWifiType(), WiFiManagerActivity.this);
                 }
+                LogUtils.e("tlh","H:"+ dataView.getHeight()+",dataView.getWidth():"+dataView.getWidth());
             }
 
             @Override

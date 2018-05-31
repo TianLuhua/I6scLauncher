@@ -59,6 +59,21 @@
         <item name="android:textColor">#333333</item>
     </style>
 
+
+    <style name="Stlye_system_setting_wifi_value" parent="Stlye_system_setting_date_time_enable">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#333333</item>
+    </style>
+
+    <style name="Stlye_system_setting_wifi_title" parent="Stlye_system_setting_wifi_value">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+
     <style name="Stlye_system_setting_text_note">
         <item name="android:textColor">#666</item>
         <item name="android:textSize">18sp</item>
