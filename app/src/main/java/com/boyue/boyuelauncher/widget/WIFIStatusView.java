@@ -54,11 +54,10 @@ public class WIFIStatusView extends EnlargeAndNarrowAnimationView {
                 switch (wifiState) {
                     case WifiManager.WIFI_STATE_DISABLED:
                         //Wifi关闭
-                        getDrawable().setLevel(5);
+                        getDrawable().setLevel(0);
                         break;
                     case WifiManager.WIFI_STATE_ENABLED:
                         //Wifi打开
-                        getDrawable().setLevel(6);
                         break;
                 }
             } else if (WifiManager.RSSI_CHANGED_ACTION.equals(action)) {
