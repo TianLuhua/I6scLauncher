@@ -59,7 +59,7 @@
         android:layout_below="@+id/dialog_net_editor"
         android:layout_marginStart="51dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/select_settings_wifi_left"
+        android:background="@drawable/select_settings_btn"
         android:text="@string/ignore" />
 
     <Button
