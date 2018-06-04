@@ -76,4 +76,8 @@ public class SettingsModeImp implements SettingsMode {
         callBack.setPagerFragments(fragments);
 
     }
+    @Override
+    public void onDestroy() {
+
+    }
 }

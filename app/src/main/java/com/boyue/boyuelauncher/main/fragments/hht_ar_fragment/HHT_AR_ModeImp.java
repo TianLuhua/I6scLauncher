@@ -30,4 +30,9 @@ public class HHT_AR_ModeImp implements HHT_AR_Mode {
     }
 
     private CallBack callBack;
+
+    @Override
+    public void onDestroy() {
+
+    }
 }

@@ -9,6 +9,7 @@ import com.boyue.boyuelauncher.base.BaseView;
  */
 public interface MainView extends BaseView {
 
-    public void setBgDrawble(Drawable bgDrawble);
+    //系统音量发生变化时回调
+    public void setCurrentVolune(int currentVolune);
 
 }

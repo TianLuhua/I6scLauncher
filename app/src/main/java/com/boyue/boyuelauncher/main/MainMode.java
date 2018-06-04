@@ -9,11 +9,13 @@ import com.boyue.boyuelauncher.base.BaseMode;
  */
 public interface MainMode extends BaseMode {
 
-    void getBGDrawble();
+    void getCurrentVolume();
 
 
     public interface CallBack {
 
-        void setBgDrawcle(Drawable current);
+        void setCurrentVolume(int currentVolume);
+
+        void volumeChange(int volume);
     }
 }

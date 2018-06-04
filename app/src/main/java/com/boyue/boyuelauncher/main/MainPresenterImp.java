@@ -15,17 +15,33 @@ public class MainPresenterImp extends MainPersenter {
     public MainPresenterImp(Context mContext) {
         mainMode = new MainModeImp(mContext, new MainMode.CallBack() {
             @Override
-            public void setBgDrawcle(Drawable current) {
-                if (getView() == null) return;
-                getView().setBgDrawble(current);
+            public void setCurrentVolume(int currentVolume) {
+                MainView view = getView();
+                if (view != null) {
+                    view.setCurrentVolune(currentVolume);
+                }
+            }
+
+            @Override
+            public void volumeChange(int volume) {
+                MainView view = getView();
+                if (view == null) return;
+                view.setCurrentVolune(volume);
             }
         });
     }
 
     @Override
-    void getBG() {
+    void getCurrentVolune() {
         if (mainMode == null) return;
-        mainMode.getBGDrawble();
+        mainMode.getCurrentVolume();
 
+    }
+
+    @Override
+    public void detachView() {
+        super.detachView();
+        if (mainMode == null) return;
+        mainMode.onDestroy();
     }
 }

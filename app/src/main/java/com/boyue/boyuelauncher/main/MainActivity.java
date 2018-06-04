@@ -4,7 +4,10 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -64,12 +67,12 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         adapter = new MainPagerAdapter(getSupportFragmentManager(), fragments);
         viewpager.setAdapter(adapter);
         initTitle();
+        getCurrentVolune();
     }
 
-    private void setBG() {
-
+    private void getCurrentVolune() {
         if (getPresenter() == null) return;
-        getPresenter().getBG();
+        getPresenter().getCurrentVolune();
 
     }
 
@@ -106,7 +109,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
             }
         });
-        tilteBar.setVolumeMumber(40);
     }
 
 
@@ -240,10 +242,14 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         }
     }
 
+    @Override
+    public void setCurrentVolune(int currentVolune) {
+        tilteBar.setVolumeMumber(currentVolune);
+    }
 
     @Override
-    public void setBgDrawble(Drawable bgDrawble) {
-        if (content != null)
-            content.setBackground(bgDrawble);
+    protected void onDestroy() {
+        super.onDestroy();
     }
+
 }

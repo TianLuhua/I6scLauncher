@@ -5,4 +5,6 @@ package com.boyue.boyuelauncher.base;
  */
 
 public interface BaseMode {
+    void onDestroy();
 }
+

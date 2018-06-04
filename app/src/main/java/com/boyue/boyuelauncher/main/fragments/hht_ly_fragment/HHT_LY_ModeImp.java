@@ -29,4 +29,9 @@ public class HHT_LY_ModeImp implements HHT_LY_Mode {
             }
         });
     }
+
+    @Override
+    public void onDestroy() {
+
+    }
 }

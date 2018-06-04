@@ -40,4 +40,8 @@ public class ColorEarMode implements BaseMode {
         void colorEarStatus(int isOpen);
 
     }
+    @Override
+    public void onDestroy() {
+
+    }
 }

@@ -28,5 +28,8 @@ public class HHT_XT_ModeImp implements HHT_XT_Mode {
                 }
             }
         });
+    }  @Override
+    public void onDestroy() {
+
     }
 }

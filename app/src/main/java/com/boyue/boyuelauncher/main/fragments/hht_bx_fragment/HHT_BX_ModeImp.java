@@ -30,4 +30,9 @@ public class HHT_BX_ModeImp implements HHT_BX_Mode {
             }
         });
     }
+
+    @Override
+    public void onDestroy() {
+
+    }
 }

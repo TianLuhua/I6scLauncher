@@ -16,6 +16,7 @@ import com.boyue.boyuelauncher.R;
 public class MainTilteBar extends RelativeLayout implements View.OnClickListener, SDAndUSBStatusView.OnSDAndUSDViewClickListener {
 
     private TextView volumeNumberView;
+    private RelativeLayout bg_volumeNumberView;
     private ImageView settingsButton;
     private WIFIStatusView wifiStatusView;
 
@@ -37,7 +38,8 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     private void initView(Context mContext) {
         View.inflate(mContext, R.layout.custome_main_title_bar, this);
         volumeNumberView = findViewById(R.id.ic_set_system_volume);
-        volumeNumberView.setOnClickListener(this);
+        bg_volumeNumberView = findViewById(R.id.bg_set_system_volume);
+        bg_volumeNumberView.setOnClickListener(this);
         settingsButton = findViewById(R.id.ic_settings);
         settingsButton.setOnClickListener(this);
         wifiStatusView = findViewById(R.id.ic_wifistatusview);
@@ -56,8 +58,9 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ic_set_system_volume:
-
+            case R.id.bg_set_system_volume:
+                if (onTitleBarClickListener != null)
+                    onTitleBarClickListener.onBackClick(v);
                 break;
 
             case R.id.ic_settings:
