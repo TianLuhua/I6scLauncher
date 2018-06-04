@@ -1,5 +1,7 @@
 package com.boyue.boyuelauncher.cleancache;
 
+import android.app.Activity;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
@@ -16,6 +18,7 @@ import com.boyue.boyuelauncher.utils.DataCleanManager;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 
 
 /**
@@ -26,35 +29,12 @@ public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, Clea
 
     private String totalCacheSize;
 
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
+    private Handler mHandler = new CleanCacheHandler(this);
 
-            switch (msg.what) {
-                case Config.HandlerGlod.ACTIVITY_CLEANCACHE_START_CLEANCACHE:
-                    try {
-                        totalCacheSize = DataCleanManager.getTotalCacheSize(getApplicationContext());
-                        DataCleanManager.clearAllCache(getApplicationContext());
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        totalCacheSize = "0.0Byte";
-                    }
-
-                    break;
-
-                case Config.HandlerGlod.ACTIVITY_CLEANCACHE_END_CLEANCACHE:
-                    Toast.makeText(CleanCacheActivity.this, "共清理掉垃圾:" + totalCacheSize, Toast.LENGTH_SHORT).show();
-                    finish();
-                    overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
-                    break;
-
-                default:
-                    break;
-            }
-
-        }
-    };
-
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     protected int getContentViewID() {
@@ -144,4 +124,46 @@ public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, Clea
             return false;
         return super.onKeyDown(keyCode, event);
     }
+
+
+    private static class CleanCacheHandler extends Handler {
+
+        private WeakReference<Activity> activityWeakReference;
+
+        public CleanCacheHandler(Activity mActivity) {
+            activityWeakReference = new WeakReference<>(mActivity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            CleanCacheActivity activity = (CleanCacheActivity) activityWeakReference.get();
+            if (activity == null) return;
+            switch (msg.what) {
+                case Config.HandlerGlod.ACTIVITY_CLEANCACHE_START_CLEANCACHE:
+                    try {
+                        activity.totalCacheSize = DataCleanManager.getTotalCacheSize(activity.getApplicationContext());
+                        DataCleanManager.clearAllCache(activity.getApplicationContext());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        activity.totalCacheSize = "0.0Byte";
+                    }
+
+                    break;
+
+                case Config.HandlerGlod.ACTIVITY_CLEANCACHE_END_CLEANCACHE:
+                    StringBuilder builder = new StringBuilder();
+                    builder.append(activity.getResources().getString(R.string.total_cache));
+                    builder.append(activity.totalCacheSize);
+                    Toast.makeText(activity.getApplicationContext(), builder.toString(), Toast.LENGTH_SHORT).show();
+                    activity.finish();
+                    activity.overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
+
+
 }

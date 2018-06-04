@@ -23,10 +23,10 @@ public class MainPresenterImp extends MainPersenter {
             }
 
             @Override
-            public void volumeChange(int volume) {
+            public void volumeChange(int changedVolume) {
                 MainView view = getView();
                 if (view == null) return;
-                view.setCurrentVolune(volume);
+                view.setCurrentVolune(changedVolume);
             }
         });
     }

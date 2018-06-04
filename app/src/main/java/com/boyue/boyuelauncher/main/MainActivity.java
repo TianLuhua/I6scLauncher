@@ -1,17 +1,8 @@
 package com.boyue.boyuelauncher.main;
 
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.ContentObserver;
-import android.graphics.drawable.Drawable;
-import android.media.AudioManager;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -24,6 +15,7 @@ import com.boyue.boyuelauncher.main.fragments.hht_ar_fragment.HHT_AR_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.HHT_BX_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.HHT_LY_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_XT_Fragment;
+import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.MainTilteBar;
 
@@ -38,7 +30,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     private RadioGroup radioGroup;
     private ImageView cleanCache;
     private ImageView xiaoxue_ketang;
-    private FrameLayout content;
 
     private MainPagerAdapter adapter;
     private List<Fragment> fragments = new ArrayList<>();
@@ -55,7 +46,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         cleanCache = findViewById(R.id.cleancache);
         xiaoxue_ketang = findViewById(R.id.xiaoxue_ketang);
         radioGroup = findViewById(R.id.radioGroup);
-        content = findViewById(R.id.content);
         cleanCache.setOnClickListener(this);
         xiaoxue_ketang.setOnClickListener(this);
         viewpager.addOnPageChangeListener(this);
@@ -141,7 +131,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        LogUtils.e("tlh", "onPageScrolled---position:" + position + " ,positionOffset:" + positionOffset + ",positionOffsetPixels:" + positionOffsetPixels);
+//        LogUtils.e("tlh", "onPageScrolled---position:" + position + " ,positionOffset:" + positionOffset + ",positionOffsetPixels:" + positionOffsetPixels);
 
         if (isDragging) {
             if (position == 0 && positionOffset == 0.0 && positionOffsetPixels == 0) {
@@ -177,7 +167,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void onPageScrollStateChanged(int state) {
-        LogUtils.e("tlh", "onPageScrollStateChanged:" + state);
+//        LogUtils.e("tlh", "onPageScrollStateChanged:" + state);
         isDragging = state == 1;
     }
 
@@ -195,7 +185,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     }
 
     private void startXiaoxue_ketang() {
-
+        Toast.makeText(MainActivity.this, "小学课堂！", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -203,14 +193,14 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
      * 清除当前APP缓存数据
      */
     private void startCleanCache() {
-        setActivityConfig(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_CLEANCACHE);
+        ActivityUtils.setActivityConfig(getApplicationContext(), Config.BoYueAction.ACTIVITY_ACTION_CLEANCACHE);
     }
 
     /**
      * 启动当前WiFi管理界面
      */
     private void startWiFiManager() {
-        setActivityConfig(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
+        ActivityUtils.setActivityConfig(getApplicationContext(), Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
     }
 
     /**
@@ -218,32 +208,13 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
      */
 
     private void startSettings() {
-        setActivityConfig(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_SETTINGS);
+        ActivityUtils.setActivityConfig(getApplicationContext(), Config.BoYueAction.ACTIVITY_ACTION_SETTINGS);
     }
 
-    /**
-     * 启动对应的Activity根据不同的Action
-     *
-     * @param mContext
-     * @param action
-     */
-    private void setActivityConfig(Context mContext, String action) {
-        Intent intent = new Intent(action);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (mContext.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
-            try {
-                mContext.startActivity(intent);
-                overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
-            } catch (ActivityNotFoundException e) {
-                Toast.makeText(mContext, "Start Activity Error", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Toast.makeText(mContext, "Not Found CleanCacheActivity", Toast.LENGTH_SHORT).show();
-        }
-    }
 
     @Override
     public void setCurrentVolune(int currentVolune) {
+        if (tilteBar == null) return;
         tilteBar.setVolumeMumber(currentVolune);
     }
 

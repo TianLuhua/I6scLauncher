@@ -28,4 +28,14 @@ public class Config {
     }
 
 
+    public static class MountPath {
+
+
+        public static final String USB_PATH = "/mnt/uhost";
+        public static final String SD_PATH = "/mnt/sd-ext";
+
+
+
+    }
+
 }

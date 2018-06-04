@@ -10,4 +10,5 @@ public abstract class MainPersenter extends AbstractPresenter<MainView> {
 
     //获取系统音量
     abstract void getCurrentVolune();
+
 }

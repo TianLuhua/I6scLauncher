@@ -5,14 +5,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
+
+import java.io.File;
 
 public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickListener {
 
@@ -43,20 +47,15 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
         uSBView = findViewById(R.id.usb);
         sDView.setOnClickListener(this);
         uSBView.setOnClickListener(this);
+        sDView.setVisibility(sdAndusbIsMounted(Config.MountPath.SD_PATH) ? View.VISIBLE : View.INVISIBLE);
+        uSBView.setVisibility(sdAndusbIsMounted(Config.MountPath.SD_PATH) ? View.VISIBLE : View.INVISIBLE);
     }
 
-    public boolean isShowSD() {
-        return showSD;
-    }
 
     public void setShowSD(boolean showSD) {
         this.showSD = showSD;
         if (sDView == null) return;
         sDView.setVisibility(showSD ? View.VISIBLE : View.INVISIBLE);
-    }
-
-    public boolean isShowUSB() {
-        return showUSB;
     }
 
     public void setShowUSB(boolean showUSB) {
@@ -104,13 +103,27 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
             String mountPath = uri.getPath();
 
             if (action.equals(Intent.ACTION_MEDIA_MOUNTED)) {
-                LogUtils.e("tlh","ACTION_MEDIA_MOUNTED+mountPath:"+mountPath);
-
+                LogUtils.e("tlh", "ACTION_MEDIA_MOUNTED+mountPath:" + mountPath);
+                if (Config.MountPath.SD_PATH.equals(mountPath)) {
+                    setShowSD(true);
+                    showSD = true;
+                } else if (Config.MountPath.USB_PATH.equals(mountPath)) {
+                    setShowUSB(true);
+                    showUSB = true;
+                }
 
 
             } else if (action.equals(Intent.ACTION_MEDIA_UNMOUNTED)) {
 
-                LogUtils.e("tlh","ACTION_MEDIA_UNMOUNTED+mountPath:"+mountPath);
+                LogUtils.e("tlh", "ACTION_MEDIA_UNMOUNTED+mountPath:" + mountPath);
+                if (Config.MountPath.SD_PATH.equals(mountPath)) {
+                    setShowSD(false);
+                    showSD = false;
+                } else if (Config.MountPath.USB_PATH.equals(mountPath)) {
+                    setShowUSB(false);
+                    showUSB = false;
+                }
+
 
             }
 
@@ -133,6 +146,16 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         getContext().unregisterReceiver(mediaMountedReceiver);
+    }
+
+    private boolean sdAndusbIsMounted(String path) {
+        if (new File(path).exists()) {
+            LogUtils.e("tlh", "path--->:" + path + "," + "true");
+            return true;
+        } else {
+            LogUtils.e("tlh", "path--->:" + path + "," + "false");
+            return false;
+        }
     }
 
 }
