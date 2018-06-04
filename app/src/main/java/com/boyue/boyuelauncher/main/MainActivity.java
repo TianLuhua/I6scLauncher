@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -17,17 +16,11 @@ import android.widget.Toast;
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
-import com.boyue.boyuelauncher.base.BaseFragment;
-import com.boyue.boyuelauncher.function.FunctionMnanger;
-import com.boyue.boyuelauncher.function.FunctionNoParamNoResult;
-import com.boyue.boyuelauncher.function.FunctionWithParamAndResult;
-import com.boyue.boyuelauncher.function.FunctionWithParamOnly;
-import com.boyue.boyuelauncher.function.FunctionWithResultOnly;
 import com.boyue.boyuelauncher.main.adapter.MainPagerAdapter;
-import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_XT_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_ar_fragment.HHT_AR_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.HHT_LY_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.HHT_BX_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.HHT_LY_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_XT_Fragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.MainTilteBar;
 
@@ -37,18 +30,16 @@ import java.util.List;
 public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp> implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener, MainView {
 
 
+    private MainTilteBar tilteBar;
     private ViewPager viewpager;
     private RadioGroup radioGroup;
     private ImageView cleanCache;
-    private ImageView settings;
-
+    private ImageView xiaoxue_ketang;
     private FrameLayout content;
 
-    private List<Fragment> fragments = new ArrayList<>();
     private MainPagerAdapter adapter;
+    private List<Fragment> fragments = new ArrayList<>();
 
-
-    private MainTilteBar tilteBar;
 
     @Override
     protected int getContentViewID() {
@@ -59,11 +50,11 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     protected void initView() {
         viewpager = findViewById(R.id.viewpager);
         cleanCache = findViewById(R.id.cleancache);
-        settings = findViewById(R.id.xiaoxue_ketang);
+        xiaoxue_ketang = findViewById(R.id.xiaoxue_ketang);
         radioGroup = findViewById(R.id.radioGroup);
         content = findViewById(R.id.content);
         cleanCache.setOnClickListener(this);
-        settings.setOnClickListener(this);
+        xiaoxue_ketang.setOnClickListener(this);
         viewpager.addOnPageChangeListener(this);
         radioGroup.setOnCheckedChangeListener(this);
         fragments.add(HHT_XT_Fragment.newInstance());
@@ -72,7 +63,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         fragments.add(HHT_BX_Fragment.newInstance());
         adapter = new MainPagerAdapter(getSupportFragmentManager(), fragments);
         viewpager.setAdapter(adapter);
-        setBG();
         initTitle();
     }
 
@@ -125,34 +115,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         return new MainPresenterImp(getApplicationContext());
     }
 
-
-    public void setFunctionsForFragment(String tag) {
-        FragmentManager fm = getSupportFragmentManager();
-        BaseFragment fragment = (BaseFragment) fm.findFragmentByTag(tag);
-        FunctionMnanger functionMnanger = FunctionMnanger.getInstance();
-        fragment.setmFunctionManager(functionMnanger.addFunction(new FunctionNoParamNoResult(HHT_XT_Fragment.INTERFACE_RESULT) {
-            @Override
-            public void function() {
-                Toast.makeText(MainActivity.this, "成功调用无参无返回值的接口", Toast.LENGTH_SHORT).show();
-            }
-        }).addFunction(new FunctionWithParamAndResult<String, String>(HHT_LY_Fragment.INTERFACE_RESULT) {
-            @Override
-            public String function(String param) {
-                return "系统的字符串---" + param;
-            }
-        }).addFunction(new FunctionWithResultOnly<String>(HHT_AR_Fragment.INTERFACE_RESULT) {
-            @Override
-            public String function() {
-                return "只有一个返回值的方法被调用！";
-            }
-        }).addFunction(new FunctionWithParamOnly<String>(HHT_BX_Fragment.INTERFACE_RESULT) {
-            @Override
-            public void function(String o) {
-                Toast.makeText(MainActivity.this, "成功调用有参无返回值的接口：" + o, Toast.LENGTH_SHORT).show();
-            }
-        }));
-
-    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -224,24 +186,28 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
             case R.id.cleancache:
                 startCleanCache();
                 break;
-            case R.id.ic_settings:
-//                startWiFiManager();
+            case R.id.xiaoxue_ketang:
+                startXiaoxue_ketang();
                 break;
         }
+    }
+
+    private void startXiaoxue_ketang() {
+
     }
 
 
     /**
      * 清除当前APP缓存数据
      */
-    public void startCleanCache() {
+    private void startCleanCache() {
         setActivityConfig(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_CLEANCACHE);
     }
 
     /**
      * 启动当前WiFi管理界面
      */
-    public void startWiFiManager() {
+    private void startWiFiManager() {
         setActivityConfig(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
     }
 
@@ -249,7 +215,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
      * 启动Setting界面
      */
 
-    public void startSettings() {
+    private void startSettings() {
         setActivityConfig(MainActivity.this, Config.BoYueAction.ACTIVITY_ACTION_SETTINGS);
     }
 

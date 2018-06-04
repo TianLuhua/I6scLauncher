@@ -14,7 +14,7 @@
     <GridView
         android:id="@+id/display_apps"
         android:layout_width="531dp"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="95dp"
         android:layout_toRightOf="@+id/iocn"
         android:layout_height="wrap_content"
         android:verticalSpacing="25dp"

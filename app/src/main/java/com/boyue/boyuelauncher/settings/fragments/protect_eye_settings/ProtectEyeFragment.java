@@ -2,6 +2,7 @@ package com.boyue.boyuelauncher.settings.fragments.protect_eye_settings;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,14 +13,12 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.base.BaseFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
-public class ProtectEyeFragment extends BaseFragment {
+public class ProtectEyeFragment extends Fragment {
 
     private SeekBar screenBrightnessSeekBar;
 
-    //护眼传感器
     private TextView protectEyeSenserTitle;
     private CheckBox protectEyeSenserCheckBox;
 

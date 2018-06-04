@@ -11,9 +11,7 @@ import android.widget.RelativeLayout;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
-import com.boyue.boyuelauncher.base.BaseFragment;
 import com.boyue.boyuelauncher.utils.KeyboardUtil;
-import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.NetworkUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 

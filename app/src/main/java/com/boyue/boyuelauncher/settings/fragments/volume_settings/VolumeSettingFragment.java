@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
-import com.boyue.boyuelauncher.base.BaseFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
 public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView, VolumeSettingPersenter> implements VolumeSettingView {

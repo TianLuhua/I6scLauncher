@@ -99,6 +99,8 @@ public class DatePickDialog extends Dialog implements OnChangeLisener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_settings_setdate);
         initView();
+        //不能通过点击Dialog外部来Dismiss该Dialog
+        this.setCancelable(false);
     }
 
     private DatePicker getDatePicker() {

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@mipmap/bg_dialog_settings_wifi">
+    android:background="@mipmap/bg_dialog_settings_setdate">
 
     <TextView
         android:id="@+id/dialog_title"
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="51dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginTop="302dp"
         android:background="@drawable/select_settings_btn"
         android:text="@string/ignore" />
 
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
-        android:layout_marginTop="244dp"
+        android:layout_marginTop="302dp"
         android:layout_toEndOf="@+id/dialog_left"
         android:background="@drawable/select_settings_wifi_right"
         android:text="@string/cancel" />

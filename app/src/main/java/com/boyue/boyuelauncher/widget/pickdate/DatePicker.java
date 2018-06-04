@@ -66,18 +66,19 @@ class DatePicker extends BaseWheelPick {
     //初始化值
     public void init() {
 
-        this.minuteView = (WheelView) findViewById(R.id.minute);
+        this.yearLable = findViewById(R.id.year_lable);
         this.minuteLable = findViewById(R.id.minute_lable);
-        this.hourLable = findViewById(R.id.hour_lable);
         this.dayLable = findViewById(R.id.day_lable);
         this.monthLable = findViewById(R.id.month_lable);
-        this.yearLable = findViewById(R.id.year_lable);
+        this.hourLable = findViewById(R.id.hour_lable);
 
-        this.hourView = (WheelView) findViewById(R.id.hour);
-        this.weekView = (TextView) findViewById(R.id.week);
-        this.dayView = (WheelView) findViewById(R.id.day);
-        this.monthView = (WheelView) findViewById(R.id.month);
-        this.yearView = (WheelView) findViewById(R.id.year);
+        this.yearView = findViewById(R.id.year);
+        this.monthView = findViewById(R.id.month);
+        this.dayView = findViewById(R.id.day);
+        this.hourView = findViewById(R.id.hour);
+        this.minuteView = findViewById(R.id.minute);
+
+        this.weekView = findViewById(R.id.week);
 
         switch (type) {
             case TYPE_ALL:

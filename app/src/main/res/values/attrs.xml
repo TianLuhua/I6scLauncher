@@ -64,6 +64,7 @@
     <declare-styleable name="DatePicker">
         <attr name="picker_text_color" format="color" />
         <attr name="picker_select_textColor" format="color" />
+        <attr name="picker_select_textSize" format="dimension" />
         <attr name="picker_split" format="color" />
         <attr name="picker_split_height" format="dimension" />
     </declare-styleable>

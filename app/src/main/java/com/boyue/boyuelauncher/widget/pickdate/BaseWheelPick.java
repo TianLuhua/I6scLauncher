@@ -23,8 +23,9 @@ abstract class BaseWheelPick
         implements OnWheelChangedListener
         , OnWheelScrollListener {
 
-    protected int textColor = 0xffdddddd;
-    protected int selectColor = 0xff444444;
+    protected int textColor = 0xff7a7a7a;
+    protected int selectSize = 22;
+    protected int selectColor = 0xff333333;
     protected int split = 0xffdddddd;
     protected int splitHeight = 1;
     protected Context ctx;
@@ -39,17 +40,17 @@ abstract class BaseWheelPick
         super(context, attrs);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DatePicker);
-        textColor = a.getColor(R.styleable.DatePicker_picker_text_color, 0xffdddddd);
-        selectColor = a.getColor(R.styleable.DatePicker_picker_select_textColor, 0xff444444);
+        textColor = a.getColor(R.styleable.DatePicker_picker_text_color, 0xff7a7a7a);
+        selectColor = a.getColor(R.styleable.DatePicker_picker_select_textColor, 0xff333333);
+        selectSize = a.getColor(R.styleable.DatePicker_picker_select_textSize, 22);
         split = a.getColor(R.styleable.DatePicker_picker_split, 0xffdddddd);
         splitHeight = (int) a.getDimension(R.styleable.DatePicker_picker_split_height, 0.5f);
-
         a.recycle();
         init(context);
     }
 
     private void init(Context context) {
-        genView = new GenWheelText(textColor);
+        genView = new GenWheelText(1, selectSize, textColor);
         this.ctx = context;
         LayoutInflater.from(context).inflate(getLayout(), this);
     }
