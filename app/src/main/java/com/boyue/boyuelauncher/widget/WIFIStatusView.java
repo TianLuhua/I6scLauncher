@@ -63,7 +63,7 @@ public class WIFIStatusView extends EnlargeAndNarrowAnimationView {
             } else if (WifiManager.RSSI_CHANGED_ACTION.equals(action)) {
                 //信号强度变化
                 int currentWiFiStrength = getCurrentWiFiStrength();
-                LogUtils.e("tlh", "currentWiFiStrength:" + currentWiFiStrength);
+//                LogUtils.e("tlh", "currentWiFiStrength:" + currentWiFiStrength);
                 getDrawable().setLevel(currentWiFiStrength);
 
             }

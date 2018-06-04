@@ -23,8 +23,6 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
 
     private AppCompatImageView sDView;
     private AppCompatImageView uSBView;
-    private boolean showSD;
-    private boolean showUSB;
 
     public SDAndUSBStatusView(Context context) {
         super(context);
@@ -47,20 +45,20 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
         uSBView = findViewById(R.id.usb);
         sDView.setOnClickListener(this);
         uSBView.setOnClickListener(this);
+
         sDView.setVisibility(sdAndusbIsMounted(Config.MountPath.SD_PATH) ? View.VISIBLE : View.INVISIBLE);
         uSBView.setVisibility(sdAndusbIsMounted(Config.MountPath.SD_PATH) ? View.VISIBLE : View.INVISIBLE);
+
     }
 
 
     public void setShowSD(boolean showSD) {
-        this.showSD = showSD;
-        if (sDView == null) return;
+        if (sDView.getVisibility() == View.VISIBLE) return;
         sDView.setVisibility(showSD ? View.VISIBLE : View.INVISIBLE);
     }
 
     public void setShowUSB(boolean showUSB) {
-        this.showUSB = showUSB;
-        if (uSBView == null) return;
+        if (uSBView.getVisibility() == View.VISIBLE) return;
         uSBView.setVisibility(showUSB ? View.VISIBLE : View.INVISIBLE);
     }
 
@@ -68,12 +66,12 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sd:
-                if (!showSD)
+                if (sDView.getVisibility()==View.VISIBLE)
                     onSDAndUSDViewClickListener.onSDIconClick(v);
                 break;
 
             case R.id.usb:
-                if (!showUSB)
+                if (uSBView.getVisibility()==View.VISIBLE)
                     onSDAndUSDViewClickListener.onUSBIconClick(v);
                 break;
         }
@@ -103,25 +101,24 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
             String mountPath = uri.getPath();
 
             if (action.equals(Intent.ACTION_MEDIA_MOUNTED)) {
+
                 LogUtils.e("tlh", "ACTION_MEDIA_MOUNTED+mountPath:" + mountPath);
+
                 if (Config.MountPath.SD_PATH.equals(mountPath)) {
                     setShowSD(true);
-                    showSD = true;
                 } else if (Config.MountPath.USB_PATH.equals(mountPath)) {
                     setShowUSB(true);
-                    showUSB = true;
                 }
 
 
             } else if (action.equals(Intent.ACTION_MEDIA_UNMOUNTED)) {
 
                 LogUtils.e("tlh", "ACTION_MEDIA_UNMOUNTED+mountPath:" + mountPath);
+
                 if (Config.MountPath.SD_PATH.equals(mountPath)) {
                     setShowSD(false);
-                    showSD = false;
                 } else if (Config.MountPath.USB_PATH.equals(mountPath)) {
                     setShowUSB(false);
-                    showUSB = false;
                 }
 
 

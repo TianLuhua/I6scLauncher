@@ -4,23 +4,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
-import android.os.PowerManager;
 import android.support.v7.widget.AppCompatImageView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.View;
-import android.view.animation.Animation;
-import android.widget.Toast;
 
 import com.boyue.boyuelauncher.R;
 
@@ -86,7 +74,7 @@ public class BatteryView extends AppCompatImageView {
                             isFull = false;
                         }
                         currentPrecent = percent;
-                        Toast.makeText(getContext(), "ACTION_BATTERY_CHANGED--->percent：" + percent + ",current:" + level + ",total:" + scale, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "ACTION_BATTERY_CHANGED--->percent：" + percent + ",current:" + level + ",total:" + scale, Toast.LENGTH_SHORT).show();
                         break;
                     case Intent.ACTION_POWER_CONNECTED://接通电源
                         if (!isFull) {
@@ -95,14 +83,14 @@ public class BatteryView extends AppCompatImageView {
                             animationDrawable.start();
                         }
                         isConnected = true;
-                        Toast.makeText(getContext(), "ACTION_POWER_CONNECTED", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "ACTION_POWER_CONNECTED", Toast.LENGTH_SHORT).show();
                         break;
                     case Intent.ACTION_POWER_DISCONNECTED://拔出电源current 和total均为默认值
                         isConnected = false;
                         if (animationDrawable != null)
                             animationDrawable.stop();
 
-                        Toast.makeText(getContext(), "ACTION_POWER_DISCONNECTED--->percent：" + percent + ",current:" + level + ",total:" + scale, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), "ACTION_POWER_DISCONNECTED--->percent：" + percent + ",current:" + level + ",total:" + scale, Toast.LENGTH_SHORT).show();
                         setImageResource(chargeDrawables[(int) (currentPrecent * (chargeDrawables.length - 1))]);
 
                 }
