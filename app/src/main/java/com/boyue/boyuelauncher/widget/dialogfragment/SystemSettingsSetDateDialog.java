@@ -33,7 +33,6 @@ public class SystemSettingsSetDateDialog extends DialogFragment {
 
     private Dialog showDatePickDialog() {
         DatePickDialog dialog = new DatePickDialog(getContext());
-        //设置title
 
         //设置上下年分限制
         dialog.setYearLimt(5);

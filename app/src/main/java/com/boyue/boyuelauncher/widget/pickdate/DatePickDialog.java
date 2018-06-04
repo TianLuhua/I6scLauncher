@@ -98,7 +98,6 @@ public class DatePickDialog extends Dialog implements OnChangeLisener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_settings_setdate);
-
         initView();
     }
 

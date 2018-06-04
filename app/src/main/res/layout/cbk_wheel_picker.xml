@@ -1,80 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:orientation="horizontal"
-    android:weightSum="11">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <com.boyue.boyuelauncher.widget.pickdate.view.WheelView
         android:id="@+id/year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="3" />
+        android:layout_alignParentStart="true" />
 
-    <TextView
-        android:id="@+id/year_lable"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/yesr" />
 
     <com.boyue.boyuelauncher.widget.pickdate.view.WheelView
         android:id="@+id/month"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2" />
+        android:layout_marginStart="82dp"
+        android:layout_toEndOf="@+id/year" />
 
-    <TextView
-        android:id="@+id/month_lable"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/month" />
 
     <com.boyue.boyuelauncher.widget.pickdate.view.WheelView
         android:id="@+id/day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2" />
+        android:layout_marginStart="82dp"
+        android:layout_toEndOf="@+id/month"
+        />
 
-    <TextView
-        android:id="@+id/week"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center" />
-
-    <TextView
-        android:id="@+id/day_lable"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/day" />
 
     <com.boyue.boyuelauncher.widget.pickdate.view.WheelView
         android:id="@+id/hour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2" />
+        android:layout_alignParentStart="true" />
 
-    <TextView
-        android:id="@+id/hour_lable"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/hour" />
 
     <com.boyue.boyuelauncher.widget.pickdate.view.WheelView
         android:id="@+id/minute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2" />
+        android:layout_marginStart="143dp"
+        android:layout_toEndOf="@+id/hour" />
+
+
+    <TextView
+        android:id="@+id/year_lable"
+        style="@style/Stlye_system_setting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/year"
+        android:gravity="center"
+        android:text="@string/yesr" />
+
+    <TextView
+        android:id="@+id/month_lable"
+        style="@style/Stlye_system_setting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/month"
+        android:gravity="center"
+        android:text="@string/month" />
+
+    <TextView
+        android:id="@+id/day_lable"
+        style="@style/Stlye_system_setting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/day"
+        android:gravity="center"
+        android:text="@string/day" />
+
+    <TextView
+        android:id="@+id/hour_lable"
+        style="@style/Stlye_system_setting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/hour"
+        android:gravity="center"
+        android:text="@string/hour" />
 
     <TextView
         android:id="@+id/minute_lable"
+        style="@style/Stlye_system_setting_text"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/minute"
         android:gravity="center"
         android:text="@string/minute" />
 
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/week"
+        style="@style/Stlye_system_setting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center" />
+
+</RelativeLayout>
