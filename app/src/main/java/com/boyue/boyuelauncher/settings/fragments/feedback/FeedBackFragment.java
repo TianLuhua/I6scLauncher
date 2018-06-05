@@ -69,9 +69,9 @@ public class FeedBackFragment extends AbstractMVPFragment<FeedBackView, FeedBack
     private void feedBackCommit() {
         if (NetworkUtils.isWifiConnected()) {
             String commtString = feedBackText.getText().toString();
-            ToastUtil.showShortToast(getActivity().getApplication(), commtString);
+            ToastUtil.showShortToast( commtString);
         } else {
-            ToastUtil.showShortToast(getActivity().getApplication(), "请检查网络");
+            ToastUtil.showShortToast( "请检查网络");
         }
 
     }

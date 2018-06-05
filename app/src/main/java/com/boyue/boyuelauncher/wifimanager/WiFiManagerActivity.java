@@ -23,7 +23,6 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -33,8 +32,8 @@ import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.utils.KeyboardUtil;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
-import com.boyue.boyuelauncher.widget.dialogfragment.WiFiSettingAddNetworkDialog;
-import com.boyue.boyuelauncher.widget.dialogfragment.WiFiSettingDialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_AddNetworkDialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_Dialog;
 import com.boyue.boyuelauncher.wifimanager.adpter.WifiAdapter;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 import com.boyue.boyuelauncher.wifimanager.listener.DataActionListener;
@@ -117,7 +116,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
             @Override
             public void onIgnore(int position) {
                 final WifiModel data = dataList.get(position);
-                final WiFiSettingDialog dialog = new WiFiSettingDialog();
+                final Setting_WiFi_Dialog dialog = new Setting_WiFi_Dialog();
                 dialog.setTitle(R.string.ignore_network);
                 dialog.setContent(data.getWifiName());
                 dialog.setBtnString(R.string.cancel, R.string.ignore);
@@ -201,7 +200,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
             builder.setCancelable(false);
             builder.show();
         } else {
-            ToastUtil.showShortToast(WiFiManagerActivity.this, "当前未连接wifi");
+            ToastUtil.showShortToast("当前未连接wifi");
         }
     }
 
@@ -221,7 +220,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         if (networkId != -1) {//已经连接配置过
             wifiManager.disconnect();
             wifiManager.enableNetwork(networkId, true);
-            ToastUtil.showShortToast(activity, "启动连接：" + true);
+            ToastUtil.showShortToast("启动连接：" + true);
         } else {//新的连接
             if (wifiType != 0) {//需要密码
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -235,7 +234,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                     public void onClick(DialogInterface dialog, int which) {
                         String code = etDialogInput.getText().toString();
                         if (TextUtils.isEmpty(code)) {
-                            ToastUtil.showShortToast(activity, "请输入密码");
+                            ToastUtil.showShortToast( "请输入密码");
                             return;
                         }
                         WifiConfiguration wifiConfig = createWifiInfo(ssid, code, wifiType);
@@ -244,7 +243,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                             wifiManager.saveConfiguration();
                         }
                         boolean flag = wifiManager.enableNetwork(netId, true);
-                        ToastUtil.showShortToast(activity, "启动连接：" + flag);
+                        ToastUtil.showShortToast( "启动连接：" + flag);
                     }
                 });
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -268,7 +267,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                     wifiManager.saveConfiguration();
                 }
                 boolean flag = wifiManager.enableNetwork(netId, true);
-                ToastUtil.showShortToast(activity, "启动连接：" + flag);
+                ToastUtil.showShortToast( "启动连接：" + flag);
             }
         }
     }
@@ -324,7 +323,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                 this.finish();
                 break;
             case R.id.manually_add_network:
-                final WiFiSettingAddNetworkDialog dialog = new WiFiSettingAddNetworkDialog();
+                final Setting_WiFi_AddNetworkDialog dialog = new Setting_WiFi_AddNetworkDialog();
                 dialog.setTitle(R.string.ignore_network);
                 dialog.setBtnString(R.string.cancel, R.string.manually_add_network);
                 dialog.setCancelable(false);
@@ -361,7 +360,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                 int wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0);
                 switch (wifiState) {
                     case WifiManager.WIFI_STATE_DISABLED:
-                        ToastUtil.showShortToast(context, "Wifi关闭");
+                        ToastUtil.showShortToast( "Wifi关闭");
                         break;
                     case WifiManager.WIFI_STATE_ENABLED:
                         wifiManager.startScan();//Wifi打开,启动扫描
@@ -379,13 +378,13 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                 }
                 int errorCode = intent.getIntExtra(WifiManager.EXTRA_SUPPLICANT_ERROR, -1);
                 if (errorCode == WifiManager.ERROR_AUTHENTICATING) {
-                    ToastUtil.showShortToast(context, "验证失败");
+                    ToastUtil.showShortToast( "验证失败");
                 }
             } else if (WifiManager.SUPPLICANT_STATE_CHANGED_ACTION.equals(action)) {
                 WifiInfo wifiInfo = wifiManager.getConnectionInfo();
                 if (wifiInfo != null) {
                     String wifiSSID = wifiInfo.getSSID();
-                    ToastUtil.showShortToast(context, wifiSSID + "连接成功");
+                    ToastUtil.showShortToast( wifiSSID + "连接成功");
                 }
 
             }
@@ -402,7 +401,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
             openWifi();//打开WIFI
         } else {
             isGranted = false;
-            ToastUtil.showLongToast(mContext, "扫描WIFI缺少定位权限，请授予权限");
+            ToastUtil.showLongToast( "扫描WIFI缺少定位权限，请授予权限");
             ActivityCompat.requestPermissions(mContext,
                     new String[]{Config.Permission.LOCATION_PERMISSION}, REQUEST_CODE);
         }

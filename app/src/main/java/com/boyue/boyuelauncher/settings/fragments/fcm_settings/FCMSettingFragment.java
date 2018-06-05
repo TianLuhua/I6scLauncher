@@ -1,5 +1,7 @@
 package com.boyue.boyuelauncher.settings.fragments.fcm_settings;
 
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
@@ -8,17 +10,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
+import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Fcm_Enable_Note_Dialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_text_01_tutton_03_Dialog;
+
 
 public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMSettingPersenter> implements FCMSettingView, RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
-    private CheckBox enablePwdCheckBox, fcmSwitchSwitchcheckBox;
+    private CheckBox enablePwdCheckBox;
+
+    //更改密码
+    private TextView modifyPasswordTitle;
     private AppCompatImageView modifyImageIcon;
+
+    //防沉迷开关
+    private TextView fcmSwitchTitle;
+    private CheckBox fcmSwitchSwitchcheckBox;
+
+    //定时锁定
+    private TextView timingLockingTitle;
     private RadioGroup timingLockingGroup;
+
 
     public static FCMSettingFragment newInstance() {
         return new FCMSettingFragment();
@@ -39,15 +58,22 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
     }
 
     private void initView(View rootview) {
+        //更改密码
         enablePwdCheckBox = rootview.findViewById(R.id.enable_password_switch);
         enablePwdCheckBox.setOnCheckedChangeListener(this);
 
+        //防沉迷开关
+        modifyPasswordTitle = rootview.findViewById(R.id.modify_password_title);
         modifyImageIcon = rootview.findViewById(R.id.modify_password_switch);
         modifyImageIcon.setOnClickListener(this);
 
+        //防沉迷开关
+        fcmSwitchTitle = rootview.findViewById(R.id.fcm_switch_title);
         fcmSwitchSwitchcheckBox = rootview.findViewById(R.id.fcm_switch_switch);
         fcmSwitchSwitchcheckBox.setOnCheckedChangeListener(this);
 
+        //定时锁定
+        timingLockingTitle = rootview.findViewById(R.id.timing_locking_title);
         timingLockingGroup = rootview.findViewById(R.id.timing_locking_item_group);
         timingLockingGroup.setOnCheckedChangeListener(this);
     }
@@ -83,6 +109,9 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
             //启用密码
             case R.id.enable_password_switch:
                 LogUtils.e("tlh", "fcm--enable_password-->:" + isChecked);
+
+                enableFcmPassword(isChecked);
+
                 break;
             //防沉迷开关
             case R.id.fcm_switch_switch:
@@ -92,6 +121,88 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
         }
 
     }
+
+
+    private void enableFcmPassword(boolean disAble) {
+
+        if (!disAble) {
+            //禁止防沉迷密码生效
+            getPresenter().disAbleFcmPassWord();
+
+            //禁止：修改密码、开机锁屏、定时锁屏等功能
+
+
+        } else {
+
+            showFcmEnableNoteDialog();
+
+            //开启：修改密码、开机锁屏、定时锁屏等功能
+
+        }
+
+        disAbleOtherFunction(disAble);
+
+    }
+
+    private void disAbleOtherFunction(boolean disAble) {
+
+
+        Resources resources = getResources();
+        int color_333 = resources.getColor(R.color.color_333);
+        int color_999 = resources.getColor(R.color.color_999);
+
+        //更改密码
+        modifyPasswordTitle.setTextColor(disAble ? color_333 : color_999);
+        modifyImageIcon.setImageResource(disAble ? R.mipmap.ic_system_settings_fcm_setting_modify_pwd_switch_enable : R.mipmap.ic_system_settings_fcm_setting_modify_pwd_switch_disable);
+        modifyImageIcon.setClickable(disAble);
+
+        //防沉迷开关
+        fcmSwitchTitle.setTextColor(disAble ? color_333 : color_999);
+        if (fcmSwitchSwitchcheckBox.isChecked())
+            fcmSwitchSwitchcheckBox.setChecked(false);
+        fcmSwitchSwitchcheckBox.setClickable(disAble);
+
+        //定时锁定
+        timingLockingTitle.setTextColor(disAble ? color_333 : color_999);
+        timingLockingGroup.clearCheck();
+        int childCount = timingLockingGroup.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            RadioButton c = (RadioButton) timingLockingGroup.getChildAt(i);
+            c.setTextColor(disAble ? color_333 : color_999);
+            c.setClickable(disAble);
+        }
+
+    }
+
+
+    /**
+     * 显示密码提示框
+     */
+    private void showFcmEnableNoteDialog() {
+        final Setting_Fcm_Enable_Note_Dialog dialog = new Setting_Fcm_Enable_Note_Dialog();
+        dialog.setCancelable(false);
+        dialog.setOnclickListener(new Setting_text_01_tutton_03_Dialog.OnclickListener() {
+            @Override
+            public void onLeftClick(View v) {
+                //useless
+
+            }
+
+            @Override
+            public void onMiddleClick(View v) {
+                dialog.dismiss();
+
+            }
+
+            @Override
+            public void onRightClick(View v) {
+                //useless
+
+            }
+        });
+        dialog.show(getFragmentManager(), Config.DialogGlod.SETTING_ENABLE_FCM_PASSWORD);
+    }
+
 
     @Override
     public void onClick(View v) {

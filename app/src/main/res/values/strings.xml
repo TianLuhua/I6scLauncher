@@ -5,7 +5,8 @@
     <string name="cancel">取消</string>
     <string name="ok">确定</string>
     <string name="total_cache">共清理掉垃圾:</string>
-
+    <string name="go">去启用</string>
+    <string name="know">知道了</string>
 
 
     <!--系统设置-->
@@ -33,7 +34,9 @@
     <string name="protect_eye_blue_light">防蓝光护眼</string>
     <string name="protect_eye_blue_light_note">说明：防蓝光护眼开启后，蓝光将大幅滤除，屏幕显示将会偏黄，变得柔和，\n这是正常现象，如希望更好的色显，可关闭防蓝光护眼。</string>
     <string name="regular_rest">定时休息</string>
+    <string name="regular_rest_title">定时休息</string>
     <string name="regular_rest_note">说明：开启定时休息后，到设定时间后将锁屏1分钟。</string>
+    <string name="regular_rest_dialog_note">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;启用定时休息功能需要开启密码，您尚未启动密码。</string>
 
 
     <!--音量设置设置-->
@@ -52,11 +55,11 @@
     <!--防沉迷-->
     <string name="enable_password">启用密码</string>
     <string name="modify_password">更改密码</string>
+    <string name="password_remind">密码提醒</string>
+    <string name="password_remind_note">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;如忘记密码，可以尝试连续点击7次兔子键进入测试模式初始化密码，初始密码为"0000"。</string>
     <string name="modify_password_note">说明：初始密码为0000</string>
-
     <string name="fcm_switch">防沉迷开关</string>
     <string name="fcm_switch_note">说明：开启防沉迷开关后，开机后需要输入密码才能使用</string>
-
     <string name="timing_locking">定时锁定</string>
     <string name="timing_locking_note">说明：开启定时锁定后，到设定时间后将自动锁定屏幕，不能继续使用</string>
 

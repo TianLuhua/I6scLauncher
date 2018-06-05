@@ -5,4 +5,7 @@ import com.boyue.boyuelauncher.base.AbstractPresenter;
 public class FCMSettingPersenter extends AbstractPresenter<FCMSettingView> {
 
 
+    public void disAbleFcmPassWord() {
+
+    }
 }

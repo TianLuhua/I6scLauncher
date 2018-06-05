@@ -13,7 +13,7 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.wifimanager.listener.OnWiFiSettingDialogOnListener;
 
-public class WiFiSettingDialog extends DialogFragment implements View.OnClickListener {
+public class Setting_WiFi_AddNetworkDialog extends DialogFragment implements View.OnClickListener {
 
     private TextView title;
     private TextView content;
@@ -32,10 +32,11 @@ public class WiFiSettingDialog extends DialogFragment implements View.OnClickLis
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View rootVire = inflater.inflate(R.layout.dialog_settings_wifi, null, false);
+        View rootVire = inflater.inflate(R.layout.dialog_settings_wifi_addnetwork, null, false);
         initView(rootVire);
         return rootVire;
     }
+
 
     private void initView(View rootVire) {
         title = rootVire.findViewById(R.id.dialog_title);
@@ -81,7 +82,7 @@ public class WiFiSettingDialog extends DialogFragment implements View.OnClickLis
     }
 
 
-    public void setOnWiFiSettingDialogOnListener(OnWiFiSettingDialogOnListener onWiFiSettingDialogOnListener) {
+    public void setWiFiSettingDialogOnListener(OnWiFiSettingDialogOnListener onWiFiSettingDialogOnListener) {
         this.onWiFiSettingDialogOnListener = onWiFiSettingDialogOnListener;
     }
 

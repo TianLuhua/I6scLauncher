@@ -3,7 +3,7 @@
 
     <item android:state_focused="true">
         <shape>
-            <solid android:color="@color/white" />
+            <solid android:color="@color/color_fff" />
 
             <stroke android:width="0.5dip" android:color="#FC6020" />
 
@@ -12,7 +12,7 @@
     </item>
     <item>
         <shape>
-            <solid android:color="@color/white" />
+            <solid android:color="@color/color_fff" />
 
             <stroke android:width="0.5dip" android:color="#C8C8C8" />
 

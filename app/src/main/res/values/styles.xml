@@ -36,7 +36,7 @@
 
     <!--字体Style-->
     <style name="Stlye_system_setting_title">
-        <item name="android:textColor">#333333</item>
+        <item name="android:textColor">@color/color_333</item>
         <item name="android:textSize">30sp</item>
     </style>
 
@@ -46,12 +46,12 @@
 
     <style name="Stlye_setting_wifi_btn">
         <item name="android:textSize">24sp</item>
-        <item name="android:textColor">#ffffff</item>
+        <item name="android:textColor">@color/color_fff</item>
     </style>
 
     <style name="Stlye_system_setting_text">
         <item name="android:gravity">center</item>
-        <item name="android:textColor">#333333</item>
+        <item name="android:textColor">@color/color_333</item>
         <item name="android:textSize">22sp</item>
     </style>
 
@@ -61,12 +61,12 @@
 
     <style name="Stlye_system_setting_date_time_disable" parent="Stlye_system_setting_check_text">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">#999999</item>
+        <item name="android:textColor">@color/color_999</item>
     </style>
 
     <style name="Stlye_system_setting_date_time_enable" parent="Stlye_system_setting_check_text">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">#333333</item>
+        <item name="android:textColor">@color/color_333</item>
     </style>
 
 
@@ -75,12 +75,12 @@
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">#333333</item>
+        <item name="android:textColor">@color/color_333</item>
     </style>
 
     <style name="Stlye_system_setting_wifi_title" parent="Stlye_system_setting_wifi_value">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">#ffffff</item>
+        <item name="android:textColor">@color/color_fff</item>
     </style>
 
 
@@ -90,17 +90,17 @@
     </style>
 
     <style name="Stlye_system_setting_text_commit_hint">
-        <item name="android:textColor">#999999</item>
+        <item name="android:textColor">@color/color_999</item>
         <item name="android:textSize">18sp</item>
     </style>
 
     <style name="Stlye_system_setting_text_commit">
-        <item name="android:textColor">#333333</item>
+        <item name="android:textColor">@color/color_333</item>
         <item name="android:textSize">18sp</item>
     </style>
 
     <style name="Stlye_wifi_add_network">
-        <item name="android:textColor">#333333</item>
+        <item name="android:textColor">@color/color_333</item>
         <item name="android:textSize">24sp</item>
     </style>
 
@@ -115,10 +115,6 @@
 
 
     <!--pickdate-->
-    //color
-    <color name="tram">#00000000</color>
-    //animal
-
     <style name="DialogAnimation">
         <item name="android:windowEnterAnimation">@anim/abc_slide_in_bottom</item>
         <item name="android:windowExitAnimation">@anim/abc_slide_out_bottom</item>
@@ -126,7 +122,7 @@
 
     <style name="dialog_style" parent="android:Theme.Dialog">
         <item name="android:windowNoTitle">true</item>
-        <item name="android:windowBackground">@color/tram</item>
+        <item name="android:windowBackground">@color/colorTransparent</item>
         <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
     </style>
 

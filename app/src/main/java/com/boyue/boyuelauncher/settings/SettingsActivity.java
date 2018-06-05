@@ -10,6 +10,8 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.settings.adapter.SystemSettingFragmentPagerAdapter;
 import com.boyue.boyuelauncher.settings.adapter.SystemSettingIndicatorgAdapter;
+import com.boyue.boyuelauncher.settings.fragments.protect_eye_settings.ProtectEyeFragment;
+import com.boyue.boyuelauncher.settings.fragments.protect_eye_settings.ProtectEyeView;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.TitleBar;
@@ -21,7 +23,7 @@ import java.util.Map;
  * Created by Tianluhua on 2018/5/28.
  */
 
-public class SettingsActivity extends AbstractMVPActivity<SettingsView, SettingsPersenterImp> implements SettingsView, AdapterView.OnItemClickListener, ViewPager.OnPageChangeListener {
+public class SettingsActivity extends AbstractMVPActivity<SettingsView, SettingsPersenterImp> implements SettingsView, AdapterView.OnItemClickListener, ViewPager.OnPageChangeListener, ProtectEyeFragment.Notfication {
 
     public static final String TITLE = "title";
     public static final String IMAGE = "image";
@@ -47,20 +49,20 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
         titleBar.setOnTitleBarClickListener(new TitleBar.OnTitleBarClickListener() {
             @Override
             public void onLeftIconClick(View view) {
-                ToastUtil.showShortToast(SettingsActivity.this, "onLeftIconClick");
+                ToastUtil.showShortToast("onLeftIconClick");
                 finish();
 
             }
 
             @Override
             public void onTitleClick(View view) {
-                ToastUtil.showShortToast(SettingsActivity.this, "onTitleClick");
+                ToastUtil.showShortToast("onTitleClick");
 
             }
 
             @Override
             public void onRightIconClick(View view) {
-                ToastUtil.showShortToast(SettingsActivity.this, "onRightIconClick");
+                ToastUtil.showShortToast("onRightIconClick");
 
             }
         });
@@ -128,4 +130,10 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
 
     }
 
+
+    @Override
+    public void gotoSetFcmPassWord() {
+        //跳转到Fcm密码设置界面
+        fragmentPagers.setCurrentItem(4,false);
+    }
 }

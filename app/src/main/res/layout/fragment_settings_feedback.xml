@@ -30,7 +30,7 @@
             android:layout_margin="20dp"
             android:background="@null"
             android:hint="@string/feedback_commit_hint"
-            android:textColorHint="@color/colorCommitHint" />
+            android:textColorHint="@color/color_999" />
     </ScrollView>
 
     <Button

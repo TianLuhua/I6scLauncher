@@ -13,9 +13,9 @@ public class ToastUtil {
     private static long oneTime = 0;
     private static long twoTime = 0;
 
-    public static void showToast(Context context, String s, int duration) {
+    public static void showToast(String s, int duration) {
         if (toast == null) {
-            toast = Toast.makeText(context, s, duration);
+            toast = Toast.makeText(Utils.getApp(), s, duration);
             toast.show();
             oneTime = System.currentTimeMillis();
         } else {
@@ -33,19 +33,19 @@ public class ToastUtil {
         oneTime = twoTime;
     }
 
-    public static void showShortToast(Context context, int resId) {
-        showToast(context, context.getString(resId), Toast.LENGTH_SHORT);
+    public static void showShortToast(int resId) {
+        showToast(Utils.getApp().getString(resId), Toast.LENGTH_SHORT);
     }
 
-    public static void showShortToast(Context context, String s) {
-        showToast(context, s, Toast.LENGTH_SHORT);
+    public static void showShortToast(String s) {
+        showToast(s, Toast.LENGTH_SHORT);
     }
 
-    public static void showLongToast(Context context, int resId) {
-        showToast(context, context.getString(resId), Toast.LENGTH_LONG);
+    public static void showLongToast(int resId) {
+        showToast(Utils.getApp().getString(resId), Toast.LENGTH_LONG);
     }
 
-    public static void showLongToast(Context context, String s) {
-        showToast(context, s, Toast.LENGTH_LONG);
+    public static void showLongToast(String s) {
+        showToast(s, Toast.LENGTH_LONG);
     }
 }

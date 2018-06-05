@@ -10,7 +10,7 @@ import com.boyue.boyuelauncher.widget.pickdate.OnChangeLisener;
 import com.boyue.boyuelauncher.widget.pickdate.OnSureLisener;
 import com.boyue.boyuelauncher.widget.pickdate.bean.DateType;
 
-public class SystemSettingsSetDateDialog extends DialogFragment {
+public class Setting_SetDateDialog extends DialogFragment {
 
 
     private DateType type;

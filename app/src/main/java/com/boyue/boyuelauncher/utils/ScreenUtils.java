@@ -6,6 +6,8 @@ import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
+import com.bumptech.glide.util.Util;
+
 public class ScreenUtils {
 
     /**
@@ -21,8 +23,8 @@ public class ScreenUtils {
         return outMetrics.widthPixels;
     }
 
-    public static int dp2px(Context context, float dp) {
-        final float scale = context.getResources().getDisplayMetrics().density;
+    public static int dp2px( float dp) {
+        final float scale = Utils.getApp().getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
     }
 

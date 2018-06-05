@@ -13,7 +13,7 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.pickdate.OnChangeLisener;
-import com.boyue.boyuelauncher.widget.dialogfragment.SystemSettingsSetDateDialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_SetDateDialog;
 import com.boyue.boyuelauncher.widget.pickdate.OnSureLisener;
 import com.boyue.boyuelauncher.widget.pickdate.bean.DateType;
 
@@ -76,7 +76,7 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
         switch (v.getId()) {
             //设置日期
             case R.id.set_date_value:
-                SystemSettingsSetDateDialog dateDialog = new SystemSettingsSetDateDialog();
+                Setting_SetDateDialog dateDialog = new Setting_SetDateDialog();
                 dateDialog.setType(DateType.TYPE_YMD);
                 dateDialog.setTitleRes(R.string.set_date);
                 dateDialog.setLeftBtnRes(R.string.cancel);
@@ -88,7 +88,7 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
 
             //设置时间
             case R.id.set_time_value:
-                SystemSettingsSetDateDialog timeDialog = new SystemSettingsSetDateDialog();
+                Setting_SetDateDialog timeDialog = new Setting_SetDateDialog();
                 timeDialog.setType(DateType.TYPE_HM);
                 timeDialog.setTitleRes(R.string.set_time);
                 timeDialog.setLeftBtnRes(R.string.cancel);
