@@ -3,7 +3,7 @@ package com.boyue.boyuelauncher;
 import android.Manifest;
 
 /**
- * Created by Tianluhua on 2017/10/16
+ * Created by Tianluhua on 2018/05/23
  */
 
 public class Config {
@@ -35,8 +35,8 @@ public class Config {
     }
 
     public static class Screen {
+        public static final int SCREEN_BRIGHTNESS_MIN = 125;
         public static final int SCREEN_BRIGHTNESS_MAX = 255;
-
     }
 
 }

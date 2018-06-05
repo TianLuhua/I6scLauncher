@@ -16,6 +16,7 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ScreenUtils;
+import com.boyue.boyuelauncher.utils.ToastUtil;
 
 public class ProtectEyeFragment extends Fragment {
 
@@ -55,18 +56,15 @@ public class ProtectEyeFragment extends Fragment {
     private void initView(View rootview) {
 
         screenBrightnessSeekBar = rootview.findViewById(R.id.max_volume_screen);
-        screenBrightnessSeekBar.setMax(Config.Screen.SCREEN_BRIGHTNESS_MAX);
-        screenBrightnessSeekBar.setProgress(ScreenUtils.getScreenBrightness());
-        LogUtils.e("tlh", "ScreenUtils.getScreenBrightness():" + ScreenUtils.getScreenBrightness());
+        screenBrightnessSeekBar.setMax(Config.Screen.SCREEN_BRIGHTNESS_MAX - Config.Screen.SCREEN_BRIGHTNESS_MIN);
+        screenBrightnessSeekBar.setProgress(ScreenUtils.getScreenBrightness()- Config.Screen.SCREEN_BRIGHTNESS_MIN);
+        LogUtils.e("tlh", "ScreenUtils.getScreenBrightness():" + (ScreenUtils.getScreenBrightness()- Config.Screen.SCREEN_BRIGHTNESS_MIN));
         screenBrightnessSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                LogUtils.e("tlh", "screenBrightness---progress:" + progress);
-                if (progress < 0)
-                    progress = 0;
-                if (progress > 255)
-                    progress = 255;
-                ScreenUtils.setScreenBrightness(progress);
+                int i = progress + Config.Screen.SCREEN_BRIGHTNESS_MIN;
+                ScreenUtils.setScreenBrightness(i);
+                LogUtils.e("tlh", "screenBrightness---progress:" + i);
             }
 
             @Override
@@ -86,7 +84,10 @@ public class ProtectEyeFragment extends Fragment {
         protectEyeSenserCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                LogUtils.e("tlh", "protectEyeSenser---isChecked:" + isChecked);
+
+                //需要驱动组给接口
+                ToastUtil.showShortToast(getContext(), "护眼传感器：" + isChecked);
+
             }
         });
 
@@ -97,7 +98,10 @@ public class ProtectEyeFragment extends Fragment {
         protectEyeBlueBrightnessCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                LogUtils.e("tlh", "protectEyeBlueBrightness---isChecked:" + isChecked);
+
+                //需要驱动组给接口
+                ToastUtil.showShortToast(getContext(), "蓝光护眼开关：" + isChecked);
+
             }
         });
 
