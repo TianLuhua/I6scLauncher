@@ -12,13 +12,17 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.ScreenUtils;
 
 public class ProtectEyeFragment extends Fragment {
 
+    //屏幕亮度
     private SeekBar screenBrightnessSeekBar;
 
+    //护眼传感器
     private TextView protectEyeSenserTitle;
     private CheckBox protectEyeSenserCheckBox;
 
@@ -51,10 +55,18 @@ public class ProtectEyeFragment extends Fragment {
     private void initView(View rootview) {
 
         screenBrightnessSeekBar = rootview.findViewById(R.id.max_volume_screen);
+        screenBrightnessSeekBar.setMax(Config.Screen.SCREEN_BRIGHTNESS_MAX);
+        screenBrightnessSeekBar.setProgress(ScreenUtils.getScreenBrightness());
+        LogUtils.e("tlh", "ScreenUtils.getScreenBrightness():" + ScreenUtils.getScreenBrightness());
         screenBrightnessSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 LogUtils.e("tlh", "screenBrightness---progress:" + progress);
+                if (progress < 0)
+                    progress = 0;
+                if (progress > 255)
+                    progress = 255;
+                ScreenUtils.setScreenBrightness(progress);
             }
 
             @Override

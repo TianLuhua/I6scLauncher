@@ -29,12 +29,13 @@ public class Config {
 
 
     public static class MountPath {
-
-
         public static final String USB_PATH = "/mnt/uhost";
         public static final String SD_PATH = "/mnt/sd-ext";
 
+    }
 
+    public static class Screen {
+        public static final int SCREEN_BRIGHTNESS_MAX = 255;
 
     }
 

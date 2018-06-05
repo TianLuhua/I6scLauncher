@@ -37,6 +37,7 @@ public class WiFiSettingAddNetworkDialog extends DialogFragment implements View.
         return rootVire;
     }
 
+
     private void initView(View rootVire) {
         title = rootVire.findViewById(R.id.dialog_title);
         content = rootVire.findViewById(R.id.dialog_content);

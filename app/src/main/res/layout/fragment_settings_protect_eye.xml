@@ -27,13 +27,12 @@
 
         <SeekBar
             android:id="@+id/max_volume_screen"
+            style="@style/Style_CustomSeekbar"
             android:layout_width="328dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="166dp"
-            android:layout_toEndOf="@+id/max_volume_title"
-            android:background="@color/colorTransparent"
-            android:thumb="@mipmap/thumb_system_setting" />
+            android:layout_toEndOf="@+id/max_volume_title" />
     </RelativeLayout>
 
     <include

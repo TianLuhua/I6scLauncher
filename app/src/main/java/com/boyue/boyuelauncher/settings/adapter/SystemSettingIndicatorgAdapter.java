@@ -50,9 +50,9 @@ public class SystemSettingIndicatorgAdapter extends SimpleAdapter {
         viewHolder.iv.setImageResource((Integer) mapItem.get(SettingsActivity.IMAGE));
         viewHolder.tv.setText((CharSequence) mapItem.get(SettingsActivity.TITLE));
         if (mCurrentItem == position && isClick) {
-            viewHolder.ll.setBackgroundColor(Color.parseColor("#e9cfdd"));
+            viewHolder.ll.setBackgroundColor(Color.parseColor("#D3D3D3"));
         } else {
-            viewHolder.ll.setBackgroundColor(Color.parseColor("#f6e4ee"));
+            viewHolder.ll.setBackgroundColor(Color.parseColor("#EAEAEA"));
         }
         return convertView;
 
