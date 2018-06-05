@@ -18,7 +18,7 @@ import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ScreenUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
-import com.boyue.boyuelauncher.widget.dialogfragment.Setting_RegularRest_Notice_Dialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_RegularRest_NoticeDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_text_01_tutton_03_Dialog;
 
 public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, ProtectEyePersenter> implements ProtectEyeView {
@@ -181,7 +181,7 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
 
 
     private void showRegularRestDialog() {
-        final Setting_RegularRest_Notice_Dialog dialog = new Setting_RegularRest_Notice_Dialog();
+        final Setting_RegularRest_NoticeDialog dialog = new Setting_RegularRest_NoticeDialog();
         dialog.setCancelable(false);
         dialog.setOnclickListener(new Setting_text_01_tutton_03_Dialog.OnclickListener() {
             @Override

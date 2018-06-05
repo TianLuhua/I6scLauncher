@@ -62,6 +62,8 @@
     <string name="fcm_switch_note">说明：开启防沉迷开关后，开机后需要输入密码才能使用</string>
     <string name="timing_locking">定时锁定</string>
     <string name="timing_locking_note">说明：开启定时锁定后，到设定时间后将自动锁定屏幕，不能继续使用</string>
+    <string name="input_new_pwd">输入新密码</string>
+
 
     <!--日期与时间-->
     <string name="synchronization_time">自动同步网络时间</string>

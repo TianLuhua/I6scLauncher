@@ -1,7 +1,6 @@
 package com.boyue.boyuelauncher.settings.fragments.fcm_settings;
 
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
@@ -18,7 +17,8 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
-import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Fcm_Enable_Note_Dialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Fcm_Enable_NoteDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_text_01_tutton_03_Dialog;
 
 
@@ -122,28 +122,32 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
 
     }
 
-
+    /**
+     * 是否启用fcm密码
+     *
+     * @param disAble
+     */
     private void enableFcmPassword(boolean disAble) {
 
         if (!disAble) {
+
             //禁止防沉迷密码生效
             getPresenter().disAbleFcmPassWord();
-
-            //禁止：修改密码、开机锁屏、定时锁屏等功能
-
 
         } else {
 
             showFcmEnableNoteDialog();
-
-            //开启：修改密码、开机锁屏、定时锁屏等功能
-
         }
 
-        disAbleOtherFunction(disAble);
 
+        disAbleOtherFunction(disAble);
     }
 
+    /**
+     * 禁止/开启：修改密码、开机锁屏、定时锁屏等功能
+     *
+     * @param disAble
+     */
     private void disAbleOtherFunction(boolean disAble) {
 
 
@@ -179,7 +183,7 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
      * 显示密码提示框
      */
     private void showFcmEnableNoteDialog() {
-        final Setting_Fcm_Enable_Note_Dialog dialog = new Setting_Fcm_Enable_Note_Dialog();
+        final Setting_Fcm_Enable_NoteDialog dialog = new Setting_Fcm_Enable_NoteDialog();
         dialog.setCancelable(false);
         dialog.setOnclickListener(new Setting_text_01_tutton_03_Dialog.OnclickListener() {
             @Override
@@ -211,6 +215,9 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
             //修改密码
             case R.id.modify_password_switch:
                 LogUtils.e("tlh", "fcm--modify_password-->:");
+                Setting_FCM_ChangePassWordDialog dialog=new Setting_FCM_ChangePassWordDialog();
+                dialog.setCancelable(false);
+                dialog.show(getFragmentManager(),Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
                 break;
         }
 

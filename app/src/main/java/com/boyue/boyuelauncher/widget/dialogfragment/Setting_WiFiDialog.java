@@ -13,7 +13,7 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.wifimanager.listener.OnWiFiSettingDialogOnListener;
 
-public class Setting_WiFi_Dialog extends DialogFragment implements View.OnClickListener {
+public class Setting_WiFiDialog extends DialogFragment implements View.OnClickListener {
 
     private TextView title;
     private TextView content;

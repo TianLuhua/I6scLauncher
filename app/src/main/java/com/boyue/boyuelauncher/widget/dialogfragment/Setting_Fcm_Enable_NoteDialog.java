@@ -9,22 +9,22 @@ import android.widget.TextView;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.ScreenUtils;
 
-public class Setting_RegularRest_Notice_Dialog extends Setting_text_01_tutton_03_Dialog {
+public class Setting_Fcm_Enable_NoteDialog extends Setting_text_01_tutton_03_Dialog {
 
 
     @Override
     protected int getTitleRes() {
-        return R.string.regular_rest_title;
+        return R.string.password_remind;
     }
 
     @Override
     protected int getMiddleRes() {
-        return 0;
+        return R.string.know;
     }
 
     @Override
     protected int getMiddleVisibility() {
-        return View.INVISIBLE;
+        return View.VISIBLE;
     }
 
     @Override
@@ -32,25 +32,25 @@ public class Setting_RegularRest_Notice_Dialog extends Setting_text_01_tutton_03
         TextView content = new TextView(getContext());
         content.setTextSize(ScreenUtils.dp2px(22));
         content.setTextColor(getResources().getColor(R.color.color_333));
-        content.setText(R.string.regular_rest_dialog_note);
+        content.setText(R.string.password_remind_note);
         return content;
     }
 
     @Override
     protected ViewGroup.LayoutParams getLayoutParams() {
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ScreenUtils.dp2px(331), ScreenUtils.dp2px(52));
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ScreenUtils.dp2px(344), ScreenUtils.dp2px(82));
         params.gravity = Gravity.CENTER;
         return params;
     }
 
     @Override
     protected int getLeftRes() {
-        return R.string.cancel;
+        return 0;
     }
 
     @Override
     protected int getRightRes() {
-        return R.string.go;
+        return 0;
     }
 
 }

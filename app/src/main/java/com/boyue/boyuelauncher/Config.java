@@ -35,6 +35,8 @@ public class Config {
     public static class DialogGlod {
         public static final String SETTING_REGULARREST_NOTICE = "setting_regularrest_time";
         public static final String SETTING_ENABLE_FCM_PASSWORD = "setting_enable_fcm_password";
+        public static final String SETTING_FCM_CHANGEPASSWORD = "setting_fcm_changepassword";
+
 
     }
 

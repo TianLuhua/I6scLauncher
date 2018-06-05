@@ -33,7 +33,7 @@ import com.boyue.boyuelauncher.utils.KeyboardUtil;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_AddNetworkDialog;
-import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_Dialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFiDialog;
 import com.boyue.boyuelauncher.wifimanager.adpter.WifiAdapter;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 import com.boyue.boyuelauncher.wifimanager.listener.DataActionListener;
@@ -116,7 +116,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
             @Override
             public void onIgnore(int position) {
                 final WifiModel data = dataList.get(position);
-                final Setting_WiFi_Dialog dialog = new Setting_WiFi_Dialog();
+                final Setting_WiFiDialog dialog = new Setting_WiFiDialog();
                 dialog.setTitle(R.string.ignore_network);
                 dialog.setContent(data.getWifiName());
                 dialog.setBtnString(R.string.cancel, R.string.ignore);

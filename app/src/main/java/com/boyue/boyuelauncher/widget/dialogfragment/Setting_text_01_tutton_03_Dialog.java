@@ -100,12 +100,12 @@ public abstract class Setting_text_01_tutton_03_Dialog extends DialogFragment im
 
     protected abstract int getRightRes();
 
+
     private OnclickListener onclickListener;
 
     public void setOnclickListener(OnclickListener onclickListener) {
         this.onclickListener = onclickListener;
     }
-
 
     public interface OnclickListener {
 
