@@ -56,6 +56,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         fragments.add(HHT_BX_Fragment.newInstance());
         adapter = new MainPagerAdapter(getSupportFragmentManager(), fragments);
         viewpager.setAdapter(adapter);
+        viewpager.setOffscreenPageLimit(4);
         initTitle();
         getCurrentVolune();
     }

@@ -8,6 +8,7 @@ import android.support.v7.widget.AppCompatImageView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
@@ -71,6 +72,10 @@ public class HHT_XT_Fragment extends AbstractMVPFragment<HHT_XT_View, HHT_XT_Per
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //不让AdapterView的itemView切割我们的ItemView影响到我们的动画效果
+                ViewGroup vp = (ViewGroup) view.getParent();
+                if (vp == null) return;
+                vp.setClipChildren(false);
 
 
             }
@@ -78,6 +83,11 @@ public class HHT_XT_Fragment extends AbstractMVPFragment<HHT_XT_View, HHT_XT_Per
 
         getPresenter().getIconDrawble();
 
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
     }
 
     private void initData() {
