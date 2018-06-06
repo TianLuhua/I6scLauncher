@@ -103,5 +103,68 @@
     <string name="has_saved">(已保存)</string>
     <string name="ignore_network">忽略网络</string>
 
+
+    <!--火火兔学堂-->
+    <string name="hht_xt_zjyy">早教英语</string>
+    <string name="hht_xt_zjyy_bnyyxb">邦尼英语小班</string>
+    <string name="hht_xt_zjyy_bnyyzb">邦尼英语中班</string>
+    <string name="hht_xt_zjyy_bnyydb">邦尼英语大班</string>
+    <string name="hht_xt_zjyy_dnyy">多纳英语</string>
+
+    <string name="hht_xt_zjxt">早教学堂</string>
+    <string name="hht_xt_zjxt_300_words">学前必学300字</string>
+    <string name="hht_xt_zjxt_xqpy">学前拼音</string>
+    <string name="hht_xt_zjxt_xqyy">学前英语</string>
+    <string name="hht_xt_zjxt_jcsx">基础数学</string>
+    <string name="hht_xt_zjxt_rsqm">认识启蒙</string>
+    <string name="hht_xt_zjxt_16_poetry">古诗16首</string>
+    <string name="hht_xt_zjxt_jkjy">健康教育</string>
+    <string name="hht_xt_zjxt_kpzs">科普知识</string>
+
+    <!--火火兔乐园-->
+    <string name="hht_ly_klok">卡拉OK</string>
+    <string name="hht_ly_klok_jdeg">经典儿歌</string>
+    <string name="hht_ly_klok_yceg">原创儿歌</string>
+
+    <string name="hht_ly_yspy">艺术培养</string>
+    <string name="hht_ly_yspy_zqyy">智趣音乐</string>
+    <string name="hht_ly_yspy_zqyy_bbsyq">智趣音乐</string>
+    <string name="hht_ly_yspy_zqyy_bbabz">智趣音乐</string>
+    <string name="hht_ly_yspy_zqyy_bbcyq">智趣音乐</string>
+    <string name="hht_ly_yspy_zqyy_bbttt">智趣音乐</string>
+    <string name="hht_ly_yspy_zqyy_gwxyp">智趣音乐</string>
+    <string name="hht_ly_yspy_zqyy_xxgqj">智趣音乐</string>
+    <string name="hht_ly_yspy_zqyy_bbceg">智趣音乐</string>
+    <string name="hht_ly_yspy_thcz">图画创造</string>
+    <string name="hht_ly_yspy_thcz_bbxhh">宝宝学画画</string>
+    <string name="hht_ly_yspy_thcz_cjth">场景涂色</string>
+    <string name="hht_ly_yspy_thcz_fjsjs">飞机设计师</string>
+    <string name="hht_ly_yspy_thcz_hhtazb">火火兔爱装扮</string>
+    <string name="hht_ly_yspy_thcz_qwttl">趣味涂涂乐</string>
+    <string name="hht_ly_yspy_thcz_wdbbmm">我的爸爸妈妈</string>
+    <string name="hht_ly_yspy_thcz_thtd">童话天地</string>
+    <string name="hht_ly_yspy_thcz_whnc">我画你猜</string>
+    <string name="hht_ly_yspy_yszl">艺术之旅</string>
+    <string name="hht_ly_yspy_yszl_001">世界名画1</string>
+    <string name="hht_ly_yspy_yszl_002">世界名画2</string>
+    <string name="hht_ly_yspy_yszl_003">世界名画3</string>
+    <string name="hht_ly_yspy_yszl_004">世界名画4</string>
+    <string name="hht_ly_yspy_yszl_005">世界名画5</string>
+    <string name="hht_ly_yspy_yszl_006">著名雕塑欣赏</string>
+
+    <string name="hht_ly_yzyx">益智游戏</string>
+    <string name="hht_ly_yzyx_hhtlzc">火火兔来找茬</string>
+    <string name="hht_ly_yzyx_sxpt">生肖拼图</string>
+    <string name="hht_ly_yzyx_hhtasg">火火兔爱水果</string>
+    <string name="hht_ly_yzyx_ktsdw">看图识动物</string>
+    <string name="hht_ly_yzyx_fkdds">疯狂打地鼠</string>
+    <string name="hht_ly_yzyx_bwhht">保卫火火兔</string>
+    <string name="hht_ly_yzyx_fkdb">疯狂打靶</string>
+    <string name="hht_ly_yzyx_ssxxl">速算消消乐</string>
+    <string name="hht_ly_yzyx_jyyyh">记忆音乐会</string>
+    <string name="hht_ly_yzyx_jjdc">记忆大餐</string>
+    <string name="hht_ly_yzyx_jyfp">记忆翻牌</string>
+    <string name="hht_ly_yzyx_zlfj">整理房间</string>
+
 </resources>
 
