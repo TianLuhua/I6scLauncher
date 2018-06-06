@@ -215,9 +215,31 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
             //修改密码
             case R.id.modify_password_switch:
                 LogUtils.e("tlh", "fcm--modify_password-->:");
-                Setting_FCM_ChangePassWordDialog dialog=new Setting_FCM_ChangePassWordDialog();
+                final Setting_FCM_ChangePassWordDialog dialog = new Setting_FCM_ChangePassWordDialog();
                 dialog.setCancelable(false);
-                dialog.show(getFragmentManager(),Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
+                dialog.setNotfication(new Setting_FCM_ChangePassWordDialog.Notfication() {
+                    @Override
+                    public void inputNumber(int number) {
+                        LogUtils.e("tlh", "inputNumber:" + number);
+                    }
+
+                    @Override
+                    public void cancel() {
+                        LogUtils.e("tlh", "cancel");
+                        dialog.dismiss();
+                    }
+
+                    @Override
+                    public void delete() {
+                        LogUtils.e("tlh", "delete");
+                    }
+
+                    @Override
+                    public void hasInputNumbers(String pwd) {
+                        LogUtils.e("tlh", "hasInputNumbers:" + pwd);
+                    }
+                });
+                dialog.show(getFragmentManager(), Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
                 break;
         }
 

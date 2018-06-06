@@ -65,4 +65,21 @@ public class Config {
         public static final int SCREEN_BRIGHTNESS_MAX = 255;
     }
 
+    public static class Number {
+        public static final int Nuumber_0 = 0;
+        public static final int Nuumber_1 = 1;
+        public static final int Nuumber_2 = 2;
+        public static final int Nuumber_3 = 3;
+        public static final int Nuumber_4 = 4;
+        public static final int Nuumber_5 = 5;
+        public static final int Nuumber_6 = 6;
+        public static final int Nuumber_7 = 7;
+        public static final int Nuumber_8 = 8;
+        public static final int Nuumber_9 = 9;
+
+        public static final int PWD_LENGTH = 4;
+
+    }
+
+
 }
