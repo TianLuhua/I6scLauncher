@@ -3,6 +3,9 @@ package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
+import com.boyue.boyuelauncher.Config;
+import com.boyue.boyuelauncher.utils.ActivityUtils;
+
 /**
  * Created by Tianluhua on 2018/5/18.
  */
@@ -30,5 +33,20 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
     public void getIconDrawble() {
         if (hht_ly_mode != null)
             hht_ly_mode.getIconDrawble();
+    }
+
+    @Override
+    public void startHHT_LY_Activity(int position) {
+        switch (position){
+            case 0:
+                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_KLOK);
+                break;
+            case 3:
+                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_YSPY);
+                break;
+            case 4:
+                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_YZYX);
+                break;
+        }
     }
 }

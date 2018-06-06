@@ -20,18 +20,18 @@ public class ActivityUtils {
      * @param mContext
      * @param action
      */
-    public static void setActivityConfig(Context mContext, String action) {
+    public static void setActivityConfig( String action) {
         Intent intent = new Intent(action);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        if (mContext.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
+        if (Utils.getApp().getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
             try {
-                mContext.startActivity(intent);
+                Utils.getApp().startActivity(intent);
 
             } catch (ActivityNotFoundException e) {
-                Toast.makeText(mContext, "Start Activity Error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Utils.getApp(), "Start Activity Error", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(mContext, "Not Found CleanCacheActivity", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Utils.getApp(), "Not Found CleanCacheActivity", Toast.LENGTH_SHORT).show();
         }
     }
 

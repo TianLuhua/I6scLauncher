@@ -72,7 +72,7 @@ public class HHT_LY_Fragment extends AbstractMVPFragment<HHT_LY_View, HHT_LY_Per
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
+                getPresenter().startHHT_LY_Activity(position);
             }
         });
 

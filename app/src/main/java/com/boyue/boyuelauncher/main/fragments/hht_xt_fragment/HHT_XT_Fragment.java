@@ -77,9 +77,7 @@ public class HHT_XT_Fragment extends AbstractMVPFragment<HHT_XT_View, HHT_XT_Per
                 if (vp == null) return;
                 vp.setClipChildren(false);
 
-
-
-
+                getPresenter().startHHT_XT_Activity(position);
 
             }
         });

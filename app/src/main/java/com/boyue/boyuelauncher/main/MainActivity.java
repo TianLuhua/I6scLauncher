@@ -194,14 +194,14 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
      * 清除当前APP缓存数据
      */
     private void startCleanCache() {
-        ActivityUtils.setActivityConfig(getApplicationContext(), Config.BoYueAction.ACTIVITY_ACTION_CLEANCACHE);
+        ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_CLEANCACHE);
     }
 
     /**
      * 启动当前WiFi管理界面
      */
     private void startWiFiManager() {
-        ActivityUtils.setActivityConfig(getApplicationContext(), Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
+        ActivityUtils.setActivityConfig( Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
     }
 
     /**
@@ -209,7 +209,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
      */
 
     private void startSettings() {
-        ActivityUtils.setActivityConfig(getApplicationContext(), Config.BoYueAction.ACTIVITY_ACTION_SETTINGS);
+        ActivityUtils.setActivityConfig( Config.BoYueAction.ACTIVITY_ACTION_SETTINGS);
     }
 
 

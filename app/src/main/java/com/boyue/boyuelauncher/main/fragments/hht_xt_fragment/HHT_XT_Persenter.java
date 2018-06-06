@@ -10,4 +10,5 @@ public abstract class HHT_XT_Persenter extends AbstractPresenter<HHT_XT_View>{
     public abstract void getIconDrawble();
 
 
+    public abstract void startHHT_XT_Activity(int position);
 }

@@ -69,6 +69,42 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".main.fragments.hht_xt_fragment.hht_zjyy.HHT_zjyy_Activity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_zjyy" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".main.fragments.hht_xt_fragment.hht_zjxt.HHT_zjxt_Activity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_zjxt" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".main.fragments.hht_ly_fragment.hht_klok.HHT_klok_Activity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.HHT_klok" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".main.fragments.hht_ly_fragment.hht_yspy.HHT_yspy_Activity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".main.fragments.hht_ly_fragment.hht_yzyx.HHT_yzyx_Activity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

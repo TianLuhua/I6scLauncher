@@ -8,6 +8,6 @@ import com.boyue.boyuelauncher.base.AbstractPresenter;
 public abstract class HHT_LY_Persenter extends AbstractPresenter<HHT_LY_View>{
 
     public abstract void getIconDrawble();
-
+    public abstract void startHHT_LY_Activity(int position);
 
 }
