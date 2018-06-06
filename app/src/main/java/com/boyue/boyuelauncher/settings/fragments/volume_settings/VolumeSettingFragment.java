@@ -14,10 +14,11 @@ import com.boyue.boyuelauncher.utils.LogUtils;
 
 public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView, VolumeSettingPersenter> implements VolumeSettingView {
 
-
+    //限制最大音量
     private SeekBar maxVolumeSeekBar;
     private TextView maxVolumeLeve;
 
+    //限制开机最大音量
     private SeekBar powerOffMaxVolumeSeekBar;
     private TextView powerOffMaxVolumeLeve;
 
@@ -81,13 +82,22 @@ public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView
             }
         });
         powerOffMaxVolumeLeve = rootview.findViewById(R.id.power_off_max_volume_leve);
-        powerOffMaxVolumeLeve.setText("40");
+        getPresenter().getSystMaxVolume();
 
 
     }
 
     @Override
     protected VolumeSettingPersenter createPresenter() {
-        return new VolumeSettingPersenter();
+        return new VolumeSettingPersenter(getActivity().getApplicationContext());
+    }
+
+
+    @Override
+    public void setSystMaxVolume(int systMaxVolume, int currentSystVolume, int bootMaxVolume, int currentBootVolume) {
+        maxVolumeSeekBar.setMax(systMaxVolume);
+        maxVolumeSeekBar.setProgress(currentSystVolume);
+        powerOffMaxVolumeSeekBar.setMax(bootMaxVolume);
+        powerOffMaxVolumeSeekBar.setProgress(currentBootVolume);
     }
 }

@@ -81,7 +81,8 @@
     <string name="firmware_version">固件版本</string>
     <string name="free_capacity">内置存储剩余空间</string>
     <string name="factory_setting">恢复出厂设置</string>
-
+    <string name="factory_setting_note">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;恢复出厂设置会将设备恢复到刚出厂时的状态，您的数据、账号、文档、照片和视频等数据将被删除，请谨慎操作。</string>
+    <string name="recover">恢复</string>
     <!--意见反馈-->
     <string name="feedback_note">我对火火兔视频机的建议：</string>
     <string name="feedback_commit_hint">火火兔的成长离不开您的支持，您宝贵的建议，可以让我们做得更好。</string>

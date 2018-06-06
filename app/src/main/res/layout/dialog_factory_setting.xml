@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/bg_dialog_settings_setdate">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        style="@style/Stlye_setting_wifi_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/factory_setting" />
+
+    <TextView
+        android:id="@+id/dialog_content"
+        style="@style/Stlye_system_factory_setting_text"
+        android:layout_width="342dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="131dp"
+        android:text="@string/factory_setting_note" />
+
+    <Button
+        android:id="@+id/dialog_left"
+        style="@style/Stlye_setting_wifi_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialog_content"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/select_system_settings_factory_setting"
+        android:text="@string/recover" />
+
+    <Button
+        android:id="@+id/dialog_right"
+        style="@style/Stlye_setting_wifi_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dialog_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="59dp"
+        android:layout_toEndOf="@+id/dialog_left"
+        android:background="@drawable/select_settings_wifi_right"
+        android:text="@string/cancel" />
+
+
+</RelativeLayout>

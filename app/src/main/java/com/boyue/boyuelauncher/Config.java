@@ -2,6 +2,8 @@ package com.boyue.boyuelauncher;
 
 import android.Manifest;
 
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Factory_SettingDialog;
+
 /**
  * Created by Tianluhua on 2018/05/23
  */
@@ -36,6 +38,7 @@ public class Config {
         public static final String SETTING_REGULARREST_NOTICE = "setting_regularrest_time";
         public static final String SETTING_ENABLE_FCM_PASSWORD = "setting_enable_fcm_password";
         public static final String SETTING_FCM_CHANGEPASSWORD = "setting_fcm_changepassword";
+        public static final String SETTING_FACTORY_SETTING = "Setting_Factory_Setting";
 
 
     }

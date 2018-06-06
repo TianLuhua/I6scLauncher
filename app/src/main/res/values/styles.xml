@@ -55,6 +55,11 @@
         <item name="android:textSize">22sp</item>
     </style>
 
+    <style name="Stlye_system_factory_setting_text">
+        <item name="android:textColor">#f42a2a</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
     <style name="Stlye_system_setting_check_text" parent="Stlye_system_setting_text">
         <item name="android:textSize">20sp</item>
     </style>
