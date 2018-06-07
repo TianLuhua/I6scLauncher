@@ -8,7 +8,7 @@ public class WifiModel {
     private String wifiName;//ssid
     private String wifiDetail;//detail
     private int intensity;//信号强度
-    private int wifiType;//wifi加密方式0:none1:wep2:wpa
+    private int wifiType;//wifi加密方式 0:none  1:wep  2:wpa
     private boolean showDetail;//是否显示详细
     private boolean isConnect;//是否连接
 

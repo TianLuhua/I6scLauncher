@@ -22,14 +22,28 @@
         android:layout_marginTop="108dp"
         android:text="@string/dialog_net_name" />
 
-    <EditText
-        android:id="@+id/dialog_net_name_editor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:id="@+id/dialog_net_name_editor_group"
+        android:layout_width="220dp"
+        android:layout_height="42dp"
         android:layout_marginTop="108dp"
         android:layout_toRightOf="@+id/dialog_net_name"
         android:background="@mipmap/bg_settings_wifi_editor"
-        android:textCursorDrawable="@drawable/edit_cursor_settings_wifi_addnetwork" />
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="17dp"
+            android:layout_height="42dp" />
+
+        <EditText
+            android:id="@+id/dialog_net_name_editor"
+            android:layout_width="203dp"
+            android:layout_height="42dp"
+            android:background="@null"
+            android:textCursorDrawable="@drawable/edit_cursor_settings_wifi_addnetwork" />
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/dialog_net_pwd"
@@ -41,22 +55,34 @@
         android:layout_marginTop="40dp"
         android:text="@string/dialog_net_pwd" />
 
-    <EditText
-        android:id="@+id/dialog_net_editor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/dialog_net_name_editor"
+    <LinearLayout
+        android:id="@+id/dialog_net_pwd_editor_group"
+        android:layout_width="220dp"
+        android:orientation="horizontal"
+        android:layout_height="42dp"
+        android:layout_below="@+id/dialog_net_name_editor_group"
         android:layout_marginTop="20dp"
         android:layout_toEndOf="@+id/dialog_net_name"
-        android:background="@mipmap/bg_settings_wifi_editor"
-        android:textCursorDrawable="@drawable/edit_cursor_settings_wifi_addnetwork" />
+        android:background="@mipmap/bg_settings_wifi_editor">
+        <View
+            android:layout_width="17dp"
+            android:layout_height="42dp" />
+        <EditText
+            android:id="@+id/dialog_net_pwd_editor"
+            android:layout_width="203dp"
+            android:layout_height="42dp"
+            android:background="@null"
+            android:textCursorDrawable="@drawable/edit_cursor_settings_wifi_addnetwork" />
+    </LinearLayout>
+
+
 
     <Button
         android:id="@+id/dialog_left"
         style="@style/Stlye_setting_wifi_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dialog_net_editor"
+        android:layout_below="@+id/dialog_net_pwd_editor_group"
         android:layout_marginStart="51dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/select_settings_btn"
@@ -67,7 +93,7 @@
         style="@style/Stlye_setting_wifi_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dialog_net_editor"
+        android:layout_below="@+id/dialog_net_pwd_editor_group"
         android:layout_marginStart="72dp"
         android:layout_marginTop="40dp"
         android:layout_toEndOf="@+id/dialog_left"
