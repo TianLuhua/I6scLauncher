@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 import com.boyue.boyuelauncher.wifimanager.listener.DataActionListener;
 import com.boyue.boyuelauncher.wifimanager.listener.OnItemClickListener;
@@ -100,6 +101,7 @@ public class WifiAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
+        LogUtils.e("tll","dataList:"+dataList.size());
         return dataList.size();
     }
 
