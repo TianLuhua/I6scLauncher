@@ -17,7 +17,7 @@
             android:id="@+id/hht_ly_yzyx_01_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_ly_yzyx_12" />
+            android:src="@mipmap/ic_hht_ly_yzyx_01" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_01_lable"
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_ly_yzyx_zlfj" />
+            android:text="@string/hht_ly_yzyx_hhtlzc" />
     </LinearLayout>
 
     <LinearLayout
@@ -42,7 +42,7 @@
             android:id="@+id/hht_ly_yzyx_02_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjxt_02" />
+            android:src="@mipmap/ic_hht_ly_yzyx_02" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_02_lable"
@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjxt_xqpy" />
+            android:text="@string/hht_ly_yzyx_sxpt" />
     </LinearLayout>
 
     <LinearLayout
@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:src="@mipmap/ic_hht_xt_zjxt_03" />
+            android:src="@mipmap/ic_hht_ly_yzyx_03" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_03_lable"
@@ -76,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjxt_xqyy" />
+            android:text="@string/hht_ly_yzyx_hhtasg" />
     </LinearLayout>
 
     <LinearLayout
@@ -93,7 +93,7 @@
             android:id="@+id/hht_ly_yzyx_04_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjxt_04" />
+            android:src="@mipmap/ic_hht_ly_yzyx_04" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_04_lable"
@@ -101,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjxt_jcsx" />
+            android:text="@string/hht_ly_yzyx_ktsdw" />
     </LinearLayout>
 
 
@@ -119,7 +119,7 @@
             android:id="@+id/hht_ly_yzyx_05_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjxt_05" />
+            android:src="@mipmap/ic_hht_ly_yzyx_05" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_05_lable"
@@ -127,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjxt_rsqm" />
+            android:text="@string/hht_ly_yzyx_fkdds" />
     </LinearLayout>
 
     <LinearLayout
@@ -145,7 +145,7 @@
             android:id="@+id/hht_ly_yzyx_06_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjxt_06" />
+            android:src="@mipmap/ic_hht_ly_yzyx_06" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_06_lable"
@@ -153,7 +153,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjxt_16_poetry" />
+            android:text="@string/hht_ly_yzyx_bwhht" />
     </LinearLayout>
 
     <LinearLayout
@@ -171,7 +171,7 @@
             android:id="@+id/hht_ly_yzyx_07_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjxt_07" />
+            android:src="@mipmap/ic_hht_ly_yzyx_07" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_07_lable"
@@ -179,7 +179,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjxt_jkjy" />
+            android:text="@string/hht_ly_yzyx_fkdb" />
     </LinearLayout>
 
     <LinearLayout
@@ -197,7 +197,7 @@
             android:id="@+id/hht_ly_yzyx_08_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjxt_07" />
+            android:src="@mipmap/ic_hht_ly_yzyx_08" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_08_lable"
@@ -205,7 +205,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjxt_jkjy" />
+            android:text="@string/hht_ly_yzyx_ssxxl" />
     </LinearLayout>
 
 </RelativeLayout>
