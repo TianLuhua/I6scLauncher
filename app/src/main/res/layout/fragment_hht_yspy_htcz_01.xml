@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="114dp"
         android:layout_marginTop="116dp"
-
         android:gravity="center"
         android:orientation="vertical">
 
@@ -138,7 +137,7 @@
         android:layout_below="@+id/hht_ly_yspy_htcz_01"
         android:layout_marginStart="74dp"
         android:layout_marginTop="74dp"
-        android:layout_toEndOf="@+id/hht_ly_yspy_htcz_04"
+        android:layout_toEndOf="@+id/hht_ly_yspy_htcz_05"
         android:gravity="center"
         android:orientation="vertical">
 
