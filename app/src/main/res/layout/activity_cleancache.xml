@@ -11,7 +11,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:paddingLeft="8dp"
-        android:src="@mipmap/activity_cleancache_rocket"
+        android:src="@mipmap/ic_cleancache_rocket"
         android:visibility="invisible" />
 
 
