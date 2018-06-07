@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx;
+package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.htcz;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -8,36 +8,34 @@ import android.view.View;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.fragments.base.HHT_Abstract_Activity;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx.HHT_yzyx_Fragment_01;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx.HHT_yzyx_Fragment_02;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 import com.boyue.boyuelauncher.widget.TitleBar;
 
-/**
- * Created by Tianluhua on 2018/6/7.
- */
+public class HHT_yspy_htcz_Activity extends HHT_Abstract_Activity implements View.OnClickListener, HHT_htcz_Fragment_01.Notification_01 {
 
-public class HHT_yzyx_Activity extends HHT_Abstract_Activity implements View.OnClickListener, HHT_yzyx_Fragment_01.Notification_01 {
 
     private EnlargeAndNarrowAnimationView previousPage;
     private EnlargeAndNarrowAnimationView nextPage;
 
     private FragmentManager manager;
 
-    private HHT_yzyx_Fragment_01 hht_yzyx_fragment_01;
-    private HHT_yzyx_Fragment_02 hht_yzyx_fragment_02;
+    private HHT_htcz_Fragment_01 hht_htcz_fragment_01;
+    private HHT_htcz_Fragment_02 hht_htcz_fragment_02;
+
     private float downY;
     private float downX;
 
-
     @Override
     protected View getConentView(LayoutInflater inflater) {
-        return inflater.inflate(R.layout.activity_hht_yzyx, null);
+        return inflater.inflate(R.layout.activity_hht_yspy_htcz, null);
     }
 
     @Override
     protected void initView() {
         super.initView();
-
-        titleBar.setTitle(R.string.hht_ly_yzyx);
+        titleBar.setTitle(R.string.hht_ly_yspy_thcz);
         titleBar.setOnTitleBarClickListener(new TitleBar.OnTitleBarClickListener() {
             @Override
             public void onLeftIconClick(View view) {
@@ -54,23 +52,26 @@ public class HHT_yzyx_Activity extends HHT_Abstract_Activity implements View.OnC
 
             }
         });
+
+
         previousPage = findViewById(R.id.previous_page);
         previousPage.setOnClickListener(this);
         nextPage = findViewById(R.id.next_page);
         nextPage.setOnClickListener(this);
 
-        hht_yzyx_fragment_01 = HHT_yzyx_Fragment_01.newInstance();
-        hht_yzyx_fragment_02 = HHT_yzyx_Fragment_02.newInstance();
+        hht_htcz_fragment_01 = HHT_htcz_Fragment_01.newInstance();
+        hht_htcz_fragment_02 = hht_htcz_fragment_02.newInstance();
         manager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
-        fragmentTransaction.add(R.id.yzyx_content, hht_yzyx_fragment_01);
-        fragmentTransaction.add(R.id.yzyx_content, hht_yzyx_fragment_02);
-        fragmentTransaction.hide(hht_yzyx_fragment_02).show(hht_yzyx_fragment_01).commit();
+        fragmentTransaction.add(R.id.yzyx_content, hht_htcz_fragment_01);
+        fragmentTransaction.add(R.id.yzyx_content, hht_htcz_fragment_02);
+        fragmentTransaction.hide(hht_htcz_fragment_02).show(hht_htcz_fragment_01).commit();
         previousPage.setVisibility(View.INVISIBLE);
     }
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.previous_page:
                 showFragment_01();
@@ -82,23 +83,10 @@ public class HHT_yzyx_Activity extends HHT_Abstract_Activity implements View.OnC
 
     }
 
-
     @Override
     public void onHiddenChanged(boolean hidden) {
         nextPage.setVisibility(!hidden ? View.VISIBLE : View.INVISIBLE);
         previousPage.setVisibility(hidden ? View.VISIBLE : View.INVISIBLE);
-    }
-
-
-    private void showFragment_01() {
-        FragmentTransaction ft_01 = manager.beginTransaction();
-        ft_01.hide(hht_yzyx_fragment_02).show(hht_yzyx_fragment_01).commit();
-    }
-
-
-    private void showFragment_02() {
-        FragmentTransaction ft_02 = manager.beginTransaction();
-        ft_02.hide(hht_yzyx_fragment_01).show(hht_yzyx_fragment_02).commit();
     }
 
     @Override
@@ -138,6 +126,17 @@ public class HHT_yzyx_Activity extends HHT_Abstract_Activity implements View.OnC
         return super.onTouchEvent(event);
     }
 
+    private void showFragment_01() {
+        FragmentTransaction ft_01 = manager.beginTransaction();
+        ft_01.hide(hht_htcz_fragment_02).show(hht_htcz_fragment_01).commit();
+    }
+
+
+    private void showFragment_02() {
+        FragmentTransaction ft_02 = manager.beginTransaction();
+        ft_02.hide(hht_htcz_fragment_01).show(hht_htcz_fragment_02).commit();
+    }
+
     /**
      * 根据距离差判断 滑动方向
      *
@@ -154,4 +153,6 @@ public class HHT_yzyx_Activity extends HHT_Abstract_Activity implements View.OnC
             return dy > 0 ? 'b' : 't';
         }
     }
+
+
 }

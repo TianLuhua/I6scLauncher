@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <LinearLayout
+        android:id="@+id/hht_xt_klok_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="277dp"
+        android:layout_marginTop="199dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+            android:id="@+id/hht_xt_zjxt_01_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_hht_ly_yspy_01" />
+
+        <TextView
+            android:id="@+id/hht_xt_zjyy_01_lable"
+            style="@style/Stlye_Item_lable_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hht_ly_klok_jdeg" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hht_xt_klok_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="199dp"
+        android:layout_toEndOf="@+id/hht_xt_klok_01"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+            android:id="@+id/hht_xt_zjxt_02_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_hht_ly_klok_02" />
+
+        <TextView
+            android:id="@+id/hht_xt_zjyy_02_lable"
+            style="@style/Stlye_Item_lable_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hht_ly_klok_yceg" />
+    </LinearLayout>
+
+</RelativeLayout>

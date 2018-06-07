@@ -1,28 +1,22 @@
-package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy;
+package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.syzl;
 
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.fragments.base.HHT_Abstract_Activity;
 import com.boyue.boyuelauncher.widget.TitleBar;
 
-/**
- * Created by Tianluhua on 2018/6/7.
- */
-
-public class HHT_zjyy_Activity extends HHT_Abstract_Activity {
-
+public class HHT_yspy_yszl_Activity extends HHT_Abstract_Activity {
     @Override
     protected View getConentView(LayoutInflater inflater) {
-        return inflater.inflate(R.layout.activity_hht_zjyy,null);
+        return inflater.inflate(R.layout.activity_hht_yspy_yszl,null);
     }
 
     @Override
     protected void initView() {
         super.initView();
-        titleBar.setTitle(R.string.hht_xt_zjyy);
+        titleBar.setTitle(R.string.hht_ly_yspy_yszl);
         titleBar.setOnTitleBarClickListener(new TitleBar.OnTitleBarClickListener() {
             @Override
             public void onLeftIconClick(View view) {

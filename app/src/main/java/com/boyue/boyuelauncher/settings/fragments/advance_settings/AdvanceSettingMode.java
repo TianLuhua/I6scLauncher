@@ -3,7 +3,6 @@ package com.boyue.boyuelauncher.settings.fragments.advance_settings;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.format.Formatter;
-import android.widget.TextView;
 
 import com.boyue.boyuelauncher.base.BaseMode;
 import com.boyue.boyuelauncher.utils.SystemPropertiesUtils;
@@ -70,7 +69,6 @@ public class AdvanceSettingMode implements BaseMode {
      * @return
      */
     private String getDeviceModel() {
-
 
         return SystemPropertiesUtils.getString("ro.fota.device");
     }

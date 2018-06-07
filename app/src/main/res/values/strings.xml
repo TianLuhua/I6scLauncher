@@ -128,22 +128,24 @@
 
     <string name="hht_ly_yspy">艺术培养</string>
     <string name="hht_ly_yspy_zqyy">智趣音乐</string>
-    <string name="hht_ly_yspy_zqyy_bbsyq">智趣音乐</string>
-    <string name="hht_ly_yspy_zqyy_bbabz">智趣音乐</string>
-    <string name="hht_ly_yspy_zqyy_bbcyq">智趣音乐</string>
-    <string name="hht_ly_yspy_zqyy_bbttt">智趣音乐</string>
-    <string name="hht_ly_yspy_zqyy_gwxyp">智趣音乐</string>
-    <string name="hht_ly_yspy_zqyy_xxgqj">智趣音乐</string>
-    <string name="hht_ly_yspy_zqyy_bbceg">智趣音乐</string>
+    <string name="hht_ly_yspy_zqyy_bbsyq">宝宝认乐器</string>
+    <string name="hht_ly_yspy_zqyy_bbabz">宝宝爱伴奏</string>
+    <string name="hht_ly_yspy_zqyy_yqccc">乐器猜猜乐</string>
+    <string name="hht_ly_yspy_zqyy_klttt">快乐弹弹弹</string>
+    <string name="hht_ly_yspy_zqyy_gwxyp">跟我学乐谱</string>
+    <string name="hht_ly_yspy_zqyy_xxgqj">小小钢琴家</string>
+    <string name="hht_ly_yspy_zqyy_bbceg">宝宝猜儿歌</string>
     <string name="hht_ly_yspy_thcz">图画创造</string>
     <string name="hht_ly_yspy_thcz_bbxhh">宝宝学画画</string>
-    <string name="hht_ly_yspy_thcz_cjth">场景涂色</string>
+    <string name="hht_ly_yspy_thcz_cjts">场景涂色</string>
     <string name="hht_ly_yspy_thcz_fjsjs">飞机设计师</string>
     <string name="hht_ly_yspy_thcz_hhtazb">火火兔爱装扮</string>
     <string name="hht_ly_yspy_thcz_qwttl">趣味涂涂乐</string>
     <string name="hht_ly_yspy_thcz_wdbbmm">我的爸爸妈妈</string>
     <string name="hht_ly_yspy_thcz_thtd">童话天地</string>
     <string name="hht_ly_yspy_thcz_whnc">我画你猜</string>
+    <string name="hht_ly_yspy_thcz_mwdg">美味蛋糕</string>
+
     <string name="hht_ly_yspy_yszl">艺术之旅</string>
     <string name="hht_ly_yspy_yszl_001">世界名画1</string>
     <string name="hht_ly_yspy_yszl_002">世界名画2</string>
@@ -162,7 +164,7 @@
     <string name="hht_ly_yzyx_fkdb">疯狂打靶</string>
     <string name="hht_ly_yzyx_ssxxl">速算消消乐</string>
     <string name="hht_ly_yzyx_jyyyh">记忆音乐会</string>
-    <string name="hht_ly_yzyx_jjdc">记忆大餐</string>
+    <string name="hht_ly_yzyx_jydc">记忆大餐</string>
     <string name="hht_ly_yzyx_jyfp">记忆翻牌</string>
     <string name="hht_ly_yzyx_zlfj">整理房间</string>
 

@@ -15,7 +15,7 @@ import com.boyue.boyuelauncher.widget.TitleBar;
 public class HHT_klok_Activity extends HHT_Abstract_Activity {
         @Override
         protected View getConentView(LayoutInflater inflater) {
-            return new TextView(getApplicationContext());
+            return inflater.inflate(R.layout.activity_hht_klok,null);
         }
 
         @Override

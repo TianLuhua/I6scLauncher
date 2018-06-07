@@ -49,6 +49,14 @@
         <item name="android:textColor">@color/color_fff</item>
     </style>
 
+    <style name="Stlye_Item_lable_01">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#ff515151</item>
+    </style>
+    <style name="Stlye_Item_lable_02">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">#ff515151</item>
+    </style>
     <style name="Stlye_system_setting_text">
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/color_333</item>

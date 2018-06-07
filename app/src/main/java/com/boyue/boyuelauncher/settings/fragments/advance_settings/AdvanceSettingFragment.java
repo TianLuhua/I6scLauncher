@@ -16,9 +16,7 @@ import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Factory_SettingDial
 
 public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingView, AdvanceSettingPersenter> implements AdvanceSettingView, View.OnClickListener {
 
-    //ro.fota.device
     private TextView deviceModelText;
-    //ro.build.version.incremental
     private TextView firmwareVersionText;
     private TextView freeCapacityText;
     private RelativeLayout factorySettingSwitch;
@@ -49,13 +47,12 @@ public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingVi
         freeCapacityText = rootview.findViewById(R.id.free_capacity_value);
         factorySettingSwitch = rootview.findViewById(R.id.factory_setting);
         factorySettingSwitch.setOnClickListener(this);
-
         getPresenter().getSystemParameter();
     }
 
     @Override
     protected AdvanceSettingPersenter createPresenter() {
-        return new AdvanceSettingPersenter();
+        return new AdvanceSettingPersenter(getActivity().getApplicationContext());
     }
 
     @Override
@@ -67,14 +64,12 @@ public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingVi
                     @Override
                     public void onLeftClick(View v) {
                         //恢复出厂设置
-                        getContext().sendBroadcast(new Intent(
-                                "android.intent.action.MASTER_CLEAR"));
+                        getPresenter().startFactorySetting();
                     }
 
                     @Override
                     public void onRightClick(View v) {
                         dialog.dismiss();
-
                     }
                 });
                 dialog.show(getFragmentManager(), Config.DialogGlod.SETTING_FACTORY_SETTING);
