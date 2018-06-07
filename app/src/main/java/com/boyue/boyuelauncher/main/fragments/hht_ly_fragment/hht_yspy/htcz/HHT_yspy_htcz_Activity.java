@@ -5,19 +5,21 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.fragments.base.HHT_Abstract_Activity;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx.HHT_yzyx_Fragment_01;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx.HHT_yzyx_Fragment_02;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 import com.boyue.boyuelauncher.widget.TitleBar;
 
 public class HHT_yspy_htcz_Activity extends HHT_Abstract_Activity implements View.OnClickListener, HHT_htcz_Fragment_01.Notification_01 {
 
 
-    private EnlargeAndNarrowAnimationView previousPage;
-    private EnlargeAndNarrowAnimationView nextPage;
+    private ImageView previousPage;
+    private ImageView nextPage;
 
     private FragmentManager manager;
 
@@ -85,6 +87,7 @@ public class HHT_yspy_htcz_Activity extends HHT_Abstract_Activity implements Vie
 
     @Override
     public void onHiddenChanged(boolean hidden) {
+        LogUtils.e("tll","onHiddenChanged:"+hidden);
         nextPage.setVisibility(!hidden ? View.VISIBLE : View.INVISIBLE);
         previousPage.setVisibility(hidden ? View.VISIBLE : View.INVISIBLE);
     }

@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.fragments.base.HHT_Abstract_Activity;
@@ -17,8 +18,8 @@ import com.boyue.boyuelauncher.widget.TitleBar;
 
 public class HHT_yzyx_Activity extends HHT_Abstract_Activity implements View.OnClickListener, HHT_yzyx_Fragment_01.Notification_01 {
 
-    private EnlargeAndNarrowAnimationView previousPage;
-    private EnlargeAndNarrowAnimationView nextPage;
+    private ImageView previousPage;
+    private ImageView nextPage;
 
     private FragmentManager manager;
 

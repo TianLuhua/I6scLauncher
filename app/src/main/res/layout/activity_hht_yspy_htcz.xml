@@ -11,7 +11,7 @@
 
 
 
-    <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+    <ImageView
         android:id="@+id/previous_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:layout_marginTop="274dp"
         android:src="@mipmap/ic_previous_page" />
 
-    <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+    <ImageView
         android:id="@+id/next_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
