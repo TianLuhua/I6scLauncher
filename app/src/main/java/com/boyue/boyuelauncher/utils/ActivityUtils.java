@@ -31,7 +31,7 @@ public class ActivityUtils {
                 Toast.makeText(Utils.getApp(), "Start Activity Error", Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(Utils.getApp(), "Not Found CleanCacheActivity", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Utils.getApp(), "Not Found Activity", Toast.LENGTH_SHORT).show();
         }
     }
 

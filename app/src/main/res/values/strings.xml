@@ -48,7 +48,7 @@
     <!--自动关机-->
     <string name="screen_dormancy">屏幕休眠</string>
     <string name="auto_shutdown">自动关机</string>
-    <string name="auto_shutdown_note">说明：开启自动关机后，检测到一定是加你内无操作将自动关机，节省电能</string>
+    <string name="auto_shutdown_note">说明：开启自动关机后，检测到一定时间内无操作将自动关机，节省电能</string>
     <string name="timing_shutdown">定时关机</string>
     <string name="timing_shutdown_note">说明：开启定时关机后，到设定时间后将自动关机</string>
 

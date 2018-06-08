@@ -1,5 +1,6 @@
 package com.boyue.boyuelauncher.settings.fragments.auto_shutdown;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.RadioGroup;
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
+import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
 public class AutoShueDownFragment extends AbstractMVPFragment<AutoShueDownView, AutoShueDownPersenter> implements AutoShueDownView, RadioGroup.OnCheckedChangeListener {
@@ -80,6 +82,9 @@ public class AutoShueDownFragment extends AbstractMVPFragment<AutoShueDownView, 
             //自动关机
             case R.id.auto_shutdown_item_00:
                 LogUtils.e("tlh", "auto_shutdown_item_00");
+
+                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_REQUEST_SHUTDOWN);
+
                 break;
             case R.id.auto_shutdown_item_01:
                 LogUtils.e("tlh", "auto_shutdown_item_01");

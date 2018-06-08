@@ -32,6 +32,9 @@ public class Config {
         public static final String ACTIVITY_ACTION_HHT_YZYX = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx";
 
 
+        public static final String ACTIVITY_REQUEST_SHUTDOWN = "com.android.internal.intent.action.REQUEST_SHUTDOWN";
+
+
     }
 
     /**

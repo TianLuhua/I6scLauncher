@@ -49,11 +49,12 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
         timeText = rootview.findViewById(R.id.set_time_value);
         dateText.setOnClickListener(this);
         timeText.setOnClickListener(this);
+        getPresenter().getIsDateTimeAuto();
     }
 
     @Override
     protected DateTimeSettingPersenter createPresenter() {
-        return new DateTimeSettingPersenter();
+        return new DateTimeSettingPersenter(getContext());
     }
 
     @Override
@@ -61,14 +62,18 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
         switch (buttonView.getId()) {
             case R.id.synchronization_time_switch:
                 setDateAndTime(isChecked);
+                getPresenter().setAutoDateTime(isChecked);
                 break;
         }
 
     }
 
     private void setDateAndTime(boolean isChecked) {
-        dateText.setTextAppearance(getActivity().getApplicationContext(), isChecked ? R.style.Stlye_system_setting_date_time_enable : R.style.Stlye_system_setting_date_time_disable);
-        timeText.setTextAppearance(getActivity().getApplicationContext(), isChecked ? R.style.Stlye_system_setting_date_time_enable : R.style.Stlye_system_setting_date_time_disable);
+
+        dateText.setTextAppearance(getActivity().getApplicationContext(), !isChecked ? R.style.Stlye_system_setting_date_time_enable : R.style.Stlye_system_setting_date_time_disable);
+        timeText.setTextAppearance(getActivity().getApplicationContext(), !isChecked ? R.style.Stlye_system_setting_date_time_enable : R.style.Stlye_system_setting_date_time_disable);
+        dateText.setClickable(!isChecked);
+        timeText.setClickable(!isChecked);
     }
 
     @Override
@@ -112,5 +117,13 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
     @Override
     public void onSure(Date date) {
         LogUtils.e("tlh", "onSure---date:" + date.toString());
+    }
+
+    @Override
+    public void isDateTimeAuto(boolean isAuto) {
+        if(synchronizationTimeSwitch==null)return;
+        LogUtils.e("tlh", "isDateTimeAuto:" +isAuto);
+        synchronizationTimeSwitch.setChecked(isAuto);
+        setDateAndTime(isAuto);
     }
 }

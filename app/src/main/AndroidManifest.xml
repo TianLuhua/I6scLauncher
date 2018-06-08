@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.boyue.boyuelauncher">
+    package="com.boyue.boyuelauncher"
+    android:sharedUserId="android.uid.system">
 
 
     <!-- 网络请求权限 -->
@@ -18,6 +19,9 @@
 
     <!-- 清除Cache所需的权限 -->
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+
+    <!--关机权限-->
+    <uses-permission android:name="android.permission.SHUTDOWN" />
 
     <application
         android:name=".BoYueApplication"
