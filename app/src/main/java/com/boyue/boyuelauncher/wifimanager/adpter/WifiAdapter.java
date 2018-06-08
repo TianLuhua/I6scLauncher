@@ -15,6 +15,7 @@ import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 import com.boyue.boyuelauncher.wifimanager.listener.DataActionListener;
 import com.boyue.boyuelauncher.wifimanager.listener.OnItemClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,15 +26,19 @@ import java.util.List;
 public class WifiAdapter extends RecyclerView.Adapter {
 
     private Context context;
-    private List<WifiModel> dataList;
+    private ArrayList<WifiModel> dataList;
     private LayoutInflater layoutInflater;
     private OnItemClickListener onItemClickListener;
     private DataActionListener dataActionListener;
 
-    public WifiAdapter(Context context, List<WifiModel> dataList) {
+    public WifiAdapter(Context context) {
         this.context = context;
-        this.dataList = dataList;
+        this.dataList = new ArrayList<>();
         this.layoutInflater = LayoutInflater.from(context);
+    }
+    public void setDataList(ArrayList<WifiModel> dataList){
+        this.dataList=dataList;
+        notifyDataSetChanged();
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {

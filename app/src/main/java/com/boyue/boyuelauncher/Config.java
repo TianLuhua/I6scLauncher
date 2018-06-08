@@ -51,10 +51,12 @@ public class Config {
     }
 
     /**
-     * 系统涉及到的敏感权限申请
+     * 系统涉及到的敏感权限申请,可能升级见到Android M
      */
     public static class Permission {
         public static final String LOCATION_PERMISSION = Manifest.permission.ACCESS_FINE_LOCATION;
+        //WiFi权限请求code
+        public static final int REQUEST_CODE = 0X11000;
     }
 
 
