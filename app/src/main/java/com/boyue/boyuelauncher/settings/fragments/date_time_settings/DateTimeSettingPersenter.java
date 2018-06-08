@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.boyue.boyuelauncher.base.AbstractPresenter;
 
+import java.util.Date;
+
 public class DateTimeSettingPersenter extends AbstractPresenter<DateTimeSettingView> {
 
     private DateTimeSettingMode mode;
@@ -18,6 +20,16 @@ public class DateTimeSettingPersenter extends AbstractPresenter<DateTimeSettingV
                 if (view == null) return;
                 view.isDateTimeAuto(isAuto);
             }
+
+            @Override
+            public void setSuccess( ) {
+                getView().onSuccess();
+            }
+
+            @Override
+            public void setFail() {
+                getView().onFail();
+            }
         });
     }
 
@@ -30,4 +42,17 @@ public class DateTimeSettingPersenter extends AbstractPresenter<DateTimeSettingV
         if (mode == null) return;
         mode.setAutoDateTime(autoDateTime);
     }
+
+    public void setSysTime(int hour, int minute) {
+        if (mode == null) return;
+        mode.setSysTime(hour, minute);
+
+    }
+
+    public void setSysDate(int year, int month, int day) {
+        if (mode == null) return;
+        mode.setSysDate(year, month, day);
+    }
+
+
 }

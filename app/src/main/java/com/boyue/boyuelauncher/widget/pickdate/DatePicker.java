@@ -200,7 +200,7 @@ class DatePicker extends BaseWheelPick {
 
     @Override
     protected int getLayout() {
-        return R.layout.cbk_wheel_picker;
+        return R.layout.dialog_pickdate;
     }
 
     @Override

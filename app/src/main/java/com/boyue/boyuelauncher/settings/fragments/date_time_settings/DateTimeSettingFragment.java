@@ -13,19 +13,25 @@ import android.widget.TextView;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.pickdate.OnChangeLisener;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_SetDateDialog;
 import com.boyue.boyuelauncher.widget.pickdate.OnSureLisener;
 import com.boyue.boyuelauncher.widget.pickdate.bean.DateType;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSettingView, DateTimeSettingPersenter> implements DateTimeSettingView, CompoundButton.OnCheckedChangeListener, View.OnClickListener, OnChangeLisener, OnSureLisener {
+public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSettingView, DateTimeSettingPersenter> implements DateTimeSettingView, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
     private CheckBox synchronizationTimeSwitch;
     private TextView dateText;
     private TextView timeText;
     private FragmentManager manager;
+
+    private SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm");
 
     public static DateTimeSettingFragment newInstance() {
         return new DateTimeSettingFragment();
@@ -53,7 +59,9 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
         dateText.setOnClickListener(this);
         timeText.setOnClickListener(this);
         getPresenter().getIsDateTimeAuto();
+        updateUI();
     }
+
 
     @Override
     protected DateTimeSettingPersenter createPresenter() {
@@ -79,6 +87,17 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
         timeText.setClickable(!isChecked);
     }
 
+    /**
+     * 根据当前时间，更新UI
+     */
+    private void updateUI() {
+        Date date = new Date(System.currentTimeMillis());
+        String[] ss = simpleDateFormat.format(date).split("_");
+        dateText.setText(ss[0]);
+        timeText.setText(ss[1]);
+    }
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -86,14 +105,20 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
             case R.id.set_date_value:
                 //防止选择日期dialog出现多次
                 if (manager.findFragmentByTag("date") == null) {
-
                     Setting_SetDateDialog dateDialog = new Setting_SetDateDialog();
                     dateDialog.setType(DateType.TYPE_YMD);
                     dateDialog.setTitleRes(R.string.set_date);
                     dateDialog.setLeftBtnRes(R.string.cancel);
                     dateDialog.setRightBtnRes(R.string.ok);
-                    dateDialog.setOnChangeLisener(this);
-                    dateDialog.setOnSureLisener(this);
+                    dateDialog.setOnSureLisener(new OnSureLisener() {
+                        @Override
+                        public void onSure(Date date) {
+                            String dd = dateFormat.format(date);
+                            String[] ss = dd.split("-");
+                            getPresenter().setSysDate(Integer.valueOf(ss[0]), Integer.valueOf(ss[1]), Integer.valueOf(ss[1]));
+                            updateUI();
+                        }
+                    });
                     dateDialog.show(getActivity().getSupportFragmentManager(), "date");
                 }
                 break;
@@ -107,8 +132,15 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
                     timeDialog.setTitleRes(R.string.set_time);
                     timeDialog.setLeftBtnRes(R.string.cancel);
                     timeDialog.setRightBtnRes(R.string.ok);
-                    timeDialog.setOnChangeLisener(this);
-                    timeDialog.setOnSureLisener(this);
+                    timeDialog.setOnSureLisener(new OnSureLisener() {
+                        @Override
+                        public void onSure(Date date) {
+                            String dd = timeFormat.format(date);
+                            String[] ss = dd.split(":");
+                            getPresenter().setSysTime(Integer.valueOf(ss[0]), Integer.valueOf(ss[1]));
+                            updateUI();
+                        }
+                    });
                     timeDialog.show(getActivity().getSupportFragmentManager(), "time");
                 }
                 break;
@@ -118,22 +150,23 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
 
     }
 
-    @Override
-    public void onChanged(Date date) {
-        LogUtils.e("tlh", "onChanged---date:" + date.toString());
-
-    }
-
-    @Override
-    public void onSure(Date date) {
-        LogUtils.e("tlh", "onSure---date:" + date.toString());
-    }
 
     @Override
     public void isDateTimeAuto(boolean isAuto) {
         if (synchronizationTimeSwitch == null) return;
-        LogUtils.e("tlh", "isDateTimeAuto:" + isAuto);
         synchronizationTimeSwitch.setChecked(isAuto);
         setDateAndTime(isAuto);
     }
+
+    @Override
+    public void onSuccess() {
+        ToastUtil.showLongToast(R.string.set_time_success);
+    }
+
+
+    @Override
+    public void onFail() {
+        ToastUtil.showLongToast(R.string.set_time_fail);
+    }
+
 }

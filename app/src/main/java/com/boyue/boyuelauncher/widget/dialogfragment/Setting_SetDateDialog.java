@@ -48,7 +48,7 @@ public class Setting_SetDateDialog extends DialogFragment {
         //设置选择回调
         dialog.setOnChangeLisener(onChangeLisener != null ? onChangeLisener : null);
         //设置点击确定按钮回调
-        dialog.setOnSureLisener(null);
+        dialog.setOnSureLisener(onSureLisener);
         return dialog;
     }
 
