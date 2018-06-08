@@ -63,6 +63,10 @@
     <string name="timing_locking">定时锁定</string>
     <string name="timing_locking_note">说明：开启定时锁定后，到设定时间后将自动锁定屏幕，不能继续使用</string>
     <string name="input_new_pwd">输入新密码</string>
+    <string name="input_agin_new_pwd">再次输入新密码</string>
+    <string name="modify_pwd_ok">修改密码成功，请记住你的密码是：</string>
+    <string name="input_old_pwd">输入原始密码</string>
+    <string name="input_pwd_error">密码输入错误</string>
 
 
     <!--日期与时间-->

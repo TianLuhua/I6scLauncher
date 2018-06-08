@@ -23,18 +23,12 @@ public class Config {
         public static final String ACTIVITY_ACTION_HHT_ZJYY = "com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_zjyy";
         public static final String ACTIVITY_ACTION_HHT_ZJXT = "com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_zjxt";
         public static final String ACTIVITY_ACTION_HHT_KLOK = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.HHT_klok";
-
         public static final String ACTIVITY_ACTION_HHT_YSPY = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy";
         public static final String ACTIVITY_ACTION_HHT_YSPY_HTCZ = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.htcz";
         public static final String ACTIVITY_ACTION_HHT_YSPY_SYZL = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.syzl";
         public static final String ACTIVITY_ACTION_HHT_YSPY_ZQYY = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.zqyy";
-
         public static final String ACTIVITY_ACTION_HHT_YZYX = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx";
-
-
         public static final String ACTIVITY_REQUEST_SHUTDOWN = "com.android.internal.intent.action.REQUEST_SHUTDOWN";
-
-
     }
 
     /**
@@ -54,8 +48,6 @@ public class Config {
         public static final String SETTING_ENABLE_FCM_PASSWORD = "setting_enable_fcm_password";
         public static final String SETTING_FCM_CHANGEPASSWORD = "setting_fcm_changepassword";
         public static final String SETTING_FACTORY_SETTING = "Setting_Factory_Setting";
-
-
     }
 
     /**
@@ -72,7 +64,6 @@ public class Config {
     public static class MountPath {
         public static final String USB_PATH = "/mnt/uhost";
         public static final String SD_PATH = "/mnt/sd-ext";
-
     }
 
     /**
@@ -83,7 +74,11 @@ public class Config {
         public static final int SCREEN_BRIGHTNESS_MAX = 255;
     }
 
+    /**
+     * 键盘数字
+     */
     public static class Number {
+        public static final int PWD_LENGTH = 4;
         public static final int Nuumber_0 = 0;
         public static final int Nuumber_1 = 1;
         public static final int Nuumber_2 = 2;
@@ -94,11 +89,11 @@ public class Config {
         public static final int Nuumber_7 = 7;
         public static final int Nuumber_8 = 8;
         public static final int Nuumber_9 = 9;
-
-        public static final int PWD_LENGTH = 4;
-
     }
 
+    /**
+     * 系统时间置相关
+     */
     public static class Settings {
         public static final int SCREEN_TIMEOUT_VALUE_NEVER = Integer.MAX_VALUE;
         public static final int SCREEN_TIMEOUT_VALUE_1M = 60000;
@@ -110,5 +105,21 @@ public class Config {
         public static final int SCREEN_TIMEOUT_VALUE_120M = SCREEN_TIMEOUT_VALUE_1M * 12;
     }
 
+    /**
+     * 系统密码相关
+     */
+    public static class PWDKey {
 
+        //系统SharedPreferences 名称
+        public static final String SPNMAE = "com_boyue_boyuelauncher";
+        //默认密码
+        public static final String DEFAULT_BOOTPWD = "0000";
+
+        //是否启用密码 key
+        public static final String PWD_IS_ENABLE = "pwd_is_enable";
+        //存储开机密码 key
+        public static final String BOOT_PWD_NAME = "boot_pwd";
+        //存储防沉迷密码 key
+        public static final String FCM_PWD_NAME = "fcm_pwd";
+    }
 }

@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class SPUtils {
 
-    private final String DEFAULT_STRING = "default";
+    public static final String DEFAULT_STRING = "default";
 
     private static SimpleArrayMap<String, SPUtils> SP_UTILS_MAP = new SimpleArrayMap<>();
     private SharedPreferences sp;

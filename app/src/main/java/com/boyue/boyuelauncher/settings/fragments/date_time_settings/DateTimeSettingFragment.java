@@ -74,6 +74,7 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
             case R.id.synchronization_time_switch:
                 setDateAndTime(isChecked);
                 getPresenter().setAutoDateTime(isChecked);
+                updateUI();
                 break;
         }
 

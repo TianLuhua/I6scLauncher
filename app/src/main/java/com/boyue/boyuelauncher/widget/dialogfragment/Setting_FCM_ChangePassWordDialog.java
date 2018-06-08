@@ -9,16 +9,22 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
+
+import org.w3c.dom.Text;
 
 
 /**
  * Created by tianluhua on 2018/6/5.
  */
 public class Setting_FCM_ChangePassWordDialog extends DialogFragment implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+
+    //标题
+    private TextView title;
 
     //显示密码输入状态
     private CheckBox pwd_1;
@@ -64,6 +70,9 @@ public class Setting_FCM_ChangePassWordDialog extends DialogFragment implements 
     }
 
     private void initView(View rootView) {
+
+        title = rootView.findViewById(R.id.dialog_title);
+
         pwd_1 = rootView.findViewById(R.id.pwd_1);
         pwd_2 = rootView.findViewById(R.id.pwd_2);
         pwd_3 = rootView.findViewById(R.id.pwd_3);
@@ -241,6 +250,18 @@ public class Setting_FCM_ChangePassWordDialog extends DialogFragment implements 
         }
 
     }
+
+
+    public void setTieltT(int titleRes, int colorRes) {
+        title.setText(titleRes);
+        if (colorRes == 0) {
+            title.setTextColor(getResources().getColor(R.color.color_333));
+        } else {
+
+            title.setTextColor(getResources().getColor(colorRes));
+        }
+    }
+
 
     /**
      * 清空密码显示的状态

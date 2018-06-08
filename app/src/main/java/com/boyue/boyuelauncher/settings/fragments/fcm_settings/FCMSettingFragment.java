@@ -3,6 +3,7 @@ package com.boyue.boyuelauncher.settings.fragments.fcm_settings;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.AppCompatImageView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Fcm_Enable_NoteDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_text_01_tutton_03_Dialog;
@@ -58,7 +60,7 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
     }
 
     private void initView(View rootview) {
-        //更改密码
+        //启用密码
         enablePwdCheckBox = rootview.findViewById(R.id.enable_password_switch);
         enablePwdCheckBox.setOnCheckedChangeListener(this);
 
@@ -76,6 +78,9 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
         timingLockingTitle = rootview.findViewById(R.id.timing_locking_title);
         timingLockingGroup = rootview.findViewById(R.id.timing_locking_item_group);
         timingLockingGroup.setOnCheckedChangeListener(this);
+
+        //初始化UI,会回调到方法：setSystmStatus(boolean pwdIsEnable, boolean pwdFcmIsEnable)
+        getPresenter().getSystmStatus();
     }
 
     @Override
@@ -104,18 +109,24 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
     }
 
     @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+    public void onCheckedChanged(CompoundButton buttonView, boolean isEnable) {
+
+
         switch (buttonView.getId()) {
             //启用密码
             case R.id.enable_password_switch:
-                LogUtils.e("tlh", "fcm--enable_password-->:" + isChecked);
+                LogUtils.e("tlh", "fcm--enable_password-->:" + isEnable);
 
-                enableFcmPassword(isChecked);
+                enAblePassword(isEnable);
+                updateUI(isEnable);
 
                 break;
             //防沉迷开关
             case R.id.fcm_switch_switch:
-                LogUtils.e("tlh", "fcm--fcm_switch_switch-->:" + isChecked);
+                LogUtils.e("tlh", "fcm--fcm_switch_switch-->:" + isEnable);
+
+                enAbleFCMPassword(isEnable);
+
                 break;
 
         }
@@ -125,31 +136,33 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
     /**
      * 是否启用fcm密码
      *
-     * @param disAble
+     * @param isEnable
      */
-    private void enableFcmPassword(boolean disAble) {
-
-        if (!disAble) {
-
-            //禁止防沉迷密码生效
-            getPresenter().disAbleFcmPassWord();
-
-        } else {
-
-            showFcmEnableNoteDialog();
-        }
+    private void enAblePassword(boolean isEnable) {
+        getPresenter().enAblePassword(isEnable);
 
 
-        disAbleOtherFunction(disAble);
+        //显示密码提示框（初始化密码：0000），没什么实际作用
+        showFcmEnableNoteDialog(!isEnable);
     }
+
+    /**
+     * 系统密码是否启用
+     *
+     * @param isEnable
+     */
+    private void enAbleFCMPassword(boolean isEnable) {
+
+        getPresenter().disAbleFcmPassWord(isEnable);
+    }
+
 
     /**
      * 禁止/开启：修改密码、开机锁屏、定时锁屏等功能
      *
      * @param disAble
      */
-    private void disAbleOtherFunction(boolean disAble) {
-
+    private void updateUI(boolean disAble) {
 
         Resources resources = getResources();
         int color_333 = resources.getColor(R.color.color_333);
@@ -182,31 +195,39 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
     /**
      * 显示密码提示框
      */
-    private void showFcmEnableNoteDialog() {
-        final Setting_Fcm_Enable_NoteDialog dialog = new Setting_Fcm_Enable_NoteDialog();
-        dialog.setCancelable(false);
-        dialog.setOnclickListener(new Setting_text_01_tutton_03_Dialog.OnclickListener() {
-            @Override
-            public void onLeftClick(View v) {
-                //useless
+    private void showFcmEnableNoteDialog(boolean show) {
+        if (show) return;
+        FragmentManager fragmentManager = getFragmentManager();
+        //防止出现多个密码框
+        if (fragmentManager.findFragmentByTag(Config.DialogGlod.SETTING_ENABLE_FCM_PASSWORD) == null) {
+            final Setting_Fcm_Enable_NoteDialog dialog = new Setting_Fcm_Enable_NoteDialog();
+            dialog.setCancelable(false);
+            dialog.setOnclickListener(new Setting_text_01_tutton_03_Dialog.OnclickListener() {
+                @Override
+                public void onLeftClick(View v) {
+                    //useless
 
-            }
+                }
 
-            @Override
-            public void onMiddleClick(View v) {
-                dialog.dismiss();
+                @Override
+                public void onMiddleClick(View v) {
+                    dialog.dismiss();
 
-            }
+                }
 
-            @Override
-            public void onRightClick(View v) {
-                //useless
+                @Override
+                public void onRightClick(View v) {
+                    //useless
 
-            }
-        });
-        dialog.show(getFragmentManager(), Config.DialogGlod.SETTING_ENABLE_FCM_PASSWORD);
+                }
+            });
+            dialog.show(fragmentManager, Config.DialogGlod.SETTING_ENABLE_FCM_PASSWORD);
+        }
+
     }
 
+    //用于保存用户第一次匹配密码是否匹配成功
+    public boolean isMatch = false;
 
     @Override
     public void onClick(View v) {
@@ -215,6 +236,7 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
             //修改密码
             case R.id.modify_password_switch:
                 LogUtils.e("tlh", "fcm--modify_password-->:");
+
                 final Setting_FCM_ChangePassWordDialog dialog = new Setting_FCM_ChangePassWordDialog();
                 dialog.setCancelable(false);
                 dialog.setNotfication(new Setting_FCM_ChangePassWordDialog.Notfication() {
@@ -226,6 +248,7 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
                     @Override
                     public void cancel() {
                         LogUtils.e("tlh", "cancel");
+                        isMatch=false;
                         dialog.dismiss();
                     }
 
@@ -237,12 +260,51 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
                     @Override
                     public void hasInputNumbers(String pwd) {
                         LogUtils.e("tlh", "hasInputNumbers:" + pwd);
+
+
+                        if (!isMatch) {
+
+                            //拿到用户输入的密码，去和之前存储的密码匹配
+                            if (getPresenter().matchingPwd(pwd)) {
+                                isMatch = true;
+                                //配对ok,提示用户输入新密码
+                                dialog.setTieltT(R.string.input_new_pwd, R.color.color_333);
+                            } else {
+                                //配对失败，提示用户密码输入错误
+                                dialog.setTieltT(R.string.input_pwd_error, R.color.color_red);
+                            }
+
+                        } else {
+                            //需要用户输入两次相同的密码，才能保存
+                            if (getPresenter().saveingPwd(pwd)) {
+
+                                StringBuilder builder = new StringBuilder();
+                                builder.append(getString(R.string.modify_pwd_ok));
+                                builder.append(pwd);
+                                ToastUtil.showLongToast(builder.toString());
+                                dialog.dismiss();
+
+                            } else {
+
+                                dialog.setTieltT(R.string.input_agin_new_pwd, R.color.color_333);
+                                LogUtils.e("tlh","再次输入新密码！");
+                            }
+                        }
+
+
+                        dialog.cleanPwdStatus();
+
                     }
                 });
                 dialog.show(getFragmentManager(), Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
                 break;
         }
+    }
 
+    @Override
+    public void setSystmStatus(boolean pwdIsEnable, boolean pwdFcmIsEnable) {
 
+        fcmSwitchSwitchcheckBox.setChecked(pwdFcmIsEnable);
+        enablePwdCheckBox.setChecked(pwdIsEnable);
     }
 }
