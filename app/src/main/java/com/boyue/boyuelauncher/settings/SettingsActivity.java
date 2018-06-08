@@ -69,6 +69,8 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
 
         mListView = findViewById(R.id.page_indicator);
         fragmentPagers = findViewById(R.id.page_content);
+        //设置ViewPager缓存的Fragment数量
+        fragmentPagers.setOffscreenPageLimit(2);
         fragmentPagers.addOnPageChangeListener(this);
 
         getPresenter().getIndicatorItems();
@@ -134,6 +136,6 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
     @Override
     public void gotoSetFcmPassWord() {
         //跳转到Fcm密码设置界面
-        fragmentPagers.setCurrentItem(4,false);
+        fragmentPagers.setCurrentItem(4, false);
     }
 }

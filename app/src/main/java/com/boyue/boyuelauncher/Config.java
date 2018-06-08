@@ -4,6 +4,8 @@ import android.Manifest;
 
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Factory_SettingDialog;
 
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
+
 /**
  * Created by Tianluhua on 2018/05/23
  */
@@ -92,6 +94,17 @@ public class Config {
 
         public static final int PWD_LENGTH = 4;
 
+    }
+
+    public static class Settings {
+        public static final int SCREEN_TIMEOUT_VALUE_NEVER = Integer.MAX_VALUE;
+        public static final int SCREEN_TIMEOUT_VALUE_1M = 60000;
+        public static final int SCREEN_TIMEOUT_VALUE_5M = SCREEN_TIMEOUT_VALUE_1M * 5;
+        public static final int SCREEN_TIMEOUT_VALUE_10M = SCREEN_TIMEOUT_VALUE_1M * 10;
+        public static final int SCREEN_TIMEOUT_VALUE_15M = SCREEN_TIMEOUT_VALUE_1M * 15;
+        public static final int SCREEN_TIMEOUT_VALUE_30M = SCREEN_TIMEOUT_VALUE_1M * 30;
+        public static final int SCREEN_TIMEOUT_VALUE_60M = SCREEN_TIMEOUT_VALUE_1M * 60;
+        public static final int SCREEN_TIMEOUT_VALUE_120M = SCREEN_TIMEOUT_VALUE_1M * 12;
     }
 
 
