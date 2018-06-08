@@ -2,6 +2,7 @@ package com.boyue.boyuelauncher.settings.fragments.date_time_settings;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
     private CheckBox synchronizationTimeSwitch;
     private TextView dateText;
     private TextView timeText;
+    private FragmentManager manager;
 
     public static DateTimeSettingFragment newInstance() {
         return new DateTimeSettingFragment();
@@ -43,6 +45,7 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
     }
 
     private void initView(View rootview) {
+        manager = getFragmentManager();
         synchronizationTimeSwitch = rootview.findViewById(R.id.synchronization_time_switch);
         synchronizationTimeSwitch.setOnCheckedChangeListener(this);
         dateText = rootview.findViewById(R.id.set_date_value);
@@ -81,26 +84,33 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
         switch (v.getId()) {
             //设置日期
             case R.id.set_date_value:
-                Setting_SetDateDialog dateDialog = new Setting_SetDateDialog();
-                dateDialog.setType(DateType.TYPE_YMD);
-                dateDialog.setTitleRes(R.string.set_date);
-                dateDialog.setLeftBtnRes(R.string.cancel);
-                dateDialog.setRightBtnRes(R.string.ok);
-                dateDialog.setOnChangeLisener(this);
-                dateDialog.setOnSureLisener(this);
-                dateDialog.show(getActivity().getSupportFragmentManager(), "date");
+                //防止选择日期dialog出现多次
+                if (manager.findFragmentByTag("date") == null) {
+
+                    Setting_SetDateDialog dateDialog = new Setting_SetDateDialog();
+                    dateDialog.setType(DateType.TYPE_YMD);
+                    dateDialog.setTitleRes(R.string.set_date);
+                    dateDialog.setLeftBtnRes(R.string.cancel);
+                    dateDialog.setRightBtnRes(R.string.ok);
+                    dateDialog.setOnChangeLisener(this);
+                    dateDialog.setOnSureLisener(this);
+                    dateDialog.show(getActivity().getSupportFragmentManager(), "date");
+                }
                 break;
 
             //设置时间
             case R.id.set_time_value:
-                Setting_SetDateDialog timeDialog = new Setting_SetDateDialog();
-                timeDialog.setType(DateType.TYPE_HM);
-                timeDialog.setTitleRes(R.string.set_time);
-                timeDialog.setLeftBtnRes(R.string.cancel);
-                timeDialog.setRightBtnRes(R.string.ok);
-                timeDialog.setOnChangeLisener(this);
-                timeDialog.setOnSureLisener(this);
-                timeDialog.show(getActivity().getSupportFragmentManager(), "time");
+                //防止选择时间dialog出现多次
+                if (manager.findFragmentByTag("time") == null) {
+                    Setting_SetDateDialog timeDialog = new Setting_SetDateDialog();
+                    timeDialog.setType(DateType.TYPE_HM);
+                    timeDialog.setTitleRes(R.string.set_time);
+                    timeDialog.setLeftBtnRes(R.string.cancel);
+                    timeDialog.setRightBtnRes(R.string.ok);
+                    timeDialog.setOnChangeLisener(this);
+                    timeDialog.setOnSureLisener(this);
+                    timeDialog.show(getActivity().getSupportFragmentManager(), "time");
+                }
                 break;
             default:
                 break;
@@ -121,8 +131,8 @@ public class DateTimeSettingFragment extends AbstractMVPFragment<DateTimeSetting
 
     @Override
     public void isDateTimeAuto(boolean isAuto) {
-        if(synchronizationTimeSwitch==null)return;
-        LogUtils.e("tlh", "isDateTimeAuto:" +isAuto);
+        if (synchronizationTimeSwitch == null) return;
+        LogUtils.e("tlh", "isDateTimeAuto:" + isAuto);
         synchronizationTimeSwitch.setChecked(isAuto);
         setDateAndTime(isAuto);
     }
