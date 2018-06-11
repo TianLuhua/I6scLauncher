@@ -27,7 +27,7 @@ public class AutoShueDownMode implements BaseMode {
     public void getCurrentScreenTimeout() {
 
         int currentScreenTimeout = Settings.System.getInt(resolver, SCREEN_OFF_TIMEOUT,
-                Config.Settings.SCREEN_TIMEOUT_VALUE_NEVER);
+                Config.Settings.VALUE_NEVER);
         if (callBack == null) return;
         callBack.setCurrentScreenTimeout(currentScreenTimeout);
 

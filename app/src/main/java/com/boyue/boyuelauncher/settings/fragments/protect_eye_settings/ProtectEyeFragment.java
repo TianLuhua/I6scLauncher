@@ -37,8 +37,6 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
     //定时休息
     private RadioGroup regularRestRadioGroup;
 
-    //是否设置了防沉迷密码
-    private boolean hasFcmPassWord;
 
     public static ProtectEyeFragment newInstance() {
         return new ProtectEyeFragment();
@@ -62,7 +60,7 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
     @Override
     public void onResume() {
         super.onResume();
-    LogUtils.e("tlh","ProtectEyeFragment-------onResume");
+        LogUtils.e("tlh", "ProtectEyeFragment-------onResume");
     }
 
 
@@ -133,15 +131,14 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
                 switch (checkedId) {
                     case R.id.item_00:
                         LogUtils.e("tlh", "regularRestRadioGroup:" + "从不");
-
-                        getPresenter().setRegularRestTime();
+                        getPresenter().setRegularRestTime(Config.Settings.VALUE_NEVER);
                         break;
 
                     case R.id.item_01:
                         LogUtils.e("tlh", "regularRestRadioGroup:" + "20");
 
-                        if ( getPresenter().hasePassWord()) {
-                            getPresenter().setRegularRestTime();
+                        if (getPresenter().hasePassWord()) {
+                            getPresenter().setRegularRestTime(Config.Settings.VALUE_20M);
                         } else {
                             showRegularRestDialog();
                         }
@@ -152,7 +149,7 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
                         LogUtils.e("tlh", "regularRestRadioGroup:" + "40");
 
                         if (getPresenter().hasePassWord()) {
-                            getPresenter().setRegularRestTime();
+                            getPresenter().setRegularRestTime(Config.Settings.VALUE_40M);
                         } else {
                             showRegularRestDialog();
                         }
@@ -162,7 +159,7 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
                         LogUtils.e("tlh", "regularRestRadioGroup:" + "60");
 
                         if (getPresenter().hasePassWord()) {
-                            getPresenter().setRegularRestTime();
+                            getPresenter().setRegularRestTime(Config.Settings.VALUE_60M);
                         } else {
                             showRegularRestDialog();
                         }
@@ -187,9 +184,8 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
         dialog.setOnclickListener(new Setting_text_01_tutton_03_Dialog.OnclickListener() {
             @Override
             public void onLeftClick(View v) {
+                regularRestRadioGroup.check(R.id.item_00);
                 dialog.dismiss();
-//                regularRestRadioGroup.clearCheck();
-//                regularRestRadioGroup.check(R.id.item_00);
 
             }
 
@@ -202,10 +198,8 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
             public void onRightClick(View v) {
                 ToastUtil.showShortToast("马上去开启设置密码！");
                 if (notfication == null) return;
-                dialog.dismiss();
                 notfication.gotoSetFcmPassWord();
-
-
+                dialog.dismiss();
             }
         });
         dialog.show(getChildFragmentManager(), Config.DialogGlod.SETTING_REGULARREST_NOTICE);

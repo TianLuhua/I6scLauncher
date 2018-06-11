@@ -3,7 +3,6 @@
     package="com.boyue.boyuelauncher"
 
 
-
     >
     <!--android:sharedUserId="android.uid.system"-->
 
@@ -148,6 +147,25 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".FCMlockscreen.FcmLockScreenActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.boyue.boyuelauncher.FCMlockscreen" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ProtectEyeLockScreen.ProtectEyeLockScreenActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="com.boyue.boyuelauncher.ProtectEyeLockScreen" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
 
     </application>
 

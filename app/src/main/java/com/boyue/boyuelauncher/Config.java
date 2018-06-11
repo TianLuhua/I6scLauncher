@@ -2,10 +2,6 @@ package com.boyue.boyuelauncher;
 
 import android.Manifest;
 
-import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Factory_SettingDialog;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-
 /**
  * Created by Tianluhua on 2018/05/23
  */
@@ -28,7 +24,11 @@ public class Config {
         public static final String ACTIVITY_ACTION_HHT_YSPY_SYZL = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.syzl";
         public static final String ACTIVITY_ACTION_HHT_YSPY_ZQYY = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.zqyy";
         public static final String ACTIVITY_ACTION_HHT_YZYX = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx";
+        public static final String ACTIVITY_ACTION_FCMLOCKSCREEN = "com.boyue.boyuelauncher.FCMlockscreen";
+        public static final String ACTIVITY_ACTION_PROTECTEYELOCKSCREEN = "com.boyue.boyuelauncher.ProtectEyeLockScreen";
         public static final String ACTIVITY_REQUEST_SHUTDOWN = "com.android.internal.intent.action.REQUEST_SHUTDOWN";
+
+
     }
 
     /**
@@ -97,14 +97,17 @@ public class Config {
      * 系统时间置相关
      */
     public static class Settings {
-        public static final int SCREEN_TIMEOUT_VALUE_NEVER = Integer.MAX_VALUE;
-        public static final int SCREEN_TIMEOUT_VALUE_1M = 60000;
-        public static final int SCREEN_TIMEOUT_VALUE_5M = SCREEN_TIMEOUT_VALUE_1M * 5;
-        public static final int SCREEN_TIMEOUT_VALUE_10M = SCREEN_TIMEOUT_VALUE_1M * 10;
-        public static final int SCREEN_TIMEOUT_VALUE_15M = SCREEN_TIMEOUT_VALUE_1M * 15;
-        public static final int SCREEN_TIMEOUT_VALUE_30M = SCREEN_TIMEOUT_VALUE_1M * 30;
-        public static final int SCREEN_TIMEOUT_VALUE_60M = SCREEN_TIMEOUT_VALUE_1M * 60;
-        public static final int SCREEN_TIMEOUT_VALUE_120M = SCREEN_TIMEOUT_VALUE_1M * 12;
+        public static final int VALUE_NEVER = Integer.MAX_VALUE;
+        public static final int VALUE_0M = -1;
+        public static final int VALUE_1M = 60000;
+        public static final int VALUE_5M = VALUE_1M * 5;
+        public static final int VALUE_10M = VALUE_1M * 10;
+        public static final int VALUE_15M = VALUE_1M * 15;
+        public static final int VALUE_20M = VALUE_1M * 20;
+        public static final int VALUE_30M = VALUE_1M * 30;
+        public static final int VALUE_40M = VALUE_1M * 40;
+        public static final int VALUE_60M = VALUE_1M * 60;
+        public static final int VALUE_120M = VALUE_1M * 12;
     }
 
     /**

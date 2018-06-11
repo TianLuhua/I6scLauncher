@@ -18,7 +18,7 @@ public class ProtectEyePersenter extends AbstractPresenter<ProtectEyeView> {
         return spUtils.getBoolean(Config.PWDKey.PWD_IS_ENABLE);
     }
 
-    public void setRegularRestTime() {
+    public void setRegularRestTime(int time) {
 
 
     }

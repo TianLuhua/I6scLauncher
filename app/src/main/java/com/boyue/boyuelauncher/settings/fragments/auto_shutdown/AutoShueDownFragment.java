@@ -1,6 +1,5 @@
 package com.boyue.boyuelauncher.settings.fragments.auto_shutdown;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -65,19 +64,19 @@ public class AutoShueDownFragment extends AbstractMVPFragment<AutoShueDownView, 
             //屏幕休眠
             case R.id.screen_dormancy_item_00:
                 LogUtils.e("tlh", "screen_dormancy_item_00");
-                getPresenter().setScreenTimeout(Config.Settings.SCREEN_TIMEOUT_VALUE_NEVER);
+                getPresenter().setScreenTimeout(Config.Settings.VALUE_NEVER);
                 break;
             case R.id.screen_dormancy_item_01:
                 LogUtils.e("tlh", "screen_dormancy_item_01");
-                getPresenter().setScreenTimeout(Config.Settings.SCREEN_TIMEOUT_VALUE_1M);
+                getPresenter().setScreenTimeout(Config.Settings.VALUE_1M);
                 break;
             case R.id.screen_dormancy_item_02:
                 LogUtils.e("tlh", "screen_dormancy_item_02");
-                getPresenter().setScreenTimeout(Config.Settings.SCREEN_TIMEOUT_VALUE_5M);
+                getPresenter().setScreenTimeout(Config.Settings.VALUE_5M);
                 break;
             case R.id.screen_dormancy_item_03:
                 LogUtils.e("tlh", "screen_dormancy_item_03");
-                getPresenter().setScreenTimeout(Config.Settings.SCREEN_TIMEOUT_VALUE_10M);
+                getPresenter().setScreenTimeout(Config.Settings.VALUE_10M);
                 break;
             //自动关机
             case R.id.auto_shutdown_item_00:
@@ -123,16 +122,16 @@ public class AutoShueDownFragment extends AbstractMVPFragment<AutoShueDownView, 
     public void setCurrentScreenTimeout(int screenOffTimeout) {
         LogUtils.e("tlh", "CurrentScreenTimeout：" + screenOffTimeout);
         switch (screenOffTimeout) {
-            case Config.Settings.SCREEN_TIMEOUT_VALUE_NEVER:
+            case Config.Settings.VALUE_NEVER:
                 screenDormancyGroup.check(R.id.screen_dormancy_item_00);
                 break;
-            case Config.Settings.SCREEN_TIMEOUT_VALUE_1M:
+            case Config.Settings.VALUE_1M:
                 screenDormancyGroup.check(R.id.screen_dormancy_item_01);
                 break;
-            case Config.Settings.SCREEN_TIMEOUT_VALUE_5M:
+            case Config.Settings.VALUE_5M:
                 screenDormancyGroup.check(R.id.screen_dormancy_item_02);
                 break;
-            case Config.Settings.SCREEN_TIMEOUT_VALUE_10M:
+            case Config.Settings.VALUE_10M:
                 screenDormancyGroup.check(R.id.screen_dormancy_item_03);
                 break;
         }

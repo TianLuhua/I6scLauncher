@@ -53,10 +53,12 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">#ff515151</item>
     </style>
+
     <style name="Stlye_Item_lable_02">
         <item name="android:textSize">28sp</item>
         <item name="android:textColor">#ff515151</item>
     </style>
+
     <style name="Stlye_system_setting_text">
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/color_333</item>
@@ -115,6 +117,16 @@
     <style name="Stlye_wifi_add_network">
         <item name="android:textColor">@color/color_333</item>
         <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="Stlye_lockscreen_week">
+        <item name="android:textColor">@color/color_fff</item>
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <style name="Stlye_lockscreen_date">
+        <item name="android:textColor">@color/color_fff</item>
+        <item name="android:textSize">36sp</item>
     </style>
 
     <style name="Stlye_wifi_settings_dialog" parent="@android:style/Theme.Dialog">
