@@ -6,4 +6,6 @@ public abstract class SettingsPersenter extends AbstractPresenter<SettingsView> 
 
     abstract void getIndicatorItems();
 
+    abstract boolean matchingPwd(String pwd);
+
 }

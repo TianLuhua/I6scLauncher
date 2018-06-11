@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.settings.adapter.SystemSettingFragmentPagerAdapter;
@@ -15,6 +16,7 @@ import com.boyue.boyuelauncher.settings.fragments.protect_eye_settings.ProtectEy
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.TitleBar;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 
 import java.util.List;
 import java.util.Map;
@@ -45,6 +47,41 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
 
     @Override
     protected void initView() {
+        //判断是否启用密码，启用的话需要验证才能进入。反之，退出设置界面。
+        final Setting_FCM_ChangePassWordDialog dialog = new Setting_FCM_ChangePassWordDialog();
+        dialog.setNotfication(new Setting_FCM_ChangePassWordDialog.Notfication() {
+            @Override
+            public void inputNumber(int number) {
+
+
+            }
+
+            @Override
+            public void hasInputNumbers(String pwd) {
+                if (getPresenter().matchingPwd(pwd)) {
+                    LogUtils.e("tlh", "通过密码验证，您的密码是：" + pwd);
+                    dialog.dismiss();
+
+                } else {
+                    SettingsActivity.this.finish();
+                }
+
+            }
+
+            @Override
+            public void cancel() {
+                SettingsActivity.this.finish();
+
+            }
+
+            @Override
+            public void delete() {
+
+            }
+        });
+        dialog.show(getSupportFragmentManager(), Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
+        dialog.setCancelable(false);
+
         titleBar = findViewById(R.id.title_bar);
         titleBar.setOnTitleBarClickListener(new TitleBar.OnTitleBarClickListener() {
             @Override
