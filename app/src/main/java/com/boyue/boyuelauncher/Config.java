@@ -126,5 +126,8 @@ public class Config {
         public static final String BOOT_PWD_NAME = "boot_pwd";
         //存储防沉迷密码 key
         public static final String FCM_PWD_NAME = "fcm_pwd_enable";
+
+        //用于保存定时休息的时间 key
+        public static final String REGULARREST_KEY = "regularrest_key";
     }
 }

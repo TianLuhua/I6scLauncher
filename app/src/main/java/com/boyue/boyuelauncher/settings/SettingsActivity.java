@@ -11,6 +11,7 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.settings.adapter.SystemSettingFragmentPagerAdapter;
 import com.boyue.boyuelauncher.settings.adapter.SystemSettingIndicatorgAdapter;
+import com.boyue.boyuelauncher.settings.fragments.fcm_settings.FCMSettingFragment;
 import com.boyue.boyuelauncher.settings.fragments.protect_eye_settings.ProtectEyeFragment;
 import com.boyue.boyuelauncher.settings.fragments.protect_eye_settings.ProtectEyeView;
 import com.boyue.boyuelauncher.utils.LogUtils;
@@ -18,6 +19,7 @@ import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.TitleBar;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +27,7 @@ import java.util.Map;
  * Created by Tianluhua on 2018/5/28.
  */
 
-public class SettingsActivity extends AbstractMVPActivity<SettingsView, SettingsPersenterImp> implements SettingsView, AdapterView.OnItemClickListener, ViewPager.OnPageChangeListener, ProtectEyeFragment.Notfication {
+public class SettingsActivity extends AbstractMVPActivity<SettingsView, SettingsPersenterImp> implements SettingsView, AdapterView.OnItemClickListener, ViewPager.OnPageChangeListener, ProtectEyeFragment.Notfication,FCMSettingFragment.Notfication {
 
     public static final String TITLE = "title";
     public static final String IMAGE = "image";
@@ -36,6 +38,7 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
     private SystemSettingFragmentPagerAdapter fragmentPagerAdapter;
 
     private ViewPager fragmentPagers;
+    private ArrayList<Fragment> fragments;
 
     private int defaultPager = 0;
 
@@ -137,7 +140,8 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
     }
 
     @Override
-    public void disPlayPagerFragments(List<Fragment> fragments) {
+    public void disPlayPagerFragments(ArrayList<Fragment> fragments) {
+        this.fragments = fragments;
         fragmentPagerAdapter = new SystemSettingFragmentPagerAdapter(getSupportFragmentManager(), fragments);
         fragmentPagers.setAdapter(fragmentPagerAdapter);
         fragmentPagers.setCurrentItem(defaultPager);
@@ -177,5 +181,13 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
     public void gotoSetFcmPassWord() {
         //跳转到Fcm密码设置界面
         fragmentPagers.setCurrentItem(4, false);
+    }
+
+    @Override
+    public void hasOpenFcmPassWord(boolean hasOpen) {
+        //通知护眼界面，已经开启防沉迷密码
+        ProtectEyeFragment protectFragment = (ProtectEyeFragment) fragments.get(1);
+        protectFragment.hasOpenFcmPassWord(hasOpen);
+
     }
 }

@@ -7,6 +7,7 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class SettingsPersenterImp extends SettingsPersenter {
             }
 
             @Override
-            public void setPagerFragments(List<Fragment> fragments) {
+            public void setPagerFragments(ArrayList<Fragment> fragments) {
                 SettingsView view = getView();
                 if (view == null) return;
                 view.disPlayPagerFragments(fragments);

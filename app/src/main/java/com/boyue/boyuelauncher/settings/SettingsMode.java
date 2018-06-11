@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 
 import com.boyue.boyuelauncher.base.BaseMode;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public interface SettingsMode extends BaseMode {
 
         void setIndicatorItems(List<Map<String, Object>> dataList);
 
-        void setPagerFragments(List<Fragment> fragments);
+        void setPagerFragments(ArrayList<Fragment> fragments);
 
     }
 

@@ -1,5 +1,6 @@
 package com.boyue.boyuelauncher.settings.fragments.fcm_settings;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,9 +18,11 @@ import android.widget.TextView;
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
+import com.boyue.boyuelauncher.settings.fragments.protect_eye_settings.ProtectEyeFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Factory_SettingDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Fcm_Enable_NoteDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_text_01_tutton_03_Dialog;
 
@@ -119,6 +122,10 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
 
                 enAblePassword(isEnable);
                 updateUI(isEnable);
+                //通知：防沉迷密码是否开启
+                if (notfication == null) return;
+                notfication.hasOpenFcmPassWord(isEnable);
+
 
                 break;
             //防沉迷开关
@@ -248,7 +255,7 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
                     @Override
                     public void cancel() {
                         LogUtils.e("tlh", "cancel");
-                        isMatch=false;
+                        isMatch = false;
                         dialog.dismiss();
                     }
 
@@ -287,7 +294,7 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
                             } else {
 
                                 dialog.setTieltT(R.string.input_agin_new_pwd, R.color.color_333);
-                                LogUtils.e("tlh","再次输入新密码！");
+                                LogUtils.e("tlh", "再次输入新密码！");
                             }
                         }
 
@@ -307,4 +314,26 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
         fcmSwitchSwitchcheckBox.setChecked(pwdFcmIsEnable);
         enablePwdCheckBox.setChecked(pwdIsEnable);
     }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        setNotfication((FCMSettingFragment.Notfication) context);
+    }
+
+    public void setNotfication(FCMSettingFragment.Notfication notfication) {
+        this.notfication = notfication;
+
+    }
+
+    private Notfication notfication;
+
+    public static interface Notfication {
+
+        //是否开启了防沉迷密码
+        void hasOpenFcmPassWord(boolean hasOpen);
+
+    }
+
+
 }

@@ -28,7 +28,7 @@ public class SettingsModeImp implements SettingsMode {
     private Context mContext;
     private CallBack callBack;
     private List<Map<String, Object>> dataList;
-    private List<Fragment> fragments;
+    private ArrayList<Fragment> fragments;
 
 
     public SettingsModeImp(Context mContext, CallBack callBack) {
