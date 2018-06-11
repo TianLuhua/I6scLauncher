@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * Wifi适配器
- * Created by tianluhua on 2018/5/11.
+ * Created by Tianluhua on 2018/6/11.
  */
 
 public class WifiAdapter extends RecyclerView.Adapter {
@@ -36,13 +36,14 @@ public class WifiAdapter extends RecyclerView.Adapter {
         this.dataList = new ArrayList<>();
         this.layoutInflater = LayoutInflater.from(context);
     }
-    public void setDataList(ArrayList<WifiModel> dataList){
-        this.dataList=dataList;
+
+    public void setDataList(ArrayList<WifiModel> dataList) {
+        this.dataList = dataList;
         notifyDataSetChanged();
     }
 
-    public void clear(){
-        if (dataList==null)return;
+    public void clear() {
+        if (dataList == null) return;
         dataList.clear();
         this.notifyDataSetChanged();
     }
@@ -112,7 +113,7 @@ public class WifiAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        LogUtils.e("tll","dataList:"+dataList.size());
+        LogUtils.e("tll", "dataList:" + dataList.size());
         return dataList.size();
     }
 

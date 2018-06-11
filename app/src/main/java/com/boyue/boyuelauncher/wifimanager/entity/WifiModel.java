@@ -2,7 +2,7 @@ package com.boyue.boyuelauncher.wifimanager.entity;
 
 /**
  * Wifi实体类
- * Created by tianluhua on 2018/5/11.
+ * Created by Tianluhua on 2018/6/11.
  */
 public class WifiModel {
     private String wifiName;//ssid

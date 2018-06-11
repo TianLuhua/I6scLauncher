@@ -108,6 +108,7 @@
     <string name="wifi_enable">没有打开网络！</string>
     <string name="has_saved">(已保存)</string>
     <string name="ignore_network">忽略网络</string>
+    <string name="scnnering">正在检测......</string>
 
 
     <!--火火兔学堂-->

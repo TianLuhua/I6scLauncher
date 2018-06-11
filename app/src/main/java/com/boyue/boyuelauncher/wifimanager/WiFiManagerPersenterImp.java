@@ -26,7 +26,7 @@ import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 import java.util.ArrayList;
 
 /**
- * Created by Tianluhua on 2018/5/16.
+ * Created by Tianluhua on 2018/6/11.
  */
 public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiFiManagerModeImp.Callback {
 
@@ -272,9 +272,7 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
 
     @Override
     public void startScnner() {
-
         getView().startScnner();
-
     }
 
     @Override

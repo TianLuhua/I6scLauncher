@@ -4,7 +4,7 @@ import com.boyue.boyuelauncher.base.AbstractPresenter;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 
 /**
- * Created by Tianluhua on 2018/5/16.
+ * Created by Tianluhua on 2018/6/11.
  */
 public abstract class WiFiManagerPersenter extends AbstractPresenter<WiFiManagerView> {
 

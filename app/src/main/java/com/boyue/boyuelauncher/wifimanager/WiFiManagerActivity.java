@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Tianluhua on 2018/5/16.
+ * Created by Tianluhua on 2018/6/11.
  */
 public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, WiFiManagerPersenterImp> implements WiFiManagerView, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
 
@@ -53,30 +53,25 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
 
     @Override
     protected void initView() {
-
+        //设置title
         AppCompatImageView backBtn = findViewById(R.id.title_bar).findViewById(R.id.left_icon);
         backBtn.setOnClickListener(this);
         TextView tilte = findViewById(R.id.title_bar).findViewById(R.id.title);
         tilte.setText(R.string.wifi_setting);
-
+        //initView
         wifiSColseIcon = findViewById(R.id.wifi_close_icon);
         wifiStatusGroup = findViewById(R.id.wifi_enable_note);
         wifiStatusLabel = findViewById(R.id.wifi_disable_note);
-
         manuallyAddNetwork = findViewById(R.id.manually_add_network);
         manuallyAddNetwork.setOnClickListener(this);
-
         wlanSwitch = findViewById(R.id.wlan_switch);
         wlanSwitch.setOnCheckedChangeListener(this);
-
         dataView = findViewById(R.id.dataView);
         dataAdapter = new WifiAdapter(WiFiManagerActivity.this);
         dataView.setLayoutManager(new LinearLayoutManager(WiFiManagerActivity.this));
         dataView.setAdapter(dataAdapter);
-
+        //获取系统初始化状态
         getPresenter().initUI();
-
-
     }
 
 
@@ -137,8 +132,17 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
             case R.id.wlan_switch:
                 LogUtils.e("tlh", "onCheckedChanged:" + isChecked);
                 getPresenter().setWifiEnabled(isChecked);
-                wifiSColseIcon.setVisibility(isChecked ? View.INVISIBLE : View.VISIBLE);
+                updateUI(isChecked);
                 break;
+        }
+    }
+
+    private void updateUI(boolean isChecked) {
+        wifiSColseIcon.setVisibility(isChecked ? View.INVISIBLE : View.VISIBLE);
+        wifiStatusLabel.setVisibility(isChecked ? View.INVISIBLE : View.VISIBLE);
+        wifiStatusGroup.setVisibility(isChecked ? View.VISIBLE : View.INVISIBLE);
+        if (wifiStatusLabel.getVisibility() == View.VISIBLE) {
+            wifiStatusLabel.setText(R.string.wifi_enable);
         }
     }
 
