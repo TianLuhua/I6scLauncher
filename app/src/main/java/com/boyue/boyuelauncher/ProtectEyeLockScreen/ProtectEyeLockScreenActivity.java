@@ -1,5 +1,6 @@
 package com.boyue.boyuelauncher.ProtectEyeLockScreen;
 
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -23,12 +24,13 @@ public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEye
     protected void initView() {
         unLockBtn = findViewById(R.id.protect_eye_btn);
         unLockBtn.setOnClickListener(this);
+        getPresenter().cancleRegularRestAlarm();
 
     }
 
     @Override
     protected ProtectEyeLockScreenPersenter createPresenter() {
-        return new ProtectEyeLockScreenPersenter();
+        return new ProtectEyeLockScreenPersenter(getApplicationContext());
     }
 
     @Override
@@ -64,14 +66,28 @@ public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEye
 
             @Override
             public void hasInputNumbers(String pwd) {
+                if (getPresenter().matchingPwd(pwd)) {
+                    LogUtils.e("tlh", "通过密码验证，您的密码是：" + pwd);
+                    dialog.dismiss();
+                    getPresenter().startRegularRestAlarm();
+                    ProtectEyeLockScreenActivity.this.finish();
 
+                } else {
+                    dialog.setTieltT(R.string.input_pwd_error, R.color.color_red);
+                    dialog.cleanPwdStatus();
+                }
             }
 
         });
         dialog.show(getSupportFragmentManager(), Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
         dialog.setCancelable(false);
-
     }
 
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

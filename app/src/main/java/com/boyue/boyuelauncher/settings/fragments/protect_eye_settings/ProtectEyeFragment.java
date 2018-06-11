@@ -142,7 +142,7 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
                         regularRestTimeValue = Config.Settings.VALUE_20M;
                         break;
                     case R.id.item_02:
-                        regularRestTimeValue = Config.Settings.VALUE_0M;
+                        regularRestTimeValue = Config.Settings.VALUE_40M;
                         break;
                     case R.id.item_03:
                         regularRestTimeValue = Config.Settings.VALUE_60M;
@@ -214,7 +214,7 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
 
     @Override
     protected ProtectEyePersenter createPresenter() {
-        return new ProtectEyePersenter();
+        return new ProtectEyePersenter(getContext());
     }
 
 

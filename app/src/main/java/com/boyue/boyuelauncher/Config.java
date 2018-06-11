@@ -29,6 +29,10 @@ public class Config {
         public static final String ACTIVITY_REQUEST_SHUTDOWN = "com.android.internal.intent.action.REQUEST_SHUTDOWN";
 
 
+        //定时休息Action
+        public static final String ACTION_REST = "com.boyue.action_rest";
+        //定时关机Action
+        public static final String ACTION_SHUTDOWN = "com.boyue.action_shutdown";
     }
 
     /**
@@ -98,8 +102,8 @@ public class Config {
      */
     public static class Settings {
         public static final int VALUE_NEVER = Integer.MAX_VALUE;
-        public static final int VALUE_0M = -1;
-        public static final int VALUE_1M = 60000;
+//        public static final int VALUE_1M = 60000;
+        public static final int VALUE_1M = 1000;
         public static final int VALUE_5M = VALUE_1M * 5;
         public static final int VALUE_10M = VALUE_1M * 10;
         public static final int VALUE_15M = VALUE_1M * 15;
