@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.FCMlockscreen;
+package com.boyue.boyuelauncher.fcmlockscreen;
 
 import android.view.View;
 import android.widget.ImageView;

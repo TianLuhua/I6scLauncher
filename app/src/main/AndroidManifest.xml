@@ -151,7 +151,7 @@
 
 
         <activity
-            android:name=".FCMlockscreen.FcmLockScreenActivity"
+            android:name=".fcmlockscreen.FcmLockScreenActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="com.boyue.boyuelauncher.FCMlockscreen" />
@@ -159,7 +159,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProtectEyeLockScreen.ProtectEyeLockScreenActivity"
+            android:name=".protecteyelockscreen.ProtectEyeLockScreenActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="com.boyue.boyuelauncher.ProtectEyeLockScreen" />

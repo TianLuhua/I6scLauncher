@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.ProtectEyeLockScreen;
+package com.boyue.boyuelauncher.protecteyelockscreen;
 
 import android.view.KeyEvent;
 import android.view.View;

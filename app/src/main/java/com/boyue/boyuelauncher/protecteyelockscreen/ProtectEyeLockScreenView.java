@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.ProtectEyeLockScreen;
+package com.boyue.boyuelauncher.protecteyelockscreen;
 
 import com.boyue.boyuelauncher.base.BaseView;
 
