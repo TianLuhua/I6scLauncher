@@ -12,6 +12,9 @@ import java.util.ArrayList;
  */
 public interface WiFiManagerView extends BaseView {
 
+    //wifi关闭
+    void closeWifi();
+
     //开始扫描
     void startScnner();
 
@@ -23,5 +26,9 @@ public interface WiFiManagerView extends BaseView {
 
     //回调当前连接失败的结果
     void connectFail();
+
+    //初始化Ui后，回调回来的状态，用于更新界面
+    void setInitUI(boolean wifiEnable);
+
 
 }

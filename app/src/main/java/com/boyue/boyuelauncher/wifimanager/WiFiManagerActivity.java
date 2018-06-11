@@ -44,8 +44,6 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
     private RelativeLayout wifiStatusGroup;
     private TextView wifiStatusLabel;
 
-
-
     private WifiAdapter dataAdapter;//wifi列表适配器
 
     @Override
@@ -61,9 +59,9 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         TextView tilte = findViewById(R.id.title_bar).findViewById(R.id.title);
         tilte.setText(R.string.wifi_setting);
 
-        wifiSColseIcon=findViewById(R.id.wifi_close_icon);
-        wifiStatusGroup=findViewById(R.id.wifi_enable_note);
-        wifiStatusLabel=findViewById(R.id.wifi_disable_note);
+        wifiSColseIcon = findViewById(R.id.wifi_close_icon);
+        wifiStatusGroup = findViewById(R.id.wifi_enable_note);
+        wifiStatusLabel = findViewById(R.id.wifi_disable_note);
 
         manuallyAddNetwork = findViewById(R.id.manually_add_network);
         manuallyAddNetwork.setOnClickListener(this);
@@ -76,7 +74,8 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         dataView.setLayoutManager(new LinearLayoutManager(WiFiManagerActivity.this));
         dataView.setAdapter(dataAdapter);
 
-        getPresenter().checkPermission();
+        getPresenter().initUI();
+
 
     }
 
@@ -121,6 +120,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                     public void onLeftClick(View view) {
 
                     }
+
                     @Override
                     public void onrightClick(View view) {
                         dialog.dismiss();
@@ -137,19 +137,20 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
             case R.id.wlan_switch:
                 LogUtils.e("tlh", "onCheckedChanged:" + isChecked);
                 getPresenter().setWifiEnabled(isChecked);
-                wifiSColseIcon.setVisibility(isChecked?View.VISIBLE:View.INVISIBLE);
+                wifiSColseIcon.setVisibility(isChecked ? View.INVISIBLE : View.VISIBLE);
                 break;
         }
     }
 
+
     @Override
     public void startScnner() {
-        LogUtils.e("tlh","WiFiManagerActivity  startScnner");
+        LogUtils.e("tlh", "WiFiManagerActivity  startScnner");
     }
 
     @Override
     public void scnnered(ArrayList<WifiModel> dataList) {
-        LogUtils.e("tlh","WiFiManagerActivity  scnnered dataList.size():"+dataList.size());
+        LogUtils.e("tlh", "WiFiManagerActivity  scnnered dataList.size():" + dataList.size());
         dataAdapter.setDataList(dataList);
     }
 
@@ -160,7 +161,18 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
 
     @Override
     public void connectFail() {
-        LogUtils.e("tlh","WiFiManagerActivity  connectFail");
+        LogUtils.e("tlh", "WiFiManagerActivity  connectFail");
+    }
+
+    @Override
+    public void closeWifi() {
+        dataAdapter.clear();
+    }
+
+    @Override
+    public void setInitUI(boolean wifiEnable) {
+        if (wlanSwitch == null) return;
+        wlanSwitch.setChecked(wifiEnable);
     }
 
 }

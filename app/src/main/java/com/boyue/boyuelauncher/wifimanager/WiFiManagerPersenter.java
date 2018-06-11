@@ -12,11 +12,15 @@ public abstract class WiFiManagerPersenter extends AbstractPresenter<WiFiManager
 
     public abstract void addNetwork();
 
+    //广播注册
     public abstract void registerReceiver();
 
+    //取消注册
     public abstract void unregisterReceiver();
 
-    public abstract void checkPermission();
-
+    //wifi开关
     public abstract void setWifiEnabled(boolean isEnable);
+
+    //初始化界面UI
+    public abstract void initUI();
 }

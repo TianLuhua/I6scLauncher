@@ -41,6 +41,12 @@ public class WifiAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
+    public void clear(){
+        if (dataList==null)return;
+        dataList.clear();
+        this.notifyDataSetChanged();
+    }
+
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }

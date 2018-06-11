@@ -1,15 +1,9 @@
 package com.boyue.boyuelauncher.wifimanager;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.wifi.ScanResult;
-import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -25,12 +19,11 @@ import android.widget.EditText;
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.KeyboardUtil;
-import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
+import com.boyue.boyuelauncher.widget.WIFIStatusView;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Tianluhua on 2018/5/16.
@@ -74,7 +67,23 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     }
 
     @Override
-    public void checkPermission() {
+    public void initUI() {
+        boolean wifiEnable = wifiManager.isWifiEnabled();
+        WiFiManagerView view = getView();
+        if (view == null) return;
+        view.setInitUI(wifiEnable);
+    }
+
+
+    @Override
+    public void setWifiEnabled(boolean isEnable) {
+        wifiManager.setWifiEnabled(isEnable);
+        if (isEnable)
+            checkPermission();
+    }
+
+    //检查权限
+    private void checkPermission() {
         int perm = ContextCompat.checkSelfPermission(mContext, Config.Permission.LOCATION_PERMISSION);
         if (perm == PackageManager.PERMISSION_GRANTED) {
             isGranted = true;
@@ -85,12 +94,6 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
             ActivityCompat.requestPermissions((Activity) mContext,
                     new String[]{Config.Permission.LOCATION_PERMISSION}, Config.Permission.REQUEST_CODE);
         }
-    }
-
-    @Override
-    public void setWifiEnabled(boolean isEnable) {
-
-
     }
 
 
@@ -270,17 +273,22 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     @Override
     public void startScnner() {
 
-            getView().startScnner();
+        getView().startScnner();
 
     }
 
     @Override
     public void scnnered(ArrayList<WifiModel> dataList) {
-            getView().scnnered(dataList);
+        getView().scnnered(dataList);
     }
 
     @Override
     public void scnnerFail() {
         getView().connectFail();
+    }
+
+    @Override
+    public void closeWifi() {
+        getView().closeWifi();
     }
 }

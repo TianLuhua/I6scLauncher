@@ -141,6 +141,9 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
         //扫描失败
         void scnnerFail();
 
+        //wifi关闭
+        void closeWifi();
+
     }
 
 
@@ -156,6 +159,8 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
                 switch (wifiState) {
                     case WifiManager.WIFI_STATE_DISABLED:
                         ToastUtil.showShortToast("Wifi关闭");
+                        if (callback==null)return;
+                        callback.closeWifi();
                         break;
                     case WifiManager.WIFI_STATE_ENABLED:
                         wifiManager.startScan();//Wifi打开,启动扫描
