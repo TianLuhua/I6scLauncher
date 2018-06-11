@@ -3,9 +3,12 @@ package com.boyue.boyuelauncher.settings.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
+
+import javax.crypto.spec.DESKeySpec;
 
 public class SystemSettingFragmentPagerAdapter extends FragmentPagerAdapter {
 
@@ -33,6 +36,11 @@ public class SystemSettingFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
+//        super.destroyItem(container, position, object);
+    }
+
+    @Override
+    public void destroyItem(View container, int position, Object object) {
 //        super.destroyItem(container, position, object);
     }
 }

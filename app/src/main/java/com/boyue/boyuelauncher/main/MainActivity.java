@@ -15,9 +15,11 @@ import com.boyue.boyuelauncher.main.fragments.hht_ar_fragment.HHT_AR_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.HHT_BX_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.HHT_LY_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_XT_Fragment;
+import com.boyue.boyuelauncher.settings.SettingsActivity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.MainTilteBar;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,46 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     protected void initView() {
+
+        //判断是否启用密码，启用的话需要验证才能进入。反之，退出设置界面。
+        if (getPresenter().hasEnableFCMPWD()) {
+
+            final Setting_FCM_ChangePassWordDialog dialog = new Setting_FCM_ChangePassWordDialog();
+            dialog.setNotfication(new Setting_FCM_ChangePassWordDialog.Notfication() {
+                @Override
+                public void inputNumber(int number) {
+
+
+                }
+
+                @Override
+                public void hasInputNumbers(String pwd) {
+                    if (getPresenter().matchingPwd(pwd)) {
+                        LogUtils.e("tlh", "通过密码验证，您的密码是：" + pwd);
+                        dialog.dismiss();
+
+                    } else {
+                        dialog.setTieltT(R.string.input_pwd_error, R.color.color_red);
+                        dialog.cleanPwdStatus();
+                    }
+
+                }
+
+                @Override
+                public void cancel() {
+
+                }
+
+                @Override
+                public void delete() {
+
+                }
+            });
+            dialog.show(getSupportFragmentManager(), Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
+            dialog.setCancelable(false);
+        }
+
+
         viewpager = findViewById(R.id.viewpager);
         cleanCache = findViewById(R.id.cleancache);
         xiaoxue_ketang = findViewById(R.id.xiaoxue_ketang);

@@ -46,13 +46,8 @@ public class FCMSettingMode implements BaseMode {
     }
 
     public boolean matchingPwd(String pwd) {
-        boolean isMactch = false;
 
-        if (pwd.equals(spUtils.getString(Config.PWDKey.BOOT_PWD_NAME))) {
-            isMactch = true;
-        }
-
-        return isMactch;
+        return pwd.equals(spUtils.getString(Config.PWDKey.BOOT_PWD_NAME));
     }
 
     private String tempPwd;

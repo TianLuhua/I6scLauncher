@@ -110,7 +110,7 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
         mListView = findViewById(R.id.page_indicator);
         fragmentPagers = findViewById(R.id.page_content);
         //设置ViewPager缓存的Fragment数量
-        fragmentPagers.setOffscreenPageLimit(2);
+//        fragmentPagers.setOffscreenPageLimit(2);
         fragmentPagers.addOnPageChangeListener(this);
 
         getPresenter().getIndicatorItems();

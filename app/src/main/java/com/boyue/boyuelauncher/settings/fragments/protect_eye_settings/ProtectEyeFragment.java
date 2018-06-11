@@ -62,8 +62,9 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
     @Override
     public void onResume() {
         super.onResume();
-        hasFcmPassWord = getPresenter().hasePassWord();
+    LogUtils.e("tlh","ProtectEyeFragment-------onResume");
     }
+
 
     @Override
     public void onAttach(Context context) {
@@ -139,7 +140,7 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
                     case R.id.item_01:
                         LogUtils.e("tlh", "regularRestRadioGroup:" + "20");
 
-                        if (hasFcmPassWord) {
+                        if ( getPresenter().hasePassWord()) {
                             getPresenter().setRegularRestTime();
                         } else {
                             showRegularRestDialog();
@@ -150,7 +151,7 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
                     case R.id.item_02:
                         LogUtils.e("tlh", "regularRestRadioGroup:" + "40");
 
-                        if (hasFcmPassWord) {
+                        if (getPresenter().hasePassWord()) {
                             getPresenter().setRegularRestTime();
                         } else {
                             showRegularRestDialog();
@@ -160,7 +161,7 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
                     case R.id.item_03:
                         LogUtils.e("tlh", "regularRestRadioGroup:" + "60");
 
-                        if (hasFcmPassWord) {
+                        if (getPresenter().hasePassWord()) {
                             getPresenter().setRegularRestTime();
                         } else {
                             showRegularRestDialog();

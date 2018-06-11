@@ -122,6 +122,6 @@ public class Config {
         //存储开机密码 key
         public static final String BOOT_PWD_NAME = "boot_pwd";
         //存储防沉迷密码 key
-        public static final String FCM_PWD_NAME = "fcm_pwd";
+        public static final String FCM_PWD_NAME = "fcm_pwd_enable";
     }
 }
