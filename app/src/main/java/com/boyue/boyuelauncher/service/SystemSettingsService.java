@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.recervier;
+package com.boyue.boyuelauncher.service;
 
 import android.app.Service;
 import android.content.Intent;
@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
-
 
 
 /**
@@ -23,12 +22,13 @@ public class SystemSettingsService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         switch (intent.getAction()) {
-            case Config.BoYueAction.ACTION_SHUTDOWN:
+            case Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION:
                 LogUtils.e("tlh", "ACTION_SHUTDOWN");
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_PROTECTEYELOCKSCREEN);
                 break;
-            case Config.BoYueAction.ACTION_REST:
+            case Config.BoYueAction.ONTIME_REST_ACTION:
                 LogUtils.e("tlh", "ACTION_REST");
+                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_FCMLOCKSCREEN);
                 break;
 
         }

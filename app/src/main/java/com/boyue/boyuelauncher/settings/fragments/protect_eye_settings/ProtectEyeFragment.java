@@ -256,7 +256,8 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
         dialog.setOnclickListener(new Setting_text_01_tutton_03_Dialog.OnclickListener() {
             @Override
             public void onLeftClick(View v) {
-
+                //用户点击了取消，默认选到不开启
+                regularRestRadioGroup.check(R.id.item_00);
                 dialog.dismiss();
 
             }

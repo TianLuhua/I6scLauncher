@@ -42,7 +42,7 @@ public class ProtectEyeMode implements BaseMode {
 
     //获取当前定时休息的时间
     private int getRegularRestTime() {
-        return spUtils.getInt((Config.PWDKey.REGULARREST_KEY));
+        return spUtils.getInt((Config.PWDKey.REGULAR_REST_KEY));
     }
 
     public static interface CallBack {

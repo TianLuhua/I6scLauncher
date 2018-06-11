@@ -8,7 +8,6 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.utils.LogUtils;
-import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 
 public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEyeLockScreenView, ProtectEyeLockScreenPersenter> implements ProtectEyeLockScreenView, View.OnClickListener {
@@ -24,7 +23,7 @@ public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEye
     protected void initView() {
         unLockBtn = findViewById(R.id.protect_eye_btn);
         unLockBtn.setOnClickListener(this);
-        getPresenter().cancleRegularRestAlarm();
+        getPresenter().cancleRegularRestAlarm(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION);
 
     }
 
@@ -69,7 +68,7 @@ public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEye
                 if (getPresenter().matchingPwd(pwd)) {
                     LogUtils.e("tlh", "通过密码验证，您的密码是：" + pwd);
                     dialog.dismiss();
-                    getPresenter().startRegularRestAlarm();
+                    getPresenter().startRegularRestAlarm(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION);
                     ProtectEyeLockScreenActivity.this.finish();
 
                 } else {

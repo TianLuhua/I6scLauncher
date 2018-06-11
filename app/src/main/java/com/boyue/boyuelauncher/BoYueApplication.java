@@ -26,7 +26,7 @@ public class BoYueApplication extends Application {
         //存储默认值，原则上只会在机器刷机启动的第一次调用
         if (SPUtils.DEFAULT_STRING.equals(bootPwd)) {
 
-            LogUtils.e("tlh", "SPUtils:" );
+            LogUtils.e("tlh", "SPUtils:");
             //初始化默认密码
             spUtils.put(Config.PWDKey.BOOT_PWD_NAME, Config.PWDKey.DEFAULT_BOOTPWD);
             //默认不启用密码
@@ -34,8 +34,18 @@ public class BoYueApplication extends Application {
             //默认不启用防沉迷密码
             spUtils.put(Config.PWDKey.FCM_PWD_NAME, false);
 
-        }
+            //默认不启用防沉迷密码
+            spUtils.put(Config.PWDKey.FCM_PWD_NAME, false);
 
+
+            //默认不开启定时休息
+            spUtils.put(Config.PWDKey.REGULAR_REST_KEY, Config.Settings.VALUE_NEVER);
+            //默认关闭定时锁定
+            spUtils.put(Config.PWDKey.TIMING_LOCKING, Config.Settings.VALUE_NEVER);
+
+
+        }
+        //spUtils.clear();
         LogUtils.e("tlh", "SPUtils:" + spUtils.getAll().toString());
     }
 }

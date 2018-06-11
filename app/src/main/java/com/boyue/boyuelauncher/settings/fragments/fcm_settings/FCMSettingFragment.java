@@ -3,6 +3,8 @@ package com.boyue.boyuelauncher.settings.fragments.fcm_settings;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.AppCompatImageView;
@@ -26,6 +28,8 @@ import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Factory_SettingDial
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Fcm_Enable_NoteDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_text_01_tutton_03_Dialog;
 
+import java.lang.ref.WeakReference;
+
 
 public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMSettingPersenter> implements FCMSettingView, RadioGroup.OnCheckedChangeListener, CompoundButton.OnCheckedChangeListener, View.OnClickListener {
 
@@ -42,6 +46,8 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
     //定时锁定
     private TextView timingLockingTitle;
     private RadioGroup timingLockingGroup;
+
+    private FCMHander hander = new FCMHander(this);
 
 
     public static FCMSettingFragment newInstance() {
@@ -325,6 +331,22 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
         this.notfication = notfication;
 
     }
+
+    public static class FCMHander extends Handler {
+
+        WeakReference<FCMSettingFragment> weakReferenceFCM;
+
+        public FCMHander(FCMSettingFragment fcmSettingFragment) {
+            this.weakReferenceFCM = new WeakReference<>(fcmSettingFragment);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+
+
+        }
+    }
+
 
     private Notfication notfication;
 

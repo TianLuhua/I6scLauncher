@@ -8,7 +8,8 @@ import android.os.SystemClock;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.base.AbstractPresenter;
-import com.boyue.boyuelauncher.recervier.SystemSettingsService;
+import com.boyue.boyuelauncher.service.SystemSettingsService;
+import com.boyue.boyuelauncher.utils.LockScreenUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
 
@@ -42,39 +43,19 @@ public class ProtectEyePersenter extends AbstractPresenter<ProtectEyeView> {
     public void setRegularRestTime(int time) {
         LogUtils.e("tlh", "ProtectEyePersenter---setRegularRestTime----time:" + time);
 
-        spUtils.put(Config.PWDKey.REGULARREST_KEY, time);
+        spUtils.put(Config.PWDKey.REGULAR_REST_KEY, time);
         switch (time) {
             case Config.Settings.VALUE_NEVER:
-                cancleRegularRestAlarm();
+//                cancleRegularRestAlarm();
+                LockScreenUtils.cancleLockScreen(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION);
                 break;
             default:
-                startRegularRestAlarm();
+//                startRegularRestAlarm();
+                LockScreenUtils.startLockScreen(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION);
                 break;
         }
 
     }
-
-    public void cancleRegularRestAlarm() {
-        LogUtils.e("tlh", "cancleRegularRestAlarm");
-        AlarmManager am = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(mContext, SystemSettingsService.class);
-        intent.setAction(Config.BoYueAction.ACTION_SHUTDOWN);
-        PendingIntent pendingIntent = PendingIntent.getService(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        am.cancel(pendingIntent);
-    }
-
-
-    public void startRegularRestAlarm() {
-        int time = spUtils.getInt((Config.PWDKey.REGULARREST_KEY));
-        if (time == Config.Settings.VALUE_NEVER) return;
-        LogUtils.e("tlh", "starRegularRestAlarm---time:" + time);
-        AlarmManager am = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(mContext, SystemSettingsService.class);
-        intent.setAction(Config.BoYueAction.ACTION_SHUTDOWN);
-        PendingIntent pendingIntent = PendingIntent.getService(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, time + SystemClock.elapsedRealtime(), time, pendingIntent);
-    }
-
 
     public void initView() {
         if (mode == null) return;

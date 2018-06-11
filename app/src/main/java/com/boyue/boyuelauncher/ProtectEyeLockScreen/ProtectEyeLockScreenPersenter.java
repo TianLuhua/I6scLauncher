@@ -8,7 +8,8 @@ import android.os.SystemClock;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.base.AbstractPresenter;
-import com.boyue.boyuelauncher.recervier.SystemSettingsService;
+import com.boyue.boyuelauncher.service.SystemSettingsService;
+import com.boyue.boyuelauncher.utils.LockScreenUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
 
@@ -31,24 +32,16 @@ public class ProtectEyeLockScreenPersenter extends AbstractPresenter<ProtectEyeL
         return isMactch;
     }
 
-    public void cancleRegularRestAlarm() {
+    public void cancleRegularRestAlarm(String action) {
         LogUtils.e("tlh", "cancleRegularRestAlarm");
-        AlarmManager am = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(mContext, SystemSettingsService.class);
-        intent.setAction(Config.BoYueAction.ACTION_SHUTDOWN);
-        PendingIntent pendingIntent = PendingIntent.getService(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        am.cancel(pendingIntent);
+        LockScreenUtils.cancleLockScreen(action);
+
     }
 
 
-    public void startRegularRestAlarm() {
-        int time = spUtils.getInt((Config.PWDKey.REGULARREST_KEY));
+    public void startRegularRestAlarm(String action) {
+        int time = spUtils.getInt((Config.PWDKey.REGULAR_REST_KEY));
         if (time == Config.Settings.VALUE_NEVER) return;
-        LogUtils.e("tlh", "starRegularRestAlarm---time:" + time);
-        AlarmManager am = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(mContext, SystemSettingsService.class);
-        intent.setAction(Config.BoYueAction.ACTION_SHUTDOWN);
-        PendingIntent pendingIntent = PendingIntent.getService(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, time + SystemClock.elapsedRealtime(), time, pendingIntent);
+        LockScreenUtils.startLockScreen(action);
     }
 }

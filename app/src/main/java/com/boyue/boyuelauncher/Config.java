@@ -30,9 +30,11 @@ public class Config {
 
 
         //定时休息Action
-        public static final String ACTION_REST = "com.boyue.action_rest";
-        //定时关机Action
-        public static final String ACTION_SHUTDOWN = "com.boyue.action_shutdown";
+        public static final String ONTIME_LOCKSCREEN_ACTION = "com.boyue.action_shutdown";
+        //定时锁定Action
+        public static final String ONTIME_REST_ACTION = "com.boyue.action_rest";
+
+
     }
 
     /**
@@ -102,7 +104,7 @@ public class Config {
      */
     public static class Settings {
         public static final int VALUE_NEVER = Integer.MAX_VALUE;
-//        public static final int VALUE_1M = 60000;
+        //        public static final int VALUE_1M = 60000;
         public static final int VALUE_1M = 1000;
         public static final int VALUE_5M = VALUE_1M * 5;
         public static final int VALUE_10M = VALUE_1M * 10;
@@ -132,6 +134,8 @@ public class Config {
         public static final String FCM_PWD_NAME = "fcm_pwd_enable";
 
         //用于保存定时休息的时间 key
-        public static final String REGULARREST_KEY = "regularrest_key";
+        public static final String REGULAR_REST_KEY = "regularrest_key";
+        //用于保存定时锁定的时间 key
+        public static final String TIMING_LOCKING = "timing_locking_key";
     }
 }

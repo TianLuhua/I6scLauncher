@@ -167,7 +167,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".recervier.SystemSettingsService" />
+        <service android:name=".service.SystemSettingsService" />
 
     </application>
 
