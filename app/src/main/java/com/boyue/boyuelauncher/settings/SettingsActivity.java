@@ -48,40 +48,43 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
     @Override
     protected void initView() {
         //判断是否启用密码，启用的话需要验证才能进入。反之，退出设置界面。
-        final Setting_FCM_ChangePassWordDialog dialog = new Setting_FCM_ChangePassWordDialog();
-        dialog.setNotfication(new Setting_FCM_ChangePassWordDialog.Notfication() {
-            @Override
-            public void inputNumber(int number) {
+        if (getPresenter().hasEnablePWD()) {
+
+            final Setting_FCM_ChangePassWordDialog dialog = new Setting_FCM_ChangePassWordDialog();
+            dialog.setNotfication(new Setting_FCM_ChangePassWordDialog.Notfication() {
+                @Override
+                public void inputNumber(int number) {
 
 
-            }
-
-            @Override
-            public void hasInputNumbers(String pwd) {
-                if (getPresenter().matchingPwd(pwd)) {
-                    LogUtils.e("tlh", "通过密码验证，您的密码是：" + pwd);
-                    dialog.dismiss();
-
-                } else {
-                    SettingsActivity.this.finish();
                 }
 
-            }
+                @Override
+                public void hasInputNumbers(String pwd) {
+                    if (getPresenter().matchingPwd(pwd)) {
+                        LogUtils.e("tlh", "通过密码验证，您的密码是：" + pwd);
+                        dialog.dismiss();
 
-            @Override
-            public void cancel() {
-                SettingsActivity.this.finish();
+                    } else {
+                        dialog.setTieltT(R.string.input_pwd_error, R.color.color_red);
+                        dialog.cleanPwdStatus();
+                    }
 
-            }
+                }
 
-            @Override
-            public void delete() {
+                @Override
+                public void cancel() {
+                    SettingsActivity.this.finish();
 
-            }
-        });
-        dialog.show(getSupportFragmentManager(), Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
-        dialog.setCancelable(false);
+                }
 
+                @Override
+                public void delete() {
+
+                }
+            });
+            dialog.show(getSupportFragmentManager(), Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
+            dialog.setCancelable(false);
+        }
         titleBar = findViewById(R.id.title_bar);
         titleBar.setOnTitleBarClickListener(new TitleBar.OnTitleBarClickListener() {
             @Override

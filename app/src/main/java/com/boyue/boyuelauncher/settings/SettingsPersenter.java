@@ -8,4 +8,6 @@ public abstract class SettingsPersenter extends AbstractPresenter<SettingsView> 
 
     abstract boolean matchingPwd(String pwd);
 
+    public abstract boolean hasEnablePWD();
+
 }

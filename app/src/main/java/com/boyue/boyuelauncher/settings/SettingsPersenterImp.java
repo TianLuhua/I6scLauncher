@@ -56,6 +56,11 @@ public class SettingsPersenterImp extends SettingsPersenter {
         return isMactch;
     }
 
+    @Override
+    public boolean hasEnablePWD() {
+        return spUtils.getBoolean(Config.PWDKey.PWD_IS_ENABLE);
+    }
+
     public void getPagerFragments() {
         if (mode == null) return;
         mode.getPagerFragments();
