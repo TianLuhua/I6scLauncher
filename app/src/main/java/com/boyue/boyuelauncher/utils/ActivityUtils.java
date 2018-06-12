@@ -17,10 +17,9 @@ public class ActivityUtils {
     /**
      * 启动对应的Activity根据不同的Action
      *
-     * @param mContext
      * @param action
      */
-    public static void setActivityConfig( String action) {
+    public static void setActivityConfig(String action) {
         Intent intent = new Intent(action);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         if (Utils.getApp().getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
@@ -38,13 +37,12 @@ public class ActivityUtils {
     /**
      * 根据包名启动 APP
      *
-     * @param mContext
      * @param packagename 包名
      */
-    public static void startApplicationWithPackageName(Context mContext, String packagename) {
+    public static void startApplicationWithPackageName(String packagename) {
 
         // 通过包名获取此APP详细信息，包括Activities、services、versioncode、name等等
-        PackageManager manager = mContext.getPackageManager();
+        PackageManager manager = Utils.getApp().getPackageManager();
         PackageInfo packageinfo = null;
 
         try {
@@ -76,7 +74,7 @@ public class ActivityUtils {
             // 设置ComponentName参数1:packagename参数2:MainActivity路径
             ComponentName cn = new ComponentName(packageName, className);
             intent.setComponent(cn);
-            mContext.startActivity(intent);
+            Utils.getApp().startActivity(intent);
         }
     }
 

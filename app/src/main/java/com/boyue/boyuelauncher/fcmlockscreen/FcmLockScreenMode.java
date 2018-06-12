@@ -44,7 +44,7 @@ public class FcmLockScreenMode implements BaseMode {
 
     }
 
-
+    //注册时间变化广播
     public void registerReceiver() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_TIME_TICK);
@@ -55,19 +55,22 @@ public class FcmLockScreenMode implements BaseMode {
 
     }
 
+    //取消时间变化广播
     public void unregisterReceiver() {
         mContext.unregisterReceiver(mIntentRecever);
     }
 
     @Override
     public void onDestroy() {
-
-
+        if (mIntentRecever != null)
+            mIntentRecever = null;
+        if (mCallBack != null)
+            mCallBack = null;
     }
 
 
     //监听系统时间变化
-    private final BroadcastReceiver mIntentRecever = new BroadcastReceiver() {
+    private BroadcastReceiver mIntentRecever = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             LogUtils.e("tlh", "FcmLockScreenMode,时间变化了");

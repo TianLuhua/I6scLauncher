@@ -37,7 +37,7 @@ public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEye
     protected void onResume() {
         super.onResume();
         getPresenter().cancleRegularRestAlarm(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION);
-        //延时一分钟
+        //休息一分钟
         mHandler.sendEmptyMessageDelayed(Config.HandlerGlod.ACTIVITY_PROTECTEYELOCKSCREENACTIVITY_DELAY, Config.Settings.VALUE_1M);
     }
 

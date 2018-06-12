@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.widget.dialogfragment.Popup_Only_Icon_Dialog;
 
 /**
  * Created by Tianluhua on 2018/5/14.
@@ -74,7 +75,6 @@ public class BatteryView extends AppCompatImageView {
                             isFull = false;
                         }
                         currentPrecent = percent;
-//                        Toast.makeText(getContext(), "ACTION_BATTERY_CHANGED--->percent：" + percent + ",current:" + level + ",total:" + scale, Toast.LENGTH_SHORT).show();
                         break;
                     case Intent.ACTION_POWER_CONNECTED://接通电源
                         if (!isFull) {
@@ -83,14 +83,12 @@ public class BatteryView extends AppCompatImageView {
                             animationDrawable.start();
                         }
                         isConnected = true;
-//                        Toast.makeText(getContext(), "ACTION_POWER_CONNECTED", Toast.LENGTH_SHORT).show();
                         break;
                     case Intent.ACTION_POWER_DISCONNECTED://拔出电源current 和total均为默认值
                         isConnected = false;
                         if (animationDrawable != null)
                             animationDrawable.stop();
 
-//                        Toast.makeText(getContext(), "ACTION_POWER_DISCONNECTED--->percent：" + percent + ",current:" + level + ",total:" + scale, Toast.LENGTH_SHORT).show();
                         setImageResource(chargeDrawables[(int) (currentPrecent * (chargeDrawables.length - 1))]);
 
                 }

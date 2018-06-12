@@ -33,6 +33,8 @@ public class Config {
         public static final String ONTIME_LOCKSCREEN_ACTION = "ontime_lockscreen_action";
         //定时锁定Action
         public static final String ONTIME_REST_ACTION = "ontime_rest_action";
+        //定时关机Action
+        public static final String ONTIME_SHUTDOWN_ACTION = "ontime_shutdown_action";
 
 
     }
@@ -138,5 +140,7 @@ public class Config {
         public static final String REGULAR_REST_KEY = "regular_rest_key";
         //用于保存定时锁定的时间 key
         public static final String TIMING_LOCKING_KEY = "timing_locking_key";
+        //用于保存定时关机的时间 key
+        public static final String ONTIME_SHUTDOWN_KEY = "ontime_shutdown_key";
     }
 }

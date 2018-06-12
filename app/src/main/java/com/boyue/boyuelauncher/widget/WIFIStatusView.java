@@ -16,7 +16,7 @@ import android.util.Log;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
 /**
- * Created by Tianluhua on 2018/5/15.
+ * Created by Tianluhua on 2018/6/10.
  */
 public class WIFIStatusView extends EnlargeAndNarrowAnimationView {
 

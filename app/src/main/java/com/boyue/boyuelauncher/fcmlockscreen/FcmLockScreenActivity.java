@@ -135,6 +135,7 @@ public class FcmLockScreenActivity extends AbstractMVPActivity<FcmLockScreenView
         LogUtils.e("tlh", "FcmLockScreenActivity--updateClock----date:" + date + ",week：" + week + ",time_0_Leve:" + time_0_Leve + ",time_1_Leve:" + time_1_Leve + ",time_2_Leve:" + time_2_Leve + ",time_3_Leve:" + time_3_Leve);
         dateText.setText(date);
         weekText.setText(week);
+        //这里不会有不必要的界面刷新，因为Drawable中有对Level的对比
         number_1.getDrawable().setLevel(time_0_Leve);
         number_2.getDrawable().setLevel(time_1_Leve);
         number_3.getDrawable().setLevel(time_2_Leve);
