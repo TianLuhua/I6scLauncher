@@ -3,24 +3,19 @@ package com.boyue.boyuelauncher.wifimanager;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.KeyboardUtil;
 import com.boyue.boyuelauncher.utils.ToastUtil;
-import com.boyue.boyuelauncher.widget.WIFIStatusView;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 
 import java.util.ArrayList;
@@ -34,11 +29,6 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     private WiFiManagerMode wiFiManagerMode;
 
     private WifiManager wifiManager;
-    private boolean isGranted;
-
-
-    //通过wifiManager.getConfiguredNetworks()能够获取已经配置好的wifi信息
-
 
     public WiFiManagerPersenterImp(Context mContext) {
         this.mContext = mContext;
@@ -67,35 +57,37 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     }
 
     @Override
-    public void initUI() {
+    public void checkWifiStatus() {
         boolean wifiEnable = wifiManager.isWifiEnabled();
         WiFiManagerView view = getView();
         if (view == null) return;
-        view.setInitUI(wifiEnable);
+        view.getWifiStatus(wifiEnable);
     }
 
 
     @Override
     public void setWifiEnabled(boolean isEnable) {
-        wifiManager.setWifiEnabled(isEnable);
-        if (isEnable)
-            checkPermission();
-    }
 
-    //检查权限
-    private void checkPermission() {
-        int perm = ContextCompat.checkSelfPermission(mContext, Config.Permission.LOCATION_PERMISSION);
-        if (perm == PackageManager.PERMISSION_GRANTED) {
-            isGranted = true;
-            openWifi();//打开WIFI
+        wifiManager.setWifiEnabled(isEnable);
+
+
+        getView().getWifiStatus(isEnable);
+
+        if (isEnable) {
+            openWifi();
         } else {
-            isGranted = false;
-            ToastUtil.showLongToast("扫描WIFI缺少定位权限，请授予权限");
-            ActivityCompat.requestPermissions((Activity) mContext,
-                    new String[]{Config.Permission.LOCATION_PERMISSION}, Config.Permission.REQUEST_CODE);
+            getView().closeWifi();
         }
     }
 
+    /**
+     * 打开wifi
+     */
+    private void openWifi() {
+        if (wiFiManagerMode == null) return;
+        getView().startScnner();
+        wiFiManagerMode.startScnner();
+    }
 
     /**
      * 连接Wifi
@@ -164,14 +156,6 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
         }
     }
 
-    /**
-     * 打开wifi
-     */
-    private void openWifi() {
-        if (wiFiManagerMode == null) return;
-        wiFiManagerMode.startScnner();
-    }
-
 
     /**
      * 创建Wifi
@@ -224,46 +208,6 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
         return config;
     }
 
-    /**
-     * 获取当前连接wifi信息
-     */
-    private void getCurrentWifi() {
-        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-        if (wifiInfo != null) {
-            StringBuffer sb = new StringBuffer();
-            sb.append("\n获取SSID（所连接的WIFI的网络名称）：" + wifiInfo.getSSID());
-            sb.append("\n\n获取BSSID属性（所连接的WIFI设备的MAC地址）：" + wifiInfo.getBSSID());
-            sb.append("\n\n获取连接的速度：" + wifiInfo.getLinkSpeed());
-            sb.append("\n\n获取SSID 是否被隐藏：" + wifiInfo.getHiddenSSID());
-            sb.append("\n\n获取IP 地址：" + wifiInfo.getIpAddress());
-            sb.append("\n\n获取Mac 地址（手机本身网卡的MAC地址）：" + wifiInfo.getMacAddress());
-            sb.append("\n\n获取802.11n 网络的信号：" + wifiInfo.getRssi());
-            sb.append("\n\n获取具体客户端状态的信息：" + wifiInfo.getSupplicantState());
-            AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-            builder.setTitle(wifiInfo.getSSID());
-            builder.setMessage(sb.toString());
-            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
-            builder.setCancelable(false);
-            builder.show();
-        } else {
-            ToastUtil.showShortToast("当前未连接wifi");
-        }
-    }
-
-    @Override
-    public void detachView() {
-        super.detachView();
-        if (wiFiManagerMode != null) {
-            wiFiManagerMode.onDestroy();
-            wiFiManagerMode = null;
-        }
-
-        mContext = null;
-    }
 
     @Override
     public void setWifiManager(WifiManager wifiManager) {
@@ -280,13 +224,36 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
         getView().scnnered(dataList);
     }
 
-    @Override
-    public void scnnerFail() {
-        getView().connectFail();
-    }
 
     @Override
     public void closeWifi() {
         getView().closeWifi();
     }
+
+    @Override
+    public void verificationFail() {
+        getView().verificationFail();
+    }
+
+    @Override
+    public void verificationSuceess(WifiInfo wifiInfo) {
+        getView().verificationSuceess(wifiInfo);
+    }
+
+    @Override
+    public void notAvailableWifi() {
+        getView().notAvailableWifi();
+    }
+
+    @Override
+    public void detachView() {
+        super.detachView();
+        if (wiFiManagerMode != null) {
+            wiFiManagerMode.onDestroy();
+            wiFiManagerMode = null;
+        }
+        mContext = null;
+    }
+
+
 }

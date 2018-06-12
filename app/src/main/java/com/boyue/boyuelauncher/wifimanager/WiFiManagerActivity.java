@@ -1,16 +1,11 @@
 package com.boyue.boyuelauncher.wifimanager;
 
-import android.content.Context;
-import android.net.wifi.ScanResult;
-import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -20,16 +15,12 @@ import android.widget.TextView;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.utils.LogUtils;
-import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFiDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_AddNetworkDialog;
 import com.boyue.boyuelauncher.wifimanager.adpter.WifiAdapter;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
-import com.boyue.boyuelauncher.wifimanager.listener.DataActionListener;
-import com.boyue.boyuelauncher.wifimanager.listener.OnItemClickListener;
 import com.boyue.boyuelauncher.wifimanager.listener.OnWiFiSettingDialogOnListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Tianluhua on 2018/6/11.
@@ -42,8 +33,9 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
     private CheckBox wlanSwitch;
     private ImageView wifiSColseIcon;
     private RelativeLayout wifiStatusGroup;
-    private TextView wifiStatusLabel;
+    private TextView wifiStatussName, wifiStatussStatus, wifiStatussIpaddress, wifiStatussMac;
 
+    private TextView wifiStatusLabel;
     private WifiAdapter dataAdapter;//wifi列表适配器
 
     @Override
@@ -60,7 +52,13 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         tilte.setText(R.string.wifi_setting);
         //initView
         wifiSColseIcon = findViewById(R.id.wifi_close_icon);
+
         wifiStatusGroup = findViewById(R.id.wifi_enable_note);
+        wifiStatussName = findViewById(R.id.wifi_statuss_name);
+        wifiStatussStatus = findViewById(R.id.wifi_statuss_status);
+        wifiStatussIpaddress = findViewById(R.id.wifi_statuss_ipaddress);
+        wifiStatussMac = findViewById(R.id.wifi_statuss_mac);
+
         wifiStatusLabel = findViewById(R.id.wifi_disable_note);
         manuallyAddNetwork = findViewById(R.id.manually_add_network);
         manuallyAddNetwork.setOnClickListener(this);
@@ -71,32 +69,29 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         dataView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         dataView.setAdapter(dataAdapter);
         //获取系统初始化状态
-        getPresenter().initUI();
+        getPresenter().checkWifiStatus();
     }
 
 
     @Override
     protected WiFiManagerPersenterImp createPresenter() {
+        //创建Persenter
         return new WiFiManagerPersenterImp(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        //注册wifi相关广播
         getPresenter().registerReceiver();
     }
 
     @Override
     protected void onPause() {
+        //取消wifi相关广播
         getPresenter().unregisterReceiver();
         super.onPause();
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
 
     @Override
     public void onClick(View v) {
@@ -132,51 +127,87 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
             case R.id.wlan_switch:
                 LogUtils.e("tlh", "onCheckedChanged:" + isChecked);
                 getPresenter().setWifiEnabled(isChecked);
-                updateUI(isChecked);
                 break;
         }
     }
 
-    private void updateUI(boolean isChecked) {
-        wifiSColseIcon.setVisibility(isChecked ? View.INVISIBLE : View.VISIBLE);
-        wifiStatusLabel.setVisibility(isChecked ? View.INVISIBLE : View.VISIBLE);
-        wifiStatusGroup.setVisibility(isChecked ? View.VISIBLE : View.INVISIBLE);
-        if (wifiStatusLabel.getVisibility() == View.VISIBLE) {
-            wifiStatusLabel.setText(R.string.wifi_enable);
-        }
-    }
-
-
     @Override
     public void startScnner() {
-        LogUtils.e("tlh", "WiFiManagerActivity  startScnner");
+        LogUtils.e("tll","WiFiManagerActivity---startScnner");
+        //开始扫描
+        if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
+            wifiStatusLabel.setVisibility(View.VISIBLE);
+        if (wifiStatusGroup.getVisibility() == View.VISIBLE)
+            wifiStatusGroup.setVisibility(View.INVISIBLE);
+        wifiStatusLabel.setText(R.string.scnnering);
     }
 
     @Override
     public void scnnered(ArrayList<WifiModel> dataList) {
+        //扫描完毕，返回数据
         LogUtils.e("tlh", "WiFiManagerActivity  scnnered dataList.size():" + dataList.size());
         dataAdapter.setDataList(dataList);
+
+        if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
+            wifiStatusLabel.setVisibility(View.VISIBLE);
+        if (wifiStatusGroup.getVisibility() == View.VISIBLE)
+            wifiStatusGroup.setVisibility(View.INVISIBLE);
+        wifiStatusLabel.setText(R.string.scnnered);
     }
 
     @Override
-    public void currentConnected(WifiInfo wifiInfo) {
-
-    }
-
-    @Override
-    public void connectFail() {
-        LogUtils.e("tlh", "WiFiManagerActivity  connectFail");
+    public void notAvailableWifi() {
+        //扫描完毕，附近没有可用WIFI
+        if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
+            wifiStatusLabel.setVisibility(View.VISIBLE);
+        if (wifiStatusGroup.getVisibility() == View.VISIBLE)
+            wifiStatusGroup.setVisibility(View.INVISIBLE);
+        wifiStatusLabel.setText(R.string.not_available_wifi);
     }
 
     @Override
     public void closeWifi() {
+        //关闭WIFI
         dataAdapter.clear();
+        if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
+            wifiStatusLabel.setVisibility(View.VISIBLE);
+        if (wifiStatusGroup.getVisibility() == View.VISIBLE)
+            wifiStatusGroup.setVisibility(View.INVISIBLE);
+        wifiStatusLabel.setText(R.string.wifi_enable);
     }
 
     @Override
-    public void setInitUI(boolean wifiEnable) {
+    public void getWifiStatus(boolean wifiEnable) {
         if (wlanSwitch == null) return;
         wlanSwitch.setChecked(wifiEnable);
+        updateUI(wifiEnable);
     }
 
+    private void updateUI(boolean wifiEnable) {
+        wifiSColseIcon.setVisibility(wifiEnable ? View.INVISIBLE : View.VISIBLE);
+        wifiStatusLabel.setVisibility(wifiEnable ? View.VISIBLE : View.INVISIBLE);
+        wifiStatusGroup.setVisibility(wifiEnable ? View.INVISIBLE : View.VISIBLE);
+        wifiStatusLabel.setText(wifiEnable?R.string.scnnering:R.string.wifi_enable);
+    }
+
+    @Override
+    public void verificationFail() {
+        //连接失败
+        if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
+            wifiStatusLabel.setVisibility(View.VISIBLE);
+        wifiStatusLabel.setText(R.string.verification_fail);
+    }
+
+    @Override
+    public void verificationSuceess(WifiInfo wifiInfo) {
+        //连接成功
+        if (wifiStatusLabel.getVisibility() == View.VISIBLE)
+            wifiStatusLabel.setVisibility(View.INVISIBLE);
+        if (wifiStatusGroup.getVisibility() == View.INVISIBLE)
+            wifiStatusGroup.setVisibility(View.VISIBLE);
+        wifiStatussName.setText(wifiInfo.getBSSID());
+        wifiStatussStatus.setText(R.string.connected);
+        wifiStatussIpaddress.setText(wifiInfo.getIpAddress());
+        wifiStatussMac.setText(wifiInfo.getMacAddress());
+    }
 }

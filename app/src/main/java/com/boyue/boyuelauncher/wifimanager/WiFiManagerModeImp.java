@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.SupplicantState;
+import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
@@ -15,6 +16,7 @@ import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Tianluhua on 2018/6/11.
@@ -30,6 +32,7 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
 
     private ArrayList<ScanResult> scanResultList;//扫描wifi列表
     private ArrayList<WifiModel> dataList;//wifi列表显示
+    private List<WifiConfiguration> configuredNetworks;//wifiManager记录以前连接过的wifi信息
 
     public WiFiManagerModeImp(Context mContext, Callback callback) {
         this.mContext = mContext;
@@ -38,6 +41,7 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
         callback.setWifiManager(wifiManager);
         this.scanResultList = new ArrayList<>();
         this.dataList = new ArrayList<>();
+        configuredNetworks = wifiManager.getConfiguredNetworks();
     }
 
 
@@ -82,19 +86,22 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
             //拿到数据，回调到Presenter
             if (callback == null) return;
             callback.scnnered(dataList);
-
-
         } else {
             //数据异常，请处理
-            if (callback==null)return;
-            callback.scnnerFail();
+            if (callback == null) return;
+            callback.notAvailableWifi();
         }
     }
 
-
     @Override
-    public void onDestroy() {
-
+    public void startScnner() {
+        if (wifiManager.isWifiEnabled()) {
+            if (callback != null) {
+                callback.startScnner();
+            }
+        } else {
+            wifiManager.setWifiEnabled(true);
+        }
     }
 
     @Override
@@ -114,19 +121,24 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
         mContext.unregisterReceiver(wifiReceiver);
     }
 
+
     @Override
-    public void startScnner() {
-        if (wifiManager.isWifiEnabled()) {
-            wifiManager.startScan();//启动扫描
-            if (callback != null) {
-                callback.startScnner();
-            }
-        } else {
-            wifiManager.setWifiEnabled(true);
+    public void onDestroy() {
+        if (scanResultList != null) {
+            scanResultList.clear();
+            scanResultList = null;
         }
-
+        if (dataList != null) {
+            dataList.clear();
+            dataList = null;
+        }
+        if (wifiReceiver != null)
+            wifiReceiver = null;
+        if (wifiManager != null)
+            wifiManager = null;
+        if (callback != null)
+            callback = null;
     }
-
 
     public static interface Callback {
 
@@ -138,12 +150,17 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
         //回调当前wifi扫描结果
         void scnnered(ArrayList<WifiModel> dataList);
 
-        //扫描失败
-        void scnnerFail();
-
         //wifi关闭
         void closeWifi();
 
+        //验证失败
+        void verificationFail();
+
+        //验证失败
+        void verificationSuceess(WifiInfo wifiInfo);
+
+        //附近没有可用WIFI
+        void notAvailableWifi();
     }
 
 
@@ -159,7 +176,7 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
                 switch (wifiState) {
                     case WifiManager.WIFI_STATE_DISABLED:
                         ToastUtil.showShortToast("Wifi关闭");
-                        if (callback==null)return;
+                        if (callback == null) return;
                         callback.closeWifi();
                         break;
                     case WifiManager.WIFI_STATE_ENABLED:
@@ -183,10 +200,14 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
                 int errorCode = intent.getIntExtra(WifiManager.EXTRA_SUPPLICANT_ERROR, -1);
                 if (errorCode == WifiManager.ERROR_AUTHENTICATING) {
                     ToastUtil.showShortToast("验证失败");
+                    if (callback == null) return;
+                    callback.verificationFail();
                 }
             } else if (WifiManager.SUPPLICANT_STATE_CHANGED_ACTION.equals(action)) {
                 WifiInfo wifiInfo = wifiManager.getConnectionInfo();
                 if (wifiInfo != null) {
+                    if (callback == null) return;
+                    callback.verificationSuceess(wifiInfo);
                     String wifiSSID = wifiInfo.getSSID();
                     ToastUtil.showShortToast(wifiSSID + "连接成功");
                 }

@@ -21,14 +21,15 @@ public interface WiFiManagerView extends BaseView {
     //回调当前wifi扫描结果
     void scnnered(ArrayList<WifiModel> dataList);
 
-    //回调当前连接的wifi
-    void currentConnected(WifiInfo wifiInfo);
-
-    //回调当前连接失败的结果
-    void connectFail();
-
     //初始化Ui后，回调回来的状态，用于更新界面
-    void setInitUI(boolean wifiEnable);
+    void getWifiStatus(boolean wifiEnable);
 
+    //验证失败
+    void verificationFail();
 
+    //验证成功
+    void verificationSuceess(WifiInfo wifiInfo);
+
+    //附近没有可用WIFI
+    void notAvailableWifi();
 }

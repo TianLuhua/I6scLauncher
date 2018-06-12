@@ -8,8 +8,10 @@ import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
  */
 public abstract class WiFiManagerPersenter extends AbstractPresenter<WiFiManagerView> {
 
+    //忽略网络
     public abstract void igonreNetwork(WifiModel data);
 
+    //手动添加网络
     public abstract void addNetwork();
 
     //广播注册
@@ -22,5 +24,5 @@ public abstract class WiFiManagerPersenter extends AbstractPresenter<WiFiManager
     public abstract void setWifiEnabled(boolean isEnable);
 
     //初始化界面UI
-    public abstract void initUI();
+    public abstract void checkWifiStatus();
 }

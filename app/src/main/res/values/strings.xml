@@ -7,6 +7,7 @@
     <string name="total_cache">共清理掉垃圾:</string>
     <string name="go">去启用</string>
     <string name="know">知道了</string>
+    <string name="connected">已经连接</string>
 
 
     <!--系统设置-->
@@ -103,12 +104,15 @@
     <string name="manually_add_network">手动添加网络</string>
     <string name="dialog_net_name">网络名称：</string>
     <string name="dialog_net_pwd">密码：</string>
+    <string name="verification_fail">连接失败!</string>
 
 
     <string name="wifi_enable">没有打开网络！</string>
     <string name="has_saved">(已保存)</string>
     <string name="ignore_network">忽略网络</string>
     <string name="scnnering">正在检测......</string>
+    <string name="scnnered">扫描完成</string>
+    <string name="not_available_wifi">没有可用WIFI</string>
 
 
     <!--火火兔学堂-->
