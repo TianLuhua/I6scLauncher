@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="166dp"
         android:layout_marginTop="123dp"
-        android:src="@mipmap/ic_fcm_lockscreen_numer_1" />
+        android:src="@drawable/level_list_clock_item" />
 
     <ImageView
         android:id="@+id/number_2"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="123dp"
         android:layout_toRightOf="@+id/number_1"
-        android:src="@mipmap/ic_fcm_lockscreen_numer_1" />
+        android:src="@drawable/level_list_clock_item"/>
 
     <ImageView
         android:id="@+id/point"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="123dp"
         android:layout_toRightOf="@+id/point"
-        android:src="@mipmap/ic_fcm_lockscreen_numer_1" />
+        android:src="@drawable/level_list_clock_item" />
 
     <ImageView
         android:id="@+id/number_4"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="123dp"
         android:layout_toRightOf="@+id/number_3"
-        android:src="@mipmap/ic_fcm_lockscreen_numer_1" />
+        android:src="@drawable/level_list_clock_item" />
 
     <TextView
         android:id="@+id/week"

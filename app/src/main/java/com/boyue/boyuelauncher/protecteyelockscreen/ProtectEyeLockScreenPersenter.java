@@ -37,6 +37,6 @@ public class ProtectEyeLockScreenPersenter extends AbstractPresenter<ProtectEyeL
     public void startRegularRestAlarm(String action) {
         int time = spUtils.getInt((Config.PWDKey.REGULAR_REST_KEY));
         if (time == Config.Settings.VALUE_NEVER) return;
-        LockScreenUtils.startLockScreen(action);
+        LockScreenUtils.startLockScreen(action,time);
     }
 }

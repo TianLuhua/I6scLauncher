@@ -1,20 +1,26 @@
 package com.boyue.boyuelauncher.settings.fragments.fcm_settings;
 
+import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.base.AbstractPresenter;
+import com.boyue.boyuelauncher.utils.LockScreenUtils;
+import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.SPUtils;
 
 public class FCMSettingPersenter extends AbstractPresenter<FCMSettingView> {
 
     private FCMSettingMode mode;
+    private SPUtils spUtils;
 
     public FCMSettingPersenter() {
         this.mode = new FCMSettingMode(new FCMSettingMode.CallBack() {
             @Override
-            public void setSystmStatus(boolean pwdIsEnable, boolean pwdFcmIsEnable) {
+            public void setSystmStatus(boolean pwdIsEnable, boolean pwdFcmIsEnable, int timingTime) {
                 FCMSettingView view = getView();
                 if (view == null) return;
-                view.setSystmStatus(pwdIsEnable, pwdFcmIsEnable);
+                view.setSystmStatus(pwdIsEnable, pwdFcmIsEnable, timingTime);
             }
         });
+        this.spUtils = SPUtils.getInstance(Config.PWDKey.SPNMAE);
     }
 
     //获取当起那界面UI的状态，用于初始化UI界面
@@ -48,4 +54,18 @@ public class FCMSettingPersenter extends AbstractPresenter<FCMSettingView> {
         return mode.saveingPwd(pwd);
     }
 
+    public void setTimingLockTime(int timingLockTime) {
+        if (spUtils == null) return;
+        LogUtils.e("tlh","FCMSettingPersenter---timingLockTime:"+timingLockTime);
+        spUtils.put(Config.PWDKey.TIMING_LOCKING_KEY, timingLockTime);
+
+        switch (timingLockTime) {
+            case Config.Settings.VALUE_NEVER:
+                LockScreenUtils.cancleLockScreen(Config.BoYueAction.ONTIME_REST_ACTION);
+                break;
+            default:
+                LockScreenUtils.startLockScreen(Config.BoYueAction.ONTIME_REST_ACTION,timingLockTime);
+                break;
+        }
+    }
 }

@@ -13,8 +13,7 @@ import com.boyue.boyuelauncher.service.SystemSettingsService;
 public class LockScreenUtils {
 
     //开启定时休息锁屏功能
-    public static void startLockScreen(String action) {
-        int time = SPUtils.getInstance(Config.PWDKey.SPNMAE).getInt((Config.PWDKey.REGULAR_REST_KEY));
+    public static void startLockScreen(String action,int time) {
         if (time == Config.Settings.VALUE_NEVER) return;
         LogUtils.e("tlh", "LockScreenUtils---starRegularRestAlarm---time:" + time);
         AlarmManager am = (AlarmManager) Utils.getApp().getSystemService(Context.ALARM_SERVICE);

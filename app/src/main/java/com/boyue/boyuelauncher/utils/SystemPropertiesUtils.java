@@ -11,7 +11,6 @@ public class SystemPropertiesUtils {
     /**
      * 根据给定的Key返回String类型的值
      *
-     * @param context 上下文
      * @param key     获取指定信息所需的key
      * @return 返回一个String类型的值，如果不存在该key则返回空字符串
      */

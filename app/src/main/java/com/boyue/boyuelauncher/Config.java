@@ -30,9 +30,9 @@ public class Config {
 
 
         //定时休息Action
-        public static final String ONTIME_LOCKSCREEN_ACTION = "com.boyue.action_shutdown";
+        public static final String ONTIME_LOCKSCREEN_ACTION = "ontime_lockscreen_action";
         //定时锁定Action
-        public static final String ONTIME_REST_ACTION = "com.boyue.action_rest";
+        public static final String ONTIME_REST_ACTION = "ontime_rest_action";
 
 
     }
@@ -43,6 +43,7 @@ public class Config {
     public static class HandlerGlod {
         public static final int ACTIVITY_CLEANCACHE_START_CLEANCACHE = 0X00001;
         public static final int ACTIVITY_CLEANCACHE_END_CLEANCACHE = 0X00002;
+        public static final int ACTIVITY_PROTECTEYELOCKSCREENACTIVITY_DELAY = 0X00003;
 
     }
 
@@ -70,8 +71,8 @@ public class Config {
      * 挂载外设路径
      */
     public static class MountPath {
-        public static final String USB_PATH = "/mnt/uhost";
-        public static final String SD_PATH = "/mnt/sd-ext";
+        public static final String USB_PATH = "/mnt/usbhost1";
+        public static final String SD_PATH = "/mnt/extsd";
     }
 
     /**
@@ -134,8 +135,8 @@ public class Config {
         public static final String FCM_PWD_NAME = "fcm_pwd_enable";
 
         //用于保存定时休息的时间 key
-        public static final String REGULAR_REST_KEY = "regularrest_key";
+        public static final String REGULAR_REST_KEY = "regular_rest_key";
         //用于保存定时锁定的时间 key
-        public static final String TIMING_LOCKING = "timing_locking_key";
+        public static final String TIMING_LOCKING_KEY = "timing_locking_key";
     }
 }

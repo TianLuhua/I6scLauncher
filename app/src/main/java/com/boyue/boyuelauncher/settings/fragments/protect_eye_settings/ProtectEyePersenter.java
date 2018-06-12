@@ -51,7 +51,7 @@ public class ProtectEyePersenter extends AbstractPresenter<ProtectEyeView> {
                 break;
             default:
 //                startRegularRestAlarm();
-                LockScreenUtils.startLockScreen(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION);
+                LockScreenUtils.startLockScreen(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION,time);
                 break;
         }
 

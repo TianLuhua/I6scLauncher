@@ -1,5 +1,7 @@
 package com.boyue.boyuelauncher.protecteyelockscreen;
 
+import android.os.Handler;
+import android.os.Message;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,9 +12,13 @@ import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 
+import java.lang.ref.WeakReference;
+
+
 public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEyeLockScreenView, ProtectEyeLockScreenPersenter> implements ProtectEyeLockScreenView, View.OnClickListener {
 
     private ImageView unLockBtn;
+    private Handler mHandler = new ProtectEyeLockScreenHandler(this);
 
     @Override
     protected int getContentViewID() {
@@ -23,8 +29,16 @@ public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEye
     protected void initView() {
         unLockBtn = findViewById(R.id.protect_eye_btn);
         unLockBtn.setOnClickListener(this);
-        getPresenter().cancleRegularRestAlarm(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION);
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getPresenter().cancleRegularRestAlarm(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION);
+        //延时一分钟
+        mHandler.sendEmptyMessageDelayed(Config.HandlerGlod.ACTIVITY_PROTECTEYELOCKSCREENACTIVITY_DELAY, Config.Settings.VALUE_1M);
     }
 
     @Override
@@ -68,9 +82,8 @@ public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEye
                 if (getPresenter().matchingPwd(pwd)) {
                     LogUtils.e("tlh", "通过密码验证，您的密码是：" + pwd);
                     dialog.dismiss();
-                    getPresenter().startRegularRestAlarm(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION);
-                    ProtectEyeLockScreenActivity.this.finish();
 
+                    ProtectEyeLockScreenActivity.this.finish();
                 } else {
                     dialog.setTieltT(R.string.input_pwd_error, R.color.color_red);
                     dialog.cleanPwdStatus();
@@ -82,6 +95,14 @@ public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEye
         dialog.setCancelable(false);
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getPresenter().startRegularRestAlarm(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION);
+
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -89,4 +110,26 @@ public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEye
         }
         return super.onKeyDown(keyCode, event);
     }
+
+    public static class ProtectEyeLockScreenHandler extends Handler {
+
+        private WeakReference<ProtectEyeLockScreenActivity> weakReference;
+
+        public ProtectEyeLockScreenHandler(ProtectEyeLockScreenActivity protectEyeLockScreenActivity) {
+            this.weakReference = new WeakReference<>(protectEyeLockScreenActivity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            ProtectEyeLockScreenActivity protectEyeLockScreenActivity = weakReference.get();
+            if (protectEyeLockScreenActivity == null) return;
+            switch (msg.what) {
+                case Config.HandlerGlod.ACTIVITY_PROTECTEYELOCKSCREENACTIVITY_DELAY:
+                    protectEyeLockScreenActivity.finish();
+                    break;
+            }
+        }
+    }
+
 }

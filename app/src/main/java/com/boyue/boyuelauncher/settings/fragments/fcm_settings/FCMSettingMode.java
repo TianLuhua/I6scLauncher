@@ -5,6 +5,7 @@ import com.boyue.boyuelauncher.base.BaseMode;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
 
+
 public class FCMSettingMode implements BaseMode {
 
     private CallBack callback;
@@ -20,7 +21,8 @@ public class FCMSettingMode implements BaseMode {
         if (callback == null) return;
         boolean pwdIsEnable = spUtils.getBoolean(Config.PWDKey.PWD_IS_ENABLE);
         boolean pwdFcmIsEnable = spUtils.getBoolean(Config.PWDKey.FCM_PWD_NAME);
-        callback.setSystmStatus(pwdIsEnable, pwdFcmIsEnable);
+        int timingTime = spUtils.getInt(Config.PWDKey.TIMING_LOCKING_KEY);
+        callback.setSystmStatus(pwdIsEnable, pwdFcmIsEnable,  timingTime);
 
     }
 
@@ -70,6 +72,6 @@ public class FCMSettingMode implements BaseMode {
     }
 
     public static interface CallBack {
-        void setSystmStatus(boolean pwdIsEnable, boolean pwdFcmIsEnable);
+        void setSystmStatus(boolean pwdIsEnable, boolean pwdFcmIsEnable,int timingTime);
     }
 }

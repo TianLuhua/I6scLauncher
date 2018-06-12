@@ -20,11 +20,9 @@ import android.widget.TextView;
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
-import com.boyue.boyuelauncher.settings.fragments.protect_eye_settings.ProtectEyeFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
-import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Factory_SettingDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Fcm_Enable_NoteDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_text_01_tutton_03_Dialog;
 
@@ -97,24 +95,44 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
         return new FCMSettingPersenter();
     }
 
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        setNotfication((FCMSettingFragment.Notfication) context);
+    }
+
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         //定时锁定
         switch (checkedId) {
             case R.id.timing_locking_item_00:
                 LogUtils.e("tlh", "fcm--timing_shutdown_item_00");
+                setTimingLockTime(Config.Settings.VALUE_NEVER);
                 break;
             case R.id.timing_locking_item_01:
                 LogUtils.e("tlh", "fcm--timing_shutdown_item_01");
+                setTimingLockTime(Config.Settings.VALUE_30M);
                 break;
             case R.id.timing_locking_item_02:
                 LogUtils.e("tlh", "fcm--timing_shutdown_item_02");
+                setTimingLockTime(Config.Settings.VALUE_60M);
                 break;
             case R.id.timing_locking_item_03:
                 LogUtils.e("tlh", "fcm--timing_shutdown_item_03");
+                setTimingLockTime(Config.Settings.VALUE_120M);
                 break;
         }
 
+    }
+
+    /**
+     * 设置定时休眠的时间
+     *
+     * @param value
+     */
+    private void setTimingLockTime(int value) {
+        getPresenter().setTimingLockTime(value);
     }
 
     @Override
@@ -194,7 +212,7 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
 
         //定时锁定
         timingLockingTitle.setTextColor(disAble ? color_333 : color_999);
-        timingLockingGroup.clearCheck();
+        timingLockingGroup.check(R.id.timing_locking_item_00);
         int childCount = timingLockingGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
             RadioButton c = (RadioButton) timingLockingGroup.getChildAt(i);
@@ -315,22 +333,27 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
     }
 
     @Override
-    public void setSystmStatus(boolean pwdIsEnable, boolean pwdFcmIsEnable) {
+    public void setSystmStatus(boolean pwdIsEnable, boolean pwdFcmIsEnable, int timingTime) {
 
         fcmSwitchSwitchcheckBox.setChecked(pwdFcmIsEnable);
         enablePwdCheckBox.setChecked(pwdIsEnable);
+        switch (timingTime) {
+            case Config.Settings.VALUE_NEVER:
+                timingLockingGroup.check(R.id.timing_locking_item_00);
+                break;
+            case Config.Settings.VALUE_30M:
+                timingLockingGroup.check(R.id.timing_locking_item_01);
+                break;
+            case Config.Settings.VALUE_60M:
+                timingLockingGroup.check(R.id.timing_locking_item_02);
+                break;
+            case Config.Settings.VALUE_120M:
+                timingLockingGroup.check(R.id.timing_locking_item_03);
+                break;
+        }
+
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        setNotfication((FCMSettingFragment.Notfication) context);
-    }
-
-    public void setNotfication(FCMSettingFragment.Notfication notfication) {
-        this.notfication = notfication;
-
-    }
 
     public static class FCMHander extends Handler {
 
@@ -347,6 +370,10 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
         }
     }
 
+    public void setNotfication(FCMSettingFragment.Notfication notfication) {
+        this.notfication = notfication;
+
+    }
 
     private Notfication notfication;
 

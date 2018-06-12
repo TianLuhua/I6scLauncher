@@ -1,5 +1,11 @@
 package com.boyue.boyuelauncher.fcmlockscreen;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -7,15 +13,22 @@ import android.widget.TextView;
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
+import com.boyue.boyuelauncher.protecteyelockscreen.ProtectEyeLockScreenActivity;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class FcmLockScreenActivity extends AbstractMVPActivity<FcmLockScreenView, FcmLockScreenPersenter> implements FcmLockScreenView, View.OnClickListener {
 
     private ImageView lockBtn;
-    private TextView week;
-    private TextView date;
-
+    private TextView weekText;
+    private TextView dateText;
+    private ImageView number_1, number_2, number_3, number_4;
 
     @Override
     protected int getContentViewID() {
@@ -25,12 +38,32 @@ public class FcmLockScreenActivity extends AbstractMVPActivity<FcmLockScreenView
     @Override
     protected void initView() {
         lockBtn = findViewById(R.id.btn);
+        lockBtn.setOnClickListener(this);
+        weekText = findViewById(R.id.week);
+        dateText = findViewById(R.id.date);
+        number_1 = findViewById(R.id.number_1);
+        number_2 = findViewById(R.id.number_2);
+        number_3 = findViewById(R.id.number_3);
+        number_4 = findViewById(R.id.number_4);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getPresenter().cancleLockScreen(Config.BoYueAction.ONTIME_REST_ACTION);
+        getPresenter().registerReceiver();
+        updateClock();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        getPresenter().unregisterReceiver();
     }
 
     @Override
     protected FcmLockScreenPersenter createPresenter() {
-        return new FcmLockScreenPersenter();
+        return new FcmLockScreenPersenter(getApplicationContext());
     }
 
     @Override
@@ -43,8 +76,8 @@ public class FcmLockScreenActivity extends AbstractMVPActivity<FcmLockScreenView
 
     }
 
+    //用于密码验证
     private void showPwdDialog() {
-
         final Setting_FCM_ChangePassWordDialog dialog = new Setting_FCM_ChangePassWordDialog();
         dialog.setCancelable(false);
         dialog.setNotfication(new Setting_FCM_ChangePassWordDialog.Notfication() {
@@ -65,6 +98,14 @@ public class FcmLockScreenActivity extends AbstractMVPActivity<FcmLockScreenView
 
             @Override
             public void hasInputNumbers(String pwd) {
+                if (getPresenter().matchingPwd(pwd)) {
+                    LogUtils.e("tlh", "通过密码验证，您的密码是：" + pwd);
+                    dialog.dismiss();
+                    FcmLockScreenActivity.this.finish();
+                } else {
+                    dialog.setTieltT(R.string.input_pwd_error, R.color.color_red);
+                    dialog.cleanPwdStatus();
+                }
 
             }
 
@@ -72,5 +113,37 @@ public class FcmLockScreenActivity extends AbstractMVPActivity<FcmLockScreenView
         dialog.show(getSupportFragmentManager(), Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
         dialog.setCancelable(false);
 
+    }
+
+
+    //更新时钟
+    private void updateClock() {
+        getPresenter().updateClock();
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void setUpdateClock(String date, String week, int time_0_Leve, int time_1_Leve, int time_2_Leve, int time_3_Leve) {
+        LogUtils.e("tlh", "FcmLockScreenActivity--updateClock----date:" + date + ",week：" + week + ",time_0_Leve:" + time_0_Leve + ",time_1_Leve:" + time_1_Leve + ",time_2_Leve:" + time_2_Leve + ",time_3_Leve:" + time_3_Leve);
+        dateText.setText(date);
+        weekText.setText(week);
+        number_1.getDrawable().setLevel(time_0_Leve);
+        number_2.getDrawable().setLevel(time_1_Leve);
+        number_3.getDrawable().setLevel(time_2_Leve);
+        number_4.getDrawable().setLevel(time_3_Leve);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getPresenter().startLockScreen(Config.BoYueAction.ONTIME_REST_ACTION);
     }
 }

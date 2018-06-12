@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.boyue.boyuelauncher"
 
-
+    android:sharedUserId="android.uid.system"
     >
-    <!--android:sharedUserId="android.uid.system"-->
+
 
     <!-- 网络请求权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -28,6 +28,7 @@
     <!--设置日期权限-->
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+
 
 
     <application
