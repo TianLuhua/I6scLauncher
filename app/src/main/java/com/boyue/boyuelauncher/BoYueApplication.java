@@ -9,13 +9,12 @@ import com.boyue.boyuelauncher.utils.Utils;
 
 
 /**
- * Created by tianluhua on 2018/5/11.
+ * Created by tianluhua on 2018/5/25.
  */
 
 public class BoYueApplication extends Application {
 
     public static String TAG = BoYueApplication.class.getSimpleName();
-
 
     @Override
     public void onCreate() {
@@ -46,7 +45,7 @@ public class BoYueApplication extends Application {
             spUtils.put(Config.PWDKey.ONTIME_SHUTDOWN_KEY, Config.Settings.VALUE_NEVER);
 
         }
-//        spUtils.clear();
+//        spUtils.clear();//清空sp中的数据
         LogUtils.e("tlh", "SPUtils:" + spUtils.getAll().toString());
 
         //开机前设置了定时休息，那就默认启动

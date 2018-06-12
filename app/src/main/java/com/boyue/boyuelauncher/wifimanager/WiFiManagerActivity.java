@@ -67,8 +67,8 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         wlanSwitch = findViewById(R.id.wlan_switch);
         wlanSwitch.setOnCheckedChangeListener(this);
         dataView = findViewById(R.id.dataView);
-        dataAdapter = new WifiAdapter(WiFiManagerActivity.this);
-        dataView.setLayoutManager(new LinearLayoutManager(WiFiManagerActivity.this));
+        dataAdapter = new WifiAdapter(getApplicationContext());
+        dataView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         dataView.setAdapter(dataAdapter);
         //获取系统初始化状态
         getPresenter().initUI();

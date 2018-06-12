@@ -113,7 +113,6 @@ public class WifiAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        LogUtils.e("tll", "dataList:" + dataList.size());
         return dataList.size();
     }
 
