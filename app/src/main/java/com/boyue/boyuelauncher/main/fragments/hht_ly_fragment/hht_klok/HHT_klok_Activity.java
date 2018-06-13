@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.fragments.base.HHT_Abstract_Activity;
@@ -21,6 +22,10 @@ import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.ttmtv.HHT_Klok_ttmtv_05_Fragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.TitleBar;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Tianluhua on 2018/6/7.
@@ -41,7 +46,8 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
     private int currentPageId = KLOK;
     private FragmentManager manager;
     private Fragment klok_fragment, ttmtv_01, ttmtv_02, ttmtv_03, ttmtv_04, ttmtv_05, jdeg_01, jdeg_02, jdeg_03;
-    private Fragment currentShowFragment;
+    private LinkedList<Fragment> fragments;
+    private int index = 0;
 
 
     private ImageView previous_page, next_page;
@@ -60,6 +66,7 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
         titleBar.setOnTitleBarClickListener(new TitleBar.OnTitleBarClickListener() {
             @Override
             public void onLeftIconClick(View view) {
+                index = 0;
                 //当前不处于klok的话，就回到klok
                 if (currentPageId != KLOK) {
                     onChangedPage(KLOK);
@@ -84,6 +91,7 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
         previous_page.setOnClickListener(this);
         next_page = findViewById(R.id.next_page);
         next_page.setOnClickListener(this);
+        fragments = new LinkedList<>();
 
         manager = getSupportFragmentManager();
 
@@ -94,7 +102,6 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
         ft.add(R.id.klok_content, klok_fragment);
         ft.show(klok_fragment).commit();
         currentPageId = KLOK;
-        currentShowFragment = klok_fragment;
         showPageBtn(false);
 
     }
@@ -104,6 +111,10 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
         next_page.setVisibility(show ? View.VISIBLE : View.INVISIBLE);
     }
 
+    void showNextPageBtn(boolean show) {
+        previous_page.setVisibility(show ? View.INVISIBLE : View.VISIBLE);
+        next_page.setVisibility(show ? View.VISIBLE : View.INVISIBLE);
+    }
 
     @Override
     public void onChangedPage(int pageId) {
@@ -112,7 +123,8 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
         switch (pageId) {
             case KLOK:
                 //切换回klok
-
+                hideOtherFrangment(ft, klok_fragment);
+                currentPageId = KLOK;
                 break;
             case TTMTV:
                 initTTMTVFragment(ft);
@@ -125,30 +137,50 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
     }
 
     /**
+     * 隐藏掉其他的Fragment
+     *
+     * @param ft
+     */
+    private void hideOtherFrangment(FragmentTransaction ft, Fragment needShowFragment) {
+        List<Fragment> fragments = manager.getFragments();
+        for (Fragment f : fragments) {
+            ft.hide(f);
+        }
+        ft.show(needShowFragment).commit();
+        showPageBtn(false);
+    }
+
+    /**
      * 显示兔兔MTV
      */
     private void initTTMTVFragment(FragmentTransaction ft) {
         titleBar.setTitle(R.string.hht_ly_klok_ttmtv);
 
         //清除其他的Fragment
+        ft.hide(klok_fragment);
 
 
-
-        //兔兔MTV
+        //显示兔兔MTV
         ttmtv_01 = HHT_Klok_ttmtv_01_Fragment.newInstance();
         ttmtv_02 = HHT_Klok_ttmtv_02_Fragment.newInstance();
         ttmtv_03 = HHT_Klok_ttmtv_03_Fragment.newInstance();
         ttmtv_04 = HHT_Klok_ttmtv_04_Fragment.newInstance();
         ttmtv_05 = HHT_Klok_ttmtv_05_Fragment.newInstance();
-        ft.add(R.id.klok_content, ttmtv_01);
-        ft.add(R.id.klok_content, ttmtv_02);
-        ft.add(R.id.klok_content, ttmtv_03);
-        ft.add(R.id.klok_content, ttmtv_04);
-        ft.add(R.id.klok_content, ttmtv_05);
+        fragments.clear();
+        fragments.add(ttmtv_01);
+        fragments.add(ttmtv_02);
+        fragments.add(ttmtv_03);
+        fragments.add(ttmtv_04);
+        fragments.add(ttmtv_05);
+        ft.add(R.id.klok_content, ttmtv_01).hide(ttmtv_01);
+        ft.add(R.id.klok_content, ttmtv_02).hide(ttmtv_02);
+        ft.add(R.id.klok_content, ttmtv_03).hide(ttmtv_03);
+        ft.add(R.id.klok_content, ttmtv_04).hide(ttmtv_04);
+        ft.add(R.id.klok_content, ttmtv_05).hide(ttmtv_05);
         ft.show(ttmtv_01);
         ft.commit();
+        showNextPageBtn(true);
         currentPageId = TTMTV;
-        currentShowFragment = ttmtv_01;
     }
 
     /**
@@ -158,30 +190,113 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
         titleBar.setTitle(R.string.hht_ly_klok_jdeg);
 
 
-        //清除其他的Fragment
-
+        //清除其他的Fragment,只有klok_fragment存在，因为是从klok_fragment进来的
+        ft.hide(klok_fragment);
 
         //显示经典儿歌
         jdeg_01 = HHT_Klok_Jdeg_01_Fragment.newInstance();
         jdeg_02 = HHT_Klok_Jdeg_02_Fragment.newInstance();
         jdeg_03 = HHT_Klok_Jdeg_03_Fragment.newInstance();
-        ft.add(R.id.klok_content, jdeg_01);
-        ft.add(R.id.klok_content, jdeg_02);
-        ft.add(R.id.klok_content, jdeg_03);
+        fragments.clear();
+        fragments.add(jdeg_01);
+        fragments.add(jdeg_02);
+        fragments.add(jdeg_03);
+        ft.add(R.id.klok_content, jdeg_01).hide(jdeg_01);
+        ft.add(R.id.klok_content, jdeg_02).hide(jdeg_02);
+        ft.add(R.id.klok_content, jdeg_03).hide(jdeg_03);
         ft.show(jdeg_01);
         ft.commit();
+        showNextPageBtn(true);
         currentPageId = JDEG;
-        currentShowFragment = jdeg_01;
     }
 
 
     @Override
     protected void slide_to_the_right() {
 
+        FragmentTransaction ft = manager.beginTransaction();
+        index--;
+        switch (currentPageId) {
+            case KLOK:
+                break;
+            case TTMTV:
+                //当前是处于兔兔MTV，处理左滑事件
+                showJDEGFragment(ft,TTMTV, index);
+                break;
+            case JDEG:
+                //当前是处于经典儿歌，处理左滑事件
+
+                showJDEGFragment(ft,JDEG, index);
+
+                break;
+        }
     }
+
 
     @Override
     protected void slide_to_the_left() {
+        FragmentTransaction ft = manager.beginTransaction();
+        index++;
+        switch (currentPageId) {
+            case KLOK:
+                break;
+            case TTMTV:
+                //当前是处于兔兔MTV，处理左滑事件
+                showJDEGFragment(ft, TTMTV, index);
+                break;
+            case JDEG:
+                //当前是处于经典儿歌，处理左滑事件
+                showJDEGFragment(ft, JDEG, index);
+                break;
+        }
+    }
+
+    /**
+     * 根据type和index显示Fragment
+     *
+     * @param ft
+     * @param type  判断是 klok和是JDEG
+     * @param index
+     */
+    private void showJDEGFragment(FragmentTransaction ft, int type, int index) {
+        if (index >= fragments.size() || index < 0) return;
+        Log.e("tlh", "showJDEGFragment---fragment.size():" + fragments.size() + ",index:" + index);
+        for (int i = 0; i < fragments.size(); i++) {
+            ft.hide(fragments.get(i));
+        }
+        Fragment fragment = fragments.get(index);
+        ft.show(fragment).commit();
+        if (JDEG == type) {
+            switch (index) {
+                case 0:
+                    showNextPageBtn(true);
+                    break;
+                case 1:
+                    showPageBtn(true);
+                    break;
+                case 2:
+                    showNextPageBtn(false);
+                    break;
+            }
+        } else if (TTMTV == type) {
+            switch (index) {
+                case 0:
+                    showNextPageBtn(true);
+                    break;
+                case 1:
+                    showPageBtn(true);
+                    break;
+                case 2:
+                    showPageBtn(true);
+                    break;
+                case 3:
+                    showPageBtn(true);
+                    break;
+                case 4:
+                    showNextPageBtn(false);
+                    break;
+            }
+        }
 
     }
 

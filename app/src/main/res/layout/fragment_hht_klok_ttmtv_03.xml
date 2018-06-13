@@ -17,15 +17,14 @@
             android:id="@+id/hht_ly_yzyx_01_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_01" />
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_17" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_01_lable"
-            style="@style/Stlye_Item_lable_01"
-            android:layout_width="wrap_content"
+            style="@style/Stlye_Item_lable_01_text"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjyy_uniti_01" />
+            android:text="@string/ic_hht_ly_klok_ttmtv_17" />
     </LinearLayout>
 
     <LinearLayout
@@ -42,15 +41,14 @@
             android:id="@+id/hht_ly_yzyx_02_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_02" />
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_18" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_02_lable"
-            style="@style/Stlye_Item_lable_01"
-            android:layout_width="wrap_content"
+            style="@style/Stlye_Item_lable_01_text"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjyy_uniti_02" />
+            android:text="@string/ic_hht_ly_klok_ttmtv_18" />
     </LinearLayout>
 
     <LinearLayout
@@ -68,15 +66,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_03" />
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_19" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_03_lable"
-            style="@style/Stlye_Item_lable_01"
-            android:layout_width="wrap_content"
+            style="@style/Stlye_Item_lable_01_text"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjyy_uniti_03" />
+            android:text="@string/ic_hht_ly_klok_ttmtv_19" />
     </LinearLayout>
 
     <LinearLayout
@@ -93,15 +90,14 @@
             android:id="@+id/hht_ly_yzyx_04_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_04" />
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_20" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_04_lable"
-            style="@style/Stlye_Item_lable_01"
-            android:layout_width="wrap_content"
+            style="@style/Stlye_Item_lable_01_text"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjyy_uniti_04" />
+            android:text="@string/ic_hht_ly_klok_ttmtv_20" />
     </LinearLayout>
 
 
@@ -119,15 +115,14 @@
             android:id="@+id/hht_ly_yzyx_05_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_05" />
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_21" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_05_lable"
-            style="@style/Stlye_Item_lable_01"
-            android:layout_width="wrap_content"
+            style="@style/Stlye_Item_lable_01_text"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjyy_uniti_05" />
+            android:text="@string/ic_hht_ly_klok_ttmtv_21" />
     </LinearLayout>
 
     <LinearLayout
@@ -145,15 +140,14 @@
             android:id="@+id/hht_ly_yzyx_06_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_06" />
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_22" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_06_lable"
-            style="@style/Stlye_Item_lable_01"
-            android:layout_width="wrap_content"
+            style="@style/Stlye_Item_lable_01_text"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjyy_uniti_06" />
+            android:text="@string/ic_hht_ly_klok_ttmtv_22" />
     </LinearLayout>
 
     <LinearLayout
@@ -171,15 +165,14 @@
             android:id="@+id/hht_ly_yzyx_07_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_07" />
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_23" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_07_lable"
-            style="@style/Stlye_Item_lable_01"
-            android:layout_width="wrap_content"
+            style="@style/Stlye_Item_lable_01_text"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjyy_uniti_07" />
+            android:text="@string/ic_hht_ly_klok_ttmtv_23" />
     </LinearLayout>
 
     <LinearLayout
@@ -197,15 +190,14 @@
             android:id="@+id/hht_ly_yzyx_08_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_08" />
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_24" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_08_lable"
-            style="@style/Stlye_Item_lable_01"
-            android:layout_width="wrap_content"
+            style="@style/Stlye_Item_lable_01_text"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjyy_uniti_08" />
+            android:text="@string/ic_hht_ly_klok_ttmtv_24" />
     </LinearLayout>
 
 </RelativeLayout>

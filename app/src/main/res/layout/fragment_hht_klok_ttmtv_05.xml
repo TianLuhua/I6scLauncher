@@ -17,15 +17,14 @@
             android:id="@+id/hht_ly_yzyx_01_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_01" />
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_33" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_01_lable"
-            style="@style/Stlye_Item_lable_01"
-            android:layout_width="wrap_content"
+            style="@style/Stlye_Item_lable_01_text"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjyy_uniti_01" />
+            android:text="@string/ic_hht_ly_klok_ttmtv_33" />
     </LinearLayout>
 
     <LinearLayout
@@ -42,15 +41,14 @@
             android:id="@+id/hht_ly_yzyx_02_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_02" />
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_34" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_02_lable"
-            style="@style/Stlye_Item_lable_01"
-            android:layout_width="wrap_content"
+            style="@style/Stlye_Item_lable_01_text"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjyy_uniti_02" />
+            android:text="@string/ic_hht_ly_klok_ttmtv_34" />
     </LinearLayout>
 
     <LinearLayout
@@ -68,15 +66,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_03" />
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_35" />
 
         <TextView
             android:id="@+id/hht_ly_yzyx_03_lable"
-            style="@style/Stlye_Item_lable_01"
-            android:layout_width="wrap_content"
+            style="@style/Stlye_Item_lable_01_text"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_xt_zjyy_uniti_03" />
+            android:text="@string/ic_hht_ly_klok_ttmtv_35" />
     </LinearLayout>
 
 

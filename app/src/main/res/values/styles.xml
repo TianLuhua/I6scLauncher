@@ -59,6 +59,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:ellipsize">middle</item>
         <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="Stlye_Item_lable_02">
