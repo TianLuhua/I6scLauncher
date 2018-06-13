@@ -29,6 +29,12 @@ public abstract class HHT_Abstract_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         HideSystemUIUtils.hideSystemUI(this);
         setContentView(R.layout.activity_hht);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         initView();
     }
 
