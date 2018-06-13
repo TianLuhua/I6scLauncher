@@ -37,7 +37,7 @@ public class ProtectEyeMode implements BaseMode {
 
     //获取当前护眼传感器状态
     private boolean getOpenProtectSenerSatus() {
-        return false;
+        return spUtils.getBoolean(Config.PWDKey.PROTECT_EYE_SENSOR_ENABLE_KEY, false);
     }
 
     //获取当前定时休息的时间

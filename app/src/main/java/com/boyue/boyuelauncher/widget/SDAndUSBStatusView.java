@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
-import android.os.Environment;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -46,8 +45,9 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
         sDView.setOnClickListener(this);
         uSBView.setOnClickListener(this);
 
+        //初始化sd卡和u盘的状态
         sDView.setVisibility(sdAndusbIsMounted(Config.MountPath.SD_PATH) ? View.VISIBLE : View.INVISIBLE);
-        uSBView.setVisibility(sdAndusbIsMounted(Config.MountPath.SD_PATH) ? View.VISIBLE : View.INVISIBLE);
+        uSBView.setVisibility(sdAndusbIsMounted(Config.MountPath.USB_PATH) ? View.VISIBLE : View.INVISIBLE);
 
     }
 
@@ -94,8 +94,10 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
 
     public interface OnSDAndUSDViewClickListener {
 
+        //sd卡图标点击事件回调
         void onSDIconClick(View view);
 
+        //u盘点击事件回调
         void onUSBIconClick(View view);
     }
 
@@ -128,10 +130,7 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
                 } else if (Config.MountPath.USB_PATH.equals(mountPath)) {
                     setShowUSB(false);
                 }
-
-
             }
-
         }
     };
 
@@ -143,8 +142,6 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
         filter.addAction(Intent.ACTION_MEDIA_UNMOUNTED);
         filter.addDataScheme("file");
         getContext().registerReceiver(mediaMountedReceiver, filter);
-
-
     }
 
     @Override
@@ -153,8 +150,9 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
         getContext().unregisterReceiver(mediaMountedReceiver);
     }
 
+    //机器刚刚起来时候，初始化sd卡和u盘的状态
     private boolean sdAndusbIsMounted(String path) {
-        if (new File(path).list()!=null) {
+        if (new File(path).list() != null) {
             LogUtils.e("tlh", "path--->:" + path + "," + "true");
             return true;
         } else {

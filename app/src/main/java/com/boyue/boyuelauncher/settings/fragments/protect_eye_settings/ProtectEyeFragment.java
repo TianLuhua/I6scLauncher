@@ -109,6 +109,7 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
 
                 //需要驱动组给接口
                 ToastUtil.showShortToast("护眼传感器：" + isChecked);
+                getPresenter().sevaProtectSensorStatus(isChecked);
 
             }
         });
@@ -123,7 +124,6 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
 
                 //需要驱动组给接口
                 ToastUtil.showShortToast("蓝光护眼开关：" + isChecked);
-
             }
         });
 

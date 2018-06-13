@@ -18,7 +18,17 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity {
             return inflater.inflate(R.layout.activity_hht_klok,null);
         }
 
-        @Override
+    @Override
+    protected void slide_to_the_right() {
+
+    }
+
+    @Override
+    protected void slide_to_the_left() {
+
+    }
+
+    @Override
         protected void initView() {
             super.initView();
             titleBar.setTitle(R.string.hht_ly_klok);

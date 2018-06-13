@@ -24,6 +24,16 @@ public class HHT_yspy_Activity extends HHT_Abstract_Activity implements View.OnC
     }
 
     @Override
+    protected void slide_to_the_right() {
+
+    }
+
+    @Override
+    protected void slide_to_the_left() {
+
+    }
+
+    @Override
     protected void initView() {
         super.initView();
         titleBar.setTitle(R.string.hht_ly_yspy);

@@ -46,20 +46,33 @@ public class ProtectEyePersenter extends AbstractPresenter<ProtectEyeView> {
         spUtils.put(Config.PWDKey.REGULAR_REST_KEY, time);
         switch (time) {
             case Config.Settings.VALUE_NEVER:
-//                cancleRegularRestAlarm();
                 LockScreenUtils.cancleLockScreen(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION);
                 break;
             default:
-//                startRegularRestAlarm();
-                LockScreenUtils.startLockScreen(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION,time);
+                LockScreenUtils.startLockScreen(Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION, time);
                 break;
         }
 
     }
 
+    /**
+     * 初始界面UI
+     */
     public void initView() {
         if (mode == null) return;
         mode.initView();
 
+    }
+
+    /**
+     * 保存护眼传感器的状态
+     *
+     * @param isEnbale
+     */
+    public void sevaProtectSensorStatus(boolean isEnbale) {
+        if (spUtils == null) return;
+        spUtils.put(Config.PWDKey.PROTECT_EYE_SENSOR_ENABLE_KEY, isEnbale);
+
+        LogUtils.e("tlh", "ProtectEyePersenter---sevaProtectSensorStatus:" + isEnbale);
     }
 }

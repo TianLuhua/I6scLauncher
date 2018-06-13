@@ -26,12 +26,20 @@ public class HHT_yspy_htcz_Activity extends HHT_Abstract_Activity implements Vie
     private HHT_htcz_Fragment_01 hht_htcz_fragment_01;
     private HHT_htcz_Fragment_02 hht_htcz_fragment_02;
 
-    private float downY;
-    private float downX;
 
     @Override
     protected View getConentView(LayoutInflater inflater) {
         return inflater.inflate(R.layout.activity_hht_yspy_htcz, null);
+    }
+
+    @Override
+    protected void slide_to_the_right() {
+        showFragment_01();
+    }
+
+    @Override
+    protected void slide_to_the_left() {
+        showFragment_02();
     }
 
     @Override
@@ -87,47 +95,11 @@ public class HHT_yspy_htcz_Activity extends HHT_Abstract_Activity implements Vie
 
     @Override
     public void onHiddenChanged(boolean hidden) {
-        LogUtils.e("tll","onHiddenChanged:"+hidden);
+        LogUtils.e("tll", "onHiddenChanged:" + hidden);
         nextPage.setVisibility(!hidden ? View.VISIBLE : View.INVISIBLE);
         previousPage.setVisibility(hidden ? View.VISIBLE : View.INVISIBLE);
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-
-        String action = "";
-        //在触发时回去到起始坐标
-        float x = event.getX();
-        float y = event.getY();
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                //将按下时的坐标存储
-                downX = x;
-                downY = y;
-                break;
-            case MotionEvent.ACTION_UP:
-                //获取到距离差
-                float dx = x - downX;
-                float dy = y - downY;
-                //防止是按下也判断
-                if (Math.abs(dx) > 4 && Math.abs(dy) > 4) {
-                    //通过距离差判断方向
-                    int orientation = getOrientation(dx, dy);
-                    switch (orientation) {
-                        case 'r':
-                            showFragment_01();
-                            action = "右";
-                            break;
-                        case 'l':
-                            action = "左";
-                            showFragment_02();
-                            break;
-                    }
-                }
-                break;
-        }
-        return super.onTouchEvent(event);
-    }
 
     private void showFragment_01() {
         FragmentTransaction ft_01 = manager.beginTransaction();
@@ -138,23 +110,6 @@ public class HHT_yspy_htcz_Activity extends HHT_Abstract_Activity implements Vie
     private void showFragment_02() {
         FragmentTransaction ft_02 = manager.beginTransaction();
         ft_02.hide(hht_htcz_fragment_01).show(hht_htcz_fragment_02).commit();
-    }
-
-    /**
-     * 根据距离差判断 滑动方向
-     *
-     * @param dx X轴的距离差
-     * @param dy Y轴的距离差
-     * @return 滑动的方向
-     */
-    private int getOrientation(float dx, float dy) {
-        if (Math.abs(dx) > Math.abs(dy)) {
-            //X轴移动
-            return dx > 0 ? 'r' : 'l';
-        } else {
-            //Y轴移动
-            return dy > 0 ? 'b' : 't';
-        }
     }
 
 

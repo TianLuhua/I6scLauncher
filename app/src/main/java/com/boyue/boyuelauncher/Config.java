@@ -142,5 +142,8 @@ public class Config {
         public static final String TIMING_LOCKING_KEY = "timing_locking_key";
         //用于保存定时关机的时间 key
         public static final String ONTIME_SHUTDOWN_KEY = "ontime_shutdown_key";
+
+        //用于护眼传感器的状态
+        public static final String PROTECT_EYE_SENSOR_ENABLE_KEY = "protect_eye_sensor_enable_key";
     }
 }

@@ -20,6 +20,16 @@ public class HHT_zjxt_Activity extends HHT_Abstract_Activity {
     }
 
     @Override
+    protected void slide_to_the_right() {
+
+    }
+
+    @Override
+    protected void slide_to_the_left() {
+
+    }
+
+    @Override
     protected void initView() {
         super.initView();
         titleBar.setTitle(R.string.hht_xt_zjxt);

@@ -25,14 +25,13 @@ public class HHT_yzyx_Activity extends HHT_Abstract_Activity implements View.OnC
 
     private HHT_yzyx_Fragment_01 hht_yzyx_fragment_01;
     private HHT_yzyx_Fragment_02 hht_yzyx_fragment_02;
-    private float downY;
-    private float downX;
 
 
     @Override
     protected View getConentView(LayoutInflater inflater) {
         return inflater.inflate(R.layout.activity_hht_yzyx, null);
     }
+
 
     @Override
     protected void initView() {
@@ -83,6 +82,16 @@ public class HHT_yzyx_Activity extends HHT_Abstract_Activity implements View.OnC
 
     }
 
+    @Override
+    protected void slide_to_the_right() {
+        showFragment_01();
+    }
+
+    @Override
+    protected void slide_to_the_left() {
+        showFragment_02();
+    }
+
 
     @Override
     public void onHiddenChanged(boolean hidden) {
@@ -102,57 +111,5 @@ public class HHT_yzyx_Activity extends HHT_Abstract_Activity implements View.OnC
         ft_02.hide(hht_yzyx_fragment_01).show(hht_yzyx_fragment_02).commit();
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
 
-        String action = "";
-        //在触发时回去到起始坐标
-        float x = event.getX();
-        float y = event.getY();
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                //将按下时的坐标存储
-                downX = x;
-                downY = y;
-                break;
-            case MotionEvent.ACTION_UP:
-                //获取到距离差
-                float dx = x - downX;
-                float dy = y - downY;
-                //防止是按下也判断
-                if (Math.abs(dx) > 4 && Math.abs(dy) > 4) {
-                    //通过距离差判断方向
-                    int orientation = getOrientation(dx, dy);
-                    switch (orientation) {
-                        case 'r':
-                            showFragment_01();
-                            action = "右";
-                            break;
-                        case 'l':
-                            action = "左";
-                            showFragment_02();
-                            break;
-                    }
-                }
-                break;
-        }
-        return super.onTouchEvent(event);
-    }
-
-    /**
-     * 根据距离差判断 滑动方向
-     *
-     * @param dx X轴的距离差
-     * @param dy Y轴的距离差
-     * @return 滑动的方向
-     */
-    private int getOrientation(float dx, float dy) {
-        if (Math.abs(dx) > Math.abs(dy)) {
-            //X轴移动
-            return dx > 0 ? 'r' : 'l';
-        } else {
-            //Y轴移动
-            return dy > 0 ? 'b' : 't';
-        }
-    }
 }

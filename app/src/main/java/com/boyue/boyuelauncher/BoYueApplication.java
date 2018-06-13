@@ -7,6 +7,8 @@ import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
 import com.boyue.boyuelauncher.utils.Utils;
 
+import static com.boyue.boyuelauncher.Config.PWDKey.PROTECT_EYE_SENSOR_ENABLE_KEY;
+
 
 /**
  * Created by tianluhua on 2018/5/25.
@@ -42,7 +44,8 @@ public class BoYueApplication extends Application {
             spUtils.put(Config.PWDKey.TIMING_LOCKING_KEY, Config.Settings.VALUE_NEVER);
             //默认关闭定时关机
             spUtils.put(Config.PWDKey.ONTIME_SHUTDOWN_KEY, Config.Settings.VALUE_NEVER);
-
+            //默认开启护眼关闭护眼传感器
+            spUtils.put(Config.PWDKey.PROTECT_EYE_SENSOR_ENABLE_KEY, false);
         }
 //        spUtils.clear();//清空sp中的数据
         LogUtils.e("tlh", "SPUtils:" + spUtils.getAll().toString());
