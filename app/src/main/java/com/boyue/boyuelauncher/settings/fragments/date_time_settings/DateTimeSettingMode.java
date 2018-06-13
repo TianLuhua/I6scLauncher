@@ -7,6 +7,7 @@ import android.provider.Settings;
 
 import com.boyue.boyuelauncher.base.BaseMode;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -50,10 +51,16 @@ public class DateTimeSettingMode implements BaseMode {
      *
      * @param autoDateTime
      */
-    public void setAutoDateTime(boolean autoDateTime) {
+    public void setAutoDateTime(final boolean autoDateTime) {
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                android.provider.Settings.Global.putInt(resolver,
+                        android.provider.Settings.Global.AUTO_TIME, autoDateTime ? 1 : 0);
+            }
+        });
 
-        android.provider.Settings.Global.putInt(resolver,
-                android.provider.Settings.Global.AUTO_TIME, autoDateTime ? 1 : 0);
+
     }
 
 
@@ -88,7 +95,6 @@ public class DateTimeSettingMode implements BaseMode {
         c.set(Calendar.MINUTE, minute);
         c.set(Calendar.SECOND, 0);
         c.set(Calendar.MILLISECOND, 0);
-
         long when = c.getTimeInMillis();
         callCore(when);
     }

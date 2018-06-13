@@ -52,13 +52,21 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
     }
 
 
+    /**
+     * 显示sd卡的图标
+     *
+     * @param showSD
+     */
     public void setShowSD(boolean showSD) {
-        if (sDView.getVisibility() == View.VISIBLE) return;
         sDView.setVisibility(showSD ? View.VISIBLE : View.INVISIBLE);
     }
 
+    /**
+     * 显示usb的图标
+     *
+     * @param showUSB
+     */
     public void setShowUSB(boolean showUSB) {
-        if (uSBView.getVisibility() == View.VISIBLE) return;
         uSBView.setVisibility(showUSB ? View.VISIBLE : View.INVISIBLE);
     }
 
@@ -66,12 +74,12 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sd:
-                if (sDView.getVisibility()==View.VISIBLE)
+                if (sDView.getVisibility() == View.VISIBLE)
                     onSDAndUSDViewClickListener.onSDIconClick(v);
                 break;
 
             case R.id.usb:
-                if (uSBView.getVisibility()==View.VISIBLE)
+                if (uSBView.getVisibility() == View.VISIBLE)
                     onSDAndUSDViewClickListener.onUSBIconClick(v);
                 break;
         }
@@ -146,7 +154,7 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
     }
 
     private boolean sdAndusbIsMounted(String path) {
-        if (new File(path).exists()) {
+        if (new File(path).list()!=null) {
             LogUtils.e("tlh", "path--->:" + path + "," + "true");
             return true;
         } else {
