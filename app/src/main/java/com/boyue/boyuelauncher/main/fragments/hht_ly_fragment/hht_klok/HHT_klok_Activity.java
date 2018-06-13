@@ -46,7 +46,9 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
     private int currentPageId = KLOK;
     private FragmentManager manager;
     private Fragment klok_fragment, ttmtv_01, ttmtv_02, ttmtv_03, ttmtv_04, ttmtv_05, jdeg_01, jdeg_02, jdeg_03;
+    //用于保存当前的Fragment
     private LinkedList<Fragment> fragments;
+    //显示Fragment的标志位
     private int index = 0;
 
 

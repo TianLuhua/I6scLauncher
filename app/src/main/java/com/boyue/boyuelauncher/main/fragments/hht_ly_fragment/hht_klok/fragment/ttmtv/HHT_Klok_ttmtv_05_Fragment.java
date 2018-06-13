@@ -31,16 +31,18 @@ public class HHT_Klok_ttmtv_05_Fragment extends Fragment implements View.OnClick
     }
 
 
-    private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03;
+    private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03,btn_04;
 
     private void inintView(View rootView) {
         btn_01 = rootView.findViewById(R.id.hht_ly_yzyx_01_icon);
         btn_02 = rootView.findViewById(R.id.hht_ly_yzyx_02_icon);
         btn_03 = rootView.findViewById(R.id.hht_ly_yzyx_03_icon);
+        btn_04 = rootView.findViewById(R.id.hht_ly_yzyx_04_icon);
 
         btn_01.setOnClickListener(this);
         btn_02.setOnClickListener(this);
         btn_03.setOnClickListener(this);
+        btn_04.setOnClickListener(this);
 
     }
 
@@ -52,6 +54,8 @@ public class HHT_Klok_ttmtv_05_Fragment extends Fragment implements View.OnClick
             case R.id.hht_ly_yzyx_02_icon:
                 break;
             case R.id.hht_ly_yzyx_03_icon:
+                break;
+            case R.id.hht_ly_yzyx_04_icon:
                 break;
 
         }

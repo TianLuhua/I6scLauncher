@@ -76,5 +76,29 @@
             android:text="@string/ic_hht_ly_klok_ttmtv_35" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/hht_ly_yzyx_04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="116dp"
+        android:layout_toEndOf="@+id/hht_ly_yzyx_03"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+            android:id="@+id/hht_ly_yzyx_04_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@mipmap/ic_hht_ly_klok_ttmtv_36" />
+
+        <TextView
+            android:id="@+id/hht_ly_yzyx_04_lable"
+            style="@style/Stlye_Item_lable_01_text"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/ic_hht_ly_klok_ttmtv_36" />
+    </LinearLayout>
 
 </RelativeLayout>
