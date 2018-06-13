@@ -53,6 +53,14 @@
         <item name="android:textColor">#ff515151</item>
     </style>
 
+    <style name="Stlye_Item_lable_01_text" parent="Stlye_Item_lable_01">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#ff515151</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:ellipsize">middle</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
     <style name="Stlye_Item_lable_02">
         <item name="android:textSize">28sp</item>
         <item name="android:textColor">#ff515151</item>

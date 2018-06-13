@@ -41,6 +41,9 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
             case 0:
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_KLOK);
                 break;
+            case 1:
+                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_LY_YWEG);
+                break;
             case 3:
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_YSPY);
                 break;

@@ -165,6 +165,29 @@
     <string name="hht_ly_klok_jdeg">经典儿歌</string>
     <string name="hht_ly_klok_yceg">原创儿歌</string>
 
+    <string name="hht_ly_yweg">英文儿歌</string>
+    <string name="hht_ly_yweg_01">5-Green-and-Speckled-Frogs-song</string>
+    <string name="hht_ly_yweg_02">5-Little-Pumpkins--Sitting-On-a-Gate</string>
+    <string name="hht_ly_yweg_03">Ants-go-marching-one-by-one-song</string>
+    <string name="hht_ly_yweg_04">Ballet-Song-for-Kids-Down-at-the-Ballet-Class-Song</string>
+    <string name="hht_ly_yweg_05">Clap-Your-Hands-Song-for-Kids</string>
+    <string name="hht_ly_yweg_06">Count-to-100-Song-for-Kindergarten-Numbers-1-100-song-for-Children</string>
+    <string name="hht_ly_yweg_07">Dinosaur-Stomp-Song-for-Kids-Party-Dance-Music-for-Kids</string>
+    <string name="hht_ly_yweg_08">Five-Little-Bunnies-Easter-Bunny-Song</string>
+    <string name="hht_ly_yweg_09">Five-Little-Monkeys-Jumping-on-the-Bed</string>
+    <string name="hht_ly_yweg_10">Freeze-Dance-for-Kids-Party-Music-Party-Freeze-Song</string>
+    <string name="hht_ly_yweg_11">Freeze-Dance-Game-North-Pole-Christmas-for-Kids</string>
+    <string name="hht_ly_yweg_12">Funky-Monkey-Dance-Song-for-Kids</string>
+    <string name="hht_ly_yweg_13">Halloween-songs-5-Little-Pumpkins-Sitting-on-a-Gate</string>
+    <string name="hht_ly_yweg_14">I\'m-a-Little-Snowman-Song-for-Children</string>
+    <string name="hht_ly_yweg_15">Skeleton-Dance-Shake-Dem-Halloween-Bones-Halloween-songs</string>
+    <string name="hht_ly_yweg_16">Ten-in-the-Bed-song-for-children</string>
+    <string name="hht_ly_yweg_17">Tooty-Ta-Dr-Jean-Tooty-Ta-with-Lyrics-on-Screen</string>
+    <string name="hht_ly_yweg_18">Walking-Walking-Song-Hop-Hop</string>
+    <string name="hht_ly_yweg_19">Wiggle-It-Wiggle-Dance-Wiggles-Songs-for-Kids</string>
+    <string name="hht_ly_yweg_20">Winter-Hokey-Pokey-Song-for-Kids</string>
+
+
     <string name="hht_ly_yspy">艺术培养</string>
     <string name="hht_ly_yspy_zqyy">智趣音乐</string>
     <string name="hht_ly_yspy_zqyy_bbsyq">宝宝认乐器</string>
