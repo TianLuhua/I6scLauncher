@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <LinearLayout
+        android:id="@+id/hht_ly_yzyx_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="116dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+            android:id="@+id/hht_ly_yzyx_01_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_01" />
+
+        <TextView
+            android:id="@+id/hht_ly_yzyx_01_lable"
+            style="@style/Stlye_Item_lable_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hht_xt_zjyy_uniti_01" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hht_ly_yzyx_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="116dp"
+        android:layout_toEndOf="@+id/hht_ly_yzyx_01"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+            android:id="@+id/hht_ly_yzyx_02_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_02" />
+
+        <TextView
+            android:id="@+id/hht_ly_yzyx_02_lable"
+            style="@style/Stlye_Item_lable_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hht_xt_zjyy_uniti_02" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hht_ly_yzyx_03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="116dp"
+        android:layout_toEndOf="@+id/hht_ly_yzyx_02"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+            android:id="@+id/hht_ly_yzyx_03_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_03" />
+
+        <TextView
+            android:id="@+id/hht_ly_yzyx_03_lable"
+            style="@style/Stlye_Item_lable_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hht_xt_zjyy_uniti_03" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hht_ly_yzyx_04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="116dp"
+        android:layout_toEndOf="@+id/hht_ly_yzyx_03"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+            android:id="@+id/hht_ly_yzyx_04_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_04" />
+
+        <TextView
+            android:id="@+id/hht_ly_yzyx_04_lable"
+            style="@style/Stlye_Item_lable_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hht_xt_zjyy_uniti_04" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/hht_ly_yzyx_05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hht_ly_yzyx_01"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="74dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+            android:id="@+id/hht_ly_yzyx_05_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_05" />
+
+        <TextView
+            android:id="@+id/hht_ly_yzyx_05_lable"
+            style="@style/Stlye_Item_lable_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hht_xt_zjyy_uniti_05" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hht_ly_yzyx_06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hht_ly_yzyx_01"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="74dp"
+        android:layout_toEndOf="@+id/hht_ly_yzyx_05"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+            android:id="@+id/hht_ly_yzyx_06_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_06" />
+
+        <TextView
+            android:id="@+id/hht_ly_yzyx_06_lable"
+            style="@style/Stlye_Item_lable_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hht_xt_zjyy_uniti_06" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hht_ly_yzyx_07"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hht_ly_yzyx_01"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="74dp"
+        android:layout_toEndOf="@+id/hht_ly_yzyx_06"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+            android:id="@+id/hht_ly_yzyx_07_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_07" />
+
+        <TextView
+            android:id="@+id/hht_ly_yzyx_07_lable"
+            style="@style/Stlye_Item_lable_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hht_xt_zjyy_uniti_07" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hht_ly_yzyx_08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hht_ly_yzyx_01"
+        android:layout_marginStart="74dp"
+        android:layout_marginTop="74dp"
+        android:layout_toEndOf="@+id/hht_ly_yzyx_07"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+            android:id="@+id/hht_ly_yzyx_08_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_hht_xt_zjyy_02_unit_08" />
+
+        <TextView
+            android:id="@+id/hht_ly_yzyx_08_lable"
+            style="@style/Stlye_Item_lable_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/hht_xt_zjyy_uniti_08" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -163,7 +163,71 @@
     <!--火火兔乐园-->
     <string name="hht_ly_klok">卡拉OK</string>
     <string name="hht_ly_klok_jdeg">经典儿歌</string>
+    <string name="ic_hht_ly_klok_jdeg_01">01.粉刷匠</string>
+    <string name="ic_hht_ly_klok_jdeg_02">02.一分钱</string>
+    <string name="ic_hht_ly_klok_jdeg_03">03.蜗牛与黄鹂鸟</string>
+    <string name="ic_hht_ly_klok_jdeg_04">04.铃儿响叮当</string>
+    <string name="ic_hht_ly_klok_jdeg_05">05.玛丽有只小羊羔</string>
+    <string name="ic_hht_ly_klok_jdeg_06">06.两只老虎</string>
+    <string name="ic_hht_ly_klok_jdeg_07">07.世上只有妈妈好</string>
+    <string name="ic_hht_ly_klok_jdeg_08">08.数鸭子</string>
+    <string name="ic_hht_ly_klok_jdeg_09">09.爱我你就抱抱我</string>
+    <string name="ic_hht_ly_klok_jdeg_10">10.拔萝卜</string>
+    <string name="ic_hht_ly_klok_jdeg_11">11.春天在哪里</string>
+    <string name="ic_hht_ly_klok_jdeg_12">12.蓝精灵</string>
+    <string name="ic_hht_ly_klok_jdeg_13">13.时钟在说话</string>
+    <string name="ic_hht_ly_klok_jdeg_14">14.我有一个家</string>
+    <string name="ic_hht_ly_klok_jdeg_15">15.小龙人</string>
+    <string name="ic_hht_ly_klok_jdeg_16">16.小星星</string>
+    <string name="ic_hht_ly_klok_jdeg_17">17.小燕子</string>
+    <string name="ic_hht_ly_klok_jdeg_18">18.找朋友</string>
+    <string name="ic_hht_ly_klok_jdeg_19">19.种太阳</string>
+    <string name="ic_hht_ly_klok_jdeg_20">20.捉泥鳅</string>
+
+
+
+
+
+    <string name="hht_ly_klok_ttmtv">兔兔MTV</string>
+    <string name="ic_hht_ly_klok_ttmtv_01">01.竹蜻蜓</string>
+    <string name="ic_hht_ly_klok_ttmtv_02">02.上元竹枝词</string>
+    <string name="ic_hht_ly_klok_ttmtv_03">03.功夫小子</string>
+    <string name="ic_hht_ly_klok_ttmtv_04">04.悯农</string>
+    <string name="ic_hht_ly_klok_ttmtv_05">05.超级英雄</string>
+    <string name="ic_hht_ly_klok_ttmtv_06">06.过大年</string>
+    <string name="ic_hht_ly_klok_ttmtv_07">07.秋意浓</string>
+    <string name="ic_hht_ly_klok_ttmtv_08">08.爱惜粮食</string>
+    <string name="ic_hht_ly_klok_ttmtv_09">09.拔河</string>
+    <string name="ic_hht_ly_klok_ttmtv_10">10.敬礼歌</string>
+    <string name="ic_hht_ly_klok_ttmtv_11">11.数鸭子</string>
+    <string name="ic_hht_ly_klok_ttmtv_12">12.春天在哪里</string>
+    <string name="ic_hht_ly_klok_ttmtv_13">13.小画家</string>
+    <string name="ic_hht_ly_klok_ttmtv_14">14.恭喜发财</string>
+    <string name="ic_hht_ly_klok_ttmtv_15">15.植树歌</string>
+    <string name="ic_hht_ly_klok_ttmtv_16">16.萤火微光</string>
+    <string name="ic_hht_ly_klok_ttmtv_17">17.hello</string>
+    <string name="ic_hht_ly_klok_ttmtv_18">18.黑夜中的萤火虫</string>
+    <string name="ic_hht_ly_klok_ttmtv_19">19.快乐长大</string>
+    <string name="ic_hht_ly_klok_ttmtv_20">20.离离原上草</string>
+    <string name="ic_hht_ly_klok_ttmtv_21">21.三字经</string>
+    <string name="ic_hht_ly_klok_ttmtv_22">22.闪闪小星星</string>
+    <string name="ic_hht_ly_klok_ttmtv_23">23.刷牙歌</string>
+    <string name="ic_hht_ly_klok_ttmtv_24">24.水果歌</string>
+    <string name="ic_hht_ly_klok_ttmtv_25">25.甜豆豆</string>
+    <string name="ic_hht_ly_klok_ttmtv_26">26.我不是小公主</string>
+    <string name="ic_hht_ly_klok_ttmtv_27">27.我们来唱歌</string>
+    <string name="ic_hht_ly_klok_ttmtv_28">28.我们是朋友</string>
+    <string name="ic_hht_ly_klok_ttmtv_29">29.我有一个家</string>
+    <string name="ic_hht_ly_klok_ttmtv_30">30.五线谱之歌</string>
+    <string name="ic_hht_ly_klok_ttmtv_31">31.向日葵</string>
+    <string name="ic_hht_ly_klok_ttmtv_32">32.小蝌蚪</string>
+    <string name="ic_hht_ly_klok_ttmtv_33">33.小乌龟</string>
+    <string name="ic_hht_ly_klok_ttmtv_34">34.颜色歌</string>
+    <string name="ic_hht_ly_klok_ttmtv_35">35.摇篮曲</string>
+    <string name="ic_hht_ly_klok_ttmtv_36">36.一分钱</string>
+
     <string name="hht_ly_klok_yceg">原创儿歌</string>
+    <string name="hht_ly_klok_kwke">酷我K歌</string>
 
     <string name="hht_ly_yweg">英文儿歌</string>
     <string name="hht_ly_yweg_01">5-Green-and-Speckled-Frogs-song</string>

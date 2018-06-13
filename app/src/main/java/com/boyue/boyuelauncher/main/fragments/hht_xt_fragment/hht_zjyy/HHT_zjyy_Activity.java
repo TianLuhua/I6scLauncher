@@ -25,7 +25,7 @@ import com.boyue.boyuelauncher.widget.TitleBar;
  * Created by Tianluhua on 2018/6/7.
  */
 
-public class HHT_zjyy_Activity extends HHT_Abstract_Activity implements HHT_zjyy_Fragment.Notification_Main, View.OnClickListener {
+public class HHT_zjyy_Activity extends HHT_Abstract_Activity implements HHT_zjyy_Fragment.Notification_ZJYY, View.OnClickListener {
 
 
     public static final int MAIN = 0x0000;
@@ -360,7 +360,6 @@ public class HHT_zjyy_Activity extends HHT_Abstract_Activity implements HHT_zjyy
                 break;
             case R.id.next_page:
                 LogUtils.e("tlh", "HHT_zjyy_Activity----next_page");
-
                 slide_to_the_left();
 
                 break;
