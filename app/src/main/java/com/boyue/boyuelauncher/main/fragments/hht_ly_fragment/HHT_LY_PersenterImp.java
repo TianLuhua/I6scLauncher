@@ -6,6 +6,9 @@ import android.graphics.drawable.Drawable;
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 /**
  * Created by Tianluhua on 2018/5/18.
  */
@@ -24,6 +27,11 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
                 if (view != null) {
                     view.displayIocn(iconDrawble);
                 }
+            }
+
+            @Override
+            public void setItemicon(ArrayList<Map<String, Object>> list) {
+                getView().setItemicon(list);
             }
         });
     }
@@ -51,5 +59,11 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_YZYX);
                 break;
         }
+    }
+
+    @Override
+    public void getItemIcon() {
+        if (hht_ly_mode==null)return;
+        hht_ly_mode.getItemIcon();
     }
 }

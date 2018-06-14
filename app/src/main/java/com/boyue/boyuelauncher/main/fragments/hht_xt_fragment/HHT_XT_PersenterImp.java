@@ -9,6 +9,7 @@ import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 
 /**
@@ -29,6 +30,11 @@ public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
                 if (view != null) {
                     view.displayIocn(iconDrawble);
                 }
+            }
+
+            @Override
+            public void setItemicon(ArrayList<Map<String, Object>> list) {
+                getView().setItemicon(list);
             }
         });
     }
@@ -66,6 +72,12 @@ public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
 //                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_ZJXT);
                 break;
         }
+    }
+
+    @Override
+    public void getItemIcon() {
+        if (hht_xt_mode==null)return;
+        hht_xt_mode. getItemIcon();
     }
 
 }

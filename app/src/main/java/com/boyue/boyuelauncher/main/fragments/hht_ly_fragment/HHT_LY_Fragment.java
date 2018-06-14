@@ -58,14 +58,10 @@ public class HHT_LY_Fragment extends AbstractMVPFragment<HHT_LY_View, HHT_LY_Per
             iocnView.setImageDrawable(icon);
     }
 
-    private void init(View rootView) {
-        iocnView = rootView.findViewById(R.id.iocn);
-        displayApps = rootView.findViewById(R.id.display_apps);
-        //初始化数据
-        initData();
+    @Override
+    public void setItemicon(ArrayList<Map<String, Object>> dataList) {
         String[] from = {"img", "text"};
         int[] to = {R.id.icon, R.id.name};
-
         simpleAdapter = new SimpleAdapter(getActivity(), dataList, R.layout.item_layout_main_grideview, from, to);
         displayApps.setAdapter(simpleAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -75,25 +71,20 @@ public class HHT_LY_Fragment extends AbstractMVPFragment<HHT_LY_View, HHT_LY_Per
                 getPresenter().startHHT_LY_Activity(position);
             }
         });
+    }
+
+    private void init(View rootView) {
+        iocnView = rootView.findViewById(R.id.iocn);
+        displayApps = rootView.findViewById(R.id.display_apps);
+        //初始化数据
+        getPresenter().getItemIcon();
+
 
         getPresenter().getIconDrawble();
 
     }
 
-    private void initData() {
-        //图标
-        TypedArray icno = getResources().obtainTypedArray(R.array.hht_ly_items_image);
 
-        //图标下的文字
-        String name[] = getResources().getStringArray(R.array.hht_ly_items_text);
-        dataList = new ArrayList<Map<String, Object>>();
-        for (int i = 0; i < name.length; i++) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("img", icno.getResourceId(i, 0));
-            map.put("text", name[i]);
-            dataList.add(map);
-        }
-    }
 
     @Override
     protected HHT_LY_PersenterImp createPresenter() {

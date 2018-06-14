@@ -9,5 +9,5 @@ public abstract class HHT_BX_Persenter extends AbstractPresenter<HHT_BX_View>{
 
     public abstract void getIconDrawble();
 
-
+    public abstract void getItemIcon();
 }

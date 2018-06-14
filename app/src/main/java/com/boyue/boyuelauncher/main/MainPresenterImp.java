@@ -1,9 +1,12 @@
 package com.boyue.boyuelauncher.main;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.utils.SPUtils;
+
+import java.util.List;
 
 /**
  * Created by Tianluhua on 2018/5/29.
@@ -29,6 +32,11 @@ public class MainPresenterImp extends MainPersenter {
                 if (view == null) return;
                 view.setCurrentVolune(changedVolume);
             }
+
+            @Override
+            public void setFragments(List<Fragment> fragments) {
+                getView().setFragments(fragments);
+            }
         });
         this.spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
     }
@@ -49,6 +57,12 @@ public class MainPresenterImp extends MainPersenter {
     @Override
     public boolean hasEnableFCMPWD() {
         return spUtils.getBoolean(Config.PassWordKey.FCM_PWD_NAME);
+    }
+
+    @Override
+    public void getFragments() {
+        if (mainMode == null) return;
+        mainMode.getFragments();
     }
 
     @Override

@@ -5,6 +5,9 @@ import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 /**
  * Created by Tianluhua on 2018/5/18.
  */
@@ -23,6 +26,11 @@ public class HHT_AR_PersenterImp extends HHT_AR_Persenter {
                 if (view != null) {
                     view.displayIocn(iconDrawble);
                 }
+            }
+
+            @Override
+            public void setItemicon(ArrayList<Map<String, Object>> list) {
+                getView().setItemicon(list);
             }
         });
     }
@@ -58,5 +66,12 @@ public class HHT_AR_PersenterImp extends HHT_AR_Persenter {
                 ActivityUtils.startApplicationWithPackageName("com.simon.MH3D");
                 break;
         }
+    }
+
+    @Override
+    public void getItemIcon() {
+        if (hht_ar_mode==null)return;
+        hht_ar_mode.getItemIcon();
+
     }
 }

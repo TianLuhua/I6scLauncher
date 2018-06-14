@@ -16,4 +16,6 @@ public abstract class MainPersenter extends AbstractPresenter<MainView> {
 
     //是否启用防沉迷密码
     public abstract boolean hasEnableFCMPWD();
+
+    public abstract void getFragments();
 }

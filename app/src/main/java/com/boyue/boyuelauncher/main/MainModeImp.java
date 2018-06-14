@@ -4,16 +4,25 @@ import android.content.Context;
 import android.database.ContentObserver;
 import android.media.AudioManager;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.main.fragments.hht_ar_fragment.HHT_AR_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.HHT_BX_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.HHT_LY_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_XT_Fragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- *Created by Tianluhua on 2018/5/29.
+ * Created by Tianluhua on 2018/5/29.
  */
 public class MainModeImp implements MainMode {
 
@@ -39,6 +48,23 @@ public class MainModeImp implements MainMode {
         int currentVolume = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
         if (callBack == null) return;
         callBack.setCurrentVolume(currentVolume);
+    }
+
+    @Override
+    public void getFragments() {
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                List<Fragment> fragments = new ArrayList<>();
+                fragments.add(HHT_XT_Fragment.newInstance());
+                fragments.add(HHT_AR_Fragment.newInstance());
+                fragments.add(HHT_LY_Fragment.newInstance());
+                fragments.add(HHT_BX_Fragment.newInstance());
+                if (callBack == null) return;
+                 callBack.setFragments(fragments);
+            }
+        });
+
     }
 
 

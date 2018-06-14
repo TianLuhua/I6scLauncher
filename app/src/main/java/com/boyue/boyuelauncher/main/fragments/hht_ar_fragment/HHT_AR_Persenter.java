@@ -9,6 +9,7 @@ public abstract class HHT_AR_Persenter extends AbstractPresenter<HHT_AR_View>{
 
     public abstract void getIconDrawble();
 
-
     public abstract void startHHT_AR_Activity(int position);
+
+    public abstract void getItemIcon();
 }

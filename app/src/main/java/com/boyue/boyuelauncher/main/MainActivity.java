@@ -38,7 +38,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     private ImageView xiaoxue_ketang;
 
     private MainPagerAdapter adapter;
-    private List<Fragment> fragments = new ArrayList<>();
     private SystemReceiver systemReceiver;
 
 
@@ -114,8 +113,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
             dialog.show(getSupportFragmentManager(), Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
             dialog.setCancelable(false);
         }
-
-
         viewpager = findViewById(R.id.viewpager);
         cleanCache = findViewById(R.id.cleancache);
         xiaoxue_ketang = findViewById(R.id.xiaoxue_ketang);
@@ -124,13 +121,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         xiaoxue_ketang.setOnClickListener(this);
         viewpager.addOnPageChangeListener(this);
         radioGroup.setOnCheckedChangeListener(this);
-        fragments.add(HHT_XT_Fragment.newInstance());
-        fragments.add(HHT_AR_Fragment.newInstance());
-        fragments.add(HHT_LY_Fragment.newInstance());
-        fragments.add(HHT_BX_Fragment.newInstance());
-        adapter = new MainPagerAdapter(getSupportFragmentManager(), fragments);
-        viewpager.setAdapter(adapter);
-        viewpager.setOffscreenPageLimit(4);
+        getPresenter().getFragments();
         initTitle();
         getCurrentVolune();
     }
@@ -176,6 +167,12 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         });
     }
 
+    @Override
+    public void setFragments(List<Fragment> fragments) {
+        adapter = new MainPagerAdapter(getSupportFragmentManager(), fragments);
+        viewpager.setAdapter(adapter);
+        viewpager.setOffscreenPageLimit(2);
+    }
 
     @Override
     protected MainPresenterImp createPresenter() {

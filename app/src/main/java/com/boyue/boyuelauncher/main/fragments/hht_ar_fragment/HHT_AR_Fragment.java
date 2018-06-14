@@ -25,6 +25,7 @@ import java.util.Map;
  */
 
 public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_PersenterImp> implements HHT_AR_View {
+
     public static final String INTERFACE_RESULT = HHT_AR_Fragment.class.getName() + "WithResault";
 
 
@@ -39,7 +40,6 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
     private AppCompatImageView iocnView;
     private GridView displayApps;
     private SimpleAdapter simpleAdapter;
-    private List<Map<String, Object>> dataList;
 
 
     @Nullable
@@ -51,49 +51,39 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
     }
 
 
+    private void init(View rootView) {
+        iocnView = rootView.findViewById(R.id.iocn);
+        displayApps = rootView.findViewById(R.id.display_apps);
+
+
+        //初始化item图标和文字
+        getPresenter().getItemIcon();
+
+        //加载大图标
+        getPresenter().getIconDrawble();
+
+    }
+
+
     @Override
     public void displayIocn(Drawable icon) {
         if (icon != null && iocnView != null)
             iocnView.setImageDrawable(icon);
     }
 
-    private void init(View rootView) {
-        iocnView = rootView.findViewById(R.id.iocn);
-        displayApps = rootView.findViewById(R.id.display_apps);
+
+    @Override
+    public void setItemicon(ArrayList<Map<String, Object>> dataList) {
         String[] from = {"img", "text"};
         int[] to = {R.id.icon, R.id.name};
-
-        //初始化数据
-        initData();
         simpleAdapter = new SimpleAdapter(getContext(), dataList, R.layout.item_layout_main_grideview, from, to);
         displayApps.setAdapter(simpleAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 getPresenter().startHHT_AR_Activity(position);
-
             }
         });
-
-        getPresenter().getIconDrawble();
-
-    }
-
-
-    void initData() {
-
-        //图标
-        TypedArray icno = getResources().obtainTypedArray(R.array.hht_ar_items_image);
-
-        //图标下的文字
-        String name[] = getResources().getStringArray(R.array.hht_ar_items_text);
-        dataList = new ArrayList<Map<String, Object>>();
-        for (int i = 0; i < name.length; i++) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("img", icno.getResourceId(i, 0));
-            map.put("text", name[i]);
-            dataList.add(map);
-        }
     }
 
 
