@@ -10,12 +10,15 @@ import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.AsyncTask;
 import android.text.TextUtils;
 
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -57,6 +60,7 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
             connectWifi = wifiInfo.getSSID().replaceAll("\"", "");
         }
         if (scanResultList != null && scanResultList.size() > 0) {
+            sortByLevel(scanResultList);
             dataList.clear();
             for (ScanResult result : scanResultList) {
                 if (TextUtils.isEmpty(result.SSID)) {
@@ -91,6 +95,24 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
             if (callback == null) return;
             callback.notAvailableWifi();
         }
+    }
+
+    /** sort by level,if level equality by frequency, ssid */
+    private void sortByLevel(List<ScanResult> list) {
+        Collections.sort(list, new Comparator<ScanResult>() {
+
+            @Override
+            public int compare(ScanResult lhs, ScanResult rhs) {
+                int num = rhs.level - lhs.level;
+                if (num == 0) {
+                    num = rhs.frequency - lhs.frequency;
+                    if (num == 0) {
+                        num = rhs.SSID.compareTo(lhs.SSID);
+                    }
+                }
+                return num;
+            }
+        });
     }
 
     @Override
@@ -162,6 +184,7 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
         //附近没有可用WIFI
         void notAvailableWifi();
     }
+
 
 
     /**
