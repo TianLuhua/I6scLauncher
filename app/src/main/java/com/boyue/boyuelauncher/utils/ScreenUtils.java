@@ -23,7 +23,7 @@ public class ScreenUtils {
         return outMetrics.widthPixels;
     }
 
-    public static int dp2px( float dp) {
+    public static int dp2px(float dp) {
         final float scale = Utils.getApp().getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
     }
@@ -83,11 +83,17 @@ public class ScreenUtils {
      *
      * @param paramInt 0-255
      */
-    public static void setScreenBrightness(int paramInt) {
-        Settings.System.putInt(Utils.getApp().getContentResolver(),
-                Settings.System.SCREEN_BRIGHTNESS, paramInt);
-        Uri uri = Settings.System
-                .getUriFor("screen_brightness");
-        Utils.getApp().getContentResolver().notifyChange(uri, null);
+    public static void setScreenBrightness(final int paramInt) {
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                Settings.System.putInt(Utils.getApp().getContentResolver(),
+                        Settings.System.SCREEN_BRIGHTNESS, paramInt);
+                Uri uri = Settings.System
+                        .getUriFor("screen_brightness");
+                Utils.getApp().getContentResolver().notifyChange(uri, null);
+            }
+        });
+
     }
 }

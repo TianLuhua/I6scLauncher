@@ -1,7 +1,9 @@
 package com.boyue.boyuelauncher;
 
 import android.app.Application;
+import android.content.Intent;
 
+import com.boyue.boyuelauncher.service.SystemSettingsService;
 import com.boyue.boyuelauncher.utils.LockScreenUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
@@ -65,6 +67,14 @@ public class BoYueApplication extends Application {
         if (shutDowntime != Config.Settings.VALUE_NEVER) {
             LockScreenUtils.startLockScreen(Config.BoYueAction.ONTIME_SHUTDOWN_ACTION, shutDowntime);
         }
+
+        //通知SystemSettingsService，恢复关机前护眼传感器的状态、
+        if (spUtils.getBoolean(Config.PWDKey.PROTECT_EYE_SENSOR_ENABLE_KEY)) {
+            Intent intent = new Intent(getApplicationContext(), SystemSettingsService.class);
+            intent.setAction(Config.BoYueAction.PROTECTSENSOR_ACTION_OPEN);
+            startService(intent);
+        }
+
 
     }
 }

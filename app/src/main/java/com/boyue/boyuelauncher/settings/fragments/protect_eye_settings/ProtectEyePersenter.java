@@ -12,6 +12,7 @@ import com.boyue.boyuelauncher.service.SystemSettingsService;
 import com.boyue.boyuelauncher.utils.LockScreenUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
+import com.boyue.boyuelauncher.utils.Utils;
 
 
 public class ProtectEyePersenter extends AbstractPresenter<ProtectEyeView> {
@@ -70,9 +71,16 @@ public class ProtectEyePersenter extends AbstractPresenter<ProtectEyeView> {
      * @param isEnbale
      */
     public void sevaProtectSensorStatus(boolean isEnbale) {
+        LogUtils.e("tlh", "ProtectEyePersenter---sevaProtectSensorStatus:" + isEnbale);
         if (spUtils == null) return;
         spUtils.put(Config.PWDKey.PROTECT_EYE_SENSOR_ENABLE_KEY, isEnbale);
 
-        LogUtils.e("tlh", "ProtectEyePersenter---sevaProtectSensorStatus:" + isEnbale);
+        //通知SystemSettingsService，当前用户操作护眼传感器的状态
+        Intent intent = new Intent(mContext, SystemSettingsService.class);
+        intent.setAction(isEnbale ? Config.BoYueAction.PROTECTSENSOR_ACTION_OPEN : Config.BoYueAction.PROTECTSENSOR_ACTION_CLOSE);
+        mContext.startService(intent);
+
     }
+
+
 }

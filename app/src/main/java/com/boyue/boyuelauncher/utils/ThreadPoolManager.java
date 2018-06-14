@@ -31,6 +31,16 @@ public final class ThreadPoolManager {
         return sThreadPoolManager;
     }
 
+    private ThreadPoolManager() {
+    }
+
+
+    public void addExecuteTask(Runnable task) {
+        if (task != null) {
+            mThreadPool.execute(task);
+        }
+    }
+
 
     private final Queue<Runnable> mTaskQueue = new LinkedList<Runnable>();
 
@@ -67,26 +77,10 @@ public final class ThreadPoolManager {
             new ArrayBlockingQueue<Runnable>(SIZE_WORK_QUEUE), mHandler);
 
 
-    private ThreadPoolManager() {
-    }
-
-    public void perpare() {
-        if (mThreadPool.isShutdown() && !mThreadPool.prestartCoreThread()) {
-            @SuppressWarnings("unused")
-            int startThread = mThreadPool.prestartAllCoreThreads();
-        }
-    }
-
-
     private boolean hasMoreAcquire() {
         return !mTaskQueue.isEmpty();
     }
 
-    public void addExecuteTask(Runnable task) {
-        if (task != null) {
-            mThreadPool.execute(task);
-        }
-    }
 
     protected boolean isTaskEnd() {
         if (mThreadPool.getActiveCount() == 0) {

@@ -39,7 +39,8 @@ public class Config {
         //定时关机Action
         public static final String ONTIME_SHUTDOWN_ACTION = "ontime_shutdown_action";
 
-
+        public static final String PROTECTSENSOR_ACTION_OPEN = "protectsensor_action_open";
+        public static final String PROTECTSENSOR_ACTION_CLOSE = "protectsensor_action_close";
     }
 
     /**
