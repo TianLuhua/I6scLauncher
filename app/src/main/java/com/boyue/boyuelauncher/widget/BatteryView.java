@@ -10,7 +10,9 @@ import android.support.v7.widget.AppCompatImageView;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
+import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.dialogfragment.Popup_Only_Icon_Dialog;
 
 /**
@@ -77,6 +79,10 @@ public class BatteryView extends AppCompatImageView {
                         currentPrecent = percent;
                         break;
                     case Intent.ACTION_POWER_CONNECTED://接通电源
+                        LogUtils.e("tlh", "BroadcastReceiver--ACTION_POWER_CONNECTED");
+                        //通知系统，usb电源连接了
+                        context.sendBroadcast(new Intent(Config.BoYueAction.COM_BOYUE_ACTION_POWER_CONNECTED));
+
                         if (!isFull) {
                             setImageResource(R.drawable.chargeing_animation);
                             animationDrawable = (AnimationDrawable) getDrawable();

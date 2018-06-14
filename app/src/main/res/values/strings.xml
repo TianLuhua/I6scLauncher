@@ -8,6 +8,10 @@
     <string name="go">去启用</string>
     <string name="know">知道了</string>
     <string name="connected">已经连接</string>
+    <string name="usb_connected">USB已连接!</string>
+    <string name="usb_mounted">U盘已插入!</string>
+    <string name="battery_low">我快没电了，快给我充电吧!</string>
+    <string name="mac_connected">话筒已接入!</string>
 
 
     <!--系统设置-->
@@ -183,9 +187,6 @@
     <string name="ic_hht_ly_klok_jdeg_18">18.找朋友</string>
     <string name="ic_hht_ly_klok_jdeg_19">19.种太阳</string>
     <string name="ic_hht_ly_klok_jdeg_20">20.捉泥鳅</string>
-
-
-
 
 
     <string name="hht_ly_klok_ttmtv">兔兔MTV</string>

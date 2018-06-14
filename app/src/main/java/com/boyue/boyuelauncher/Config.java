@@ -28,6 +28,12 @@ public class Config {
         public static final String ACTIVITY_ACTION_FCMLOCKSCREEN = "com.boyue.boyuelauncher.FCMlockscreen";
         public static final String ACTIVITY_ACTION_PROTECTEYELOCKSCREEN = "com.boyue.boyuelauncher.ProtectEyeLockScreen";
 
+        //自定义连接usb充电的Action
+        public static final String COM_BOYUE_ACTION_POWER_CONNECTED = "com.boyue.action.action_power_connected";
+        //自定义连接Ｕ盘挂载的Action
+        public static final String COM_BOYUE_ACTION_USB_MOUNTED = "com.boyue.action.usb.mounted";
+        //话筒插入
+        public static final String COM_BOYUE_ACTION_MAC_CONNECTED = "com.boyue.action.mac.connected";
 
         public static final String ACTIVITY_REQUEST_SHUTDOWN = "com.android.internal.intent.action.REQUEST_SHUTDOWN";
 

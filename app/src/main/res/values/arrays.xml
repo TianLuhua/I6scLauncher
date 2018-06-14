@@ -14,8 +14,8 @@
         <item>@mipmap/hht_xt_item_102</item>
         <item>@mipmap/hht_xt_item_103</item>
         <item>@mipmap/hht_xt_item_104</item>
-        <item>@mipmap/hht_xt_item_105</item>
         <item>@mipmap/hht_xt_item_106</item>
+        <item>@mipmap/hht_xt_item_105</item>
     </string-array>
 
 
@@ -61,7 +61,7 @@
         <item>宝宝巴士</item>
         <item>视频聊天</item>
         <item>微信</item>
-        <item>语音机器人</item>
+        <item>我的应用</item>
     </string-array>
     <string-array name="hht_bx_items_image">
         <item>@mipmap/hht_bx_item_101</item>

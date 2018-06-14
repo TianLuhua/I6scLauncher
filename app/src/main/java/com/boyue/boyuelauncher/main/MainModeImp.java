@@ -13,7 +13,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 
 /**
- * Created by Tianluhua on 2018/5/16.
+ *Created by Tianluhua on 2018/5/29.
  */
 public class MainModeImp implements MainMode {
 

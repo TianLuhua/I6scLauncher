@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 import com.boyue.boyuelauncher.base.BaseMode;
 
 /**
- * Created by Tianluhua on 2018/5/16.
+ * Created by Tianluhua on 2018/5/29.
  */
 public interface MainMode extends BaseMode {
 

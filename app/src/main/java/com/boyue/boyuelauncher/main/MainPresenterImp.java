@@ -8,7 +8,7 @@ import com.boyue.boyuelauncher.main.adapter.MainPagerAdapter;
 import com.boyue.boyuelauncher.utils.SPUtils;
 
 /**
- * Created by Tianluhua on 2018/5/16.
+ * Created by Tianluhua on 2018/5/29.
  */
 public class MainPresenterImp extends MainPersenter {
 

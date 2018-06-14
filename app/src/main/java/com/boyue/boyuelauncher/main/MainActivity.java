@@ -1,5 +1,8 @@
 package com.boyue.boyuelauncher.main;
 
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -15,7 +18,7 @@ import com.boyue.boyuelauncher.main.fragments.hht_ar_fragment.HHT_AR_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.HHT_BX_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.HHT_LY_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_XT_Fragment;
-import com.boyue.boyuelauncher.settings.SettingsActivity;
+import com.boyue.boyuelauncher.receive.SystemReceiver;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.MainTilteBar;
@@ -23,6 +26,7 @@ import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordD
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp> implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener, MainView {
 
@@ -35,7 +39,33 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     private MainPagerAdapter adapter;
     private List<Fragment> fragments = new ArrayList<>();
+    private SystemReceiver systemReceiver;
 
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //注册 弹窗广播：usb连接、U盘插入、电量不足、话筒插入....
+        systemReceiver = new SystemReceiver(this);
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_USB_MOUNTED);
+        filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_POWER_CONNECTED);
+        filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_MAC_CONNECTED);
+        filter.addAction(Intent.ACTION_BATTERY_LOW);
+        registerReceiver(systemReceiver, filter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(systemReceiver);
+    }
 
     @Override
     protected int getContentViewID() {
@@ -44,6 +74,8 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     protected void initView() {
+
+
 
         //判断是否启用密码，启用的话需要验证才能进入。反之，退出设置界面。
         if (getPresenter().hasEnableFCMPWD()) {
@@ -243,7 +275,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
      * 启动当前WiFi管理界面
      */
     private void startWiFiManager() {
-        ActivityUtils.setActivityConfig( Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
+        ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_WIFIMANAGER);
     }
 
     /**
@@ -251,7 +283,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
      */
 
     private void startSettings() {
-        ActivityUtils.setActivityConfig( Config.BoYueAction.ACTIVITY_ACTION_SETTINGS);
+        ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_SETTINGS);
     }
 
 

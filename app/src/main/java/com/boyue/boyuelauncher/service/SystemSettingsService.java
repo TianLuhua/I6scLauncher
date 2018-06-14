@@ -19,7 +19,7 @@ import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 
 /**
- * 主要用来定时休息和自动关机
+ * 主要用来定时休息和自动关机、护眼传感器的响应
  */
 public class SystemSettingsService extends Service {
 
@@ -99,7 +99,7 @@ public class SystemSettingsService extends Service {
                 break;
 
         }
-        return super.onStartCommand(intent, flags, startId);
+        return START_STICKY;
 
 
     }

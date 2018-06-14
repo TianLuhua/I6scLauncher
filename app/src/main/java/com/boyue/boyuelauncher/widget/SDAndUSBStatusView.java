@@ -118,6 +118,8 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
                     setShowSD(true);
                 } else if (Config.MountPath.USB_PATH.equals(mountPath)) {
                     setShowUSB(true);
+                    //U盘挂载广播
+                    context.sendBroadcast(new Intent(Config.BoYueAction.COM_BOYUE_ACTION_USB_MOUNTED));
                 }
 
 
