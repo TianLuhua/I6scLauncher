@@ -51,15 +51,18 @@ public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
                 break;
             case 3:
 
-                LogUtils.e("boyue", "启动播放器");
-                ArrayList<String> lists = new ArrayList<>();
-                lists.add("/mnt/usbhost1/Where_is_Bunny.mp4");
-                lists.add("/mnt/usbhost1/Hello_hello_how_are_you.mp4");
-                Intent intent = new Intent("com.booyue.android.mediaplayer.video");
-                intent.putStringArrayListExtra("videoInfoList", lists);
-                intent.putExtra("position", 1);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(intent);
+                ActivityUtils.startApplicationWithPackageName("");
+
+//
+//                LogUtils.e("boyue", "启动播放器");
+//                ArrayList<String> lists = new ArrayList<>();
+//                lists.add("/mnt/usbhost1/Where_is_Bunny.mp4");
+//                lists.add("/mnt/usbhost1/Hello_hello_how_are_you.mp4");
+//                Intent intent = new Intent("com.booyue.android.mediaplayer.video");
+//                intent.putStringArrayListExtra("videoInfoList", lists);
+//                intent.putExtra("position", 1);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                mContext.startActivity(intent);
 //                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_ZJXT);
                 break;
         }
