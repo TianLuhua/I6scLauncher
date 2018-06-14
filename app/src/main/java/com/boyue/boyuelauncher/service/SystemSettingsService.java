@@ -27,6 +27,8 @@ public class SystemSettingsService extends Service {
 
     private SensorManager mSensorMgr;
     private Sensor mGnPSensor;
+    //定义监听器
+    private SensorEventListener mGnPSensorEventListener;
 
 
     @Override
@@ -66,14 +68,34 @@ public class SystemSettingsService extends Service {
                 //获取传感器管理类及距离传感器
                 mSensorMgr = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
                 mGnPSensor = mSensorMgr.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+
+                mGnPSensorEventListener = new SensorEventListener() {
+                    @Override
+                    public void onSensorChanged(SensorEvent event) {
+                        if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+                            getDistance(event);
+                        }
+                    }
+
+                    @Override
+                    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+                    }
+
+                };
                 //在传感器管理类中注册距离传感器的监听器
                 mSensorMgr.registerListener(mGnPSensorEventListener, mGnPSensor, 12000);
                 break;
             case Config.BoYueAction.PROTECTSENSOR_ACTION_CLOSE:
 
                 //取消SensorManager的监听
-                if (mSensorMgr != null)
+                if (mSensorMgr != null) {
+                    LogUtils.e("tlh", "PROTECTSENSOR_ACTION_CLOSE");
                     mSensorMgr.unregisterListener(mGnPSensorEventListener);
+                    mGnPSensorEventListener = null;
+                    mGnPSensor = null;
+                    mSensorMgr = null;
+                }
                 break;
 
         }
@@ -89,28 +111,17 @@ public class SystemSettingsService extends Service {
         return null;
     }
 
-    //定义监听器
-    private final SensorEventListener mGnPSensorEventListener = new SensorEventListener() {
-        @Override
-        public void onSensorChanged(SensorEvent event) {
-            if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-                getDistance(event);
-            }
-        }
-
-        @Override
-        public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-        }
-
-    };
-
+    /**
+     * 根据距离感应器的数据，操作屏幕的亮度
+     *
+     * @param event
+     */
     private void getDistance(SensorEvent event) {
         float distance = event.values[0];
         LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
-        if (distance==0.0)
+        if (distance == 0.0)
             ScreenUtils.setScreenBrightness(20);
-        if (distance==5.0)
+        if (distance == 5.0)
             ScreenUtils.setScreenBrightness(200);
     }
 
