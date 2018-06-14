@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.fragments.base.HHT_Abstract_Activity;
@@ -23,7 +22,6 @@ import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.TitleBar;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -45,7 +43,7 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
     //记录当前处于那一页
     private int currentPageId = KLOK;
     private FragmentManager manager;
-    private Fragment klok_fragment, ttmtv_01, ttmtv_02, ttmtv_03, ttmtv_04, ttmtv_05, jdeg_01, jdeg_02, jdeg_03;
+    private Fragment fragment_klok, ttmtv_01, ttmtv_02, ttmtv_03, ttmtv_04, ttmtv_05, jdeg_01, jdeg_02, jdeg_03;
     //用于保存当前的Fragment
     private LinkedList<Fragment> fragments;
     //显示Fragment的标志位
@@ -97,12 +95,12 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
 
         manager = getSupportFragmentManager();
 
-        klok_fragment = HHT_klok_Fragment.newInstance();
+        fragment_klok = HHT_klok_Fragment.newInstance();
 
         //初始化默认加载主Fragment
         FragmentTransaction ft = manager.beginTransaction();
-        ft.add(R.id.klok_content, klok_fragment);
-        ft.show(klok_fragment).commit();
+        ft.add(R.id.klok_content, fragment_klok);
+        ft.show(fragment_klok).commit();
         currentPageId = KLOK;
         showPageBtn(false);
 
@@ -125,7 +123,8 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
         switch (pageId) {
             case KLOK:
                 //切换回klok
-                hideOtherFrangment(ft, klok_fragment);
+                hideOtherFrangment(ft, fragment_klok);
+                titleBar.setTitle(R.string.hht_ly_klok);
                 currentPageId = KLOK;
                 break;
             case TTMTV:
@@ -159,7 +158,7 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
         titleBar.setTitle(R.string.hht_ly_klok_ttmtv);
 
         //清除其他的Fragment
-        ft.hide(klok_fragment);
+        ft.hide(fragment_klok);
 
 
         //显示兔兔MTV
@@ -193,7 +192,7 @@ public class HHT_klok_Activity extends HHT_Abstract_Activity implements HHT_klok
 
 
         //清除其他的Fragment,只有klok_fragment存在，因为是从klok_fragment进来的
-        ft.hide(klok_fragment);
+        ft.hide(fragment_klok);
 
         //显示经典儿歌
         jdeg_01 = HHT_Klok_Jdeg_01_Fragment.newInstance();
