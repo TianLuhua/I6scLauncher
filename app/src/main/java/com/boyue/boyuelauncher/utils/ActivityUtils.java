@@ -71,10 +71,13 @@ public class ActivityUtils {
             // LAUNCHER Intent
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_LAUNCHER);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             // 设置ComponentName参数1:packagename参数2:MainActivity路径
             ComponentName cn = new ComponentName(packageName, className);
             intent.setComponent(cn);
             Utils.getApp().startActivity(intent);
+        }else {
+            Toast.makeText(Utils.getApp(), "Not Found Activity", Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -1,6 +1,8 @@
 package com.boyue.boyuelauncher.settings.fragments.volume_settings;
 
 import android.content.Context;
+import android.media.AudioManager;
+import android.provider.Contacts;
 import android.view.View;
 
 import com.boyue.boyuelauncher.base.AbstractPresenter;
@@ -9,6 +11,7 @@ public class VolumeSettingPersenter extends AbstractPresenter<VolumeSettingView>
 
     private Context mContext;
     private VolumeSettingMode mode;
+    private AudioManager audioMa;
 
 
     public VolumeSettingPersenter(Context mContext) {
@@ -36,5 +39,13 @@ public class VolumeSettingPersenter extends AbstractPresenter<VolumeSettingView>
         if (mode != null) {
             mode.onDestroy();
         }
+    }
+
+    public void setSystMaxVolume(int progress) {
+
+        //设置为最大音量
+
+        audioMa = (AudioManager)mContext.getSystemService(Context.AUDIO_SERVICE);
+        audioMa.setStreamVolume(AudioManager.STREAM_MUSIC, progress,AudioManager.FLAG_SHOW_UI);
     }
 }

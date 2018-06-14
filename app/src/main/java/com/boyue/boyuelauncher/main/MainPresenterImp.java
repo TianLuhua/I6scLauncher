@@ -1,10 +1,8 @@
 package com.boyue.boyuelauncher.main;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.Config;
-import com.boyue.boyuelauncher.main.adapter.MainPagerAdapter;
 import com.boyue.boyuelauncher.utils.SPUtils;
 
 /**
@@ -32,7 +30,7 @@ public class MainPresenterImp extends MainPersenter {
                 view.setCurrentVolune(changedVolume);
             }
         });
-        this.spUtils = SPUtils.getInstance(Config.PWDKey.SPNMAE);
+        this.spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
     }
 
     @Override
@@ -45,12 +43,12 @@ public class MainPresenterImp extends MainPersenter {
     @Override
     boolean matchingPwd(String pwd) {
 
-        return pwd.equals(spUtils.getString(Config.PWDKey.BOOT_PWD_NAME));
+        return pwd.equals(spUtils.getString(Config.PassWordKey.BOOT_PWD_NAME));
     }
 
     @Override
     public boolean hasEnableFCMPWD() {
-        return spUtils.getBoolean(Config.PWDKey.FCM_PWD_NAME);
+        return spUtils.getBoolean(Config.PassWordKey.FCM_PWD_NAME);
     }
 
     @Override

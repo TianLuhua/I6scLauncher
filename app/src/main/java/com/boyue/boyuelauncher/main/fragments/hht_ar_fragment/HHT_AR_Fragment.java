@@ -70,6 +70,7 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                getPresenter().startHHT_AR_Activity(position);
 
             }
         });

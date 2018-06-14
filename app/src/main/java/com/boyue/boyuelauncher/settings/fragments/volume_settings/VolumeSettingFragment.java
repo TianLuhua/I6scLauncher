@@ -48,6 +48,7 @@ public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 LogUtils.e("tlh", "maxVolumeSeekBar:" + progress);
                 maxVolumeLeve.setText(String.valueOf(progress));
+                getPresenter().setSystMaxVolume(progress);
             }
 
             @Override

@@ -1,16 +1,12 @@
 package com.boyue.boyuelauncher.fcmlockscreen;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.base.AbstractPresenter;
 import com.boyue.boyuelauncher.utils.LockScreenUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
-
-import javax.crypto.spec.IvParameterSpec;
 
 public class FcmLockScreenPersenter extends AbstractPresenter<FcmLockScreenView> {
 
@@ -19,7 +15,7 @@ public class FcmLockScreenPersenter extends AbstractPresenter<FcmLockScreenView>
     private FcmLockScreenMode mode;
 
     public FcmLockScreenPersenter(Context mContext) {
-        this.spUtils = SPUtils.getInstance(Config.PWDKey.SPNMAE);
+        this.spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
         this.mode = new FcmLockScreenMode(mContext, new FcmLockScreenMode.CallBack() {
             @Override
             public void setUpdateClock(String date, String week, int time_0_Leve, int time_1_Leve, int time_2_Leve, int time_3_Leve) {
@@ -33,7 +29,7 @@ public class FcmLockScreenPersenter extends AbstractPresenter<FcmLockScreenView>
 
     boolean matchingPwd(String pwd) {
         boolean isMactch = false;
-        if (pwd.equals(spUtils.getString(Config.PWDKey.BOOT_PWD_NAME))) {
+        if (pwd.equals(spUtils.getString(Config.PassWordKey.BOOT_PWD_NAME))) {
             isMactch = true;
         }
         return isMactch;
@@ -47,7 +43,7 @@ public class FcmLockScreenPersenter extends AbstractPresenter<FcmLockScreenView>
 
 
     public void startLockScreen(String action) {
-        int time = spUtils.getInt((Config.PWDKey.TIMING_LOCKING_KEY));
+        int time = spUtils.getInt((Config.PassWordKey.TIMING_LOCKING_KEY));
         if (time == Config.Settings.VALUE_NEVER) return;
         LockScreenUtils.startLockScreen(action, time);
     }

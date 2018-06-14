@@ -56,7 +56,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         IntentFilter filter = new IntentFilter();
         filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_USB_MOUNTED);
         filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_POWER_CONNECTED);
-        filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_MAC_CONNECTED);
+        filter.addAction(Config.BoYueAction.ACTION_MIC_IN);
         filter.addAction(Intent.ACTION_BATTERY_LOW);
         registerReceiver(systemReceiver, filter);
     }

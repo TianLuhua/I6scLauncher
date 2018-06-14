@@ -13,15 +13,15 @@ public class FCMSettingMode implements BaseMode {
 
     public FCMSettingMode(CallBack callback) {
         this.callback = callback;
-        this.spUtils = SPUtils.getInstance(Config.PWDKey.SPNMAE);
+        this.spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
     }
 
     public void getSystmStatus() {
 
         if (callback == null) return;
-        boolean pwdIsEnable = spUtils.getBoolean(Config.PWDKey.PWD_IS_ENABLE);
-        boolean pwdFcmIsEnable = spUtils.getBoolean(Config.PWDKey.FCM_PWD_NAME);
-        int timingTime = spUtils.getInt(Config.PWDKey.TIMING_LOCKING_KEY);
+        boolean pwdIsEnable = spUtils.getBoolean(Config.PassWordKey.PWD_IS_ENABLE);
+        boolean pwdFcmIsEnable = spUtils.getBoolean(Config.PassWordKey.FCM_PWD_NAME);
+        int timingTime = spUtils.getInt(Config.PassWordKey.TIMING_LOCKING_KEY);
         callback.setSystmStatus(pwdIsEnable, pwdFcmIsEnable,  timingTime);
 
     }
@@ -29,12 +29,12 @@ public class FCMSettingMode implements BaseMode {
 
     public void disAbleFcmPassWord(boolean isEnable) {
         LogUtils.e("tlh", "disAbleFcmPassWord:" + isEnable);
-        spUtils.put(Config.PWDKey.FCM_PWD_NAME, isEnable);
+        spUtils.put(Config.PassWordKey.FCM_PWD_NAME, isEnable);
     }
 
     public void enAblePassword(boolean isEnable) {
         LogUtils.e("tlh", "enAblePassword:" + isEnable);
-        spUtils.put(Config.PWDKey.PWD_IS_ENABLE, isEnable);
+        spUtils.put(Config.PassWordKey.PWD_IS_ENABLE, isEnable);
     }
 
 
@@ -49,7 +49,7 @@ public class FCMSettingMode implements BaseMode {
 
     public boolean matchingPwd(String pwd) {
 
-        return pwd.equals(spUtils.getString(Config.PWDKey.BOOT_PWD_NAME));
+        return pwd.equals(spUtils.getString(Config.PassWordKey.BOOT_PWD_NAME));
     }
 
     private String tempPwd;
@@ -64,7 +64,7 @@ public class FCMSettingMode implements BaseMode {
         }
         if (tempPwd.equals(pwd)) {
 
-            spUtils.put(Config.PWDKey.BOOT_PWD_NAME, pwd);
+            spUtils.put(Config.PassWordKey.BOOT_PWD_NAME, pwd);
 
             return true;
         }

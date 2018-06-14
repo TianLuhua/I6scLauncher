@@ -16,12 +16,12 @@ public class ProtectEyeLockScreenPersenter extends AbstractPresenter<ProtectEyeL
 
     public ProtectEyeLockScreenPersenter(Context mContext) {
         this.mContext = mContext;
-        this.spUtils = SPUtils.getInstance(Config.PWDKey.SPNMAE);
+        this.spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
     }
 
     boolean matchingPwd(String pwd) {
         boolean isMactch = false;
-        if (pwd.equals(spUtils.getString(Config.PWDKey.BOOT_PWD_NAME))) {
+        if (pwd.equals(spUtils.getString(Config.PassWordKey.BOOT_PWD_NAME))) {
             isMactch = true;
         }
         return isMactch;
@@ -35,7 +35,7 @@ public class ProtectEyeLockScreenPersenter extends AbstractPresenter<ProtectEyeL
 
 
     public void startRegularRestAlarm(String action) {
-        int time = spUtils.getInt((Config.PWDKey.REGULAR_REST_KEY));
+        int time = spUtils.getInt((Config.PassWordKey.REGULAR_REST_KEY));
         if (time == Config.Settings.VALUE_NEVER) return;
         LockScreenUtils.startLockScreen(action,time);
     }

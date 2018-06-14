@@ -20,7 +20,7 @@ public class FCMSettingPersenter extends AbstractPresenter<FCMSettingView> {
                 view.setSystmStatus(pwdIsEnable, pwdFcmIsEnable, timingTime);
             }
         });
-        this.spUtils = SPUtils.getInstance(Config.PWDKey.SPNMAE);
+        this.spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
     }
 
     //获取当起那界面UI的状态，用于初始化UI界面
@@ -57,7 +57,7 @@ public class FCMSettingPersenter extends AbstractPresenter<FCMSettingView> {
     public void setTimingLockTime(int timingLockTime) {
         if (spUtils == null) return;
         LogUtils.e("tlh","FCMSettingPersenter---timingLockTime:"+timingLockTime);
-        spUtils.put(Config.PWDKey.TIMING_LOCKING_KEY, timingLockTime);
+        spUtils.put(Config.PassWordKey.TIMING_LOCKING_KEY, timingLockTime);
 
         switch (timingLockTime) {
             case Config.Settings.VALUE_NEVER:

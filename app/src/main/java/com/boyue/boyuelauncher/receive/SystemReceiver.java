@@ -23,7 +23,7 @@ public class SystemReceiver extends BroadcastReceiver {
     public static final String USBMOUNTED = "usbMounted";
     public static final String USBCONNECTED = "usbconnected";
     public static final String BATTERY_LOW = "battery_low";
-    public static final String MAC_COMMECTED = "mac_commected";
+    public static final String MIC_COMMECTED = "mac_commected";
 
 
     private AppCompatActivity activity;
@@ -57,7 +57,7 @@ public class SystemReceiver extends BroadcastReceiver {
                 showBatteryLowDialog();
                 break;
             //电量过低
-            case Config.BoYueAction.COM_BOYUE_ACTION_MAC_CONNECTED:
+            case Config.BoYueAction.ACTION_MIC_IN:
                 LogUtils.e("tlh", "SystemReceiver---onReceive:" + "话筒已插入，开始唱歌吧！");
                 showMacConnectedDialog();
                 break;
@@ -93,9 +93,9 @@ public class SystemReceiver extends BroadcastReceiver {
 
     private void showMacConnectedDialog() {
         FragmentManager manager = activity.getSupportFragmentManager();
-        if (manager.findFragmentByTag(MAC_COMMECTED) == null) {
+        if (manager.findFragmentByTag(MIC_COMMECTED) == null) {
             Popup_Battery_Low_Dialog dialog = new Popup_Battery_Low_Dialog();
-            dialog.show(manager, MAC_COMMECTED);
+            dialog.show(manager, MIC_COMMECTED);
         }
 
     }

@@ -39,7 +39,7 @@ public class SettingsPersenterImp extends SettingsPersenter {
                 view.disPlayPagerFragments(fragments);
             }
         });
-        this.spUtils = SPUtils.getInstance(Config.PWDKey.SPNMAE);
+        this.spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class SettingsPersenterImp extends SettingsPersenter {
     @Override
     boolean matchingPwd(String pwd) {
         boolean isMactch = false;
-        if (pwd.equals(spUtils.getString(Config.PWDKey.BOOT_PWD_NAME))) {
+        if (pwd.equals(spUtils.getString(Config.PassWordKey.BOOT_PWD_NAME))) {
             isMactch = true;
         }
         return isMactch;
@@ -59,7 +59,7 @@ public class SettingsPersenterImp extends SettingsPersenter {
 
     @Override
     public boolean hasEnablePWD() {
-        return spUtils.getBoolean(Config.PWDKey.PWD_IS_ENABLE);
+        return spUtils.getBoolean(Config.PassWordKey.PWD_IS_ENABLE);
     }
 
     public void getPagerFragments() {

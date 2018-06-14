@@ -37,12 +37,12 @@ public class ProtectEyeMode implements BaseMode {
 
     //获取当前护眼传感器状态
     private boolean getOpenProtectSenerSatus() {
-        return spUtils.getBoolean(Config.PWDKey.PROTECT_EYE_SENSOR_ENABLE_KEY, false);
+        return spUtils.getBoolean(Config.PassWordKey.PROTECT_EYE_SENSOR_ENABLE_KEY, false);
     }
 
     //获取当前定时休息的时间
     private int getRegularRestTime() {
-        return spUtils.getInt((Config.PWDKey.REGULAR_REST_KEY));
+        return spUtils.getInt((Config.PassWordKey.REGULAR_REST_KEY));
     }
 
     public static interface CallBack {

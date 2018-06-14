@@ -1,10 +1,15 @@
 package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
+import com.boyue.boyuelauncher.utils.LogUtils;
+
+import java.util.ArrayList;
+
 
 /**
  * Created by Tianluhua on 2018/5/18.
@@ -37,13 +42,27 @@ public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
 
     @Override
     public void startHHT_XT_Activity(int position) {
-        switch (position){
+        switch (position) {
             case 0:
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_ZJYY);
                 break;
             case 1:
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_ZJXT);
                 break;
+            case 3:
+
+                LogUtils.e("boyue", "启动播放器");
+                ArrayList<String> lists = new ArrayList<>();
+                lists.add("/mnt/usbhost1/Where_is_Bunny.mp4");
+                lists.add("/mnt/usbhost1/Hello_hello_how_are_you.mp4");
+                Intent intent = new Intent("com.booyue.android.mediaplayer.video");
+                intent.putStringArrayListExtra("videoInfoList", lists);
+                intent.putExtra("position", 1);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(intent);
+//                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_ZJXT);
+                break;
         }
     }
+
 }

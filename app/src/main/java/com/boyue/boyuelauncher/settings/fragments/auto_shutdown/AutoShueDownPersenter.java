@@ -18,7 +18,7 @@ public class AutoShueDownPersenter extends AbstractPresenter<AutoShueDownView> {
 
     public AutoShueDownPersenter(Context mContext) {
         this.mContext = mContext;
-        this.spUtils = SPUtils.getInstance(Config.PWDKey.SPNMAE);
+        this.spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
         this.mode = new AutoShueDownMode(mContext, new AutoShueDownMode.CallBack() {
 
 
@@ -50,7 +50,7 @@ public class AutoShueDownPersenter extends AbstractPresenter<AutoShueDownView> {
      */
     public void setShutDownTime(int time) {
         if (spUtils == null) return;
-        spUtils.put(Config.PWDKey.ONTIME_SHUTDOWN_KEY, time);
+        spUtils.put(Config.PassWordKey.ONTIME_SHUTDOWN_KEY, time);
         this.shutDownTime = time;
     }
 

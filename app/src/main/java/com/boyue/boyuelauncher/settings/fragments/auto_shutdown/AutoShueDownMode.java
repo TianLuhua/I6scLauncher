@@ -3,7 +3,6 @@ package com.boyue.boyuelauncher.settings.fragments.auto_shutdown;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.provider.Settings;
-import android.widget.Space;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.base.BaseMode;
@@ -32,7 +31,7 @@ public class AutoShueDownMode implements BaseMode {
 
         int currentScreenTimeout = Settings.System.getInt(resolver, SCREEN_OFF_TIMEOUT,
                 Config.Settings.VALUE_NEVER);
-        int shtDownTime = spUtils.getInt(Config.PWDKey.ONTIME_SHUTDOWN_KEY);
+        int shtDownTime = spUtils.getInt(Config.PassWordKey.ONTIME_SHUTDOWN_KEY);
         if (callBack == null) return;
         callBack.setInitView(currentScreenTimeout, shtDownTime);
 
