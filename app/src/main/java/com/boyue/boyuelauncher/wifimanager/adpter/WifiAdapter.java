@@ -42,6 +42,7 @@ public class WifiAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
+
     public void clear() {
         if (dataList == null) return;
         dataList.clear();
@@ -68,28 +69,34 @@ public class WifiAdapter extends RecyclerView.Adapter {
             CustomViewHolder viewHolder = (CustomViewHolder) holder;
             final WifiModel data = dataList.get(position);
             viewHolder.tvWifiName.setText(data.getWifiName());
-            if (data.isShowDetail()) {
-//                viewHolder.ivDetail.setText(R.string.icon_up);
-                viewHolder.tvWifiDetail.setVisibility(View.VISIBLE);
-                viewHolder.tvWifiDetail.setText(data.getWifiDetail());
-            } else {
-//                viewHolder.ivDetail.setText(R.string.icon_down);
-                viewHolder.tvWifiDetail.setVisibility(View.GONE);
-            }
             if (data.getWifiType() != 0) {
-
-                //需要密码连接
-//                viewHolder.ivNeedCode.setVisibility(View.VISIBLE);
+                //需要密码
+                viewHolder.ivIntensity.setImageResource(R.drawable.level_list_settings_wifi_needpwd);
             } else {
-                //不需要需要密码连接
-
-//                viewHolder.ivNeedCode.setVisibility(View.INVISIBLE);
+                //不需要密码
+                viewHolder.ivIntensity.setImageResource(R.drawable.level_list_settings_wifi);
             }
+            //是否连接过，保存在系统中
+            if (data.getConfiged()) {
+                viewHolder.tvIsConofiged.setVisibility(View.VISIBLE);
+            } else {
+                viewHolder.tvIsConofiged.setVisibility(View.INVISIBLE);
+            }
+            //是否是当前连接的WIFI
+            if (data.isConnect()) {
+                viewHolder.ivConnected.setVisibility(View.VISIBLE);
+                viewHolder.tvIsConofiged.setVisibility(View.INVISIBLE);
+
+            } else {
+                viewHolder.ivConnected.setVisibility(View.INVISIBLE);
+            }
+
+
             viewHolder.ivIgnore.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (dataActionListener != null) {
-                        dataActionListener.onIgnore(position);
+                        dataActionListener.onIgnore(data, position);
                     }
                 }
             });
@@ -97,15 +104,10 @@ public class WifiAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View v) {
                     if (onItemClickListener != null) {
-                        onItemClickListener.onItemClick(position);
+                        onItemClickListener.onItemClick(data, position);
                     }
                 }
             });
-            if (data.isConnect()) {
-//                viewHolder.ivIntensity.setTextColor(ContextCompat.getColor(context, R.color.font_green));
-            } else {
-//                viewHolder.ivIntensity.setTextColor(ContextCompat.getColor(context, R.color.font_text));
-            }
             viewHolder.ivIntensity.getDrawable().setLevel(data.getIntensity());
 
         }
@@ -117,22 +119,24 @@ public class WifiAdapter extends RecyclerView.Adapter {
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
-
+        //wifi名字
         TextView tvWifiName;
-        TextView tvWifiDetail;
+        //是否已经连接过，保存到系统
+        TextView tvIsConofiged;
+        //图标
         ImageView ivIntensity;
+        //已经连接
+        ImageView ivConnected;
+        //忽略网络按钮
         ImageView ivIgnore;
-        //        TextView ivNeedCode;
-//        TextView ivDetail;
 
         public CustomViewHolder(View itemView) {
             super(itemView);
             tvWifiName = itemView.findViewById(R.id.wifi_name);
-            tvWifiDetail = itemView.findViewById(R.id.tvWifiDetail);
+            tvIsConofiged = itemView.findViewById(R.id.wifi_has_saved);
             ivIntensity = itemView.findViewById(R.id.wifi_ic);
+            ivConnected = itemView.findViewById(R.id.connected_ic);
             ivIgnore = itemView.findViewById(R.id.ignore_ic);
-//            ivNeedCode = itemView.findViewById(R.id.ivNeedCode);
-//            ivDetail = itemView.findViewById(R.id.ivDetail);
         }
     }
 }

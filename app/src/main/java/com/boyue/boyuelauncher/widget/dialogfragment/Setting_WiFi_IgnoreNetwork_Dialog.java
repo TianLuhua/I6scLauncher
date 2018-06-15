@@ -1,19 +1,16 @@
 package com.boyue.boyuelauncher.widget.dialogfragment;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
+import android.content.Context;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.wifimanager.listener.OnWiFiSettingDialogOnListener;
 
-public class Setting_WiFiDialog extends DialogFragment implements View.OnClickListener {
+public class Setting_WiFi_IgnoreNetwork_Dialog extends AlertDialog.Builder implements View.OnClickListener {
 
     private TextView title;
     private TextView content;
@@ -22,20 +19,13 @@ public class Setting_WiFiDialog extends DialogFragment implements View.OnClickLi
 
     private OnWiFiSettingDialogOnListener onWiFiSettingDialogOnListener;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.Stlye_wifi_settings_dialog);
+    public Setting_WiFi_IgnoreNetwork_Dialog(Context context, int stlye_wifi_settings_dialog) {
+        super(context, stlye_wifi_settings_dialog);
+        View rootView = LayoutInflater.from(context).inflate(R.layout.dialog_settings_wifi_ignore_network, null);
+        setView(rootView);
+        initView(rootView);
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View rootVire = inflater.inflate(R.layout.dialog_settings_wifi, null, false);
-        initView(rootVire);
-        return rootVire;
-    }
 
     private void initView(View rootVire) {
         title = rootVire.findViewById(R.id.dialog_title);
@@ -46,15 +36,13 @@ public class Setting_WiFiDialog extends DialogFragment implements View.OnClickLi
         rightBt.setOnClickListener(this);
     }
 
-    public void setTitle(int titlRes) {
+    public void setTitleText(int titlRes) {
         if (title == null) return;
         title.setText(titlRes);
     }
 
     public void setContent(String contentString) {
-        LogUtils.e("tlh", "1111111111111setContent:" + contentString);
         if (content == null) return;
-        LogUtils.e("tlh", "2222222222222setContent:" + contentString);
         content.setText(contentString);
     }
 
@@ -75,7 +63,7 @@ public class Setting_WiFiDialog extends DialogFragment implements View.OnClickLi
 
             case R.id.dialog_right:
                 if (onWiFiSettingDialogOnListener == null) return;
-                onWiFiSettingDialogOnListener.onrightClick(v);
+                onWiFiSettingDialogOnListener.onRightClick(v);
                 break;
         }
     }

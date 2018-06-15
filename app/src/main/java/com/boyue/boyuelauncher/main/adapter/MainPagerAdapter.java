@@ -15,11 +15,20 @@ import java.util.List;
 
 public class MainPagerAdapter extends FragmentPagerAdapter {
 
-    private List<Fragment> fragments;
+    private List<Fragment> fragments = new ArrayList<>();
 
-    public MainPagerAdapter(FragmentManager fm, List<Fragment> fragments) {
+    public MainPagerAdapter(FragmentManager fm) {
         super(fm);
+
+    }
+
+    public List<Fragment> getFragments() {
+        return fragments;
+    }
+
+    public void setFragments(List<Fragment> fragments) {
         this.fragments = fragments;
+        this.notifyDataSetChanged();
     }
 
     @Override

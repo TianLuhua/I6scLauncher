@@ -58,6 +58,8 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         filter.addAction(Config.BoYueAction.ACTION_MIC_IN);
         filter.addAction(Intent.ACTION_BATTERY_LOW);
         registerReceiver(systemReceiver, filter);
+        //获取Fragments
+        getPresenter().getFragments();
     }
 
     @Override
@@ -121,16 +123,16 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         xiaoxue_ketang.setOnClickListener(this);
         viewpager.addOnPageChangeListener(this);
         radioGroup.setOnCheckedChangeListener(this);
-        getPresenter().getFragments();
+        adapter = new MainPagerAdapter(getSupportFragmentManager());
+        viewpager.setAdapter(adapter);
+        viewpager.setOffscreenPageLimit(2);
+
         initTitle();
-        getCurrentVolune();
-    }
-
-    private void getCurrentVolune() {
-        if (getPresenter() == null) return;
+        //获取系统音量，跟新界面
         getPresenter().getCurrentVolune();
-
     }
+
+
 
     private void initTitle() {
         tilteBar = findViewById(R.id.title_bar);
@@ -169,9 +171,8 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void setFragments(List<Fragment> fragments) {
-        adapter = new MainPagerAdapter(getSupportFragmentManager(), fragments);
-        viewpager.setAdapter(adapter);
-        viewpager.setOffscreenPageLimit(2);
+        adapter.setFragments(fragments);
+
     }
 
     @Override

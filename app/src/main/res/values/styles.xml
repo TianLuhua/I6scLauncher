@@ -75,7 +75,6 @@
     </style>
 
     <style name="Stlye_system_setting_text">
-        <item name="android:gravity">center</item>
         <item name="android:textColor">@color/color_333</item>
         <item name="android:textSize">22sp</item>
     </style>

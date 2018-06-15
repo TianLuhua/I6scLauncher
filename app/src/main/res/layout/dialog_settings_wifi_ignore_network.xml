@@ -20,7 +20,6 @@
         android:layout_height="52dp"
         android:layout_marginStart="47dp"
         android:layout_marginTop="133dp"
-        android:gravity="center"
         android:text="@string/hht" />
 
     <Button

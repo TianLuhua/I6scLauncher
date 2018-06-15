@@ -11,8 +11,18 @@ public class WifiModel {
     private int wifiType;//wifi加密方式 0:none  1:wep  2:wpa
     private boolean showDetail;//是否显示详细
     private boolean isConnect;//是否连接
+    private boolean isConfiged;//是否配置过，保存在系统中
+
+    public boolean getConfiged() {
+        return isConfiged;
+    }
+
+    public void setConfiged(boolean configed) {
+        isConfiged = configed;
+    }
 
     public String getWifiName() {
+
         return wifiName;
     }
 
@@ -36,6 +46,14 @@ public class WifiModel {
         this.intensity = intensity;
     }
 
+    public int getWifiType() {
+        return wifiType;
+    }
+
+    public void setWifiType(int wifiType) {
+        this.wifiType = wifiType;
+    }
+
     public boolean isShowDetail() {
         return showDetail;
     }
@@ -52,13 +70,7 @@ public class WifiModel {
         isConnect = connect;
     }
 
-    public int getWifiType() {
-        return wifiType;
-    }
 
-    public void setWifiType(int wifiType) {
-        this.wifiType = wifiType;
-    }
 
     @Override
     public String toString() {
@@ -69,6 +81,7 @@ public class WifiModel {
                 ", wifiType=" + wifiType +
                 ", showDetail=" + showDetail +
                 ", isConnect=" + isConnect +
-                '}';
+                ", isConfiged=" + isConfiged +
+                '}'+"\n";
     }
 }

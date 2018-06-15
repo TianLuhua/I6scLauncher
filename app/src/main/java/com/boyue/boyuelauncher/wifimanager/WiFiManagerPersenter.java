@@ -1,5 +1,7 @@
 package com.boyue.boyuelauncher.wifimanager;
 
+import android.app.Activity;
+
 import com.boyue.boyuelauncher.base.AbstractPresenter;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 
@@ -9,10 +11,10 @@ import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 public abstract class WiFiManagerPersenter extends AbstractPresenter<WiFiManagerView> {
 
     //忽略网络
-    public abstract void igonreNetwork(WifiModel data);
+    public abstract void igonreNetwork(WifiModel data, int position);
 
     //手动添加网络
-    public abstract void addNetwork();
+    public abstract void addNetwork(String SSID, String password, int wifiType);
 
     //广播注册
     public abstract void registerReceiver();
@@ -25,4 +27,6 @@ public abstract class WiFiManagerPersenter extends AbstractPresenter<WiFiManager
 
     //初始化界面UI
     public abstract void checkWifiStatus();
+
+    public abstract void connectWifi(WifiModel data, Activity activity);
 }

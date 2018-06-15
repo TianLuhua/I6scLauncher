@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.boyue.boyuelauncher.R;
@@ -19,6 +20,7 @@ public class Setting_WiFi_AddNetworkDialog extends DialogFragment implements Vie
     private TextView content;
     private Button leftBt;
     private Button rightBt;
+    private EditText textName, textPassWord;
 
     private OnWiFiSettingDialogOnListener onWiFiSettingDialogOnListener;
 
@@ -39,10 +41,13 @@ public class Setting_WiFi_AddNetworkDialog extends DialogFragment implements Vie
 
 
     private void initView(View rootVire) {
+
         title = rootVire.findViewById(R.id.dialog_title);
         content = rootVire.findViewById(R.id.dialog_content);
         leftBt = rootVire.findViewById(R.id.dialog_left);
         rightBt = rootVire.findViewById(R.id.dialog_right);
+        textName = rootVire.findViewById(R.id.dialog_net_name_editor);
+        textPassWord = rootVire.findViewById(R.id.dialog_net_pwd_editor);
         leftBt.setOnClickListener(this);
         rightBt.setOnClickListener(this);
     }
@@ -65,6 +70,14 @@ public class Setting_WiFi_AddNetworkDialog extends DialogFragment implements Vie
         rightBt.setText(rightStringRes);
     }
 
+    public String getNetName() {
+        return textName.getText().toString();
+    }
+
+    public String getNetPassword() {
+        return textPassWord.getText().toString();
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -76,7 +89,7 @@ public class Setting_WiFi_AddNetworkDialog extends DialogFragment implements Vie
 
             case R.id.dialog_right:
                 if (onWiFiSettingDialogOnListener == null) return;
-                onWiFiSettingDialogOnListener.onrightClick(v);
+                onWiFiSettingDialogOnListener.onRightClick(v);
                 break;
         }
     }

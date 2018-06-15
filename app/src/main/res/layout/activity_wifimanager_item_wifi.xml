@@ -10,11 +10,11 @@
 
         <TextView
             android:id="@+id/wifi_name"
-            android:layout_marginStart="25dp"
             style="@style/Stlye_system_setting_date_time_enable"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginStart="25dp"
             android:gravity="center_vertical"
             android:maxLines="1"
             android:text="@string/hht" />
@@ -29,7 +29,18 @@
             android:layout_toEndOf="@+id/wifi_name"
             android:gravity="center_vertical"
             android:maxLines="1"
-            android:text="@string/has_saved" />
+            android:text="@string/has_saved"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/connected_ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="11dp"
+            android:layout_toEndOf="@+id/wifi_name"
+            android:src="@mipmap/ic_system_settings_wifi_connected"
+            android:visibility="invisible" />
 
         <ImageView
             android:id="@+id/wifi_ic"
@@ -47,20 +58,10 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="23dp"
-            android:src="@mipmap/ic_system_settings_wifi_ignore" />
+            android:src="@mipmap/ic_system_settings_wifi_ignore"
+            android:visibility="invisible" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tvWifiDetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layWifi"
-        android:paddingBottom="10dp"
-        android:paddingEnd="15dp"
-        android:paddingStart="15dp"
-        android:textColor="#666666"
-        android:textSize="16sp"
-        android:visibility="gone" />
 
     <View
         android:layout_width="604dp"

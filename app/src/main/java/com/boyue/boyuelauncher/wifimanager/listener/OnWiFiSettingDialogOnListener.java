@@ -9,5 +9,5 @@ public interface OnWiFiSettingDialogOnListener {
 
     void onLeftClick(View view);
 
-    void onrightClick(View view);
+    void onRightClick(View view);
 }

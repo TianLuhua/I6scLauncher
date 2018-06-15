@@ -15,10 +15,13 @@ import android.widget.EditText;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.KeyboardUtil;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_IgnoreNetwork_Dialog;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Tianluhua on 2018/6/11.
@@ -33,18 +36,30 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     public WiFiManagerPersenterImp(Context mContext) {
         this.mContext = mContext;
         this.wiFiManagerMode = new WiFiManagerModeImp(mContext, this);
+
     }
 
 
     @Override
-    public void igonreNetwork(WifiModel data) {
+    public void igonreNetwork(WifiModel data, int position) {
+        LogUtils.e("tll", "WiFiManagerPersenterImp--:" + data.toString());
+
 
     }
 
     @Override
-    public void addNetwork() {
+    public void addNetwork(String ssid, String password, int wifiType) {
+        LogUtils.e("tll", "WiFiManagerPersenterImp---addNetwork:" + "ssid:" + ssid + ",password:" + password + ",wifiType:" + wifiType);
+        WifiConfiguration wifiConfig = createWifiInfo(ssid, password, wifiType);
+        int netId = wifiManager.addNetwork(wifiConfig);
+        if (netId != -1) {
+            wifiManager.saveConfiguration();
+        }
+        boolean flag = wifiManager.enableNetwork(netId, true);
+        ToastUtil.showShortToast("输入密码----启动连接：" + flag);
 
     }
+
 
     @Override
     public void registerReceiver() {
@@ -62,6 +77,11 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
         WiFiManagerView view = getView();
         if (view == null) return;
         view.getWifiStatus(wifiEnable);
+    }
+
+    @Override
+    public void connectWifi(WifiModel data, Activity activity) {
+        connectWifi(data.getWifiName(), data.getWifiType(), activity);
     }
 
 
@@ -89,6 +109,7 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
         wiFiManagerMode.startScnner();
     }
 
+
     /**
      * 连接Wifi
      */
@@ -104,7 +125,7 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
         if (networkId != -1) {//已经连接配置过
             wifiManager.disconnect();
             wifiManager.enableNetwork(networkId, true);
-            ToastUtil.showShortToast("启动连接：" + true);
+            ToastUtil.showShortToast("已经配置----启动连接：" + true);
         } else {//新的连接
             if (wifiType != 0) {//需要密码
                 AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
@@ -127,7 +148,7 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
                             wifiManager.saveConfiguration();
                         }
                         boolean flag = wifiManager.enableNetwork(netId, true);
-                        ToastUtil.showShortToast("启动连接：" + flag);
+                        ToastUtil.showShortToast("输入密码----启动连接：" + flag);
                     }
                 });
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -151,7 +172,7 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
                     wifiManager.saveConfiguration();
                 }
                 boolean flag = wifiManager.enableNetwork(netId, true);
-                ToastUtil.showShortToast("启动连接：" + flag);
+                ToastUtil.showShortToast("不需要密码---启动连接：" + flag);
             }
         }
     }
@@ -209,6 +230,24 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     }
 
 
+    /**
+     * 判断当前wifi是否有保存
+     *
+     * @param model
+     */
+    private void isConfiged(List<WifiConfiguration> isConfigedList, WifiModel model) {
+
+        for (WifiConfiguration existingConfig : isConfigedList) {
+            if (existingConfig.SSID.equals("\"" + model.getWifiName() + "\"")) {
+                model.setConfiged(true);
+                LogUtils.e("tll", "11111111111111111:" + model.getWifiName() + ":" + model.getConfiged());
+            } else {
+                model.setConfiged(false);
+                LogUtils.e("tll", "22222222222222222:" + model.getWifiName());
+            }
+        }
+    }
+
     @Override
     public void setWifiManager(WifiManager wifiManager) {
         this.wifiManager = wifiManager;
@@ -219,8 +258,15 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
         getView().startScnner();
     }
 
+
     @Override
     public void scnnered(ArrayList<WifiModel> dataList) {
+
+        List<WifiConfiguration> isConfigedList = wifiManager.getConfiguredNetworks();
+        //判断当前wifi是否已经保存，已经连接过
+        for (WifiModel model : dataList) {
+            isConfiged(isConfigedList, model);
+        }
         getView().scnnered(dataList);
     }
 

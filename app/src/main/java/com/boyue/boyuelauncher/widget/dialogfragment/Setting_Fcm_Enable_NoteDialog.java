@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.ScreenUtils;
 
-public class Setting_Fcm_Enable_NoteDialog extends Setting_text_01_tutton_03_Dialog {
+public class Setting_FCM_Enable_NoteDialog extends Setting_text_01_tutton_03_Dialog {
 
 
     @Override

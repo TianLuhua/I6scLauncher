@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.wifi.ScanResult;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiConfiguration;
@@ -68,12 +69,6 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
                 }
                 WifiModel model = new WifiModel();
                 model.setWifiName(result.SSID);
-                StringBuilder detail = new StringBuilder();
-                detail.append("加密方案:" + result.capabilities + "\n");
-                detail.append("物理地址(MAC):" + result.BSSID + "\n");
-                detail.append("信号电平(RSSI):" + result.level + "\n");
-                detail.append("热点频率(MHz):" + result.frequency);
-                model.setWifiDetail(detail.toString());
                 if (result.capabilities.contains("WEP")) {
                     model.setWifiType(1);
                 } else if (result.capabilities.contains("WPA")) {
@@ -83,6 +78,8 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
                 }
                 model.setIntensity(wifiManager.calculateSignalLevel(result.level, 5));//信号强度
                 model.setConnect(connectWifi.equals(result.SSID));//是否连接
+                if (dataList.contains(model))
+                    continue;
                 dataList.add(model);
             }
         }
@@ -97,7 +94,11 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
         }
     }
 
-    /** sort by level,if level equality by frequency, ssid */
+    /**
+     * 按照信号强度排序
+     *
+     * @param list
+     */
     private void sortByLevel(List<ScanResult> list) {
         Collections.sort(list, new Comparator<ScanResult>() {
 
@@ -134,6 +135,7 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
         intentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);//wifi扫描
         intentFilter.addAction(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION);//wifi验证密码
         intentFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);//wifi连接成功
+        intentFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);//wifi连接状态改变
         intentFilter.addAction(WifiManager.RSSI_CHANGED_ACTION);//wifi信号强度
         mContext.registerReceiver(wifiReceiver, intentFilter);
     }
@@ -178,13 +180,12 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
         //验证失败
         void verificationFail();
 
-        //验证失败
+        //验证ok
         void verificationSuceess(WifiInfo wifiInfo);
 
         //附近没有可用WIFI
         void notAvailableWifi();
     }
-
 
 
     /**
@@ -218,6 +219,7 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
                 SupplicantState state = info.getSupplicantState();
                 if (state == SupplicantState.COMPLETED) {
                     wifiManager.startScan();//验证成功,启动扫描
+                    callback.verificationSuceess(info);
                     ToastUtil.showShortToast("验证成功,启动扫描");
                 }
                 int errorCode = intent.getIntExtra(WifiManager.EXTRA_SUPPLICANT_ERROR, -1);
@@ -226,14 +228,26 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
                     if (callback == null) return;
                     callback.verificationFail();
                 }
-            } else if (WifiManager.SUPPLICANT_STATE_CHANGED_ACTION.equals(action)) {
-                WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-                if (wifiInfo != null) {
-                    if (callback == null) return;
-                    callback.verificationSuceess(wifiInfo);
-                    String wifiSSID = wifiInfo.getSSID();
-                    ToastUtil.showShortToast(wifiSSID + "连接成功");
+            } else if (action.equals(WifiManager.NETWORK_STATE_CHANGED_ACTION)) {
+                NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+                if (info.getState().equals(NetworkInfo.State.DISCONNECTED)) {
+                    ToastUtil.showShortToast("连接已断开");
+                } else if (info.getState().equals(NetworkInfo.State.CONNECTED)) {
+                    final WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+                    ToastUtil.showShortToast("已连接到网络:" + wifiInfo.getSSID());
+                } else {
+                    NetworkInfo.DetailedState state = info.getDetailedState();
+                    if (state == state.CONNECTING) {
+                        ToastUtil.showShortToast("连接中...");
+                    } else if (state == state.AUTHENTICATING) {
+                        ToastUtil.showShortToast("正在验证身份信息...");
+                    } else if (state == state.OBTAINING_IPADDR) {
+                        ToastUtil.showShortToast("正在获取IP地址...");
+                    } else if (state == state.FAILED) {
+                        ToastUtil.showShortToast("连接失败");
+                    }
                 }
+
             }
         }
     }

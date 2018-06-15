@@ -1,10 +1,10 @@
 package com.boyue.boyuelauncher.wifimanager;
 
 import android.net.wifi.WifiInfo;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -16,8 +16,11 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_AddNetworkDialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_IgnoreNetwork_Dialog;
 import com.boyue.boyuelauncher.wifimanager.adpter.WifiAdapter;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
+import com.boyue.boyuelauncher.wifimanager.listener.DataActionListener;
+import com.boyue.boyuelauncher.wifimanager.listener.OnItemClickListener;
 import com.boyue.boyuelauncher.wifimanager.listener.OnWiFiSettingDialogOnListener;
 
 import java.util.ArrayList;
@@ -46,7 +49,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
     @Override
     protected void initView() {
         //设置title
-        AppCompatImageView backBtn = findViewById(R.id.title_bar).findViewById(R.id.left_icon);
+        final AppCompatImageView backBtn = findViewById(R.id.title_bar).findViewById(R.id.left_icon);
         backBtn.setOnClickListener(this);
         TextView tilte = findViewById(R.id.title_bar).findViewById(R.id.title);
         tilte.setText(R.string.wifi_setting);
@@ -66,6 +69,47 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         wlanSwitch.setOnCheckedChangeListener(this);
         dataView = findViewById(R.id.dataView);
         dataAdapter = new WifiAdapter(getApplicationContext());
+        dataAdapter.setDataActionListener(new DataActionListener() {
+            @Override
+            public void onIgnore(final WifiModel data, final int position) {
+
+                final Setting_WiFi_IgnoreNetwork_Dialog alBuild = new Setting_WiFi_IgnoreNetwork_Dialog(WiFiManagerActivity.this, R.style.Stlye_wifi_settings_dialog);
+                StringBuilder builder = new StringBuilder();
+                builder.append("     你确定要忽略 \"");
+                builder.append(data.getWifiName());
+                builder.append("\" 网络？");
+                alBuild.setCancelable(false);
+                alBuild.setContent(builder.toString());
+                final AlertDialog dialog = alBuild.create();
+                dialog.show();
+                alBuild.setOnWiFiSettingDialogOnListener(new OnWiFiSettingDialogOnListener() {
+                    @Override
+                    public void onLeftClick(View view) {
+                        //点击了忽略网络
+                        getPresenter().igonreNetwork(data, position);
+                        dialog.dismiss();
+
+                    }
+
+                    @Override
+                    public void onRightClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+        dataAdapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(WifiModel data, int position) {
+                getPresenter().connectWifi(data, WiFiManagerActivity.this);
+
+            }
+
+            @Override
+            public void onItemLongClick(int position) {
+
+            }
+        });
         dataView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         dataView.setAdapter(dataAdapter);
         //获取系统初始化状态
@@ -108,11 +152,13 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                 dialog.setWiFiSettingDialogOnListener(new OnWiFiSettingDialogOnListener() {
                     @Override
                     public void onLeftClick(View view) {
+                        getPresenter().addNetwork(dialog.getNetName(), dialog.getNetPassword(), 2);
+                        dialog.dismiss();
 
                     }
 
                     @Override
-                    public void onrightClick(View view) {
+                    public void onRightClick(View view) {
                         dialog.dismiss();
                     }
                 });
@@ -131,21 +177,15 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         }
     }
 
-    @Override
-    public void startScnner() {
-        LogUtils.e("tll","WiFiManagerActivity---startScnner");
-        //开始扫描
-        if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
-            wifiStatusLabel.setVisibility(View.VISIBLE);
-        if (wifiStatusGroup.getVisibility() == View.VISIBLE)
-            wifiStatusGroup.setVisibility(View.INVISIBLE);
-        wifiStatusLabel.setText(R.string.scnnering);
-    }
 
     @Override
     public void scnnered(ArrayList<WifiModel> dataList) {
         //扫描完毕，返回数据
-        LogUtils.e("tlh", "WiFiManagerActivity  scnnered dataList.size():" + dataList.size());
+        LogUtils.e("tlh", "11111111111111111WiFiManagerActivity  scnnered dataList.size():" + dataList.size());
+        for (WifiModel model : dataList) {
+            LogUtils.e("tlh", "11111111111111111scnnered:" + model.getWifiName() + "," + model.getConfiged());
+
+        }
         dataAdapter.setDataList(dataList);
 
         if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
@@ -153,6 +193,17 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         if (wifiStatusGroup.getVisibility() == View.VISIBLE)
             wifiStatusGroup.setVisibility(View.INVISIBLE);
         wifiStatusLabel.setText(R.string.scnnered);
+    }
+
+    @Override
+    public void startScnner() {
+        LogUtils.e("tll", "WiFiManagerActivity---startScnner");
+        //开始扫描
+        if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
+            wifiStatusLabel.setVisibility(View.VISIBLE);
+        if (wifiStatusGroup.getVisibility() == View.VISIBLE)
+            wifiStatusGroup.setVisibility(View.INVISIBLE);
+        wifiStatusLabel.setText(R.string.scnnering);
     }
 
     @Override
@@ -187,7 +238,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         wifiSColseIcon.setVisibility(wifiEnable ? View.INVISIBLE : View.VISIBLE);
         wifiStatusLabel.setVisibility(wifiEnable ? View.VISIBLE : View.INVISIBLE);
         wifiStatusGroup.setVisibility(wifiEnable ? View.INVISIBLE : View.VISIBLE);
-        wifiStatusLabel.setText(wifiEnable?R.string.scnnering:R.string.wifi_enable);
+        wifiStatusLabel.setText(wifiEnable ? R.string.scnnering : R.string.wifi_enable);
     }
 
     @Override
@@ -207,7 +258,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
             wifiStatusGroup.setVisibility(View.VISIBLE);
         wifiStatussName.setText(wifiInfo.getBSSID());
         wifiStatussStatus.setText(R.string.connected);
-        wifiStatussIpaddress.setText(wifiInfo.getIpAddress());
+        wifiStatussIpaddress.setText("" + wifiInfo.getIpAddress());
         wifiStatussMac.setText(wifiInfo.getMacAddress());
     }
 }
