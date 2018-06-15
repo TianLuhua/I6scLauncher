@@ -25,14 +25,12 @@ import java.util.List;
 
 public class WifiAdapter extends RecyclerView.Adapter {
 
-    private Context context;
     private ArrayList<WifiModel> dataList;
     private LayoutInflater layoutInflater;
     private OnItemClickListener onItemClickListener;
     private DataActionListener dataActionListener;
 
     public WifiAdapter(Context context) {
-        this.context = context;
         this.dataList = new ArrayList<>();
         this.layoutInflater = LayoutInflater.from(context);
     }

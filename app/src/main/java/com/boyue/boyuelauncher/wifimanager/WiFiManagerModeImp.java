@@ -36,7 +36,6 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
 
     private ArrayList<ScanResult> scanResultList;//扫描wifi列表
     private ArrayList<WifiModel> dataList;//wifi列表显示
-    private List<WifiConfiguration> configuredNetworks;//wifiManager记录以前连接过的wifi信息
 
     public WiFiManagerModeImp(Context mContext, Callback callback) {
         this.mContext = mContext;
@@ -45,7 +44,6 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
         callback.setWifiManager(wifiManager);
         this.scanResultList = new ArrayList<>();
         this.dataList = new ArrayList<>();
-        configuredNetworks = wifiManager.getConfiguredNetworks();
     }
 
 
@@ -101,7 +99,6 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
      */
     private void sortByLevel(List<ScanResult> list) {
         Collections.sort(list, new Comparator<ScanResult>() {
-
             @Override
             public int compare(ScanResult lhs, ScanResult rhs) {
                 int num = rhs.level - lhs.level;
@@ -122,6 +119,7 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
             if (callback != null) {
                 callback.startScnner();
             }
+            wifiManager.startScan();
         } else {
             wifiManager.setWifiEnabled(true);
         }
@@ -212,13 +210,13 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
                 loadData();//扫描完成
                 ToastUtil.showShortToast("Wifi扫描完成");
             } else if (WifiManager.RSSI_CHANGED_ACTION.equals(action)) {
-                wifiManager.startScan();//信号强度变化，重新扫描
+//                wifiManager.startScan();//信号强度变化，重新扫描
                 ToastUtil.showShortToast("信号强度变化，重新扫描");
             } else if (WifiManager.SUPPLICANT_STATE_CHANGED_ACTION.equals(action)) {
                 WifiInfo info = wifiManager.getConnectionInfo();
                 SupplicantState state = info.getSupplicantState();
                 if (state == SupplicantState.COMPLETED) {
-                    wifiManager.startScan();//验证成功,启动扫描
+//                    wifiManager.startScan();//验证成功,启动扫描
                     callback.verificationSuceess(info);
                     ToastUtil.showShortToast("验证成功,启动扫描");
                 }

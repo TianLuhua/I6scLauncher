@@ -43,8 +43,7 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     @Override
     public void igonreNetwork(WifiModel data, int position) {
         LogUtils.e("tll", "WiFiManagerPersenterImp--:" + data.toString());
-
-
+        removeWifiBySsid(data.getWifiName());
     }
 
     @Override
@@ -89,10 +88,7 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     public void setWifiEnabled(boolean isEnable) {
 
         wifiManager.setWifiEnabled(isEnable);
-
-
         getView().getWifiStatus(isEnable);
-
         if (isEnable) {
             openWifi();
         } else {
@@ -248,6 +244,33 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
         }
     }
 
+    /**
+     * 忘记某一个wifi
+     *
+     * @param targetSsid
+     */
+    private void removeWifiBySsid(String targetSsid) {
+        LogUtils.e("tll", "removeWifiBySsid--targetSsid:" + targetSsid);
+        List<WifiConfiguration> wifiConfigs = wifiManager.getConfiguredNetworks();
+        for (WifiConfiguration wifiConfig : wifiConfigs) {
+            String ssid = wifiConfig.SSID;
+            LogUtils.e("tll", "removeWifiBy--wifiConfig--Ssid:" + ssid);
+            if (ssid.equals(targetSsid)) {
+
+
+
+                boolean removeOk = wifiManager.removeNetwork(wifiConfig.networkId);
+                wifiManager.saveConfiguration();
+                if (removeOk) {
+                    LogUtils.e("tll", "removeWifiBy:" + targetSsid);
+                } else {
+                    LogUtils.e("tll", "remove  失败！");
+                }
+
+            }
+        }
+    }
+
     @Override
     public void setWifiManager(WifiManager wifiManager) {
         this.wifiManager = wifiManager;
@@ -261,7 +284,6 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
 
     @Override
     public void scnnered(ArrayList<WifiModel> dataList) {
-
         List<WifiConfiguration> isConfigedList = wifiManager.getConfiguredNetworks();
         //判断当前wifi是否已经保存，已经连接过
         for (WifiModel model : dataList) {

@@ -59,7 +59,7 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="23dp"
             android:src="@mipmap/ic_system_settings_wifi_ignore"
-            android:visibility="invisible" />
+             />
     </RelativeLayout>
 
 

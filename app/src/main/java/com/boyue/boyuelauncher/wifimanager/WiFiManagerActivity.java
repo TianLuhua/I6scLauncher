@@ -251,14 +251,20 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
 
     @Override
     public void verificationSuceess(WifiInfo wifiInfo) {
+        LogUtils.e("tlh","verificationSuceess:"+wifiInfo.toString());
         //连接成功
         if (wifiStatusLabel.getVisibility() == View.VISIBLE)
             wifiStatusLabel.setVisibility(View.INVISIBLE);
         if (wifiStatusGroup.getVisibility() == View.INVISIBLE)
             wifiStatusGroup.setVisibility(View.VISIBLE);
-        wifiStatussName.setText(wifiInfo.getBSSID());
+        wifiStatussName.setText(wifiInfo.getSSID());
         wifiStatussStatus.setText(R.string.connected);
-        wifiStatussIpaddress.setText("" + wifiInfo.getIpAddress());
+        wifiStatussIpaddress.setText(intToIp(wifiInfo.getIpAddress()));
         wifiStatussMac.setText(wifiInfo.getMacAddress());
+    }
+
+    private String intToIp(int i) {
+        return (i & 0xFF) + "." + ((i >> 8) & 0xFF) + "." + ((i >> 16) & 0xFF) + "."
+                + ((i >> 24) & 0xFF);
     }
 }

@@ -24,7 +24,7 @@ import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_Enable_NoteDialog;
-import com.boyue.boyuelauncher.widget.dialogfragment.Setting_text_01_tutton_03_Dialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Text_01_Tutton_03_Dialog;
 
 import java.lang.ref.WeakReference;
 
@@ -233,7 +233,7 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
         if (fragmentManager.findFragmentByTag(Config.DialogGlod.SETTING_ENABLE_FCM_PASSWORD) == null) {
             final Setting_FCM_Enable_NoteDialog dialog = new Setting_FCM_Enable_NoteDialog();
             dialog.setCancelable(false);
-            dialog.setOnclickListener(new Setting_text_01_tutton_03_Dialog.OnclickListener() {
+            dialog.setOnclickListener(new Setting_Text_01_Tutton_03_Dialog.OnclickListener() {
                 @Override
                 public void onLeftClick(View v) {
                     //useless
