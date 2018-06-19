@@ -1,8 +1,10 @@
 package com.boyue.boyuelauncher.widget.dialogfragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,7 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.wifimanager.listener.OnWiFiSettingDialogOnListener;
 
-public class Setting_WiFi_AddNetworkDialog extends DialogFragment implements View.OnClickListener {
+public class Setting_WiFi_AddNetworkDialog extends AlertDialog.Builder implements View.OnClickListener {
 
     private TextView title;
     private TextView content;
@@ -24,19 +26,11 @@ public class Setting_WiFi_AddNetworkDialog extends DialogFragment implements Vie
 
     private OnWiFiSettingDialogOnListener onWiFiSettingDialogOnListener;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.Stlye_wifi_settings_dialog);
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View rootVire = inflater.inflate(R.layout.dialog_settings_wifi_addnetwork, null, false);
-        initView(rootVire);
-        return rootVire;
+    public Setting_WiFi_AddNetworkDialog(Context context, int stlye_wifi_settings_dialog) {
+        super(context, stlye_wifi_settings_dialog);
+        View rootView = LayoutInflater.from(context).inflate(R.layout.dialog_settings_wifi_addnetwork, null);
+        setView(rootView);
+        initView(rootView);
     }
 
 
@@ -52,7 +46,7 @@ public class Setting_WiFi_AddNetworkDialog extends DialogFragment implements Vie
         rightBt.setOnClickListener(this);
     }
 
-    public void setTitle(int titlRes) {
+    public void setTitleText(int titlRes) {
         if (title == null) return;
         title.setText(titlRes);
     }

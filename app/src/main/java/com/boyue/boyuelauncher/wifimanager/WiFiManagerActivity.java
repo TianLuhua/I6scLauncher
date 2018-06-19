@@ -1,5 +1,6 @@
 package com.boyue.boyuelauncher.wifimanager;
 
+import android.content.DialogInterface;
 import android.net.wifi.WifiInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatImageView;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -138,6 +140,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         super.onPause();
     }
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -145,26 +148,29 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                 this.finish();
                 break;
             case R.id.manually_add_network:
-                final Setting_WiFi_AddNetworkDialog dialog = new Setting_WiFi_AddNetworkDialog();
-                dialog.setTitle(R.string.ignore_network);
-                dialog.setBtnString(R.string.cancel, R.string.manually_add_network);
-                dialog.setCancelable(false);
-                dialog.show(getSupportFragmentManager(), "addNetwork");
-                dialog.setWiFiSettingDialogOnListener(new OnWiFiSettingDialogOnListener() {
+
+                final Setting_WiFi_AddNetworkDialog build = new Setting_WiFi_AddNetworkDialog(WiFiManagerActivity.this, R.style.Stlye_wifi_settings_dialog);
+                final AlertDialog dialog = build.create();
+                build.setTitleText(R.string.manually_add_network);
+                build.setBtnString(R.string.cancel, R.string.ok);
+                build.setCancelable(false);
+                dialog.show();
+                build.setWiFiSettingDialogOnListener(new OnWiFiSettingDialogOnListener() {
                     @Override
                     public void onLeftClick(View view) {
-                        getPresenter().addNetwork(dialog.getNetName(), dialog.getNetPassword(), 2);
                         dialog.dismiss();
 
                     }
 
                     @Override
                     public void onRightClick(View view) {
+                        getPresenter().addNetwork(build.getNetName(), build.getNetPassword(), 2);
                         dialog.dismiss();
                     }
                 });
 
                 break;
+
         }
     }
 
