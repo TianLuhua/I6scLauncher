@@ -106,6 +106,7 @@
     <string name="ip_address">IP地址:</string>
     <string name="mac">MAC:</string>
     <string name="manually_add_network">手动添加网络</string>
+    <string name="connect_network">连接网络</string>
     <string name="dialog_net_name">网络名称：</string>
     <string name="dialog_net_pwd">密码：</string>
     <string name="verification_fail">连接失败!</string>

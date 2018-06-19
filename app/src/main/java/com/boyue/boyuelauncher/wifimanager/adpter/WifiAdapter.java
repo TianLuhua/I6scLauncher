@@ -77,13 +77,16 @@ public class WifiAdapter extends RecyclerView.Adapter {
             //是否连接过，保存在系统中
             if (data.getConfiged()) {
                 viewHolder.tvIsConofiged.setVisibility(View.VISIBLE);
+                viewHolder.ivIgnore.setVisibility(View.VISIBLE);
             } else {
                 viewHolder.tvIsConofiged.setVisibility(View.INVISIBLE);
+                viewHolder.ivIgnore.setVisibility(View.INVISIBLE);
             }
             //是否是当前连接的WIFI
             if (data.isConnect()) {
                 viewHolder.ivConnected.setVisibility(View.VISIBLE);
                 viewHolder.tvIsConofiged.setVisibility(View.INVISIBLE);
+                viewHolder.ivIgnore.setVisibility(View.VISIBLE);
 
             } else {
                 viewHolder.ivConnected.setVisibility(View.INVISIBLE);

@@ -75,7 +75,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         dataAdapter.setDataActionListener(new DataActionListener() {
             @Override
             public void onIgnore(final WifiModel data, final int position) {
-
+//互联网络
                 final Setting_WiFi_IgnoreNetwork_Dialog alBuild = new Setting_WiFi_IgnoreNetwork_Dialog(WiFiManagerActivity.this, R.style.Stlye_wifi_settings_dialog);
                 StringBuilder builder = new StringBuilder();
                 builder.append("     你确定要忽略 \"");
@@ -103,8 +103,10 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         });
         dataAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(WifiModel data, int position) {
-                getPresenter().connectWifi(data, WiFiManagerActivity.this);
+            public void onItemClick(final WifiModel data, int position) {
+//手动连接网络
+                getPresenter().connectWifi(data);
+
 
             }
 
@@ -148,7 +150,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
                 this.finish();
                 break;
             case R.id.manually_add_network:
-
+//手动添加网络
                 final Setting_WiFi_AddNetworkDialog build = new Setting_WiFi_AddNetworkDialog(WiFiManagerActivity.this, R.style.Stlye_wifi_settings_dialog);
                 final AlertDialog dialog = build.create();
                 build.setTitleText(R.string.manually_add_network);

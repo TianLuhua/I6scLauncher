@@ -17,8 +17,10 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.KeyboardUtil;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_AddNetworkDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_IgnoreNetwork_Dialog;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
+import com.boyue.boyuelauncher.wifimanager.listener.OnWiFiSettingDialogOnListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +45,7 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     @Override
     public void igonreNetwork(WifiModel data, int position) {
         LogUtils.e("tll", "WiFiManagerPersenterImp--:" + data.toString());
-        removeWifiBySsid(data.getWifiName());
+        removeWifiBySsid("\"" + data.getWifiName() + "\"");
     }
 
     @Override
@@ -79,8 +81,8 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     }
 
     @Override
-    public void connectWifi(WifiModel data, Activity activity) {
-        connectWifi(data.getWifiName(), data.getWifiType(), activity);
+    public void connectWifi(WifiModel data) {
+        connectWifi(data.getWifiName(), data.getWifiType());
     }
 
 
@@ -107,9 +109,9 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
 
 
     /**
-     * 连接Wifi
+     * 连接Wifi，分为需要密码和不需要密码
      */
-    private void connectWifi(final String ssid, final int wifiType, final Activity activity) {
+    private void connectWifi(final String ssid, final int wifiType) {
         int networkId = -1;
         for (WifiConfiguration configuration : wifiManager.getConfiguredNetworks()) {
             String configId = configuration.SSID.replaceAll("\"", "");
@@ -124,16 +126,24 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
             ToastUtil.showShortToast("已经配置----启动连接：" + true);
         } else {//新的连接
             if (wifiType != 0) {//需要密码
-                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                builder.setTitle("输入密码");
-                LayoutInflater factory = LayoutInflater.from(mContext);
-                View view = factory.inflate(R.layout.lay_dialog_input, null);
-                final EditText etDialogInput = (EditText) view.findViewById(R.id.etDialogInput);
-                builder.setView(view);
-                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                final Setting_WiFi_AddNetworkDialog build = new Setting_WiFi_AddNetworkDialog((WiFiManagerActivity)getView(), R.style.Stlye_wifi_settings_dialog);
+                final AlertDialog dialog = build.create();
+                build.setTitleText(R.string.connect_network);
+                build.setBtnString(R.string.cancel, R.string.ok);
+                build.setCancelable(false);
+                build.setNetName(ssid);
+                build.passWordEditorRequstFocuse();
+                dialog.show();
+                build.setWiFiSettingDialogOnListener(new OnWiFiSettingDialogOnListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String code = etDialogInput.getText().toString();
+                    public void onLeftClick(View view) {
+                        dialog.dismiss();
+
+                    }
+
+                    @Override
+                    public void onRightClick(View view) {
+                        String code = build.getNetPassword();
                         if (TextUtils.isEmpty(code)) {
                             ToastUtil.showShortToast("请输入密码");
                             return;
@@ -145,22 +155,10 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
                         }
                         boolean flag = wifiManager.enableNetwork(netId, true);
                         ToastUtil.showShortToast("输入密码----启动连接：" + flag);
+                        dialog.dismiss();
                     }
                 });
-                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-                builder.setCancelable(true);
-                builder.show();
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        etDialogInput.requestFocus();
-                        KeyboardUtil.showSoftInput(activity);
-                    }
-                }, 200);
+
             } else {//不需要密码
                 WifiConfiguration wifiConfig = createWifiInfo(ssid, "", wifiType);
                 int netId = wifiManager.addNetwork(wifiConfig);
@@ -234,6 +232,7 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     private void isConfiged(List<WifiConfiguration> isConfigedList, WifiModel model) {
 
         for (WifiConfiguration existingConfig : isConfigedList) {
+            //系统保存的WiFi的名字带有引号，所以这里需要在名字首末添加分号，需要用：\" 转义
             if (existingConfig.SSID.equals("\"" + model.getWifiName() + "\"")) {
                 model.setConfiged(true);
             } else {
@@ -254,14 +253,14 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
             String ssid = wifiConfig.SSID;
             LogUtils.e("tll", "removeWifiBy--wifiConfig--Ssid:" + ssid);
             if (ssid.equals(targetSsid)) {
-
-
                 boolean removeOk = wifiManager.removeNetwork(wifiConfig.networkId);
                 wifiManager.saveConfiguration();
                 if (removeOk) {
-                    LogUtils.e("tll", "removeWifiBy:" + targetSsid);
+                    LogUtils.e("tll", "remove----  成功！:" + targetSsid);
+                    //移除成功，通知系统重新扫描
+                    wifiManager.startScan();
                 } else {
-                    LogUtils.e("tll", "remove  失败！");
+                    LogUtils.e("tll", "remove----  失败！");
                 }
 
             }

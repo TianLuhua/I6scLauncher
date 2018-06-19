@@ -28,5 +28,6 @@ public abstract class WiFiManagerPersenter extends AbstractPresenter<WiFiManager
     //初始化界面UI
     public abstract void checkWifiStatus();
 
-    public abstract void connectWifi(WifiModel data, Activity activity);
+    //连接wifi
+    public abstract void connectWifi(WifiModel data);
 }
