@@ -279,7 +279,8 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
             wifiStatusLabel.setVisibility(View.INVISIBLE);
         if (wifiStatusGroup.getVisibility() == View.INVISIBLE)
             wifiStatusGroup.setVisibility(View.VISIBLE);
-        wifiStatussName.setText(wifiInfo.getSSID());
+        //去掉引号
+        wifiStatussName.setText(wifiInfo.getSSID().replaceAll("\"", ""));
         wifiStatussStatus.setText(R.string.connected);
         wifiStatussIpaddress.setText(intToIp(wifiInfo.getIpAddress()));
         wifiStatussMac.setText(wifiInfo.getMacAddress());
