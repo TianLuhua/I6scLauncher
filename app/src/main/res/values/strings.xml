@@ -117,6 +117,7 @@
     <string name="scnnering">正在检测......</string>
     <string name="scnnered">扫描完成</string>
     <string name="not_available_wifi">没有可用WIFI</string>
+    <string name="disconnected">断开连接！</string>
 
 
     <!--火火兔学堂-->

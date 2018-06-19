@@ -38,6 +38,7 @@ public class HHT_LY_ModeImp implements HHT_LY_Mode {
 
     @Override
     public void getItemIcon() {
+        final ArrayList<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
         ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
             @Override
             public void run() {
@@ -46,7 +47,6 @@ public class HHT_LY_ModeImp implements HHT_LY_Mode {
 
                 //图标下的文字
                 String name[] = mContext.getResources().getStringArray(R.array.hht_ly_items_text);
-                ArrayList<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
                 for (int i = 0; i < name.length; i++) {
                     Map<String, Object> map = new HashMap<String, Object>();
                     map.put("img", icno.getResourceId(i, 0));

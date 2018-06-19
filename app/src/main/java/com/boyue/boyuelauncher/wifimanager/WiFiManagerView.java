@@ -27,9 +27,15 @@ public interface WiFiManagerView extends BaseView {
     //验证失败
     void verificationFail();
 
+    //回调验证过程
+    void verificationing(String status);
+
     //验证成功
     void verificationSuceess(WifiInfo wifiInfo);
 
     //附近没有可用WIFI
     void notAvailableWifi();
+
+    //断开连接
+    void disconnected();
 }

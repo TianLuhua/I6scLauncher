@@ -14,6 +14,7 @@ import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.text.TextUtils;
 
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 
@@ -86,7 +87,7 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
             if (callback == null) return;
             callback.scnnered(dataList);
         } else {
-            //数据异常，请处理
+            //附近没有可用WiFi
             if (callback == null) return;
             callback.notAvailableWifi();
         }
@@ -178,11 +179,17 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
         //验证失败
         void verificationFail();
 
+        //真正验证，验证时候的状态：CONNECTING、AUTHENTICATING、OBTAINING_IPADDR、FAILED
+        void verificationing(String status);
+
         //验证ok
         void verificationSuceess(WifiInfo wifiInfo);
 
         //附近没有可用WIFI
         void notAvailableWifi();
+
+        //断开连接
+        void disconnected();
     }
 
 
@@ -210,39 +217,28 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
                 loadData();//扫描完成
                 ToastUtil.showShortToast("Wifi扫描完成");
             } else if (WifiManager.RSSI_CHANGED_ACTION.equals(action)) {
-//                wifiManager.startScan();//信号强度变化，重新扫描
+                wifiManager.startScan();//信号强度变化，重新扫描
                 ToastUtil.showShortToast("信号强度变化，重新扫描");
-            } else if (WifiManager.SUPPLICANT_STATE_CHANGED_ACTION.equals(action)) {
-                WifiInfo info = wifiManager.getConnectionInfo();
-                SupplicantState state = info.getSupplicantState();
-                if (state == SupplicantState.COMPLETED) {
-//                    wifiManager.startScan();//验证成功,启动扫描
-                    callback.verificationSuceess(info);
-                    ToastUtil.showShortToast("验证成功,启动扫描");
-                }
-                int errorCode = intent.getIntExtra(WifiManager.EXTRA_SUPPLICANT_ERROR, -1);
-                if (errorCode == WifiManager.ERROR_AUTHENTICATING) {
-                    ToastUtil.showShortToast("验证失败");
-                    if (callback == null) return;
-                    callback.verificationFail();
-                }
             } else if (action.equals(WifiManager.NETWORK_STATE_CHANGED_ACTION)) {
                 NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
                 if (info.getState().equals(NetworkInfo.State.DISCONNECTED)) {
                     ToastUtil.showShortToast("连接已断开");
+                    callback.disconnected();
                 } else if (info.getState().equals(NetworkInfo.State.CONNECTED)) {
                     final WifiInfo wifiInfo = wifiManager.getConnectionInfo();
                     ToastUtil.showShortToast("已连接到网络:" + wifiInfo.getSSID());
+                    callback.verificationSuceess(wifiInfo);
                 } else {
                     NetworkInfo.DetailedState state = info.getDetailedState();
+                    LogUtils.e("tlh", "WiFiManagerModeImp---DetailedState:" + state);
                     if (state == state.CONNECTING) {
-                        ToastUtil.showShortToast("连接中...");
+                        callback.verificationing("连接中...");
                     } else if (state == state.AUTHENTICATING) {
-                        ToastUtil.showShortToast("正在验证身份信息...");
+                        callback.verificationing("正在验证身份信息...");
                     } else if (state == state.OBTAINING_IPADDR) {
-                        ToastUtil.showShortToast("正在获取IP地址...");
+                        callback.verificationing("正在获取IP地址...");
                     } else if (state == state.FAILED) {
-                        ToastUtil.showShortToast("连接失败");
+                        callback.verificationing("连接失败");
                     }
                 }
 

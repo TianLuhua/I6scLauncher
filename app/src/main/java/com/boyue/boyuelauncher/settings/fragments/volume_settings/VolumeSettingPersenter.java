@@ -44,8 +44,8 @@ public class VolumeSettingPersenter extends AbstractPresenter<VolumeSettingView>
     public void setSystMaxVolume(int progress) {
 
         //设置为最大音量
-
-        audioMa = (AudioManager)mContext.getSystemService(Context.AUDIO_SERVICE);
-        audioMa.setStreamVolume(AudioManager.STREAM_MUSIC, progress,AudioManager.FLAG_SHOW_UI);
+//
+//        audioMa = (AudioManager)mContext.getSystemService(Context.AUDIO_SERVICE);
+//        audioMa.setStreamVolume(AudioManager.STREAM_MUSIC, progress,AudioManager.FLAG_SHOW_UI);
     }
 }

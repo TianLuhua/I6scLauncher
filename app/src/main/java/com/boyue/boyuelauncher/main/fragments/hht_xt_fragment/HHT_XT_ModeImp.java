@@ -39,6 +39,7 @@ public class HHT_XT_ModeImp implements HHT_XT_Mode {
 
     @Override
     public void getItemIcon() {
+        final ArrayList<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
         ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
             @Override
             public void run() {
@@ -46,7 +47,6 @@ public class HHT_XT_ModeImp implements HHT_XT_Mode {
                 TypedArray icno = mContext.getResources().obtainTypedArray(R.array.hht_xt_items_image);
                 //图标下的文字
                 String name[] = mContext.getResources().getStringArray(R.array.hht_xt_items_text);
-                ArrayList<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
                 for (int i = 0; i < name.length; i++) {
                     Map<String, Object> map = new HashMap<String, Object>();
                     map.put("img", icno.getResourceId(i, 0));

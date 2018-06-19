@@ -183,7 +183,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        LogUtils.e("tlh", "onCheckedChanged:" + checkedId);
         switch (checkedId) {
             case R.id.hht_xt:
                 viewpager.setCurrentItem(0);
@@ -204,7 +203,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//        LogUtils.e("tlh", "onPageScrolled---position:" + position + " ,positionOffset:" + positionOffset + ",positionOffsetPixels:" + positionOffsetPixels);
 
         if (isDragging) {
             if (position == 0 && positionOffset == 0.0 && positionOffsetPixels == 0) {
@@ -240,7 +238,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void onPageScrollStateChanged(int state) {
-//        LogUtils.e("tlh", "onPageScrollStateChanged:" + state);
         isDragging = state == 1;
     }
 

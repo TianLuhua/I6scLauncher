@@ -52,14 +52,21 @@ public class MainModeImp implements MainMode {
 
     @Override
     public void getFragments() {
+        final List<Fragment> fragments = new ArrayList<>();
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                fragments.add(HHT_XT_Fragment.newInstance());
+                fragments.add(HHT_AR_Fragment.newInstance());
+                fragments.add(HHT_LY_Fragment.newInstance());
+                fragments.add(HHT_BX_Fragment.newInstance());
 
-        List<Fragment> fragments = new ArrayList<>();
-        fragments.add(HHT_XT_Fragment.newInstance());
-        fragments.add(HHT_AR_Fragment.newInstance());
-        fragments.add(HHT_LY_Fragment.newInstance());
-        fragments.add(HHT_BX_Fragment.newInstance());
-        if (callBack == null) return;
-        callBack.setFragments(fragments);
+                if (callBack == null) return;
+                callBack.setFragments(fragments);
+            }
+        });
+
+
     }
 
 

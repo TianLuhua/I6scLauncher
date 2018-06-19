@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_AddNetworkDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_IgnoreNetwork_Dialog;
 import com.boyue.boyuelauncher.wifimanager.adpter.WifiAdapter;
@@ -179,31 +180,20 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
 
 
     @Override
-    public void scnnered(ArrayList<WifiModel> dataList) {
-        //扫描完毕，返回数据
-        LogUtils.e("tlh", "11111111111111111WiFiManagerActivity  scnnered dataList.size():" + dataList.size());
-        for (WifiModel model : dataList) {
-            LogUtils.e("tlh", "11111111111111111scnnered:" + model.getWifiName() + "," + model.getConfiged());
-
-        }
-        dataAdapter.setDataList(dataList);
-
-        if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
-            wifiStatusLabel.setVisibility(View.VISIBLE);
-        if (wifiStatusGroup.getVisibility() == View.VISIBLE)
-            wifiStatusGroup.setVisibility(View.INVISIBLE);
-        wifiStatusLabel.setText(R.string.scnnered);
-    }
-
-    @Override
     public void startScnner() {
-        LogUtils.e("tll", "WiFiManagerActivity---startScnner");
         //开始扫描
         if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
             wifiStatusLabel.setVisibility(View.VISIBLE);
         if (wifiStatusGroup.getVisibility() == View.VISIBLE)
             wifiStatusGroup.setVisibility(View.INVISIBLE);
         wifiStatusLabel.setText(R.string.scnnering);
+    }
+
+    @Override
+    public void scnnered(ArrayList<WifiModel> dataList) {
+        //扫描完毕，返回数据
+        dataAdapter.setDataList(dataList);
+
     }
 
     @Override
@@ -217,7 +207,18 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
     }
 
     @Override
+    public void disconnected() {
+        //扫描完毕，附近没有可用WIFI
+        if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
+            wifiStatusLabel.setVisibility(View.VISIBLE);
+        if (wifiStatusGroup.getVisibility() == View.VISIBLE)
+            wifiStatusGroup.setVisibility(View.INVISIBLE);
+        wifiStatusLabel.setText(R.string.disconnected);
+    }
+
+    @Override
     public void closeWifi() {
+        LogUtils.e("tlh", "WiFiManagerActivity---closeWifi()");
         //关闭WIFI
         dataAdapter.clear();
         if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
@@ -250,8 +251,21 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
     }
 
     @Override
+    public void verificationing(String status) {
+        ToastUtil.showShortToast(status);
+        LogUtils.e("tlh", "WiFiManagerActivity---verificationing:" + status);
+
+        if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
+            wifiStatusLabel.setVisibility(View.VISIBLE);
+
+        if (wifiStatusGroup.getVisibility() == View.VISIBLE)
+            wifiStatusGroup.setVisibility(View.INVISIBLE);
+        wifiStatusLabel.setText(status);
+    }
+
+    @Override
     public void verificationSuceess(WifiInfo wifiInfo) {
-        LogUtils.e("tlh","verificationSuceess:"+wifiInfo.toString());
+        LogUtils.e("tlh", "verificationSuceess:" + wifiInfo.toString());
         //连接成功
         if (wifiStatusLabel.getVisibility() == View.VISIBLE)
             wifiStatusLabel.setVisibility(View.INVISIBLE);
@@ -267,4 +281,6 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         return (i & 0xFF) + "." + ((i >> 8) & 0xFF) + "." + ((i >> 16) & 0xFF) + "."
                 + ((i >> 24) & 0xFF);
     }
+
+
 }

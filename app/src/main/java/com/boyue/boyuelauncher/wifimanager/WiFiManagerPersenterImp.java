@@ -236,10 +236,8 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
         for (WifiConfiguration existingConfig : isConfigedList) {
             if (existingConfig.SSID.equals("\"" + model.getWifiName() + "\"")) {
                 model.setConfiged(true);
-                LogUtils.e("tll", "11111111111111111:" + model.getWifiName() + ":" + model.getConfiged());
             } else {
                 model.setConfiged(false);
-                LogUtils.e("tll", "22222222222222222:" + model.getWifiName());
             }
         }
     }
@@ -256,7 +254,6 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
             String ssid = wifiConfig.SSID;
             LogUtils.e("tll", "removeWifiBy--wifiConfig--Ssid:" + ssid);
             if (ssid.equals(targetSsid)) {
-
 
 
                 boolean removeOk = wifiManager.removeNetwork(wifiConfig.networkId);
@@ -304,6 +301,11 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     }
 
     @Override
+    public void verificationing(String status) {
+        getView().verificationing(status);
+    }
+
+    @Override
     public void verificationSuceess(WifiInfo wifiInfo) {
         getView().verificationSuceess(wifiInfo);
     }
@@ -311,6 +313,12 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
     @Override
     public void notAvailableWifi() {
         getView().notAvailableWifi();
+    }
+
+    @Override
+    public void disconnected() {
+        getView().disconnected();
+
     }
 
     @Override
