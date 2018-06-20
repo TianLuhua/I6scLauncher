@@ -27,7 +27,7 @@ public class BoYueApplication extends Application {
         //如何没有存储默认密码，系统就默认为：default
         String bootPwd = spUtils.getString(Config.PassWordKey.BOOT_PWD_NAME);
 
-        //存储默认值，原则上只会在机器刷机启动的第一次调用
+        //存储默认值，理论上只会在机器刷机启动的第一次调用，除非恢复出厂、删除系统SP
         if (SPUtils.DEFAULT_STRING.equals(bootPwd)) {
 
             //初始化默认密码
@@ -42,6 +42,8 @@ public class BoYueApplication extends Application {
             spUtils.put(Config.PassWordKey.REGULAR_REST_KEY, Config.Settings.VALUE_NEVER);
             //默认关闭定时锁定
             spUtils.put(Config.PassWordKey.TIMING_LOCKING_KEY, Config.Settings.VALUE_NEVER);
+            //默认关闭自动关机
+            spUtils.put(Config.PassWordKey.AUTO_SHUTDOWN_KEY, Config.Settings.VALUE_NEVER);
             //默认关闭定时关机
             spUtils.put(Config.PassWordKey.ONTIME_SHUTDOWN_KEY, Config.Settings.VALUE_NEVER);
             //默认开启护眼关闭护眼传感器
@@ -65,6 +67,13 @@ public class BoYueApplication extends Application {
         if (shutDowntime != Config.Settings.VALUE_NEVER) {
             LockScreenUtils.startLockScreen(Config.BoYueAction.ONTIME_SHUTDOWN_ACTION, shutDowntime);
         }
+
+        //开机前设置了自动关机,自动关机默认开启
+        int aotuShutDowntime = spUtils.getInt(Config.PassWordKey.AUTO_SHUTDOWN_KEY);
+        if (aotuShutDowntime != Config.Settings.VALUE_NEVER) {
+            //好像什么都不要做，系统直接给广播
+        }
+
 
         //通知SystemSettingsService，恢复关机前护眼传感器的状态、
         if (spUtils.getBoolean(Config.PassWordKey.PROTECT_EYE_SENSOR_ENABLE_KEY)) {

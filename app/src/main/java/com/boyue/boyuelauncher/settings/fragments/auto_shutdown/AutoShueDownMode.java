@@ -32,26 +32,17 @@ public class AutoShueDownMode implements BaseMode {
         int currentScreenTimeout = Settings.System.getInt(resolver, SCREEN_OFF_TIMEOUT,
                 Config.Settings.VALUE_NEVER);
         int shtDownTime = spUtils.getInt(Config.PassWordKey.ONTIME_SHUTDOWN_KEY);
+
+        int autoShtDownTime = spUtils.getInt(Config.PassWordKey.AUTO_SHUTDOWN_KEY);
+
         if (callBack == null) return;
-        callBack.setInitView(currentScreenTimeout, shtDownTime);
+        callBack.setInitView(currentScreenTimeout, shtDownTime,autoShtDownTime);
 
     }
 
     public boolean setScreenTimeout(int screenTimeout) {
         boolean isSuccess = Settings.System.putInt(resolver, SCREEN_OFF_TIMEOUT, screenTimeout);
         return isSuccess;
-    }
-
-
-    private Long getcurrentAutoShutdownTime() {
-
-        return Long.valueOf(0);
-    }
-
-
-    private Long getcurrentTimingShutdownTime() {
-
-        return Long.valueOf(0);
     }
 
 
@@ -67,7 +58,7 @@ public class AutoShueDownMode implements BaseMode {
 
     public static interface CallBack {
 
-        void setInitView(int screenOffTimeout, int shutDwonTime);
+        void setInitView(int screenOffTimeout, int shutDwonTime, int autoShutDwonTime);
 
     }
 }

@@ -81,21 +81,19 @@ public class AutoShueDownFragment extends AbstractMVPFragment<AutoShueDownView, 
             //自动关机
             case R.id.auto_shutdown_item_00:
                 LogUtils.e("tlh", "auto_shutdown_item_00");
-//                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_REQUEST_SHUTDOWN);
-
-
+                getPresenter().setAutoShutDownTime(Config.Settings.VALUE_NEVER);
                 break;
             case R.id.auto_shutdown_item_01:
                 LogUtils.e("tlh", "auto_shutdown_item_01");
-
+                getPresenter().setAutoShutDownTime(Config.Settings.VALUE_15M);
                 break;
             case R.id.auto_shutdown_item_02:
                 LogUtils.e("tlh", "auto_shutdown_item_02");
-
+                getPresenter().setAutoShutDownTime(Config.Settings.VALUE_30M);
                 break;
             case R.id.auto_shutdown_item_03:
                 LogUtils.e("tlh", "auto_shutdown_item_03");
-
+                getPresenter().setAutoShutDownTime(Config.Settings.VALUE_60M);
                 break;
 
 
@@ -151,12 +149,11 @@ public class AutoShueDownFragment extends AbstractMVPFragment<AutoShueDownView, 
 
 
     @Override
-    public void setInitView(int screenOffTimeout, int shutDwonTime) {
+    public void setInitView(int screenOffTimeout, int shutDwonTime, int autoShtDownTime) {
         LogUtils.e("tlh", "CurrentScreenTimeout：" + screenOffTimeout + ",shutDwonTime:" + shutDwonTime);
         switch (screenOffTimeout) {
             case Config.Settings.VALUE_NEVER:
                 screenDormancyGroup.check(R.id.screen_dormancy_item_00);
-                timingShutdownGroup.check(R.id.timing_shutdown_item_00);
                 break;
             case Config.Settings.VALUE_1M:
                 screenDormancyGroup.check(R.id.screen_dormancy_item_01);
@@ -170,6 +167,9 @@ public class AutoShueDownFragment extends AbstractMVPFragment<AutoShueDownView, 
 
         }
         switch (shutDwonTime) {
+            case Config.Settings.VALUE_NEVER:
+                timingShutdownGroup.check(R.id.timing_shutdown_item_00);
+                break;
             case Config.Settings.VALUE_30M:
                 timingShutdownGroup.check(R.id.timing_shutdown_item_01);
                 break;
@@ -179,7 +179,21 @@ public class AutoShueDownFragment extends AbstractMVPFragment<AutoShueDownView, 
             case Config.Settings.VALUE_120M:
                 timingShutdownGroup.check(R.id.timing_shutdown_item_03);
                 break;
+        }
 
+        switch (autoShtDownTime) {
+            case Config.Settings.VALUE_NEVER:
+                autoShutdownGroup.check(R.id.auto_shutdown_item_00);
+                break;
+            case Config.Settings.VALUE_15M:
+                autoShutdownGroup.check(R.id.auto_shutdown_item_01);
+                break;
+            case Config.Settings.VALUE_30M:
+                autoShutdownGroup.check(R.id.auto_shutdown_item_02);
+                break;
+            case Config.Settings.VALUE_60M:
+                autoShutdownGroup.check(R.id.auto_shutdown_item_03);
+                break;
         }
     }
 }

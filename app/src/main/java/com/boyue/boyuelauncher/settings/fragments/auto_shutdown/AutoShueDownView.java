@@ -4,6 +4,6 @@ import com.boyue.boyuelauncher.base.BaseView;
 
 public interface AutoShueDownView extends BaseView {
 
-    void setInitView(int screenOffTimeout, int shutDwonTime);
+    void setInitView(int screenOffTimeout, int shutDwonTime,int autoShtDownTime);
 
 }

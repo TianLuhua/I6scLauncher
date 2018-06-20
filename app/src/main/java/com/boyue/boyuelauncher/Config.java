@@ -49,9 +49,9 @@ public class Config {
         public static final String PROTECTSENSOR_ACTION_CLOSE = "protectsensor_action_close";
 
         //一段时间内没有操作的广播
-        public static final String UNACTIVITY_FIFTEEN_MIN = "protectsensor_action_close";//Intent.UNACTIVITY_SIXTY_MIN
-        public static final String UNACTIVITY_THIRTY_MIN = "protectsensor_action_close";//Intent.UNACTIVITY_THIRTY_MIN
-        public static final String UNACTIVITY_SIXTY_MIN = "protectsensor_action_close";//Intent.UNACTIVITY_SIXTY_MIN
+        public static final String UNACTIVITY_FIFTEEN_MIN = "15";//Intent.UNACTIVITY_SIXTY_MIN
+        public static final String UNACTIVITY_THIRTY_MIN = "30";//Intent.UNACTIVITY_THIRTY_MIN
+        public static final String UNACTIVITY_SIXTY_MIN = "60";//Intent.UNACTIVITY_SIXTY_MIN
 
         //
     }
@@ -154,6 +154,8 @@ public class Config {
 
         //用于保存定时休息的时间 key
         public static final String REGULAR_REST_KEY = "regular_rest_key";
+        //用于保存自动关机的时间 key
+        public static final String AUTO_SHUTDOWN_KEY = "auto_shutdown_key";
         //用于保存定时锁定的时间 key
         public static final String TIMING_LOCKING_KEY = "timing_locking_key";
         //用于保存定时关机的时间 key

@@ -6,6 +6,7 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.base.AbstractPresenter;
 import com.boyue.boyuelauncher.utils.LockScreenUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
+import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 
 public class AutoShueDownPersenter extends AbstractPresenter<AutoShueDownView> {
@@ -23,10 +24,10 @@ public class AutoShueDownPersenter extends AbstractPresenter<AutoShueDownView> {
 
 
             @Override
-            public void setInitView(int screenOffTimeout, int shutDwonTime) {
+            public void setInitView(int screenOffTimeout, int shutDwonTime, int autoShtDownTime) {
                 AutoShueDownView view = getView();
                 if (view == null) return;
-                view.setInitView(screenOffTimeout, shutDwonTime);
+                view.setInitView(screenOffTimeout, shutDwonTime, autoShtDownTime);
             }
         }, spUtils);
     }
@@ -66,6 +67,21 @@ public class AutoShueDownPersenter extends AbstractPresenter<AutoShueDownView> {
         } else {
             LockScreenUtils.cancleLockScreen(Config.BoYueAction.ONTIME_SHUTDOWN_ACTION);
         }
+
+    }
+
+    /**
+     * 设置自动关机的时间
+     *
+     * @param valueNever
+     */
+    public void setAutoShutDownTime(final int valueNever) {
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                spUtils.put(Config.PassWordKey.AUTO_SHUTDOWN_KEY, valueNever);
+            }
+        });
 
     }
 }

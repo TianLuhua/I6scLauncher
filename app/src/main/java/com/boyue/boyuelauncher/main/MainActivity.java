@@ -14,17 +14,12 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.main.adapter.MainPagerAdapter;
-import com.boyue.boyuelauncher.main.fragments.hht_ar_fragment.HHT_AR_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.HHT_BX_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.HHT_LY_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_XT_Fragment;
 import com.boyue.boyuelauncher.receive.SystemReceiver;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.MainTilteBar;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -59,6 +54,12 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_POWER_CONNECTED);
         filter.addAction(Config.BoYueAction.ACTION_MIC_IN);
         filter.addAction(Intent.ACTION_BATTERY_LOW);
+
+        //一段时间屏幕无操作的系统广播
+        filter.addAction(Config.BoYueAction.UNACTIVITY_FIFTEEN_MIN);
+        filter.addAction(Config.BoYueAction.UNACTIVITY_THIRTY_MIN);
+        filter.addAction(Config.BoYueAction.UNACTIVITY_SIXTY_MIN);
+
         registerReceiver(systemReceiver, filter);
 
     }

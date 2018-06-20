@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.SPUtils;
+import com.boyue.boyuelauncher.utils.ShutDownUtils;
 import com.boyue.boyuelauncher.widget.dialogfragment.Popup_Battery_Low_Dialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Popup_USBConnected_Dialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Popup_USBMounted_Dialog;
@@ -27,9 +29,11 @@ public class SystemReceiver extends BroadcastReceiver {
 
 
     private AppCompatActivity activity;
+    private SPUtils spUtils;
 
     public SystemReceiver(AppCompatActivity activity) {
         this.activity = activity;
+        this.spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
     }
 
     @Override
@@ -56,11 +60,20 @@ public class SystemReceiver extends BroadcastReceiver {
                 LogUtils.e("tlh", "SystemReceiver---onReceive:" + "电量过低，请连接充电器！");
                 showBatteryLowDialog();
                 break;
-            //电量过低
+            //话筒已插入
             case Config.BoYueAction.ACTION_MIC_IN:
                 LogUtils.e("tlh", "SystemReceiver---onReceive:" + "话筒已插入，开始唱歌吧！");
                 showMacConnectedDialog();
                 break;
+            //15、30、60分钟用户无操作,系统自动关机
+            case Config.BoYueAction.UNACTIVITY_FIFTEEN_MIN:
+            case Config.BoYueAction.UNACTIVITY_THIRTY_MIN:
+            case Config.BoYueAction.UNACTIVITY_SIXTY_MIN:
+                //接收到系统对应时间的广播，查看用户是否设置了自动关机的时间，没有的话不执行关机
+                if (spUtils.getInt(Config.PassWordKey.AUTO_SHUTDOWN_KEY) != Config.Settings.VALUE_NEVER)
+                    ShutDownUtils.shutdown();
+                break;
+
 
         }
     }
