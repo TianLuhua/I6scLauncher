@@ -44,6 +44,8 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //获取Fragments
+        getPresenter().getFragments();
 
     }
 
@@ -58,8 +60,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         filter.addAction(Config.BoYueAction.ACTION_MIC_IN);
         filter.addAction(Intent.ACTION_BATTERY_LOW);
         registerReceiver(systemReceiver, filter);
-        //获取Fragments
-        getPresenter().getFragments();
+
     }
 
     @Override
@@ -75,7 +76,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     protected void initView() {
-
 
 
         //判断是否启用密码，启用的话需要验证才能进入。反之，退出设置界面。
@@ -125,13 +125,12 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         radioGroup.setOnCheckedChangeListener(this);
         adapter = new MainPagerAdapter(getSupportFragmentManager());
         viewpager.setAdapter(adapter);
-        viewpager.setOffscreenPageLimit(2);
+        viewpager.setOffscreenPageLimit(4);
 
         initTitle();
         //获取系统音量，跟新界面
         getPresenter().getCurrentVolune();
     }
-
 
 
     private void initTitle() {
@@ -170,9 +169,13 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     }
 
     @Override
-    public void setFragments(List<Fragment> fragments) {
-        adapter.setFragments(fragments);
-
+    public void setFragments(final List<Fragment> fragments) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                adapter.setFragments(fragments);
+            }
+        });
     }
 
     @Override

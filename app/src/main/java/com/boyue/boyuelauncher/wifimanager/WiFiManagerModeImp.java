@@ -15,6 +15,7 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 
@@ -52,45 +53,51 @@ public class WiFiManagerModeImp implements WiFiManagerMode {
      * 获取wifi列表
      */
     private void loadData() {
-        scanResultList.clear();
-        scanResultList.addAll(wifiManager.getScanResults());
-        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-        String connectWifi = "";
-        if (wifiInfo != null) {
-            connectWifi = wifiInfo.getSSID().replaceAll("\"", "");
-        }
-        if (scanResultList != null && scanResultList.size() > 0) {
-            sortByLevel(scanResultList);
-            dataList.clear();
-            for (ScanResult result : scanResultList) {
-                if (TextUtils.isEmpty(result.SSID)) {
-                    continue;
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                scanResultList.clear();
+                scanResultList.addAll(wifiManager.getScanResults());
+                WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+                String connectWifi = "";
+                if (wifiInfo != null) {
+                    connectWifi = wifiInfo.getSSID().replaceAll("\"", "");
                 }
-                WifiModel model = new WifiModel();
-                model.setWifiName(result.SSID);
-                if (result.capabilities.contains("WEP")) {
-                    model.setWifiType(1);
-                } else if (result.capabilities.contains("WPA")) {
-                    model.setWifiType(2);
+                if (scanResultList != null && scanResultList.size() > 0) {
+                    sortByLevel(scanResultList);
+                    dataList.clear();
+                    for (ScanResult result : scanResultList) {
+                        if (TextUtils.isEmpty(result.SSID)) {
+                            continue;
+                        }
+                        WifiModel model = new WifiModel();
+                        model.setWifiName(result.SSID);
+                        if (result.capabilities.contains("WEP")) {
+                            model.setWifiType(1);
+                        } else if (result.capabilities.contains("WPA")) {
+                            model.setWifiType(2);
+                        } else {
+                            model.setWifiType(0);
+                        }
+                        model.setIntensity(wifiManager.calculateSignalLevel(result.level, 5));//信号强度
+                        model.setConnect(connectWifi.equals(result.SSID));//是否连接
+                        if (dataList.contains(model))
+                            continue;
+                        dataList.add(model);
+                    }
+                }
+                if (dataList.size() > 0) {
+                    //拿到数据，回调到Presenter
+                    if (callback == null) return;
+                    callback.scnnered(dataList);
                 } else {
-                    model.setWifiType(0);
+                    //附近没有可用WiFi
+                    if (callback == null) return;
+                    callback.notAvailableWifi();
                 }
-                model.setIntensity(wifiManager.calculateSignalLevel(result.level, 5));//信号强度
-                model.setConnect(connectWifi.equals(result.SSID));//是否连接
-                if (dataList.contains(model))
-                    continue;
-                dataList.add(model);
             }
-        }
-        if (dataList.size() > 0) {
-            //拿到数据，回调到Presenter
-            if (callback == null) return;
-            callback.scnnered(dataList);
-        } else {
-            //附近没有可用WiFi
-            if (callback == null) return;
-            callback.notAvailableWifi();
-        }
+        });
+
     }
 
     /**

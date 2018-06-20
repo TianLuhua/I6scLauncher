@@ -198,20 +198,32 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
     }
 
     @Override
-    public void scnnered(ArrayList<WifiModel> dataList) {
+    public void scnnered(final ArrayList<WifiModel> dataList) {
         //扫描完毕，返回数据
-        dataAdapter.setDataList(dataList);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                dataAdapter.setDataList(dataList);
+            }
+        });
+
 
     }
 
     @Override
     public void notAvailableWifi() {
         //扫描完毕，附近没有可用WIFI
-        if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
-            wifiStatusLabel.setVisibility(View.VISIBLE);
-        if (wifiStatusGroup.getVisibility() == View.VISIBLE)
-            wifiStatusGroup.setVisibility(View.INVISIBLE);
-        wifiStatusLabel.setText(R.string.not_available_wifi);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
+                    wifiStatusLabel.setVisibility(View.VISIBLE);
+                if (wifiStatusGroup.getVisibility() == View.VISIBLE)
+                    wifiStatusGroup.setVisibility(View.INVISIBLE);
+                wifiStatusLabel.setText(R.string.not_available_wifi);
+            }
+        });
+
     }
 
     @Override
