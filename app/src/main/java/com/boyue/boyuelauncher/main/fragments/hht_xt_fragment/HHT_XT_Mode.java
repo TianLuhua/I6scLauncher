@@ -3,8 +3,10 @@ package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment;
 import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.base.BaseMode;
+import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,7 +23,7 @@ public interface HHT_XT_Mode extends BaseMode {
 
         void getIcon(Drawable iconDrawble);
 
-        void setItemicon(ArrayList<Map<String, Object>> list);
+        void setItemicon(List<APPEntity> appEntities);
 
     }
 

@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.Config;
+import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 
@@ -34,9 +36,10 @@ public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
             }
 
             @Override
-            public void setItemicon(ArrayList<Map<String, Object>> list) {
-                getView().setItemicon(list);
+            public void setItemicon(List<APPEntity> appEntities) {
+                getView().setItemicon(appEntities);
             }
+
         });
     }
 

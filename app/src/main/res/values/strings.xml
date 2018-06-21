@@ -122,6 +122,13 @@
 
 
     <!--火火兔学堂-->
+    <string name="hht_xt_item_name_101">早教英语</string>
+    <string name="hht_xt_item_name_102">早教学堂</string>
+    <string name="hht_xt_item_name_103">数学逻辑</string>
+    <string name="hht_xt_item_name_104">传统国学</string>
+    <string name="hht_xt_item_name_105">多元智能</string>
+    <string name="hht_xt_item_name_106">安全知识</string>
+
     <string name="hht_xt_zjyy">早教英语</string>
     <string name="hht_xt_zjyy_bnyyxb">邦尼英语小班</string>
     <string name="hht_xt_zjyy_bnyyzb">邦尼英语中班</string>
@@ -166,7 +173,25 @@
     <string name="hht_xt_zjxt_jkjy">健康教育</string>
     <string name="hht_xt_zjxt_kpzs">科普知识</string>
 
+
+    <!--火火兔AR-->
+    <string name="hht_ar_item_name_101">AR英语</string>
+    <string name="hht_ar_item_name_102">AR数学</string>
+    <string name="hht_ar_item_name_103">陆地动物</string>
+    <string name="hht_ar_item_name_104">海洋动物</string>
+    <string name="hht_ar_item_name_105">恐龙</string>
+    <string name="hht_ar_item_name_106">魔幻3D</string>
+
+
     <!--火火兔乐园-->
+    <string name="hht_ly_item_name_101">卡拉OK</string>
+    <string name="hht_ly_item_name_102">英文儿歌</string>
+    <string name="hht_ly_item_name_103">故事王国</string>
+    <string name="hht_ly_item_name_104">艺术培养</string>
+    <string name="hht_ly_item_name_105">益智游戏</string>
+    <string name="hht_ly_item_name_106">宝宝相机</string>
+
+
     <string name="hht_ly_klok">卡拉OK</string>
     <string name="hht_ly_klok_jdeg">经典儿歌</string>
     <string name="ic_hht_ly_klok_jdeg_01">01.粉刷匠</string>
@@ -296,6 +321,14 @@
     <string name="hht_ly_yzyx_jydc">记忆大餐</string>
     <string name="hht_ly_yzyx_jyfp">记忆翻牌</string>
     <string name="hht_ly_yzyx_zlfj">整理房间</string>
+
+    <!--火火兔宝箱-->
+    <string name="hht_bx_item_name_101">火火兔育学园</string>
+    <string name="hht_bx_item_name_102">爱奇艺少儿</string>
+    <string name="hht_bx_item_name_103">宝宝巴士</string>
+    <string name="hht_bx_item_name_104">视频聊天</string>
+    <string name="hht_bx_item_name_105">微信</string>
+    <string name="hht_bx_item_name_106">语音机器人</string>
 
 </resources>
 

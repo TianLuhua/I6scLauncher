@@ -1,25 +1,24 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:clipChildren="false"
-    android:layout_height="wrap_content">
+    android:orientation="vertical">
 
     <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
         android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/hht_ar_item_101"
-
-        />
+        android:layout_width="122dp"
+        android:layout_height="125dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/hht_ar_item_101" />
 
     <TextView
         android:id="@+id/name"
+        style="@style/Stlye_wifi_add_network"
         android:layout_width="wrap_content"
+        android:singleLine="true"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/icon"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:text="name"
-        android:textColor="#000"
-        android:textSize="24sp" />
+        android:text="@string/hht" />
 
-</RelativeLayout>
+</LinearLayout>

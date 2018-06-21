@@ -3,10 +3,10 @@ package com.boyue.boyuelauncher.main.fragments.hht_ar_fragment;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
+import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Created by Tianluhua on 2018/5/18.
@@ -29,8 +29,8 @@ public class HHT_AR_PersenterImp extends HHT_AR_Persenter {
             }
 
             @Override
-            public void setItemicon(ArrayList<Map<String, Object>> list) {
-                getView().setItemicon(list);
+            public void setItemicon(List<APPEntity> appEntities) {
+                getView().setItemicon(appEntities);
             }
         });
     }
@@ -70,7 +70,7 @@ public class HHT_AR_PersenterImp extends HHT_AR_Persenter {
 
     @Override
     public void getItemIcon() {
-        if (hht_ar_mode==null)return;
+        if (hht_ar_mode == null) return;
         hht_ar_mode.getItemIcon();
 
     }

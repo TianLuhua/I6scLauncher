@@ -1,6 +1,5 @@
 package com.boyue.boyuelauncher.main.fragments.hht_bx_fragment;
 
-import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,9 +13,10 @@ import android.widget.SimpleAdapter;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
+import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
+import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,6 +29,11 @@ public class HHT_BX_Fragment extends AbstractMVPFragment<HHT_BX_View, HHT_BX_Per
     public static final String INTERFACE_RESULT = HHT_BX_Fragment.class.getName() + "NR";
 
 
+    private AppCompatImageView iocnView;
+    private GridView displayApps;
+    private SimpleAdapter simpleAdapter;
+    private FragmentItemAdapter fragmentItemAdapter;
+
     public static HHT_BX_Fragment newInstance() {
         return new HHT_BX_Fragment();
     }
@@ -36,10 +41,6 @@ public class HHT_BX_Fragment extends AbstractMVPFragment<HHT_BX_View, HHT_BX_Per
     public HHT_BX_Fragment() {
         // Required empty public constructor
     }
-
-    private AppCompatImageView iocnView;
-    private GridView displayApps;
-    private SimpleAdapter simpleAdapter;
 
 
     @Nullable
@@ -60,6 +61,13 @@ public class HHT_BX_Fragment extends AbstractMVPFragment<HHT_BX_View, HHT_BX_Per
     private void init(View rootView) {
         iocnView = rootView.findViewById(R.id.iocn);
         displayApps = rootView.findViewById(R.id.display_apps);
+        fragmentItemAdapter = new FragmentItemAdapter(getContext());
+        displayApps.setAdapter(fragmentItemAdapter);
+        displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            }
+        });
         //初始化数据
         getPresenter().getItemIcon();
 
@@ -68,17 +76,14 @@ public class HHT_BX_Fragment extends AbstractMVPFragment<HHT_BX_View, HHT_BX_Per
     }
 
     @Override
-    public void setItemicon(ArrayList<Map<String, Object>> dataList) {
-        String[] from = {"img", "text"};
-        int[] to = {R.id.icon, R.id.name};
-        simpleAdapter = new SimpleAdapter(getActivity(), dataList, R.layout.item_layout_main_grideview, from, to);
-        displayApps.setAdapter(simpleAdapter);
-        displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    public void setItemicon(final List<APPEntity> appEntities) {
+        getActivity().runOnUiThread(new Runnable() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+            public void run() {
+                fragmentItemAdapter.setAppEntities(appEntities);
             }
         });
+
     }
 
     @Override

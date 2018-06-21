@@ -4,10 +4,10 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.Config;
+import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Created by Tianluhua on 2018/5/18.
@@ -30,9 +30,10 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
             }
 
             @Override
-            public void setItemicon(ArrayList<Map<String, Object>> list) {
-                getView().setItemicon(list);
+            public void setItemicon(List<APPEntity> appEntities) {
+                getView().setItemicon(appEntities);
             }
+
         });
     }
 
@@ -45,7 +46,7 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
 
     @Override
     public void startHHT_LY_Activity(int position) {
-        switch (position){
+        switch (position) {
             case 0:
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_KLOK);
                 break;
@@ -63,7 +64,7 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
 
     @Override
     public void getItemIcon() {
-        if (hht_ly_mode==null)return;
+        if (hht_ly_mode == null) return;
         hht_ly_mode.getItemIcon();
     }
 }

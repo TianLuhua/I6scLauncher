@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/content"
-    android:clipChildren="false"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:orientation="horizontal">
 
     <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
         android:id="@+id/iocn"
@@ -14,13 +15,14 @@
 
     <GridView
         android:id="@+id/display_apps"
-        android:layout_width="531dp"
-        android:layout_marginTop="95dp"
-        android:layout_toRightOf="@+id/iocn"
+        android:layout_width="476dp"
         android:layout_height="wrap_content"
-        android:verticalSpacing="25dp"
-        android:listSelector="@color/colorTransparent"
+        android:layout_marginStart="-20dp"
+        android:layout_marginTop="94dp"
         android:clipChildren="false"
-        android:numColumns="3" />
+        android:listSelector="@color/colorTransparent"
+        android:horizontalSpacing="55dp"
+        android:numColumns="3"
+        android:verticalSpacing="25dp" />
 
-</RelativeLayout>
+</LinearLayout>

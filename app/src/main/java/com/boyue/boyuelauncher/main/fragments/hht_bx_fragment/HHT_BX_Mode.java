@@ -3,9 +3,9 @@ package com.boyue.boyuelauncher.main.fragments.hht_bx_fragment;
 import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.base.BaseMode;
+import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.util.List;
 
 /**
  * Created by Tianluhua on 2018/5/17.
@@ -19,8 +19,8 @@ public interface HHT_BX_Mode extends BaseMode {
     public interface CallBack {
 
         void getIcon(Drawable iconDrawble);
-        void setItemicon(ArrayList<Map<String, Object>> list);
-    }
 
+        void setItemicon(List<APPEntity> appEntities);
+    }
 
 }

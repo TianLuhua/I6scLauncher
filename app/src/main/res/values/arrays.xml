@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--火火兔学堂-->
     <string-array name="hht_xt_items_text">
-        <item>早教英语</item>
-        <item>早教学堂</item>
-        <item>数学逻辑</item>
-        <item>传统国学</item>
-        <item>多元智能</item>
-        <item>安全知识</item>
+        <item>@string/hht_xt_item_name_101</item>
+        <item>@string/hht_xt_item_name_102</item>
+        <item>@string/hht_xt_item_name_103</item>
+        <item>@string/hht_xt_item_name_104</item>
+        <item>@string/hht_xt_item_name_105</item>
+        <item>@string/hht_xt_item_name_106</item>
+
     </string-array>
     <string-array name="hht_xt_items_image">
         <item>@mipmap/hht_xt_item_101</item>
@@ -18,15 +20,16 @@
         <item>@mipmap/hht_xt_item_105</item>
     </string-array>
 
-
+    <!--火火兔AR-->
     <string-array name="hht_ar_items_text">
-        <item>AR英语</item>
-        <item>AR数学</item>
-        <item>陆地动物</item>
-        <item>海洋动物</item>
-        <item>恐龙</item>ar
-        <item>魔幻3D</item>
+        <item>@string/hht_ar_item_name_101</item>
+        <item>@string/hht_ar_item_name_102</item>
+        <item>@string/hht_ar_item_name_103</item>
+        <item>@string/hht_ar_item_name_104</item>
+        <item>@string/hht_ar_item_name_105</item>
+        <item>@string/hht_ar_item_name_106</item>
     </string-array>
+
     <string-array name="hht_ar_items_image">
         <item>@mipmap/hht_ar_item_101</item>
         <item>@mipmap/hht_ar_item_102</item>
@@ -36,15 +39,16 @@
         <item>@mipmap/hht_ar_item_106</item>
     </string-array>
 
-
+    <!--火火兔乐园-->
     <string-array name="hht_ly_items_text">
-        <item>卡拉OK</item>
-        <item>英文儿歌</item>
-        <item>故事王国</item>
-        <item>艺术培养</item>
-        <item>益智游戏</item>
-        <item>宝宝相机</item>
+        <item>@string/hht_ly_item_name_101</item>
+        <item>@string/hht_ly_item_name_102</item>
+        <item>@string/hht_ly_item_name_103</item>
+        <item>@string/hht_ly_item_name_104</item>
+        <item>@string/hht_ly_item_name_105</item>
+        <item>@string/hht_ly_item_name_106</item>
     </string-array>
+
     <string-array name="hht_ly_items_image">
         <item>@mipmap/hht_ly_item_101</item>
         <item>@mipmap/hht_ly_item_102</item>
@@ -54,15 +58,16 @@
         <item>@mipmap/hht_ly_item_106</item>
     </string-array>
 
-
+    <!--火火兔宝箱-->
     <string-array name="hht_bx_items_text">
-        <item>火火兔育学园</item>
-        <item>爱奇艺少儿</item>
-        <item>宝宝巴士</item>
-        <item>视频聊天</item>
-        <item>微信</item>
-        <item>语音机器人</item>
+        <item>@string/hht_bx_item_name_101</item>
+        <item>@string/hht_bx_item_name_102</item>
+        <item>@string/hht_bx_item_name_103</item>
+        <item>@string/hht_bx_item_name_104</item>
+        <item>@string/hht_bx_item_name_105</item>
+        <item>@string/hht_bx_item_name_106</item>
     </string-array>
+
     <string-array name="hht_bx_items_image">
         <item>@mipmap/hht_bx_item_101</item>
         <item>@mipmap/hht_bx_item_102</item>
@@ -73,6 +78,7 @@
     </string-array>
 
 
+    <!--设置-->
     <string-array name="system_settings_items_text">
         <item>七彩耳灯</item>
         <item>护眼设置</item>

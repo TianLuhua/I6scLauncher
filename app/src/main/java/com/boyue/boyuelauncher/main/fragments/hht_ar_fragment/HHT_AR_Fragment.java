@@ -1,6 +1,5 @@
 package com.boyue.boyuelauncher.main.fragments.hht_ar_fragment;
 
-import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,11 +13,11 @@ import android.widget.SimpleAdapter;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
+import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
+import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
+import com.boyue.boyuelauncher.utils.LogUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Tianluhua on 2018/4/3.
@@ -29,6 +28,11 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
     public static final String INTERFACE_RESULT = HHT_AR_Fragment.class.getName() + "WithResault";
 
 
+    private AppCompatImageView iocnView;
+    private GridView displayApps;
+
+    private FragmentItemAdapter fragmentItemAdapter;
+
     public static HHT_AR_Fragment newInstance() {
         return new HHT_AR_Fragment();
     }
@@ -36,10 +40,6 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
     public HHT_AR_Fragment() {
         // Required empty public constructor
     }
-
-    private AppCompatImageView iocnView;
-    private GridView displayApps;
-    private SimpleAdapter simpleAdapter;
 
 
     @Nullable
@@ -54,7 +54,14 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
     private void init(View rootView) {
         iocnView = rootView.findViewById(R.id.iocn);
         displayApps = rootView.findViewById(R.id.display_apps);
-
+        fragmentItemAdapter = new FragmentItemAdapter(getContext());
+        displayApps.setAdapter(fragmentItemAdapter);
+        displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                getPresenter().startHHT_AR_Activity(position);
+            }
+        });
 
         //初始化item图标和文字
         getPresenter().getItemIcon();
@@ -73,15 +80,12 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
 
 
     @Override
-    public void setItemicon(ArrayList<Map<String, Object>> dataList) {
-        String[] from = {"img", "text"};
-        int[] to = {R.id.icon, R.id.name};
-        simpleAdapter = new SimpleAdapter(getContext(), dataList, R.layout.item_layout_main_grideview, from, to);
-        displayApps.setAdapter(simpleAdapter);
-        displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    public void setItemicon(final List<APPEntity> appEntities) {
+        LogUtils.e("tlh", "HHT_AR_Fragment--setItemicon--appEntities：" + appEntities.size());
+        getActivity().runOnUiThread(new Runnable() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                getPresenter().startHHT_AR_Activity(position);
+            public void run() {
+                fragmentItemAdapter.setAppEntities(appEntities);
             }
         });
     }
