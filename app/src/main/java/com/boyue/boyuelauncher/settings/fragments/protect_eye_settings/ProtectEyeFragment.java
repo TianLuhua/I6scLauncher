@@ -20,7 +20,7 @@ import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ScreenUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_RegularRest_NoticeDialog;
-import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Text_01_Tutton_03_Dialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_text_01_tutton_03_Dialog;
 
 public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, ProtectEyePersenter> implements ProtectEyeView, View.OnClickListener {
 
@@ -251,7 +251,7 @@ public class ProtectEyeFragment extends AbstractMVPFragment<ProtectEyeView, Prot
     private void showRegularRestDialog() {
         final Setting_RegularRest_NoticeDialog dialog = new Setting_RegularRest_NoticeDialog();
         dialog.setCancelable(false);
-        dialog.setOnclickListener(new Setting_Text_01_Tutton_03_Dialog.OnclickListener() {
+        dialog.setOnclickListener(new Setting_text_01_tutton_03_Dialog.OnclickListener() {
             @Override
             public void onLeftClick(View v) {
                 //用户点击了取消，默认选到不开启

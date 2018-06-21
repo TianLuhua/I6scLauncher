@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +63,7 @@ public class FragmentItemAdapter extends BaseAdapter {
         viewHolder = (ViewHolder) convertView.getTag();
         APPEntity appEntitie = appEntities.get(position);
 
-        Glide.with(mContext).load(appEntitie.getIconRes()).override(122, 125).into(viewHolder.iv);
+        Glide.with(mContext).load(appEntitie.getIconRes()).override(122, 125).diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolder.iv);
 
         viewHolder.tv.setText(appEntitie.getNameRes());
         return convertView;

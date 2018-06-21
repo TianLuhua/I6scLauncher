@@ -126,7 +126,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         radioGroup.setOnCheckedChangeListener(this);
         adapter = new MainPagerAdapter(getSupportFragmentManager());
         viewpager.setAdapter(adapter);
-        viewpager.setOffscreenPageLimit(4);
+        viewpager.setOffscreenPageLimit(2);
 
         initTitle();
         //获取系统音量，跟新界面

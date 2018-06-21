@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.boyue.boyuelauncher.R;
 
-public abstract class Setting_Text_01_Tutton_03_Dialog extends DialogFragment implements View.OnClickListener {
+public abstract class Setting_text_01_tutton_03_Dialog extends DialogFragment implements View.OnClickListener {
 
 
     @Override
