@@ -1,7 +1,6 @@
 package com.boyue.boyuelauncher.wifimanager.adpter;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,13 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 import com.boyue.boyuelauncher.wifimanager.listener.DataActionListener;
 import com.boyue.boyuelauncher.wifimanager.listener.OnItemClickListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Wifi适配器

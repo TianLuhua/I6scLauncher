@@ -1,7 +1,5 @@
 package com.boyue.boyuelauncher.wifimanager;
 
-import android.app.Activity;
-
 import com.boyue.boyuelauncher.base.AbstractPresenter;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 

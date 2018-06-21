@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.crypto.spec.DESKeySpec;
@@ -13,12 +14,15 @@ import javax.crypto.spec.DESKeySpec;
 public class SystemSettingFragmentPagerAdapter extends FragmentPagerAdapter {
 
 
-    private List<Fragment> fragments;
+    private List<Fragment> fragments = new ArrayList<Fragment>();
 
-
-    public SystemSettingFragmentPagerAdapter(FragmentManager fm, List<Fragment> fragments) {
-        super(fm);
+    public void setFragments(List<Fragment> fragments) {
         this.fragments = fragments;
+        this.notifyDataSetChanged();
+    }
+
+    public SystemSettingFragmentPagerAdapter(FragmentManager fm) {
+        super(fm);
     }
 
     @Override

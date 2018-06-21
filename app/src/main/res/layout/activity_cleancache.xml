@@ -11,8 +11,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:paddingLeft="8dp"
-        android:src="@drawable/roket_animation"
+        android:src="@mipmap/ic_cleancache_rocket_09"
         android:visibility="invisible" />
 
-
+    <!--android:src="@drawable/roket_animation"-->
 </RelativeLayout>

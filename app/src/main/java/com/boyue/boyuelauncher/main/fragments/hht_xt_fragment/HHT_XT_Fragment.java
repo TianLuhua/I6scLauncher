@@ -33,7 +33,6 @@ public class HHT_XT_Fragment extends AbstractMVPFragment<HHT_XT_View, HHT_XT_Per
     private AppCompatImageView iocnView;
     private GridView displayApps;
     private SimpleAdapter simpleAdapter;
-    private List<Map<String, Object>> dataList;
 
 
     public static HHT_XT_Fragment newInstance() {

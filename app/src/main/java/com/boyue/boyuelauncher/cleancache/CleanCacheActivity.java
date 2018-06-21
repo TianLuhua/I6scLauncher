@@ -85,29 +85,19 @@ public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, Clea
             mVisibilityView = view;
         }
 
-        public void setVisibilityView(View view) {
-            mVisibilityView = view;
-        }
 
         @Override
         public void onAnimationStart(Animation animation) {
-            if (mVisibilityView != null) {
-                mVisibilityView.setVisibility(View.VISIBLE);
-            }
             mHandler.sendEmptyMessage(Config.HandlerGlod.ACTIVITY_CLEANCACHE_START_CLEANCACHE);
 
         }
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            if (mVisibilityView != null) {
-                mVisibilityView.setVisibility(View.GONE);
-            }
+
             LogUtils.e("tlh", "onAnimationEnd");
             if (mVisibilityView.getId() == R.id.rocket)
                 mHandler.sendEmptyMessage(Config.HandlerGlod.ACTIVITY_CLEANCACHE_END_CLEANCACHE);
-            mVisibilityView.clearAnimation();
-
         }
 
         @Override

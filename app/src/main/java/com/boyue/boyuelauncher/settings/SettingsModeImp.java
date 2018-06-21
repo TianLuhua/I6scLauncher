@@ -14,6 +14,7 @@ import com.boyue.boyuelauncher.settings.fragments.feedback.FeedBackFragment;
 import com.boyue.boyuelauncher.settings.fragments.protect_eye_settings.ProtectEyeFragment;
 import com.boyue.boyuelauncher.settings.fragments.volume_settings.VolumeSettingFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,39 +44,52 @@ public class SettingsModeImp implements SettingsMode {
     public void getIndicatorItems() {
         LogUtils.e("tlh", "getIndicatorItems");
         if (mContext == null && callBack == null) return;
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                //图标
+                TypedArray icons = mContext.getResources().obtainTypedArray(R.array.system_settings_items_image);
+                //文字
+                String names[] = mContext.getResources().getStringArray(R.array.system_settings_items_text);
 
-        //图标
-        TypedArray icons = mContext.getResources().obtainTypedArray(R.array.system_settings_items_image);
-        //文字
-        String names[] = mContext.getResources().getStringArray(R.array.system_settings_items_text);
+                for (int i = 0; i < names.length; i++) {
+                    HashMap<String, Object> mapItem = new HashMap<>();
+                    mapItem.put(TITLE, names[i]);
+                    mapItem.put(IMAGE, icons.getResourceId(i, 0));
+                    dataList.add(mapItem);
+                    LogUtils.e("tlh", "getIndicatorItems--->" + i);
+                }
 
-        for (int i = 0; i < names.length; i++) {
-            HashMap<String, Object> mapItem = new HashMap<>();
-            mapItem.put(TITLE, names[i]);
-            mapItem.put(IMAGE, icons.getResourceId(i, 0));
-            dataList.add(mapItem);
-            LogUtils.e("tlh", "getIndicatorItems--->" + i);
-        }
+                if (dataList.size() > 0) {
+                    callBack.setIndicatorItems(dataList);
+                }
+            }
+        });
 
-        if (dataList.size() > 0) {
-            callBack.setIndicatorItems(dataList);
-        }
+
     }
 
     @Override
     public void getPagerFragments() {
-        if (callBack == null) return;
-        fragments.add(ColorEarFragment.newInstance());
-        fragments.add(ProtectEyeFragment.newInstance());
-        fragments.add(VolumeSettingFragment.newInstance());
-        fragments.add(AutoShueDownFragment.newInstance());
-        fragments.add(FCMSettingFragment.newInstance());
-        fragments.add(DateTimeSettingFragment.newInstance());
-        fragments.add(AdvanceSettingFragment.newInstance());
-        fragments.add(FeedBackFragment.newInstance());
-        callBack.setPagerFragments(fragments);
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                fragments.add(ColorEarFragment.newInstance());
+                fragments.add(ProtectEyeFragment.newInstance());
+                fragments.add(VolumeSettingFragment.newInstance());
+                fragments.add(AutoShueDownFragment.newInstance());
+                fragments.add(FCMSettingFragment.newInstance());
+                fragments.add(DateTimeSettingFragment.newInstance());
+                fragments.add(AdvanceSettingFragment.newInstance());
+                fragments.add(FeedBackFragment.newInstance());
+                if (callBack == null) return;
+                callBack.setPagerFragments(fragments);
+            }
+        });
+
 
     }
+
     @Override
     public void onDestroy() {
 

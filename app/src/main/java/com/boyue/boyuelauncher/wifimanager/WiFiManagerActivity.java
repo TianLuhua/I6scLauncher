@@ -137,9 +137,9 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
 
     @Override
     protected void onPause() {
+        super.onPause();
         //取消wifi相关广播
         getPresenter().unregisterReceiver();
-        super.onPause();
     }
 
 
@@ -228,7 +228,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
 
     @Override
     public void disconnected() {
-        //扫描完毕，附近没有可用WIFI
+        //断开连接
         if (wifiStatusLabel.getVisibility() == View.INVISIBLE)
             wifiStatusLabel.setVisibility(View.VISIBLE);
         if (wifiStatusGroup.getVisibility() == View.VISIBLE)

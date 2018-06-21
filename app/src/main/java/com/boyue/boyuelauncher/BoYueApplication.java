@@ -36,8 +36,6 @@ public class BoYueApplication extends Application {
             spUtils.put(Config.PassWordKey.PWD_IS_ENABLE, false);
             //默认不启用防沉迷密码
             spUtils.put(Config.PassWordKey.FCM_PWD_NAME, false);
-            //默认不启用防沉迷密码
-            spUtils.put(Config.PassWordKey.FCM_PWD_NAME, false);
             //默认关闭启定时休息
             spUtils.put(Config.PassWordKey.REGULAR_REST_KEY, Config.Settings.VALUE_NEVER);
             //默认关闭定时锁定

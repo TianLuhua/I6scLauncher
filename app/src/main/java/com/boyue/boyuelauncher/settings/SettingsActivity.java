@@ -13,7 +13,6 @@ import com.boyue.boyuelauncher.settings.adapter.SystemSettingFragmentPagerAdapte
 import com.boyue.boyuelauncher.settings.adapter.SystemSettingIndicatorgAdapter;
 import com.boyue.boyuelauncher.settings.fragments.fcm_settings.FCMSettingFragment;
 import com.boyue.boyuelauncher.settings.fragments.protect_eye_settings.ProtectEyeFragment;
-import com.boyue.boyuelauncher.settings.fragments.protect_eye_settings.ProtectEyeView;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.TitleBar;
@@ -27,7 +26,7 @@ import java.util.Map;
  * Created by Tianluhua on 2018/5/28.
  */
 
-public class SettingsActivity extends AbstractMVPActivity<SettingsView, SettingsPersenterImp> implements SettingsView, AdapterView.OnItemClickListener, ViewPager.OnPageChangeListener, ProtectEyeFragment.Notfication,FCMSettingFragment.Notfication {
+public class SettingsActivity extends AbstractMVPActivity<SettingsView, SettingsPersenterImp> implements SettingsView, AdapterView.OnItemClickListener, ViewPager.OnPageChangeListener, ProtectEyeFragment.Notfication, FCMSettingFragment.Notfication {
 
     public static final String TITLE = "title";
     public static final String IMAGE = "image";
@@ -112,9 +111,10 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
 
         mListView = findViewById(R.id.page_indicator);
         fragmentPagers = findViewById(R.id.page_content);
-        //设置ViewPager缓存的Fragment数量
-//        fragmentPagers.setOffscreenPageLimit(2);
         fragmentPagers.addOnPageChangeListener(this);
+        fragmentPagerAdapter = new SystemSettingFragmentPagerAdapter(getSupportFragmentManager());
+        fragmentPagers.setAdapter(fragmentPagerAdapter);
+        fragmentPagers.setCurrentItem(defaultPager);
 
         getPresenter().getIndicatorItems();
         getPresenter().getPagerFragments();
@@ -126,25 +126,34 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
     }
 
     @Override
-    public void disPlayIndicatorItems(List<Map<String, Object>> dataList) {
-        indicatorgAdapter = new SystemSettingIndicatorgAdapter(getApplicationContext(), dataList, R.layout.item_system_setting_indicator, new String[]{TITLE, IMAGE},
-                new int[]{R.id.page_item_tv, R.id.page_item_iv});
-        mListView.setAdapter(indicatorgAdapter);
-        //设置第一个icon为选中状态
-        indicatorgAdapter.setmCurrentItem(defaultPager);
-        indicatorgAdapter.setClick(true);
-        mListView.setOnItemClickListener(this);
+    public void disPlayIndicatorItems(final List<Map<String, Object>> dataList) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                indicatorgAdapter = new SystemSettingIndicatorgAdapter(getApplicationContext(), dataList, R.layout.item_system_setting_indicator, new String[]{TITLE, IMAGE},
+                        new int[]{R.id.page_item_tv, R.id.page_item_iv});
+                mListView.setAdapter(indicatorgAdapter);
+                //设置第一个icon为选中状态
+                indicatorgAdapter.setmCurrentItem(defaultPager);
+                indicatorgAdapter.setClick(true);
+                mListView.setOnItemClickListener(SettingsActivity.this);
+                LogUtils.e("tlh", "SettingsActivity--->disPlayIndicatorItems----->dataList.size():" + dataList.size());
+            }
+        });
 
-        LogUtils.e("tlh", "SettingsActivity--->disPlayIndicatorItems----->dataList.size():" + dataList.size());
 
     }
 
     @Override
-    public void disPlayPagerFragments(ArrayList<Fragment> fragments) {
+    public void disPlayPagerFragments(final ArrayList<Fragment> fragments) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                fragmentPagerAdapter.setFragments(fragments);
+            }
+        });
+
         this.fragments = fragments;
-        fragmentPagerAdapter = new SystemSettingFragmentPagerAdapter(getSupportFragmentManager(), fragments);
-        fragmentPagers.setAdapter(fragmentPagerAdapter);
-        fragmentPagers.setCurrentItem(defaultPager);
     }
 
 
