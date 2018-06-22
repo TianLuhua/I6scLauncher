@@ -4,12 +4,11 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 
 import com.boyue.boyuelauncher.Config;
-import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.settings.entity.MenuBean;
 import com.boyue.boyuelauncher.utils.SPUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class SettingsPersenterImp extends SettingsPersenter {
 
@@ -20,17 +19,13 @@ public class SettingsPersenterImp extends SettingsPersenter {
     public SettingsPersenterImp(Context mContext) {
         this.mContext = mContext;
         this.mode = new SettingsModeImp(this.mContext, new SettingsMode.CallBack() {
-            @Override
-            public void setIndicatorItems(List<Map<String, Object>> dataList) {
 
-                SettingsView view = getView();
-                if (view == null) {
-                    LogUtils.e("tlh", "SettingsPersenterImp----->:view == null");
-                    return;
-                }
-                LogUtils.e("tlh", "SettingsPersenterImp----->:view != null");
-                view.disPlayIndicatorItems(dataList);
+            @Override
+            public void setPlayIndicatorItems(List<MenuBean> dataList) {
+                getView().setPlayIndicatorItems(dataList);
+
             }
+
 
             @Override
             public void setPagerFragments(ArrayList<Fragment> fragments) {

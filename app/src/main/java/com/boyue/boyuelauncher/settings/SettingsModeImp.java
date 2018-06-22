@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.support.v4.app.Fragment;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.settings.entity.MenuBean;
 import com.boyue.boyuelauncher.settings.fragments.advance_settings.AdvanceSettingFragment;
 import com.boyue.boyuelauncher.settings.fragments.auto_shutdown.AutoShueDownFragment;
 import com.boyue.boyuelauncher.settings.fragments.color_ear.ColorEarFragment;
@@ -17,12 +18,8 @@ import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static com.boyue.boyuelauncher.settings.SettingsActivity.IMAGE;
-import static com.boyue.boyuelauncher.settings.SettingsActivity.TITLE;
 
 public class SettingsModeImp implements SettingsMode {
 
@@ -43,26 +40,27 @@ public class SettingsModeImp implements SettingsMode {
     @Override
     public void getIndicatorItems() {
         LogUtils.e("tlh", "getIndicatorItems");
-        if (mContext == null && callBack == null) return;
+
+        final List<MenuBean> menuBeanEntities = new ArrayList<MenuBean>();
+
         ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
             @Override
             public void run() {
                 //图标
-                TypedArray icons = mContext.getResources().obtainTypedArray(R.array.system_settings_items_image);
-                //文字
-                String names[] = mContext.getResources().getStringArray(R.array.system_settings_items_text);
+                TypedArray icnos = mContext.getResources().obtainTypedArray(R.array.system_settings_items_image);
+                //图标右边的文字
+                TypedArray names = mContext.getResources().obtainTypedArray(R.array.system_settings_items_text);
 
-                for (int i = 0; i < names.length; i++) {
-                    HashMap<String, Object> mapItem = new HashMap<>();
-                    mapItem.put(TITLE, names[i]);
-                    mapItem.put(IMAGE, icons.getResourceId(i, 0));
-                    dataList.add(mapItem);
-                    LogUtils.e("tlh", "getIndicatorItems--->" + i);
+                for (int i = 0; i < names.length(); i++) {
+                    MenuBean appEntity = new MenuBean();
+                    appEntity.setNameRes(names.getResourceId(i, 0));
+                    appEntity.setIconRes(icnos.getResourceId(i, 0));
+                    menuBeanEntities.add(appEntity);
                 }
-
-                if (dataList.size() > 0) {
-                    callBack.setIndicatorItems(dataList);
-                }
+                icnos.recycle();
+                names.recycle();
+                if (callBack == null) return;
+                callBack.setPlayIndicatorItems(menuBeanEntities);
             }
         });
 

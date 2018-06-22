@@ -15,6 +15,16 @@
 
 
     <!--系统设置-->
+    <!--item-->
+    <string name="system_settings_items_text_101">七彩耳灯</string>
+    <string name="system_settings_items_text_102">护眼设置</string>
+    <string name="system_settings_items_text_103">音量设置</string>
+    <string name="system_settings_items_text_104">自动关机</string>
+    <string name="system_settings_items_text_105">防沉迷设置</string>
+    <string name="system_settings_items_text_106">日期与时间</string>
+    <string name="system_settings_items_text_107">高级</string>
+    <string name="system_settings_items_text_108">意见反馈</string>
+
     <!--通用-->
     <string name="system_settings">系统设置</string>
     <string name="commit">提交</string>

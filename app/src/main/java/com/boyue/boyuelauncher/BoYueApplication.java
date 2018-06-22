@@ -29,7 +29,6 @@ public class BoYueApplication extends Application {
 
         //存储默认值，理论上只会在机器刷机启动的第一次调用，除非恢复出厂、删除系统SP
         if (SPUtils.DEFAULT_STRING.equals(bootPwd)) {
-
             //初始化默认密码
             spUtils.put(Config.PassWordKey.BOOT_PWD_NAME, Config.PassWordKey.DEFAULT_BOOTPWD);
             //默认不启用密码

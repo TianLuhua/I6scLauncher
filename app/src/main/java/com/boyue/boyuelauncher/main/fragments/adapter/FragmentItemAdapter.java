@@ -22,9 +22,13 @@ public class FragmentItemAdapter extends BaseAdapter {
     private Context mContext;
     private List<APPEntity> appEntities;
     private LayoutInflater inflater;
+    private int iconWidth;
+    private int iconHigh;
 
-    public FragmentItemAdapter(Context mContext) {
+    public FragmentItemAdapter(Context mContext, int iconWidth, int iconHigh) {
         this.mContext = mContext;
+        this.iconWidth = iconWidth;
+        this.iconHigh = iconHigh;
         this.inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.appEntities = new ArrayList<>();
     }
@@ -63,7 +67,7 @@ public class FragmentItemAdapter extends BaseAdapter {
         viewHolder = (ViewHolder) convertView.getTag();
         APPEntity appEntitie = appEntities.get(position);
 
-        Glide.with(mContext).load(appEntitie.getIconRes()).override(122, 125).diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolder.iv);
+        Glide.with(mContext).load(appEntitie.getIconRes()).override(iconWidth, iconHigh).diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolder.iv);
 
         viewHolder.tv.setText(appEntitie.getNameRes());
         return convertView;

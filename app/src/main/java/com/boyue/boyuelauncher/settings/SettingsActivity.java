@@ -11,6 +11,7 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.settings.adapter.SystemSettingFragmentPagerAdapter;
 import com.boyue.boyuelauncher.settings.adapter.SystemSettingIndicatorgAdapter;
+import com.boyue.boyuelauncher.settings.entity.MenuBean;
 import com.boyue.boyuelauncher.settings.fragments.fcm_settings.FCMSettingFragment;
 import com.boyue.boyuelauncher.settings.fragments.protect_eye_settings.ProtectEyeFragment;
 import com.boyue.boyuelauncher.utils.LogUtils;
@@ -20,7 +21,6 @@ import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordD
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Tianluhua on 2018/5/28.
@@ -33,7 +33,7 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
 
     private TitleBar titleBar;
     private ListView mListView;
-    private SystemSettingIndicatorgAdapter indicatorgAdapter;
+    private SystemSettingIndicatorgAdapter settingIndicatorgAdapter;
     private SystemSettingFragmentPagerAdapter fragmentPagerAdapter;
 
     private ViewPager fragmentPagers;
@@ -109,7 +109,14 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
             }
         });
 
+        settingIndicatorgAdapter = new SystemSettingIndicatorgAdapter(getBaseContext(), 48, 48);
+        settingIndicatorgAdapter.setmCurrentItem(0);
+        settingIndicatorgAdapter.setClick(true);
         mListView = findViewById(R.id.page_indicator);
+        mListView.setAdapter(settingIndicatorgAdapter);
+        mListView.setOnItemClickListener(this);
+
+
         fragmentPagers = findViewById(R.id.page_content);
         fragmentPagers.addOnPageChangeListener(this);
         fragmentPagerAdapter = new SystemSettingFragmentPagerAdapter(getSupportFragmentManager());
@@ -126,22 +133,13 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
     }
 
     @Override
-    public void disPlayIndicatorItems(final List<Map<String, Object>> dataList) {
+    public void setPlayIndicatorItems(final List<MenuBean> dataList) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                indicatorgAdapter = new SystemSettingIndicatorgAdapter(getApplicationContext(), dataList, R.layout.item_system_setting_indicator, new String[]{TITLE, IMAGE},
-                        new int[]{R.id.page_item_tv, R.id.page_item_iv});
-                mListView.setAdapter(indicatorgAdapter);
-                //设置第一个icon为选中状态
-                indicatorgAdapter.setmCurrentItem(defaultPager);
-                indicatorgAdapter.setClick(true);
-                mListView.setOnItemClickListener(SettingsActivity.this);
-                LogUtils.e("tlh", "SettingsActivity--->disPlayIndicatorItems----->dataList.size():" + dataList.size());
+                settingIndicatorgAdapter.setAppEntities(dataList);
             }
         });
-
-
     }
 
     @Override
@@ -159,9 +157,7 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        indicatorgAdapter.setmCurrentItem(position);
-        indicatorgAdapter.setClick(true);
-        indicatorgAdapter.notifyDataSetChanged();
+        settingIndicatorgAdapter.setmCurrentItem(position);
         fragmentPagers.setCurrentItem(position, false);
         LogUtils.e("tlh", "H:" + view.getHeight());
 
@@ -171,8 +167,7 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         LogUtils.e("tlh", "position:" + position);
-        indicatorgAdapter.setmCurrentItem(position);
-        indicatorgAdapter.notifyDataSetChanged();
+        settingIndicatorgAdapter.setmCurrentItem(position);
     }
 
     @Override
@@ -197,6 +192,5 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
         //通知护眼界面，已经开启防沉迷密码
         ProtectEyeFragment protectFragment = (ProtectEyeFragment) fragments.get(1);
         protectFragment.hasOpenFcmPassWord(hasOpen);
-
     }
 }

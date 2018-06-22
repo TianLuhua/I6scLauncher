@@ -61,7 +61,7 @@ public class HHT_BX_Fragment extends AbstractMVPFragment<HHT_BX_View, HHT_BX_Per
     private void init(View rootView) {
         iocnView = rootView.findViewById(R.id.iocn);
         displayApps = rootView.findViewById(R.id.display_apps);
-        fragmentItemAdapter = new FragmentItemAdapter(getContext());
+        fragmentItemAdapter = new FragmentItemAdapter(getContext(),122,125);
         displayApps.setAdapter(fragmentItemAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

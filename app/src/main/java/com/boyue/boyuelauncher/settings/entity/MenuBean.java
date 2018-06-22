@@ -4,13 +4,22 @@ package com.boyue.boyuelauncher.settings.entity;
  * Created by tianluhua on 2018/5/24.
  */
 public class MenuBean {
-    public int mSelectIcon;
-    public int mNormalIcon;
-    public String mTitle;
+    private int iconRes;
+    private int NameRes;
 
-    public MenuBean(int mSelectIcon, int mNormalIcon, String mTitle) {
-        this.mSelectIcon = mSelectIcon;
-        this.mNormalIcon = mNormalIcon;
-        this.mTitle = mTitle;
+    public int getIconRes() {
+        return iconRes;
+    }
+
+    public void setIconRes(int iconRes) {
+        this.iconRes = iconRes;
+    }
+
+    public int getNameRes() {
+        return NameRes;
+    }
+
+    public void setNameRes(int nameRes) {
+        NameRes = nameRes;
     }
 }

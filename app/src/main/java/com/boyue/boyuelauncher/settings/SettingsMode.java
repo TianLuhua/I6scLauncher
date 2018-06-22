@@ -1,13 +1,12 @@
 package com.boyue.boyuelauncher.settings;
 
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 
 import com.boyue.boyuelauncher.base.BaseMode;
+import com.boyue.boyuelauncher.settings.entity.MenuBean;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public interface SettingsMode extends BaseMode {
 
@@ -19,7 +18,7 @@ public interface SettingsMode extends BaseMode {
 
     public interface CallBack {
 
-        void setIndicatorItems(List<Map<String, Object>> dataList);
+        void setPlayIndicatorItems(List<MenuBean> dataList);
 
         void setPagerFragments(ArrayList<Fragment> fragments);
 
