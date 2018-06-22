@@ -2,6 +2,7 @@ package com.boyue.boyuelauncher.settings.fragments.feedback;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.boyue.boyuelauncher.utils.NetworkUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 
 public class FeedBackFragment extends AbstractMVPFragment<FeedBackView, FeedBackPersenter> implements FeedBackView, View.OnClickListener {
+
 
     private EditText feedBackText;
     private Button feedCommitBt;
@@ -69,10 +71,37 @@ public class FeedBackFragment extends AbstractMVPFragment<FeedBackView, FeedBack
     private void feedBackCommit() {
         if (NetworkUtils.isWifiConnected()) {
             String commtString = feedBackText.getText().toString();
-            ToastUtil.showShortToast( commtString);
+            if (TextUtils.isEmpty(commtString)) {
+                ToastUtil.showShortToast("请填写反馈意见!");
+            } else {
+                getPresenter().feedBackCommit(commtString, null);
+            }
         } else {
-            ToastUtil.showShortToast( "请检查网络");
+            ToastUtil.showShortToast("请检查网络!");
         }
+
+    }
+
+    @Override
+    public void onFeedBackFailure() {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                ToastUtil.showShortToast("反馈意见失败!");
+            }
+        });
+
+    }
+
+    @Override
+    public void onFeedBacksucesess() {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                ToastUtil.showShortToast("反馈意见成功!");
+                feedBackText.getText().clear();
+            }
+        });
 
     }
 }

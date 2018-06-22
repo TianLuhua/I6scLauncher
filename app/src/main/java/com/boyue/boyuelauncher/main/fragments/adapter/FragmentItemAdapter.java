@@ -22,8 +22,8 @@ public class FragmentItemAdapter extends BaseAdapter {
     private Context mContext;
     private List<APPEntity> appEntities;
     private LayoutInflater inflater;
-    private int iconWidth;
-    private int iconHigh;
+    private final int iconWidth;
+    private final int iconHigh;
 
     public FragmentItemAdapter(Context mContext, int iconWidth, int iconHigh) {
         this.mContext = mContext;

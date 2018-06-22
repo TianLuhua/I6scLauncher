@@ -9,6 +9,11 @@ import android.Manifest;
 public class Config {
 
 
+    public static class BoYueUrl {
+        //意见反馈地址。
+        public static final String FEEDBACK_URL = "https://cloud.alilo.com.cn/baby/api/feedback";
+    }
+
     /**
      * 启动相关Activity的Action
      */
