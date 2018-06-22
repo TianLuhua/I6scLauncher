@@ -47,6 +47,9 @@ public class EnlargeAndNarrowAnimationView extends AppCompatImageView {
 
 
                 break;
+            case MotionEvent.ACTION_MOVE:
+                //默认不处理滑动事件
+                return false;
         }
         return super.onTouchEvent(event);
     }
