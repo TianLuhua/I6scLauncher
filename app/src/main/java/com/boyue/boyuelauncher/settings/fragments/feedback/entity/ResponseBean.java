@@ -3,8 +3,7 @@ package com.boyue.boyuelauncher.settings.fragments.feedback.entity;
 public class ResponseBean {
 
     private String msg;
-    private int ret;
-
+    private String ret;
 
     public String getMsg() {
         return msg;
@@ -14,11 +13,11 @@ public class ResponseBean {
         this.msg = msg;
     }
 
-    public int getRet() {
+    public String getRet() {
         return ret;
     }
 
-    public void setRet(int ret) {
+    public void setRet(String ret) {
         this.ret = ret;
     }
 
@@ -26,7 +25,7 @@ public class ResponseBean {
     public String toString() {
         return "ResponseBean{" +
                 "msg='" + msg + '\'' +
-                ", ret=" + ret +
+                ", ret='" + ret + '\'' +
                 '}';
     }
 }

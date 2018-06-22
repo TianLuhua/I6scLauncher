@@ -2,7 +2,9 @@ package com.boyue.boyuelauncher.settings.fragments.feedback;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.base.AbstractPresenter;
+import com.boyue.boyuelauncher.settings.fragments.feedback.entity.ResponseBean;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -48,18 +50,12 @@ public class FeedBackPersenter extends AbstractPresenter<FeedBackView> {
                 .add(CONTENT, commtString)
                 .add(CHANNEL, CHANNEL_DEFAULT_VALUE)
                 .build();
-        try {
-            post(Config.BoYueUrl.FEEDBACK_URL, formBody);
-        } catch (IOException e) {
-            e.printStackTrace();
-            getView().onFeedBackFailure();
-            LogUtils.e("tlh", "post----onFailure:" + e.getMessage());
-        }
+        get(Config.BoYueUrl.FEEDBACK_URL, formBody);
 
     }
 
 
-    private void post(String url, FormBody body) throws IOException {
+    private void get(String url, FormBody body) {
         Request request = new Request.Builder()
                 .url(url)//请求的url
                 .post(body)//设置请求方式，get()/post()  查看Builder()方法知，在构建时默认设置请求方式为GET
@@ -75,12 +71,13 @@ public class FeedBackPersenter extends AbstractPresenter<FeedBackView> {
             public void onResponse(Call call, Response response) {
                 if (response.code() == 200) {
                     try {
-                        LogUtils.e("tlh", "onResponse--------1111:" + response.body().string());
-                        getView().onFeedBacksucesess();
+                        String responseJson = response.body().string();
+                        Gson gson = new Gson();
+                        ResponseBean ss = gson.fromJson(responseJson, ResponseBean.class);
+                        getView().onFeedBacksucesess(ss);
                     } catch (IOException e) {
                         e.printStackTrace();
                         getView().onFeedBackFailure();
-                        LogUtils.e("tlh", "onResponse--------2222:" + e.getMessage());
                     }
                 }
             }

@@ -12,7 +12,9 @@ import android.widget.RelativeLayout;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
+import com.boyue.boyuelauncher.settings.fragments.feedback.entity.ResponseBean;
 import com.boyue.boyuelauncher.utils.KeyboardUtil;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.NetworkUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 
@@ -94,7 +96,8 @@ public class FeedBackFragment extends AbstractMVPFragment<FeedBackView, FeedBack
     }
 
     @Override
-    public void onFeedBacksucesess() {
+    public void onFeedBacksucesess(ResponseBean ss) {
+        LogUtils.e("tlh", "FeedBackFragment--onFeedBacksucesess:" + ss.toString());
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
