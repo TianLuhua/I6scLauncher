@@ -70,7 +70,7 @@ public class AdvanceSettingMode implements BaseMode {
      */
     private String getDeviceModel() {
 
-        return SystemPropertiesUtils.getString("ro.fota.device");
+        return SystemPropertiesUtils.getString("ro.product.model");
     }
 
     /**

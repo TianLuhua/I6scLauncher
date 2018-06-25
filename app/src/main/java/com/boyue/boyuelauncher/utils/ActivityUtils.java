@@ -73,12 +73,31 @@ public class ActivityUtils {
             intent.addCategory(Intent.CATEGORY_LAUNCHER);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             // 设置ComponentName参数1:packagename参数2:MainActivity路径
-            ComponentName cn = new ComponentName(packageName, className);
+            ComponentName cn = createComponentName(packageName, className);
             intent.setComponent(cn);
             Utils.getApp().startActivity(intent);
-        }else {
+        } else {
             Toast.makeText(Utils.getApp(), "Not Found Activity", Toast.LENGTH_SHORT).show();
         }
     }
+
+    /**
+     * 根据包名和类名启动
+     *
+     * @param packageName
+     * @param className
+     */
+    public static void startApplicationWithComponent(String packageName, String className) {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        ComponentName cn = createComponentName(packageName, className);
+        intent.setComponent(cn);
+        Utils.getApp().startActivity(intent);
+    }
+
+    private static ComponentName createComponentName(String packageName, String className) {
+        return new ComponentName(packageName, className);
+    }
+
 
 }

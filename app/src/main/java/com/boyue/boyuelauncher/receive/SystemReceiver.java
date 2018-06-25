@@ -11,6 +11,7 @@ import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
 import com.boyue.boyuelauncher.utils.ShutDownUtils;
 import com.boyue.boyuelauncher.widget.dialogfragment.Popup_Battery_Low_Dialog;
+import com.boyue.boyuelauncher.widget.dialogfragment.Popup_MacConnectEd_Dialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Popup_USBConnected_Dialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Popup_USBMounted_Dialog;
 
@@ -107,7 +108,7 @@ public class SystemReceiver extends BroadcastReceiver {
     private void showMacConnectedDialog() {
         FragmentManager manager = activity.getSupportFragmentManager();
         if (manager.findFragmentByTag(MIC_COMMECTED) == null) {
-            Popup_Battery_Low_Dialog dialog = new Popup_Battery_Low_Dialog();
+            Popup_MacConnectEd_Dialog dialog = new Popup_MacConnectEd_Dialog();
             dialog.show(manager, MIC_COMMECTED);
         }
 

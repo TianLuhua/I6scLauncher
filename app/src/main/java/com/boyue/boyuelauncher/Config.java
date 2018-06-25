@@ -38,8 +38,8 @@ public class Config {
         //自定义连接Ｕ盘挂载的Action
         public static final String COM_BOYUE_ACTION_USB_MOUNTED = "com.boyue.action.usb.mounted";
         //话筒插入和拔出广播
-        public static final String ACTION_MIC_IN = "com.boyue.action.mac.in";//Intent.ACTION_MIC_IN
-        public static final String ACTION_MIC_OUT = "com.boyue.action.mac.out";//Intent.ACTION_MIC_OUT
+        public static final String ACTION_MIC_IN = "android.intent.action.MIC_IN";//Intent.ACTION_MIC_IN
+        public static final String ACTION_MIC_OUT = "android.intent.action.MIC_OUT";//Intent.ACTION_MIC_OUT
 
 
         //定时休息Action
@@ -54,9 +54,9 @@ public class Config {
         public static final String PROTECTSENSOR_ACTION_CLOSE = "protectsensor_action_close";
 
         //一段时间内没有操作的广播
-        public static final String UNACTIVITY_FIFTEEN_MIN = "15";//Intent.UNACTIVITY_SIXTY_MIN
-        public static final String UNACTIVITY_THIRTY_MIN = "30";//Intent.UNACTIVITY_THIRTY_MIN
-        public static final String UNACTIVITY_SIXTY_MIN = "60";//Intent.UNACTIVITY_SIXTY_MIN
+        public static final String UNACTIVITY_FIFTEEN_MIN = "android.intent.action.IDLE_FIFTEEN_MIN";//Intent.UNACTIVITY_SIXTY_MIN
+        public static final String UNACTIVITY_THIRTY_MIN = "android.intent.action.IDLE_THIRTY_MIN";//Intent.UNACTIVITY_THIRTY_MIN
+        public static final String UNACTIVITY_SIXTY_MIN = "android.intent.action.IDLE_SIXTY_MIN";//Intent.UNACTIVITY_SIXTY_MIN
 
         //
     }
@@ -129,8 +129,8 @@ public class Config {
      */
     public static class Settings {
         public static final int VALUE_NEVER = Integer.MAX_VALUE;
-        //        public static final int VALUE_1M = 60000;
-        public static final int VALUE_1M = 1000;
+        public static final int VALUE_1M = 60000;
+        //        public static final int VALUE_1M = 1000;
         public static final int VALUE_5M = VALUE_1M * 5;
         public static final int VALUE_10M = VALUE_1M * 10;
         public static final int VALUE_15M = VALUE_1M * 15;
@@ -173,7 +173,7 @@ public class Config {
     //Launcher中需要用到的资源
     public static class BoYueLauncherResource {
         //火火兔学堂
-        public static final String HHT_XT_ZJYY = "";
+        public static final String HHT_XT_ZJYY = "air.RabbitEng";//air.RabbitEng/.AppEntry
         public static final String HHT_XT_ZJXT = "";
         public static final String HHT_XT_MATH_LOGIC = "";
         public static final String HHT_XT_TRANDITIONAL_GX = "";

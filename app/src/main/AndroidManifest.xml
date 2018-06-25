@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.boyue.boyuelauncher"
 
-
     >
-    <!--android:sharedUserId="android.uid.system"-->
+<!--android:sharedUserId="android.uid.system"-->
+
 
 
     <!-- 网络请求权限 -->
