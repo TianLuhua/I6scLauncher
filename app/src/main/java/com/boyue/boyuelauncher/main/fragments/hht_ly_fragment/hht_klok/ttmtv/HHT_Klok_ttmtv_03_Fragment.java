@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.ttmtv;
+package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.ttmtv;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

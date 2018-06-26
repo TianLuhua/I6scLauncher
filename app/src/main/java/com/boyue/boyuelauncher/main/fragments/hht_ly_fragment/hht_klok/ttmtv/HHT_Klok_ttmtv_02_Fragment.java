@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.ttmtv;
+package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.ttmtv;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 
-public class HHT_Klok_ttmtv_04_Fragment extends Fragment implements View.OnClickListener {
+public class HHT_Klok_ttmtv_02_Fragment extends Fragment implements View.OnClickListener {
 
 
-    public static HHT_Klok_ttmtv_04_Fragment newInstance() {
-        return new HHT_Klok_ttmtv_04_Fragment();
+    public static HHT_Klok_ttmtv_02_Fragment newInstance() {
+        return new HHT_Klok_ttmtv_02_Fragment();
     }
 
-    public HHT_Klok_ttmtv_04_Fragment() {
+    public HHT_Klok_ttmtv_02_Fragment() {
         // Required empty public constructor
     }
 
@@ -25,7 +25,7 @@ public class HHT_Klok_ttmtv_04_Fragment extends Fragment implements View.OnClick
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hht_klok_ttmtv_04, null);
+        View rootView = inflater.inflate(R.layout.fragment_hht_klok_ttmtv_02, null);
         inintView(rootView);
         return rootView;
     }

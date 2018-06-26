@@ -7,9 +7,10 @@ import com.boyue.boyuelauncher.base.BaseView;
 import java.util.List;
 
 /**
- * Created by Tianluhua on 2018\6\26 0026.
+ * Created by Tianluhua on 2018/6/26.
  */
-public interface HHT_klok_View extends BaseView {
+
+public interface HHT_Klok_Item_View extends BaseView {
 
     void setFragments(List<Fragment> ttmvDataFragments);
 }

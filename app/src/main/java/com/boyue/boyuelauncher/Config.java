@@ -32,6 +32,7 @@ public class Config {
         public static final String ACTIVITY_ACTION_HHT_LY_YWEG = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yweg";
         public static final String ACTIVITY_ACTION_FCMLOCKSCREEN = "com.boyue.boyuelauncher.FCMlockscreen";
         public static final String ACTIVITY_ACTION_PROTECTEYELOCKSCREEN = "com.boyue.boyuelauncher.ProtectEyeLockScreen";
+        public static final String ACTIVITY_ACTION_KLOK = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.activity";
 
         //自定义连接usb充电的Action
         public static final String COM_BOYUE_ACTION_POWER_CONNECTED = "com.boyue.action.action_power_connected";
@@ -168,6 +169,11 @@ public class Config {
 
         //用于保存护眼传感器的状态
         public static final String PROTECT_EYE_SENSOR_ENABLE_KEY = "protect_eye_sensor_enable_key";
+
+
+
+        //用于保存启动的：火火兔乐园---卡拉ok 加载的是哪个页面的数据
+        public static final String HHTLY_KLOK_PAGE="page";
     }
 
     //Launcher中需要用到的资源

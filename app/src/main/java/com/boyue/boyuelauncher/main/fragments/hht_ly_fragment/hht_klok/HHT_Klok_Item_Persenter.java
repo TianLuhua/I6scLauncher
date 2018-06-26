@@ -3,24 +3,24 @@ package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok;
 import android.support.v4.app.Fragment;
 
 import com.boyue.boyuelauncher.base.AbstractPresenter;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.jdeg.HHT_Klok_Jdeg_01_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.jdeg.HHT_Klok_Jdeg_02_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.jdeg.HHT_Klok_Jdeg_03_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.ttmtv.HHT_Klok_ttmtv_01_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.ttmtv.HHT_Klok_ttmtv_02_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.ttmtv.HHT_Klok_ttmtv_03_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.ttmtv.HHT_Klok_ttmtv_04_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.fragment.ttmtv.HHT_Klok_ttmtv_05_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.jdeg.HHT_Klok_Jdeg_01_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.jdeg.HHT_Klok_Jdeg_02_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.jdeg.HHT_Klok_Jdeg_03_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.ttmtv.HHT_Klok_ttmtv_01_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.ttmtv.HHT_Klok_ttmtv_02_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.ttmtv.HHT_Klok_ttmtv_03_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.ttmtv.HHT_Klok_ttmtv_04_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.ttmtv.HHT_Klok_ttmtv_05_Fragment;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Tianluhua on 2018\6\26 0026.
+ * Created by Tianluhua on 2018/6/26.
  */
-public class HHT_klok_Persenter extends AbstractPresenter<HHT_klok_View> {
 
+public class HHT_Klok_Item_Persenter extends AbstractPresenter<HHT_Klok_Item_View> {
 
     private Fragment ttmtv_01, ttmtv_02, ttmtv_03, ttmtv_04, ttmtv_05, jdeg_01, jdeg_02, jdeg_03;
 
@@ -30,7 +30,7 @@ public class HHT_klok_Persenter extends AbstractPresenter<HHT_klok_View> {
             public void run() {
                 List<Fragment> ttmvDataFragments = new ArrayList<>();
                 switch (ttmtv) {
-                    case HHT_klok_Activity.TTMTV:
+                    case HHT_klok_Main_Activity.TTMTV:
                         ttmtv_01 = HHT_Klok_ttmtv_01_Fragment.newInstance();
                         ttmtv_02 = HHT_Klok_ttmtv_02_Fragment.newInstance();
                         ttmtv_03 = HHT_Klok_ttmtv_03_Fragment.newInstance();
@@ -44,7 +44,7 @@ public class HHT_klok_Persenter extends AbstractPresenter<HHT_klok_View> {
                         ttmvDataFragments.add(ttmtv_05);
                         getView().setFragments(ttmvDataFragments);
                         break;
-                    case HHT_klok_Activity.JDEG:
+                    case HHT_klok_Main_Activity.JDEG:
                         jdeg_01 = HHT_Klok_Jdeg_01_Fragment.newInstance();
                         jdeg_02 = HHT_Klok_Jdeg_02_Fragment.newInstance();
                         jdeg_03 = HHT_Klok_Jdeg_03_Fragment.newInstance();
@@ -62,6 +62,4 @@ public class HHT_klok_Persenter extends AbstractPresenter<HHT_klok_View> {
 
 
     }
-
-
 }

@@ -34,6 +34,22 @@ public class ActivityUtils {
         }
     }
 
+    public static void setActivityConfig(String action, String key, int value) {
+        Intent intent = new Intent(action);
+        intent.putExtra(key, value);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (Utils.getApp().getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY) != null) {
+            try {
+                Utils.getApp().startActivity(intent);
+
+            } catch (ActivityNotFoundException e) {
+                Toast.makeText(Utils.getApp(), "Start Activity Error", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(Utils.getApp(), "Not Found Activity", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     /**
      * 根据包名启动 APP
      *

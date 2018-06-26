@@ -102,7 +102,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.fragments.hht_ly_fragment.hht_klok.HHT_klok_Activity"
+            android:name=".main.fragments.hht_ly_fragment.hht_klok.fragment.HHT_klok_Main_Activity"
             android:launchMode="singleTask"
             android:theme="@style/NoTitleTranslucentTheme">
             <intent-filter>
@@ -110,6 +110,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".main.fragments.hht_ly_fragment.hht_klok.fragment.HHT_Klok_Item_Activity"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitleTranslucentTheme">
+            <intent-filter>
+                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.activity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+
+
         <activity
             android:name=".main.fragments.hht_ly_fragment.hht_yspy.HHT_yspy_Activity"
             android:launchMode="singleTask"
