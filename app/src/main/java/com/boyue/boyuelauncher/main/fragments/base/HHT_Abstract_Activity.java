@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.HideSystemUIUtils;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.TitleBar;
 
 /**
@@ -65,15 +66,17 @@ public abstract class HHT_Abstract_Activity extends AppCompatActivity {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 //将按下时的坐标存储
+                LogUtils.e("tlh", "HHT_Abstract_Activity---onTouchEvent---ACTION_DOWN");
                 downX = x;
                 downY = y;
                 break;
             case MotionEvent.ACTION_UP:
+                LogUtils.e("tlh", "HHT_Abstract_Activity---onTouchEvent---ACTION_UP");
                 //获取到距离差
                 float dx = x - downX;
                 float dy = y - downY;
                 //防止是按下也判断
-                if (Math.abs(dx) > 4 && Math.abs(dy) > 4) {
+                if (Math.abs(dx) > 2 && Math.abs(dy) > 2) {
                     //通过距离差判断方向
                     int orientation = getOrientation(dx, dy);
                     switch (orientation) {
@@ -85,6 +88,11 @@ public abstract class HHT_Abstract_Activity extends AppCompatActivity {
                             break;
                     }
                 }
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+                LogUtils.e("tlh", "HHT_Abstract_Activity---onTouchEvent---ACTION_MOVE");
+
                 break;
         }
         return super.onTouchEvent(event);

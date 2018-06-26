@@ -13,18 +13,16 @@ import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.HHT_klok_
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 
-import static com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.HHT_klok_Activity.TTMTV;
-
-public class HHT_klok_Fragment extends Fragment implements View.OnClickListener {
+public class HHT_klok_Main_Fragment extends Fragment implements View.OnClickListener {
 
 
     private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03;
 
-    public static HHT_klok_Fragment newInstance() {
-        return new HHT_klok_Fragment();
+    public static HHT_klok_Main_Fragment newInstance() {
+        return new HHT_klok_Main_Fragment();
     }
 
-    public HHT_klok_Fragment() {
+    public HHT_klok_Main_Fragment() {
         // Required empty public constructor
     }
 
@@ -39,7 +37,7 @@ public class HHT_klok_Fragment extends Fragment implements View.OnClickListener 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_hht_klok, null);
+        View rootView = inflater.inflate(R.layout.fragment_hht_klok_main, null);
         inintView(rootView);
         return rootView;
     }

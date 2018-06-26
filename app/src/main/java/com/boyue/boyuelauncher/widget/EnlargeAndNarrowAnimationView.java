@@ -5,6 +5,7 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.animation.EnlargeAndNarrowAnimation;
 
 /**
@@ -13,8 +14,6 @@ import com.boyue.boyuelauncher.widget.animation.EnlargeAndNarrowAnimation;
 
 public class EnlargeAndNarrowAnimationView extends AppCompatImageView {
 
-    private float viewH;
-    private float viewW;
     private EnlargeAndNarrowAnimation animation;
 
     public EnlargeAndNarrowAnimationView(Context context) {
@@ -33,23 +32,23 @@ public class EnlargeAndNarrowAnimationView extends AppCompatImageView {
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                viewH = getHeight() / 2;
-                viewW = getWidth() / 2;
+                LogUtils.e("tlh", "EnlargeAndNarrowAnimationView---onTouchEvent---ACTION_DOWN");
+                float  viewH = getHeight() / 2;
+                float  viewW = getWidth() / 2;
                 if (animation == null) {
-
                     animation = new EnlargeAndNarrowAnimation(1.0f, 1.05f, 1.0f, 1.05f, viewW, viewH);
-
                 }
                 animation.setDuration(200);
                 animation.start(this);
-
-//                Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.view_normal_to_large);
-
-
                 break;
+
+            case MotionEvent.ACTION_UP:
+                LogUtils.e("tlh", "EnlargeAndNarrowAnimationView---ACTION_UP---ACTION_UP");
+                break;
+
             case MotionEvent.ACTION_MOVE:
-                //默认不处理滑动事件
-                return false;
+                LogUtils.e("tlh", "EnlargeAndNarrowAnimationView---ACTION_UP---ACTION_MOVE");
+                break;
         }
         return super.onTouchEvent(event);
     }

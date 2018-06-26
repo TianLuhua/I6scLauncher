@@ -11,35 +11,6 @@ public class SystemPropertiesUtils {
     /**
      * 根据给定的Key返回String类型的值
      *
-     * @param key     获取指定信息所需的key
-     * @return 返回一个String类型的值，如果不存在该key则返回空字符串
-     */
-    public static String getString(String key) {
-        String result = "";
-        try {
-            ClassLoader classLoader = Utils.getApp().getClassLoader();
-            Class SystemProperties = classLoader.loadClass("android.os.SystemProperties");
-            //参数类型
-            Class[] paramTypes = new Class[1];
-            paramTypes[0] = String.class;
-            Method getString = SystemProperties.getMethod("get", paramTypes);
-            //参数
-            Object[] params = new Object[1];
-            params[0] = new String(key);
-
-            result = (String) getString.invoke(SystemProperties, params);
-        } catch (IllegalArgumentException e) {
-            //e.printStackTrace();
-            //如果key超过32个字符则抛出该异常
-        } catch (Exception e) {
-            result = "";
-        }
-        return result;
-    }
-
-    /**
-     * 根据给定的Key返回String类型的值
-     *
      * @param context 上下文
      * @param key     获取指定信息所需的key
      * @param def     key不存在时的默认值
@@ -66,6 +37,35 @@ public class SystemPropertiesUtils {
             //如果key超过32个字符则抛出该异常
         } catch (Exception e) {
             result = def;
+        }
+        return result;
+    }
+
+    /**
+     * 根据给定的Key返回String类型的值
+     *
+     * @param key     获取指定信息所需的key
+     * @return 返回一个String类型的值，如果不存在该key则返回空字符串
+     */
+    public static String getString(String key) {
+        String result = "";
+        try {
+            ClassLoader classLoader = Utils.getApp().getClassLoader();
+            Class SystemProperties = classLoader.loadClass("android.os.SystemProperties");
+            //参数类型
+            Class[] paramTypes = new Class[1];
+            paramTypes[0] = String.class;
+            Method getString = SystemProperties.getMethod("get", paramTypes);
+            //参数
+            Object[] params = new Object[1];
+            params[0] = new String(key);
+
+            result = (String) getString.invoke(SystemProperties, params);
+        } catch (IllegalArgumentException e) {
+            //e.printStackTrace();
+            //如果key超过32个字符则抛出该异常
+        } catch (Exception e) {
+            result = "";
         }
         return result;
     }

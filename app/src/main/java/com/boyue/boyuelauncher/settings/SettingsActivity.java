@@ -9,7 +9,7 @@ import android.widget.ListView;
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
-import com.boyue.boyuelauncher.settings.adapter.SystemSettingFragmentPagerAdapter;
+import com.boyue.boyuelauncher.adapter.SystemFragmentPagerAdapter;
 import com.boyue.boyuelauncher.settings.adapter.SystemSettingIndicatorgAdapter;
 import com.boyue.boyuelauncher.settings.entity.MenuBean;
 import com.boyue.boyuelauncher.settings.fragments.fcm_settings.FCMSettingFragment;
@@ -34,7 +34,7 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
     private TitleBar titleBar;
     private ListView mListView;
     private SystemSettingIndicatorgAdapter settingIndicatorgAdapter;
-    private SystemSettingFragmentPagerAdapter fragmentPagerAdapter;
+    private SystemFragmentPagerAdapter fragmentPagerAdapter;
 
     private ViewPager fragmentPagers;
     private ArrayList<Fragment> fragments;
@@ -119,7 +119,7 @@ public class SettingsActivity extends AbstractMVPActivity<SettingsView, Settings
 
         fragmentPagers = findViewById(R.id.page_content);
         fragmentPagers.addOnPageChangeListener(this);
-        fragmentPagerAdapter = new SystemSettingFragmentPagerAdapter(getSupportFragmentManager());
+        fragmentPagerAdapter = new SystemFragmentPagerAdapter(getSupportFragmentManager());
         fragmentPagers.setAdapter(fragmentPagerAdapter);
         fragmentPagers.setCurrentItem(defaultPager);
 

@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.settings.adapter;
+package com.boyue.boyuelauncher.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -6,30 +6,32 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.boyue.boyuelauncher.utils.LogUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.crypto.spec.DESKeySpec;
 
-public class SystemSettingFragmentPagerAdapter extends FragmentPagerAdapter {
+public class SystemFragmentPagerAdapter extends FragmentPagerAdapter {
 
 
     private List<Fragment> fragments = new ArrayList<Fragment>();
 
     public void setFragments(List<Fragment> fragments) {
+        LogUtils.e("tlh", "SystemFragmentPagerAdapter----fragments.size():" + fragments.size());
         this.fragments = fragments;
         this.notifyDataSetChanged();
     }
 
-    public SystemSettingFragmentPagerAdapter(FragmentManager fm) {
+    public SystemFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
     @Override
     public Fragment getItem(int position) {
 
-        if (fragments == null)
-            return null;
+        LogUtils.e("tlh", "SystemFragmentPagerAdapter----getItem:" + position);
         return fragments.get(position);
     }
 
