@@ -35,8 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="74dp"
         android:layout_marginTop="209dp"
-        android:gravity="center"
         android:layout_toEndOf="@+id/hht_xt_zjyy_01"
+        android:gravity="center"
         android:orientation="vertical">
 
         <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
@@ -60,8 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="74dp"
         android:layout_marginTop="209dp"
-        android:gravity="center"
         android:layout_toEndOf="@id/hht_xt_zjyy_02"
+        android:gravity="center"
         android:orientation="vertical">
 
         <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
@@ -85,8 +85,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="74dp"
         android:layout_marginTop="209dp"
-        android:gravity="center"
         android:layout_toEndOf="@+id/hht_xt_zjyy_03"
+        android:gravity="center"
         android:orientation="vertical">
 
         <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
@@ -103,5 +103,10 @@
             android:layout_marginTop="10dp"
             android:text="@string/hht_xt_zjyy_dnyy" />
     </LinearLayout>
+
+    <com.boyue.boyuelauncher.widget.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

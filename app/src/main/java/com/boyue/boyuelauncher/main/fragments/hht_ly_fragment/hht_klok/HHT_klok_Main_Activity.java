@@ -13,12 +13,13 @@ import com.boyue.boyuelauncher.widget.TitleBar;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_KLOK_JDEG;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_KLOK_TTMTV;
 
 public class HHT_klok_Main_Activity extends AppCompatActivity implements View.OnClickListener {
 
 
-    public static final int TTMTV = 0X001;
-    public static final int JDEG = 0X002;
+
 
     private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03;
     private TitleBar titleBar;
@@ -38,6 +39,7 @@ public class HHT_klok_Main_Activity extends AppCompatActivity implements View.On
             @Override
             public void onLeftIconClick(View view) {
                 finish();
+                overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
             }
 
             @Override
@@ -62,11 +64,11 @@ public class HHT_klok_Main_Activity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.hht_xt_klok_01_icon:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, TTMTV);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTLY_KLOK_TTMTV);
                 overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
                 break;
             case R.id.hht_xt_klok_02_icon:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, JDEG);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTLY_KLOK_JDEG);
                 overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
                 break;
             case R.id.hht_xt_klok_03_icon:

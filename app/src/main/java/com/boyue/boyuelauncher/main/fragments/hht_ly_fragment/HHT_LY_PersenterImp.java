@@ -4,10 +4,18 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.Config;
+import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
 import java.util.List;
+
+import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
+import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_KLOK_JDEG;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YSPY_THCZ;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YWEG;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YZYX;
 
 /**
  * Created by Tianluhua on 2018/5/18.
@@ -51,13 +59,13 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_KLOK);
                 break;
             case 1:
-                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_LY_YWEG);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTLY_YWEG);
                 break;
             case 3:
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_YSPY);
                 break;
             case 4:
-                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_YZYX);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTLY_YZYX);
                 break;
         }
     }

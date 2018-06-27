@@ -14,6 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
+import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_KLOK_JDEG;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJXT;
+
 
 /**
  * Created by Tianluhua on 2018/5/18.
@@ -54,10 +59,12 @@ public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
     public void startHHT_XT_Activity(int position) {
         switch (position) {
             case 0:
+                //显示早教英语
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_ZJYY);
                 break;
             case 1:
-                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_ZJXT);
+                //显示早教学堂
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTXT_ZJXT);
                 break;
             case 3:
 

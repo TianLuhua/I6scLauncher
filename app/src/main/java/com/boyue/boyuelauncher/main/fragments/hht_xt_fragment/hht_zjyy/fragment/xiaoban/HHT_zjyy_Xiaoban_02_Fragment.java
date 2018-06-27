@@ -6,14 +6,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 
 public class HHT_zjyy_Xiaoban_02_Fragment extends Fragment implements View.OnClickListener {
 
+
+    private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03, btn_04, btn_05, btn_06, btn_07, btn_08;
 
     public static HHT_zjyy_Xiaoban_02_Fragment newInstance() {
         return new HHT_zjyy_Xiaoban_02_Fragment();
@@ -27,37 +27,18 @@ public class HHT_zjyy_Xiaoban_02_Fragment extends Fragment implements View.OnCli
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hht_zjyy_xiaoban_02_stub, null);
+        View rootView = inflater.inflate(R.layout.fragment_hht_zjyy_xiaoban_02, null);
         initView(rootView);
         return rootView;
     }
 
-    private View rootView;
-    private boolean once = true;
 
     private void initView(View rootView) {
-        this.rootView = rootView;
+        initItemView(rootView);
     }
 
 
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        LogUtils.e("tll", "HHT_zjyy_Xiaoban_02_Fragment---onHiddenChanged:" + hidden);
-        if (hidden) {
-            if (once) {
-                once = false;
-                ViewStub stub = rootView.findViewById(R.id.xiaoban_02_stub);
-                stub.inflate();
-                initItemView();
-            }
-        }
-
-    }
-
-    private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03, btn_04, btn_05, btn_06, btn_07, btn_08;
-
-    private void initItemView() {
+    private void initItemView(View rootView) {
         btn_01 = rootView.findViewById(R.id.hht_ly_yzyx_01_icon);
         btn_02 = rootView.findViewById(R.id.hht_ly_yzyx_02_icon);
         btn_03 = rootView.findViewById(R.id.hht_ly_yzyx_03_icon);

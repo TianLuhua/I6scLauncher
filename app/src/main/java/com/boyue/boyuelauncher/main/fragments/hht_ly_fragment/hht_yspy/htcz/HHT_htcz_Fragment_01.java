@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.base.LazyLoadFragment;
 
-public class HHT_htcz_Fragment_01 extends Fragment {
+public class HHT_htcz_Fragment_01 extends LazyLoadFragment {
 
 
     public static HHT_htcz_Fragment_01 newInstance() {
@@ -22,29 +23,13 @@ public class HHT_htcz_Fragment_01 extends Fragment {
     }
 
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hht_yspy_htcz_01, null);
-        return rootView;
+    protected int setContentView() {
+        return R.layout.fragment_hht_yspy_htcz_01;
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        mNotification_01 = (Notification_01) context;
-    }
+    protected void lazyLoad() {
 
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        if (mNotification_01 == null) return;
-        mNotification_01.onHiddenChanged(hidden);
-    }
-
-    private Notification_01 mNotification_01;
-
-    public static interface Notification_01 {
-        void onHiddenChanged(boolean hidden);
     }
 }

@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.base.LazyLoadFragment;
 
-public class HHT_yzyx_Fragment_02 extends Fragment {
+public class HHT_yzyx_Fragment_02 extends LazyLoadFragment {
 
 
     public static HHT_yzyx_Fragment_02 newInstance() {
@@ -22,13 +23,13 @@ public class HHT_yzyx_Fragment_02 extends Fragment {
     }
 
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hht_yzyx_02, null);
-        return rootView;
+    protected int setContentView() {
+        return R.layout.fragment_hht_yzyx_02;
     }
 
+    @Override
+    protected void lazyLoad() {
 
-
+    }
 }

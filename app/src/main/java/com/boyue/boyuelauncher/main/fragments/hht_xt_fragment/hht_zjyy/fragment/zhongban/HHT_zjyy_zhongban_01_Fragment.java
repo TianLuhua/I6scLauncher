@@ -23,41 +23,23 @@ public class HHT_zjyy_zhongban_01_Fragment extends Fragment implements View.OnCl
         // Required empty public constructor
     }
 
+    private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03, btn_04, btn_05, btn_06, btn_07, btn_08;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hht_zjyy_zhongban_01_stub, null);
+        View rootView = inflater.inflate(R.layout.fragment_hht_zjyy_zhongban_01, null);
         initView(rootView);
         return rootView;
     }
 
-    private View rootView;
-    private boolean once = true;
 
     private void initView(View rootView) {
-        this.rootView = rootView;
+        initItemView(rootView);
     }
 
 
-    @Override
-    public void onHiddenChanged(boolean hidden) {
-        super.onHiddenChanged(hidden);
-        LogUtils.e("tll", "HHT_zjyy_zhongban_01_Fragment---onHiddenChanged:" + hidden);
-        if (hidden) {
-            if (once) {
-                once = false;
-                ViewStub stub = rootView.findViewById(R.id.zhongban_01_stub);
-                stub.inflate();
-                initItemView();
-            }
-        }
-
-    }
-
-    private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03, btn_04, btn_05, btn_06, btn_07, btn_08;
-
-    private void initItemView() {
+    private void initItemView(View rootView) {
         btn_01 = rootView.findViewById(R.id.hht_ly_yzyx_01_icon);
         btn_02 = rootView.findViewById(R.id.hht_ly_yzyx_02_icon);
         btn_03 = rootView.findViewById(R.id.hht_ly_yzyx_03_icon);

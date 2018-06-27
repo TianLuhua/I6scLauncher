@@ -3,8 +3,7 @@
     package="com.boyue.boyuelauncher"
 
     >
-<!--android:sharedUserId="android.uid.system"-->
-
+    <!--android:sharedUserId="android.uid.system"-->
 
 
     <!-- 网络请求权限 -->
@@ -65,7 +64,6 @@
         </activity>
         <activity
             android:name=".wifimanager.WiFiManagerActivity"
-            android:label="Tianluhua"
             android:launchMode="singleTask"
             android:theme="@style/NoTitleTranslucentTheme">
             <intent-filter>
@@ -84,7 +82,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.fragments.hht_xt_fragment.hht_zjyy.HHT_zjyy_Activity"
+            android:name=".main.fragments.hht_xt_fragment.hht_zjyy.fragment.HHT_zjyy_Main_Activity"
             android:launchMode="singleTask"
             android:theme="@style/NoTitleTranslucentTheme">
             <intent-filter>
@@ -92,15 +90,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".main.fragments.hht_xt_fragment.hht_zjxt.HHT_zjxt_Activity"
-            android:launchMode="singleTask"
-            android:theme="@style/NoTitleTranslucentTheme">
-            <intent-filter>
-                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_zjxt" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+
         <activity
             android:name=".main.fragments.hht_ly_fragment.hht_klok.HHT_klok_Main_Activity"
             android:launchMode="singleTask"
@@ -120,10 +110,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-
-
-
         <activity
             android:name=".main.fragments.hht_ly_fragment.hht_yspy.HHT_yspy_Activity"
             android:launchMode="singleTask"
@@ -133,48 +119,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".main.fragments.hht_ly_fragment.hht_yzyx.HHT_yzyx_Activity"
-            android:launchMode="singleTask"
-            android:theme="@style/NoTitleTranslucentTheme">
-            <intent-filter>
-                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-
-        <activity
-            android:name=".main.fragments.hht_ly_fragment.hht_yspy.htcz.HHT_yspy_htcz_Activity"
-            android:launchMode="singleTask"
-            android:theme="@style/NoTitleTranslucentTheme">
-            <intent-filter>
-                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.htcz" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".main.fragments.hht_ly_fragment.hht_yspy.syzl.HHT_yspy_yszl_Activity"
-            android:launchMode="singleTask"
-            android:theme="@style/NoTitleTranslucentTheme">
-            <intent-filter>
-                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.syzl" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".main.fragments.hht_ly_fragment.hht_yspy.zqyy.HHT_yspy_zqyy_Activity"
-            android:launchMode="singleTask"
-            android:theme="@style/NoTitleTranslucentTheme">
-            <intent-filter>
-                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.zqyy" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-
         <activity
             android:name=".fcmlockscreen.FcmLockScreenActivity"
             android:launchMode="singleTask"
