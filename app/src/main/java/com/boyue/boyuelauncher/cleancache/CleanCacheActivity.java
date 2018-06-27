@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -17,7 +16,6 @@ import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.utils.DataCleanManager;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
-import java.io.IOException;
 import java.lang.ref.WeakReference;
 
 

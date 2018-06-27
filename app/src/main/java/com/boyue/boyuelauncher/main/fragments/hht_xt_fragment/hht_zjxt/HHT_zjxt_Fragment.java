@@ -1,19 +1,11 @@
 package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjxt;
 
 import android.support.v7.widget.AppCompatImageView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
-
-import com.boyue.boyuelauncher.base.LazyLoadFragment;
-import com.boyue.boyuelauncher.main.fragments.base.HHT_Abstract_Activity;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx.HHT_yzyx_Fragment_01;
+import com.boyue.boyuelauncher.base.LazyLoadFragment;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
-import com.boyue.boyuelauncher.widget.TitleBar;
-
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY;
 
 /**
  * Created by Tianluhua on 2018/6/7.

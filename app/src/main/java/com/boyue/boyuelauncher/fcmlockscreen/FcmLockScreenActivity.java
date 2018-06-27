@@ -1,10 +1,5 @@
 package com.boyue.boyuelauncher.fcmlockscreen;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,15 +8,8 @@ import android.widget.TextView;
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
-import com.boyue.boyuelauncher.protecteyelockscreen.ProtectEyeLockScreenActivity;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.TimeZone;
 
 public class FcmLockScreenActivity extends AbstractMVPActivity<FcmLockScreenView, FcmLockScreenPersenter> implements FcmLockScreenView, View.OnClickListener {
 

@@ -11,8 +11,6 @@ import com.boyue.boyuelauncher.utils.LogUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.crypto.spec.DESKeySpec;
-
 public class SystemFragmentPagerAdapter extends FragmentPagerAdapter {
 
 

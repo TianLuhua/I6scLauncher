@@ -1,24 +1,17 @@
 package com.boyue.boyuelauncher.wifimanager;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.utils.KeyboardUtil;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_AddNetworkDialog;
-import com.boyue.boyuelauncher.widget.dialogfragment.Setting_WiFi_IgnoreNetwork_Dialog;
 import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
 import com.boyue.boyuelauncher.wifimanager.listener.OnWiFiSettingDialogOnListener;
 

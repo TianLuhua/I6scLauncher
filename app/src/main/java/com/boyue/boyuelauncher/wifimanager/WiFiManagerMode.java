@@ -1,9 +1,6 @@
 package com.boyue.boyuelauncher.wifimanager;
 
 import com.boyue.boyuelauncher.base.BaseMode;
-import com.boyue.boyuelauncher.wifimanager.entity.WifiModel;
-
-import java.util.ArrayList;
 
 /**
  * Created by Tianluhua on 2018/6/11.

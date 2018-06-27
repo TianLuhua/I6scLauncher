@@ -1,16 +1,13 @@
 package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.fragment.daban;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 
 public class HHT_zjyy_Daban_01_Fragment extends Fragment implements View.OnClickListener {

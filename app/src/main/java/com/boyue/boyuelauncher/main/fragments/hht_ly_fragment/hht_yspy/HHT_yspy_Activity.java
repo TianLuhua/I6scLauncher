@@ -1,10 +1,11 @@
 package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy;
 
-import android.view.LayoutInflater;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.main.fragments.base.HHT_Abstract_Activity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 import com.boyue.boyuelauncher.widget.TitleBar;
@@ -19,28 +20,22 @@ import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YSP
  * Created by Tianluhua on 2018/6/7.
  */
 
-public class HHT_yspy_Activity extends HHT_Abstract_Activity implements View.OnClickListener {
+public class HHT_yspy_Activity extends AppCompatActivity implements View.OnClickListener {
 
     private EnlargeAndNarrowAnimationView zqyy, htcz, yszl;
+    private TitleBar titleBar;
+
 
     @Override
-    protected View getConentView(LayoutInflater inflater) {
-        return inflater.inflate(R.layout.activity_hht_yspy, null);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_hht_yspy);
+        initView();
     }
 
-    @Override
-    protected void slide_to_the_right() {
 
-    }
-
-    @Override
-    protected void slide_to_the_left() {
-
-    }
-
-    @Override
     protected void initView() {
-        super.initView();
+        titleBar = findViewById(R.id.title_bar);
         titleBar.setTitle(R.string.hht_ly_yspy);
         titleBar.setOnTitleBarClickListener(new TitleBar.OnTitleBarClickListener() {
             @Override

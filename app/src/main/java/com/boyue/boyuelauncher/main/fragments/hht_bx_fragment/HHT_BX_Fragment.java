@@ -16,9 +16,7 @@ import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 /**

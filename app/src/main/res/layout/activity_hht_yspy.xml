@@ -75,5 +75,9 @@
             android:layout_height="wrap_content"
             android:text="@string/hht_ly_yspy_yszl" />
     </LinearLayout>
+    <com.boyue.boyuelauncher.widget.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

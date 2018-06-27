@@ -34,9 +34,9 @@ public class EnlargeAndNarrowAnimation extends ScaleAnimation {
     }
 
     private void init() {
-        narrowAnimation.setFillAfter(true);
+        narrowAnimation.setFillAfter(false);
         narrowAnimation.setAnimationListener(narrowAnimationListener);
-        super.setFillAfter(true);
+        super.setFillAfter(false);
         super.setAnimationListener(new AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {

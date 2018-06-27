@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.SimpleAdapter;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
@@ -17,7 +16,6 @@ import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -52,7 +50,7 @@ public class HHT_LY_Fragment extends AbstractMVPFragment<HHT_LY_View, HHT_LY_Per
     private void init(View rootView) {
         iocnView = rootView.findViewById(R.id.iocn);
         displayApps = rootView.findViewById(R.id.display_apps);
-        fragmentItemAdapter = new FragmentItemAdapter(getContext(),122,125);
+        fragmentItemAdapter = new FragmentItemAdapter(getContext(), 122, 125);
         displayApps.setAdapter(fragmentItemAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

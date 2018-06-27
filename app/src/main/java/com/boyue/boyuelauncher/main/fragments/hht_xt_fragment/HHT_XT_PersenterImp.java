@@ -1,8 +1,6 @@
 package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.Config;
@@ -10,13 +8,10 @@ import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
-import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_KLOK_JDEG;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJXT;
 
 

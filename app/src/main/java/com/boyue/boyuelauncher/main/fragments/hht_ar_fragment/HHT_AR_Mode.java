@@ -5,9 +5,7 @@ import android.graphics.drawable.Drawable;
 import com.boyue.boyuelauncher.base.BaseMode;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Tianluhua on 2018/5/17.

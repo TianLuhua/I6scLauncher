@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
+import com.boyue.boyuelauncher.utils.HideSystemUIUtils;
 import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 import com.boyue.boyuelauncher.widget.TitleBar;
@@ -27,6 +28,7 @@ public class HHT_klok_Main_Activity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        HideSystemUIUtils.hideSystemUI(this);
         setContentView(R.layout.activity_hht_klok_main);
         inintView();
     }

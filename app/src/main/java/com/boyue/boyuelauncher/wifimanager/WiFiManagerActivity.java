@@ -1,6 +1,5 @@
 package com.boyue.boyuelauncher.wifimanager;
 
-import android.content.DialogInterface;
 import android.net.wifi.WifiInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatImageView;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 

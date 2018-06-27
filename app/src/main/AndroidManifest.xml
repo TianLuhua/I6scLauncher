@@ -147,18 +147,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="com.boyue.boyuelauncher.player.SWFPlayerActivity"
-            android:launchMode="singleTask">
-            <intent-filter>
-                <action android:name="com.boyue.boyuelauncher.player" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-
-
-        </activity>
-
-
         <service android:name=".service.SystemSettingsService" />
 
     </application>

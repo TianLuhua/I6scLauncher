@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.Config;
-import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
@@ -12,8 +11,6 @@ import java.util.List;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
-import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_KLOK_JDEG;
-import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YSPY_THCZ;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YWEG;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YZYX;
 

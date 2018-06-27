@@ -6,10 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 
 public class HHT_zjyy_zhongban_01_Fragment extends Fragment implements View.OnClickListener {
