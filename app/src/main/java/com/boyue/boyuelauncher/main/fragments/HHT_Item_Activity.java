@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok;
+package com.boyue.boyuelauncher.main.fragments;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -20,7 +20,7 @@ import static com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.HH
  * Created by Tianluhua on 2018/6/26.
  */
 
-public class HHT_Klok_Item_Activity extends AbstractMVPActivity<HHT_Klok_Item_View, HHT_Klok_Item_Persenter> implements HHT_Klok_Item_View, View.OnClickListener, ViewPager.OnPageChangeListener {
+public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_Item_Persenter> implements HHT_Item_View, View.OnClickListener, ViewPager.OnPageChangeListener {
 
 
     private ViewPager viewPager;
@@ -46,6 +46,8 @@ public class HHT_Klok_Item_Activity extends AbstractMVPActivity<HHT_Klok_Item_Vi
             @Override
             public void onLeftIconClick(View view) {
                 finish();
+                //Activity淡入淡出效果
+                overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
             }
 
             @Override
@@ -80,14 +82,15 @@ public class HHT_Klok_Item_Activity extends AbstractMVPActivity<HHT_Klok_Item_Vi
     }
 
     @Override
-    protected HHT_Klok_Item_Persenter createPresenter() {
-        return new HHT_Klok_Item_Persenter();
+    protected HHT_Item_Persenter createPresenter() {
+        return new HHT_Item_Persenter();
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
+        //获取加载数据，会在setFragments处返回
         getPresenter().getFragments(page);
     }
 
@@ -95,6 +98,11 @@ public class HHT_Klok_Item_Activity extends AbstractMVPActivity<HHT_Klok_Item_Vi
     public void setFragments(List<Fragment> ttmvDataFragments) {
         adapter.setFragments(ttmvDataFragments);
         this.currentPageSize = ttmvDataFragments.size();
+        //如果只有一页，那就默认不显示翻页按钮
+        if (this.currentPage == 1) {
+            previousPage.setVisibility(View.INVISIBLE);
+            nextPage.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -102,16 +110,16 @@ public class HHT_Klok_Item_Activity extends AbstractMVPActivity<HHT_Klok_Item_Vi
         switch (v.getId()) {
             case R.id.previous_page:
                 currentPage--;
-                if (currentPage==currentPageSize-1)
-                    currentPage=currentPageSize-1;
-                viewPager.setCurrentItem(currentPage,false);
+                if (currentPage == currentPageSize - 1)
+                    currentPage = currentPageSize - 1;
+                viewPager.setCurrentItem(currentPage, false);
 
                 break;
             case R.id.next_page:
                 currentPage++;
-                if (currentPage==0)
-                    currentPage=0;
-                viewPager.setCurrentItem(currentPage,false);
+                if (currentPage == 0)
+                    currentPage = 0;
+                viewPager.setCurrentItem(currentPage, false);
                 break;
         }
     }

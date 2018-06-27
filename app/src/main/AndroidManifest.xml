@@ -102,7 +102,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.fragments.hht_ly_fragment.hht_klok.fragment.HHT_klok_Main_Activity"
+            android:name=".main.fragments.hht_ly_fragment.hht_klok.HHT_klok_Main_Activity"
             android:launchMode="singleTask"
             android:theme="@style/NoTitleTranslucentTheme">
             <intent-filter>
@@ -112,7 +112,7 @@
         </activity>
 
         <activity
-            android:name=".main.fragments.hht_ly_fragment.hht_klok.fragment.HHT_Klok_Item_Activity"
+            android:name=".main.fragments.HHT_Item_Activity"
             android:launchMode="singleTask"
             android:theme="@style/NoTitleTranslucentTheme">
             <intent-filter>

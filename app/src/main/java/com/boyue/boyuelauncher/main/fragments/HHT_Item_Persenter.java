@@ -1,8 +1,9 @@
-package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok;
+package com.boyue.boyuelauncher.main.fragments;
 
 import android.support.v4.app.Fragment;
 
 import com.boyue.boyuelauncher.base.AbstractPresenter;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.HHT_klok_Main_Activity;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.jdeg.HHT_Klok_Jdeg_01_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.jdeg.HHT_Klok_Jdeg_02_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.jdeg.HHT_Klok_Jdeg_03_Fragment;
@@ -20,16 +21,16 @@ import java.util.List;
  * Created by Tianluhua on 2018/6/26.
  */
 
-public class HHT_Klok_Item_Persenter extends AbstractPresenter<HHT_Klok_Item_View> {
+public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
 
     private Fragment ttmtv_01, ttmtv_02, ttmtv_03, ttmtv_04, ttmtv_05, jdeg_01, jdeg_02, jdeg_03;
 
-    public void getFragments(final int ttmtv) {
+    public void getFragments(final int currentPage) {
         ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
             @Override
             public void run() {
                 List<Fragment> ttmvDataFragments = new ArrayList<>();
-                switch (ttmtv) {
+                switch (currentPage) {
                     case HHT_klok_Main_Activity.TTMTV:
                         ttmtv_01 = HHT_Klok_ttmtv_01_Fragment.newInstance();
                         ttmtv_02 = HHT_Klok_ttmtv_02_Fragment.newInstance();
