@@ -158,11 +158,7 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
     public void setFragments(List<Fragment> ttmvDataFragments) {
         adapter.setFragments(ttmvDataFragments);
         this.currentPageSize = ttmvDataFragments.size();
-        //如果只有一页，那就默认不显示翻页按钮
-        if (this.currentPage == 1) {
-            previousPage.setVisibility(View.INVISIBLE);
-            nextPage.setVisibility(View.INVISIBLE);
-        }
+
     }
 
     @Override
@@ -197,9 +193,15 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
             nextPage.setVisibility(View.VISIBLE);
         }
 
+
         if (position == currentPageSize - 1) {
             previousPage.setVisibility(View.VISIBLE);
             nextPage.setVisibility(View.INVISIBLE);
+            //如果只有一页，那就默认不显示翻页按钮
+            if (this.currentPageSize == 1) {
+                previousPage.setVisibility(View.INVISIBLE);
+                nextPage.setVisibility(View.INVISIBLE);
+            }
         }
 
 
