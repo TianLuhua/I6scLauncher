@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.fragment.daban;
+package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.daban;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

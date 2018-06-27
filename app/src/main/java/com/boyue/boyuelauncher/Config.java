@@ -170,16 +170,40 @@ public class Config {
         public static final String PROTECT_EYE_SENSOR_ENABLE_KEY = "protect_eye_sensor_enable_key";
 
 
-
         //用于保存启动的：火火兔乐园---卡拉ok 加载的是哪个页面的数据
-        public static final String HHTLY_KLOK_PAGE="page";
+        public static final String HHTLY_KLOK_PAGE = "page";
     }
 
     //Launcher中需要用到的资源
     public static class BoYueLauncherResource {
         //火火兔学堂
+        //早教英语
         public static final String HHT_XT_ZJYY = "air.RabbitEng";//air.RabbitEng/.AppEntry
-        public static final String HHT_XT_ZJXT = "";
+
+
+        //早教学堂
+        public static final String HHT_XT_ZJXT_300WORDS_PACKAGE = "air.RabbitRead";//air.RabbitRead/.AppEntry
+        public static final String HHT_XT_ZJXT_300WORDS_LAUNCHER = "air.RabbitRead.AppEntry";
+
+        public static final String HHT_XT_ZJXT_PINYIN_PACKAGE = "air.RabbitAlpha";//air.RabbitAlpha/.AppEntry
+        public static final String HHT_XT_ZJXT_PINYIN_LAUNCHER = "air.RabbitAlpha.AppEntry";
+
+        public static final String HHT_XT_ZJXT_ENGLISH_PACKAGE = "air.RabbitEng";// air.RabbitEng/.AppEntry
+        public static final String HHT_XT_ZJXT_ENGLISH_LAUNCHER = "air.RabbitEng.AppEntry";
+
+        public static final String HHT_XT_ZJXT_MATH_PACKAGE = "air.RabbitMath";//air.RabbitMath/.AppEntry
+        public static final String HHT_XT_ZJXT_MATH_PACKAGE_LAUNCHER = "air.RabbitMath.AppEntry";
+
+        public static final String HHT_XT_ZJXT_KONWLEGE_PACKAGE = "air.RabbitKnow";//air.RabbitKnow/.AppEntry
+        public static final String HHT_XT_ZJXT_KONWLEGE_LAUNCHER = "air.RabbitKnow.AppEntry";
+
+        public static final String HHT_XT_ZJXT_POETRY_PACKAGE = "air.RabbitPoem";//air.RabbitPoem/.AppEntry
+        public static final String HHT_XT_ZJXT_POETRY_LAUNCHER = "air.RabbitPoem.AppEntry";
+
+        public static final String HHT_XT_ZJXT_HEALTH_PACKAGE = "air.RabbitHealth";//air.RabbitHealth/.AppEntry
+        public static final String HHT_XT_ZJXT_HEALTH_LAUNCHER = "air.RabbitHealth.AppEntry";
+
+
         public static final String HHT_XT_MATH_LOGIC = "";
         public static final String HHT_XT_TRANDITIONAL_GX = "";
         public static final String HHT_XT_DY_INTELLIGENCE = "";

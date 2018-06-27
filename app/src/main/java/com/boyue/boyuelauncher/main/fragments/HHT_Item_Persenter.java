@@ -21,14 +21,14 @@ import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yweg.fragment.
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx.HHT_yzyx_Fragment_01;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx.HHT_yzyx_Fragment_02;
 import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjxt.HHT_zjxt_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.fragment.daban.HHT_zjyy_Daban_01_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.fragment.daban.HHT_zjyy_Daban_02_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.fragment.duona.HHT_zjyy_Duona_01_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.fragment.duona.HHT_zjyy_Duona_02_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.fragment.xiaoban.HHT_zjyy_Xiaoban_01_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.fragment.xiaoban.HHT_zjyy_Xiaoban_02_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.fragment.zhongban.HHT_zjyy_zhongban_01_Fragment;
-import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.fragment.zhongban.HHT_zjyy_zhongban_02_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.daban.HHT_zjyy_Daban_01_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.daban.HHT_zjyy_Daban_02_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.duona.HHT_zjyy_Duona_01_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.duona.HHT_zjyy_Duona_02_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.xiaoban.HHT_zjyy_Xiaoban_01_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.xiaoban.HHT_zjyy_Xiaoban_02_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.zhongban.HHT_zjyy_zhongban_01_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.zhongban.HHT_zjyy_zhongban_02_Fragment;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.util.ArrayList;

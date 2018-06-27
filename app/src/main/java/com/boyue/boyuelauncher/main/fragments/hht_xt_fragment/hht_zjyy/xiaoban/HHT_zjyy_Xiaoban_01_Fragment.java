@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.fragment.xiaoban;
+package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.xiaoban;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,33 +10,31 @@ import android.view.ViewGroup;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 
-public class HHT_zjyy_Xiaoban_02_Fragment extends Fragment implements View.OnClickListener {
+public class HHT_zjyy_Xiaoban_01_Fragment extends Fragment implements View.OnClickListener {
 
 
-    private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03, btn_04, btn_05, btn_06, btn_07, btn_08;
-
-    public static HHT_zjyy_Xiaoban_02_Fragment newInstance() {
-        return new HHT_zjyy_Xiaoban_02_Fragment();
+    public static HHT_zjyy_Xiaoban_01_Fragment newInstance() {
+        return new HHT_zjyy_Xiaoban_01_Fragment();
     }
 
-    public HHT_zjyy_Xiaoban_02_Fragment() {
+    public HHT_zjyy_Xiaoban_01_Fragment() {
         // Required empty public constructor
     }
-
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hht_zjyy_xiaoban_02, null);
+        View rootView = inflater.inflate(R.layout.fragment_hht_zjyy_xiaoban_01, null);
         initView(rootView);
         return rootView;
     }
-
 
     private void initView(View rootView) {
         initItemView(rootView);
     }
 
+
+    private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03, btn_04, btn_05, btn_06, btn_07, btn_08;
 
     private void initItemView(View rootView) {
         btn_01 = rootView.findViewById(R.id.hht_ly_yzyx_01_icon);

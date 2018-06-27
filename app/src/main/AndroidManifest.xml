@@ -82,7 +82,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.fragments.hht_xt_fragment.hht_zjyy.fragment.HHT_zjyy_Main_Activity"
+            android:name=".main.fragments.hht_xt_fragment.hht_zjyy.HHT_zjyy_Main_Activity"
             android:launchMode="singleTask"
             android:theme="@style/NoTitleTranslucentTheme">
             <intent-filter>
@@ -134,15 +134,6 @@
             android:theme="@style/NoTitleTranslucentTheme">
             <intent-filter>
                 <action android:name="com.boyue.boyuelauncher.ProtectEyeLockScreen" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".main.fragments.hht_ly_fragment.hht_yweg.HHT_yweg_Activity"
-            android:launchMode="singleTask"
-            android:theme="@style/NoTitleTranslucentTheme">
-            <intent-filter>
-                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yweg" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

@@ -7,6 +7,21 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.LazyLoadFragment;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_300WORDS_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_300WORDS_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_ENGLISH_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_ENGLISH_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_HEALTH_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_HEALTH_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_KONWLEGE_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_KONWLEGE_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_MATH_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_MATH_PACKAGE_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_PINYIN_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_PINYIN_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_POETRY_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_POETRY_PACKAGE;
+
 /**
  * Created by Tianluhua on 2018/6/7.
  */
@@ -58,19 +73,32 @@ public class HHT_zjxt_Fragment extends LazyLoadFragment implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.hht_xt_zjxt_01_icon:
+                //学前300字
+                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_300WORDS_PACKAGE, HHT_XT_ZJXT_300WORDS_LAUNCHER);
                 break;
             case R.id.hht_xt_zjxt_02_icon:
+                //学前拼音
+                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_PINYIN_PACKAGE, HHT_XT_ZJXT_PINYIN_LAUNCHER);
                 break;
             case R.id.hht_xt_zjxt_03_icon:
-                ActivityUtils.startApplicationWithComponent("air.RabbitEng", "air.RabbitEng.AppEntry");
+                //学前英语
+                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_ENGLISH_PACKAGE, HHT_XT_ZJXT_ENGLISH_LAUNCHER);
                 break;
             case R.id.hht_xt_zjxt_04_icon:
+                //基础数学
+                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_MATH_PACKAGE, HHT_XT_ZJXT_MATH_PACKAGE_LAUNCHER);
                 break;
             case R.id.hht_xt_zjxt_05_icon:
+                //认知启蒙
+                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_KONWLEGE_PACKAGE, HHT_XT_ZJXT_KONWLEGE_LAUNCHER);
                 break;
             case R.id.hht_xt_zjxt_06_icon:
+                //古诗16首
+                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_POETRY_PACKAGE, HHT_XT_ZJXT_POETRY_LAUNCHER);
                 break;
             case R.id.hht_xt_zjxt_07_icon:
+                //健康教育
+                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_HEALTH_PACKAGE, HHT_XT_ZJXT_HEALTH_LAUNCHER);
                 break;
         }
     }
