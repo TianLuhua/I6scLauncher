@@ -12,7 +12,12 @@ import android.widget.TextView;
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
+import com.boyue.boyuelauncher.utils.ActivityUtils;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Factory_SettingDialog;
+
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.FILE_MANGER_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.FILE_MANGER_PACKAGE;
 
 public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingView, AdvanceSettingPersenter> implements AdvanceSettingView, View.OnClickListener {
 
@@ -20,6 +25,7 @@ public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingVi
     private TextView firmwareVersionText;
     private TextView freeCapacityText;
     private RelativeLayout factorySettingSwitch;
+    private RelativeLayout fileManager;
 
 
     public static AdvanceSettingFragment newInstance() {
@@ -45,6 +51,8 @@ public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingVi
         deviceModelText = rootview.findViewById(R.id.device_model_value);
         firmwareVersionText = rootview.findViewById(R.id.firmware_version_value);
         freeCapacityText = rootview.findViewById(R.id.free_capacity_value);
+        fileManager = rootview.findViewById(R.id.file_manager);
+        fileManager.setOnClickListener(this);
         factorySettingSwitch = rootview.findViewById(R.id.factory_setting);
         factorySettingSwitch.setOnClickListener(this);
         getPresenter().getSystemParameter();
@@ -73,6 +81,10 @@ public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingVi
                     }
                 });
                 dialog.show(getFragmentManager(), Config.DialogGlod.SETTING_FACTORY_SETTING);
+                break;
+            case R.id.file_manager:
+                LogUtils.e("tlh", "AdvanceSettingFragment---file_manger");
+                ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE, FILE_MANGER_LAUNCHER);
                 break;
         }
 

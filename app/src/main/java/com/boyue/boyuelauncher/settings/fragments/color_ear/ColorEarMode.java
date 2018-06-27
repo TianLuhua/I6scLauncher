@@ -20,17 +20,11 @@ public class ColorEarMode implements BaseMode {
 
         this.colorEarStatus = 1;
         /**
-         * 这里需要和驱动交互
+         * 这里需要和驱动交互,默认开启
          */
 
         if (callBack == null) return;
         callBack.colorEarStatus(colorEarStatus);
-
-
-    }
-
-    public void setColorEarStatus(boolean isOpen) {
-
 
 
     }
@@ -40,6 +34,7 @@ public class ColorEarMode implements BaseMode {
         void colorEarStatus(int isOpen);
 
     }
+
     @Override
     public void onDestroy() {
 

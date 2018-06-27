@@ -41,6 +41,9 @@ public class Config {
         public static final String ACTION_MIC_IN = "android.intent.action.MIC_IN";//Intent.ACTION_MIC_IN
         public static final String ACTION_MIC_OUT = "android.intent.action.MIC_OUT";//Intent.ACTION_MIC_OUT
 
+        //耳灯开关广播
+        public static final String COLOR_EAR_OFF = "com.boyue.color_ear.off";
+        public static final String COLOR_EAR_ON = "com.boyue.color_ear.on";
 
         //定时休息Action
         public static final String ONTIME_LOCKSCREEN_ACTION = "ontime_lockscreen_action";
@@ -232,6 +235,11 @@ public class Config {
         public static final String HHT_ZXBX_MEDIA_CHAT = "";
         public static final String HHT_ZXBX_WECHAT = "";
         public static final String HHT_ZXBX_MY_APPLICATION = "";
+
+
+        //文件管理器
+        public static final String FILE_MANGER_PACKAGE = "com.softwinner.explore";
+        public static final String FILE_MANGER_LAUNCHER = "com.softwinner.explore.Main";
 
     }
 

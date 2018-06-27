@@ -99,12 +99,37 @@
             android:text="4.5G" />
     </RelativeLayout>
 
+
+    <RelativeLayout
+        android:id="@+id/file_manager"
+        android:layout_width="654dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/free_capacity"
+        android:layout_marginEnd="75dp"
+        android:layout_marginTop="15dp"
+        android:background="@mipmap/bg_system_settings_pager_item">
+
+
+        <TextView
+            android:id="@+id/file_manager_title"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="38dp"
+            android:gravity="center"
+            android:text="@string/file_manager" />
+    </RelativeLayout>
+
+
     <RelativeLayout
         android:id="@+id/factory_setting"
         android:layout_width="654dp"
         android:layout_height="56dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/free_capacity"
+        android:layout_below="@+id/file_mangaer"
         android:layout_marginEnd="75dp"
         android:layout_marginTop="15dp"
         android:background="@mipmap/bg_system_settings_pager_item">

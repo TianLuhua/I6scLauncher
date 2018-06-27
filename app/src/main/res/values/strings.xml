@@ -101,6 +101,7 @@
     <string name="device_model">型号</string>
     <string name="firmware_version">固件版本</string>
     <string name="free_capacity">内置存储剩余空间</string>
+    <string name="file_manager">文件管理器</string>
     <string name="factory_setting">恢复出厂设置</string>
     <string name="factory_setting_note">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;恢复出厂设置会将设备恢复到刚出厂时的状态，您的数据、账号、文档、照片和视频等数据将被删除，请谨慎操作。</string>
     <string name="recover">恢复</string>

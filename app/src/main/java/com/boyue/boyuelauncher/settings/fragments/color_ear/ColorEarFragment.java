@@ -15,6 +15,7 @@ import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 
 public class ColorEarFragment extends AbstractMVPFragment<ColorEarView, ColorEarPersenter> implements ColorEarView, CheckBox.OnCheckedChangeListener {
 
+    //七彩耳灯
     private CheckBox colorEarSwitch;
     private TextView itemTitle;
 

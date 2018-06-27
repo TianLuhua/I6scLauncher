@@ -1,9 +1,16 @@
 package com.boyue.boyuelauncher.settings.fragments.color_ear;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 
-import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.base.AbstractPresenter;
+import com.boyue.boyuelauncher.utils.LogUtils;
+
+import java.util.IdentityHashMap;
+
+import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_OFF;
+import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_ON;
 
 public class ColorEarPersenter extends AbstractPresenter<ColorEarView> {
 
@@ -35,7 +42,10 @@ public class ColorEarPersenter extends AbstractPresenter<ColorEarView> {
 
     public void setColorEarStatus(boolean isOpen) {
 
-        if (earMode == null) return;
-        earMode.setColorEarStatus(isOpen);
+        Intent intent = new Intent();
+        intent.setAction(isOpen ? COLOR_EAR_OFF : COLOR_EAR_ON);
+        mContext.sendBroadcast(intent);
+        LogUtils.e("tlh", "setColorEarStatus--action:" + (isOpen ? COLOR_EAR_OFF : COLOR_EAR_ON));
+
     }
 }
