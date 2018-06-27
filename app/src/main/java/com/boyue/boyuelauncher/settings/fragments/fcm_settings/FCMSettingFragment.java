@@ -86,7 +86,7 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
 
     @Override
     protected FCMSettingPersenter createPresenter() {
-        return new FCMSettingPersenter();
+        return new FCMSettingPersenter(getContext());
     }
 
 
@@ -280,6 +280,12 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
                     @Override
                     public void delete() {
                         LogUtils.e("tlh", "delete");
+                    }
+
+                    @Override
+                    public void reSetPassWord() {
+                        getPresenter().reSetPassWord();
+
                     }
 
                     @Override

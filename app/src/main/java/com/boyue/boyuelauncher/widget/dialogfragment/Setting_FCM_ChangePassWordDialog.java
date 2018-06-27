@@ -17,11 +17,14 @@ import com.boyue.boyuelauncher.utils.LogUtils;
 
 import org.w3c.dom.Text;
 
+import static com.boyue.boyuelauncher.Config.BoYueAction.RESET_PASSWORD;
+
 
 /**
  * Created by tianluhua on 2018/6/5.
  */
 public class Setting_FCM_ChangePassWordDialog extends DialogFragment implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+
 
     //标题
     private TextView title;
@@ -133,6 +136,8 @@ public class Setting_FCM_ChangePassWordDialog extends DialogFragment implements 
     }
 
 
+    private int clickDeleteButtonCounter = 0;
+
     @Override
     public void onClick(View v) {
 
@@ -168,8 +173,12 @@ public class Setting_FCM_ChangePassWordDialog extends DialogFragment implements 
                 break;
 
             case R.id.delete:
-
                 notfication.delete();
+
+                clickDeleteButtonCounter++;
+                if (clickDeleteButtonCounter == RESET_PASSWORD) {
+                    notfication.reSetPassWord();
+                }
                 //避免删除pwdBuilder中的密码时候，数组下标溢出
                 if (hasInputNumbers <= 0) {
                     return;
@@ -314,5 +323,8 @@ public class Setting_FCM_ChangePassWordDialog extends DialogFragment implements 
 
         //删除功能键的回调
         void delete();
+
+        //重置密码为：0000
+        void reSetPassWord();
     }
 }

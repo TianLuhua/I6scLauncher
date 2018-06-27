@@ -71,7 +71,8 @@
     <string name="enable_password">启用密码</string>
     <string name="modify_password">更改密码</string>
     <string name="password_remind">密码提醒</string>
-    <string name="password_remind_note">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;如忘记密码，可以尝试连续点击7次兔子键进入测试模式初始化密码，初始密码为"0000"。</string>
+    <string name="reset_password_success">初始化密码成功，默认密码：0000</string>
+    <string name="password_remind_note">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;如忘记密码，可以尝试连续点击8次删除键初始化密码，初始密码为\"0000\"。</string>
     <string name="modify_password_note">说明：初始密码为0000</string>
     <string name="fcm_switch">防沉迷开关</string>
     <string name="fcm_switch_note">说明：开启防沉迷开关后，开机后需要输入密码才能使用</string>

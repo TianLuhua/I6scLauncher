@@ -78,6 +78,12 @@ public class ProtectEyeLockScreenActivity extends AbstractMVPActivity<ProtectEye
             }
 
             @Override
+            public void reSetPassWord() {
+                getPresenter().reSetPassWord();
+
+            }
+
+            @Override
             public void hasInputNumbers(String pwd) {
                 if (getPresenter().matchingPwd(pwd)) {
                     LogUtils.e("tlh", "通过密码验证，您的密码是：" + pwd);

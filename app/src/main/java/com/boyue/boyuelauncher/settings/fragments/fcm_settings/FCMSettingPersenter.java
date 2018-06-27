@@ -1,17 +1,26 @@
 package com.boyue.boyuelauncher.settings.fragments.fcm_settings;
 
+import android.content.Context;
+import android.widget.Toast;
+
 import com.boyue.boyuelauncher.Config;
+import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractPresenter;
 import com.boyue.boyuelauncher.utils.LockScreenUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
+import com.boyue.boyuelauncher.utils.ThreadPoolManager;
+
+import static com.boyue.boyuelauncher.Config.PassWordKey.DEFAULT_BOOTPWD;
 
 public class FCMSettingPersenter extends AbstractPresenter<FCMSettingView> {
 
     private FCMSettingMode mode;
     private SPUtils spUtils;
+    private Context mContext;
 
-    public FCMSettingPersenter() {
+    public FCMSettingPersenter(Context mContext) {
+        this.mContext = mContext;
         this.mode = new FCMSettingMode(new FCMSettingMode.CallBack() {
             @Override
             public void setSystmStatus(boolean pwdIsEnable, boolean pwdFcmIsEnable, int timingTime) {
@@ -56,7 +65,7 @@ public class FCMSettingPersenter extends AbstractPresenter<FCMSettingView> {
 
     public void setTimingLockTime(int timingLockTime) {
         if (spUtils == null) return;
-        LogUtils.e("tlh","FCMSettingPersenter---timingLockTime:"+timingLockTime);
+        LogUtils.e("tlh", "FCMSettingPersenter---timingLockTime:" + timingLockTime);
         spUtils.put(Config.PassWordKey.TIMING_LOCKING_KEY, timingLockTime);
 
         switch (timingLockTime) {
@@ -64,8 +73,21 @@ public class FCMSettingPersenter extends AbstractPresenter<FCMSettingView> {
                 LockScreenUtils.cancleLockScreen(Config.BoYueAction.ONTIME_REST_ACTION);
                 break;
             default:
-                LockScreenUtils.startLockScreen(Config.BoYueAction.ONTIME_REST_ACTION,timingLockTime);
+                LockScreenUtils.startLockScreen(Config.BoYueAction.ONTIME_REST_ACTION, timingLockTime);
                 break;
         }
     }
+
+    public void reSetPassWord() {
+        //恢复默认密码：0000
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                spUtils.put(Config.PassWordKey.BOOT_PWD_NAME, DEFAULT_BOOTPWD);
+            }
+        });
+        Toast.makeText(mContext, R.string.reset_password_success, Toast.LENGTH_SHORT).show();
+
+    }
+
 }

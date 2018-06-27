@@ -112,6 +112,12 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
                 public void delete() {
 
                 }
+
+                @Override
+                public void reSetPassWord() {
+                    getPresenter().reSetPassWord();
+
+                }
             });
             dialog.show(getSupportFragmentManager(), Config.DialogGlod.SETTING_FCM_CHANGEPASSWORD);
             dialog.setCancelable(false);

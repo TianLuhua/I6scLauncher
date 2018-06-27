@@ -129,7 +129,7 @@
         android:layout_width="654dp"
         android:layout_height="56dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/file_mangaer"
+        android:layout_below="@+id/file_manager"
         android:layout_marginEnd="75dp"
         android:layout_marginTop="15dp"
         android:background="@mipmap/bg_system_settings_pager_item">

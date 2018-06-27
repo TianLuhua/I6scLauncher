@@ -33,6 +33,9 @@ public class Config {
         public static final String ACTIVITY_ACTION_PROTECTEYELOCKSCREEN = "com.boyue.boyuelauncher.ProtectEyeLockScreen";
         public static final String ACTIVITY_ACTION_KLOK = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.activity";
 
+        //重置密码的点击次数
+        public static int RESET_PASSWORD = 8;
+
         //自定义连接usb充电的Action
         public static final String COM_BOYUE_ACTION_POWER_CONNECTED = "com.boyue.action.action_power_connected";
         //自定义连接Ｕ盘挂载的Action

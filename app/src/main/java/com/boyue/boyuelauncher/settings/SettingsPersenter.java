@@ -10,4 +10,5 @@ public abstract class SettingsPersenter extends AbstractPresenter<SettingsView> 
 
     public abstract boolean hasEnablePWD();
 
+    public abstract void reSetPassWord();
 }
