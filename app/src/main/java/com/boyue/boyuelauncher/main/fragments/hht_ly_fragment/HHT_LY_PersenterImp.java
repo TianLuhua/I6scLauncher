@@ -11,6 +11,7 @@ import com.boyue.boyuelauncher.utils.ActivityUtils;
 import java.util.List;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_BABY_CAMERA;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YWEG;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YZYX;
@@ -53,18 +54,31 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
     @Override
     public void startHHT_LY_Activity(int position) {
         switch (position) {
+            //卡拉ok
             case 0:
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_KLOK);
                 break;
+            //英文儿歌
             case 1:
                 ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTLY_YWEG);
                 break;
+            //故事王国
+            case 2:
+                break;
+            //艺术培养
             case 3:
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_YSPY);
                 break;
+            //益智游戏
             case 4:
                 ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTLY_YZYX);
                 break;
+            //宝宝相机
+            case 5:
+                ActivityUtils.startApplicationWithPackageName(HHT_LY_BABY_CAMERA);
+                break;
+
+
         }
     }
 

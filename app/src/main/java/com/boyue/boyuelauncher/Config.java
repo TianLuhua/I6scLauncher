@@ -229,7 +229,7 @@ public class Config {
         public static final String HHT_LY_KING_STORY = "";
         public static final String HHT_LY_ART_TRAIN = "";
         public static final String HHT_LY_YZ_GAME = "";
-        public static final String HHT_LY_BABY_CAMERA = "";
+        public static final String HHT_LY_BABY_CAMERA = "com.android.camera2";// com.android.camera2/com.android.camera.CameraLauncher
 
         //在线宝箱
         public static final String HHT_ZXBX_HHT_SCHOOL = "";
