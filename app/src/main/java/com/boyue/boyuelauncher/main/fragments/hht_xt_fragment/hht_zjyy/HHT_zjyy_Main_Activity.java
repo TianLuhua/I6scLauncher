@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 import com.boyue.boyuelauncher.widget.TitleBar;
 
@@ -64,15 +65,16 @@ public class HHT_zjyy_Main_Activity extends AppCompatActivity implements View.On
         icon02 = findViewById(R.id.hht_xt_zjyy_02_icon);
         icon03 = findViewById(R.id.hht_xt_zjyy_03_icon);
         icon04 = findViewById(R.id.hht_xt_zjyy_04_icon);
+
         icon01.setOnClickListener(this);
         icon02.setOnClickListener(this);
         icon03.setOnClickListener(this);
         icon04.setOnClickListener(this);
     }
 
-
     @Override
     public void onClick(View v) {
+        LogUtils.e("tlh", "HHT_zjyy_Main_Activity---onAnimationEnd:" + v.getId());
         switch (v.getId()) {
             case R.id.hht_xt_zjyy_01_icon:
                 ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTXT_ZJYY_XIAOBAN);
@@ -92,6 +94,5 @@ public class HHT_zjyy_Main_Activity extends AppCompatActivity implements View.On
                 break;
         }
     }
-
 
 }

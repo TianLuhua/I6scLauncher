@@ -11,8 +11,8 @@ import android.view.animation.ScaleAnimation;
 public class EnlargeAndNarrowAnimation extends ScaleAnimation {
 
     private ScaleAnimation narrowAnimation;
+    private EnlargeAndNarrowAnimationListener mAnimationListener;
     private View mView;
-    private AnimationListener mAnimationListener;
 
 
     public EnlargeAndNarrowAnimation(float fromX, float toX, float fromY, float toY) {
@@ -29,7 +29,7 @@ public class EnlargeAndNarrowAnimation extends ScaleAnimation {
 
     public EnlargeAndNarrowAnimation(float fromX, float toX, float fromY, float toY, int pivotXType, float pivotXValue, int pivotYType, float pivotYValue) {
         super(fromX, toX, fromY, toY, pivotXType, pivotXValue, pivotYType, pivotYValue);
-        narrowAnimation = new ScaleAnimation(toX, fromX, toY, fromY, pivotXType, pivotXValue,pivotYType, pivotYValue);
+        narrowAnimation = new ScaleAnimation(toX, fromX, toY, fromY, pivotXType, pivotXValue, pivotYType, pivotYValue);
         init();
     }
 
@@ -45,7 +45,7 @@ public class EnlargeAndNarrowAnimation extends ScaleAnimation {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                if(mView == null)return;
+                if (mView == null) return;
                 narrowAnimation.setDuration(getDuration());
                 mView.startAnimation(narrowAnimation);
             }
@@ -61,13 +61,15 @@ public class EnlargeAndNarrowAnimation extends ScaleAnimation {
     private AnimationListener narrowAnimationListener = new AnimationListener() {
         @Override
         public void onAnimationStart(Animation animation) {
+            if (mAnimationListener == null) return;
+            mAnimationListener.onAnimationStart(mView);
 
         }
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            if(mAnimationListener == null)return;
-             mAnimationListener.onAnimationEnd(animation);
+            if (mAnimationListener == null) return;
+            mAnimationListener.onAnimationEnd(mView);
         }
 
         @Override
@@ -76,14 +78,22 @@ public class EnlargeAndNarrowAnimation extends ScaleAnimation {
         }
     };
 
-    public void start(View view){
+    public void start(View view) {
         this.mView = view;
-        if(view == null)return;
+        if (view == null) return;
         view.startAnimation(this);
     }
 
-    @Override
-    public void setAnimationListener(AnimationListener listener) {
-        mAnimationListener = listener;
+
+    public void setNarrowAnimationListener(EnlargeAndNarrowAnimationListener listener) {
+        this.mAnimationListener = listener;
     }
+
+    public interface EnlargeAndNarrowAnimationListener {
+
+        void onAnimationStart(View view);
+
+        void onAnimationEnd(View view);
+    }
+
 }

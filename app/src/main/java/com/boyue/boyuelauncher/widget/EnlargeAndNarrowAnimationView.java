@@ -3,7 +3,6 @@ package com.boyue.boyuelauncher.widget;
 import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
@@ -22,6 +21,7 @@ public class EnlargeAndNarrowAnimationView extends AppCompatImageView {
     private int duration = 100;
     private float enlargeMultiple = 1.02f;
 
+
     public EnlargeAndNarrowAnimationView(Context context) {
         super(context);
         initAnimation();
@@ -38,14 +38,15 @@ public class EnlargeAndNarrowAnimationView extends AppCompatImageView {
     }
 
     void initAnimation() {
-        ViewTreeObserver observer = getViewTreeObserver();
-        OnGlobalLayoutListener globalLayoutListener = new OnGlobalLayoutListener() {
+        //直接是获取不到view的宽高的
+        final ViewTreeObserver observer = getViewTreeObserver();
+        final OnGlobalLayoutListener globalLayoutListener = new OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 float viewH = getHeight() / 2;
                 float viewW = getWidth() / 2;
-                LogUtils.e("tlh", "EnlargeAndNarrowAnimationView---viewH:" + viewH);
                 animation = new EnlargeAndNarrowAnimation(1.0f, enlargeMultiple, 1.0f, enlargeMultiple, viewW, viewH);
+
             }
         };
         observer.addOnGlobalLayoutListener(globalLayoutListener);
@@ -68,14 +69,20 @@ public class EnlargeAndNarrowAnimationView extends AppCompatImageView {
         this.enlargeMultiple = enlargeMultiple;
     }
 
+    public void setNarrowAnimationListener(EnlargeAndNarrowAnimation.EnlargeAndNarrowAnimationListener listener) {
+        LogUtils.e("tlh", "EnlargeAndNarrowAnimationView---setNarrowAnimationListener---111");
+        if (animation == null) return;
+        LogUtils.e("tlh", "EnlargeAndNarrowAnimationView---setNarrowAnimationListener---222");
+        animation.setNarrowAnimationListener(listener);
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                LogUtils.e("tlh", "EnlargeAndNarrowAnimationView---onTouchEvent---ACTION_DOWN");
                 if (animation != null) {
-                    animation.setDuration(duration);
                     animation.start(this);
+                    animation.setDuration(duration);
                 }
 
                 break;
@@ -90,5 +97,6 @@ public class EnlargeAndNarrowAnimationView extends AppCompatImageView {
         }
         return super.onTouchEvent(event);
     }
+
 
 }
