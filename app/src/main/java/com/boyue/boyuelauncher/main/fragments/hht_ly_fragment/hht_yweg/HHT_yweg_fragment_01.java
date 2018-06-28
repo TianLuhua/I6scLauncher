@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yweg.fragment;
+package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yweg;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,16 +10,16 @@ import android.view.ViewGroup;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 
-public class HHT_yweg_fragment_02 extends Fragment implements View.OnClickListener {
+public class HHT_yweg_fragment_01 extends Fragment implements View.OnClickListener {
 
     private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03, btn_04, btn_05, btn_06, btn_07, btn_08;
 
 
-    public static HHT_yweg_fragment_02 newInstance() {
-        return new HHT_yweg_fragment_02();
+    public static HHT_yweg_fragment_01 newInstance() {
+        return new HHT_yweg_fragment_01();
     }
 
-    public HHT_yweg_fragment_02() {
+    public HHT_yweg_fragment_01() {
         // Required empty public constructor
     }
 
@@ -27,7 +27,7 @@ public class HHT_yweg_fragment_02 extends Fragment implements View.OnClickListen
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hht_ly_yweg_02, null);
+        View rootView = inflater.inflate(R.layout.fragment_hht_ly_yweg_01, null);
         initView(rootView);
         return rootView;
     }
@@ -72,4 +72,5 @@ public class HHT_yweg_fragment_02 extends Fragment implements View.OnClickListen
                 break;
         }
     }
+
 }

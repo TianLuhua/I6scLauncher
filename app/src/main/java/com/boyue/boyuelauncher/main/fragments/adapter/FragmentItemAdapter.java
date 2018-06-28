@@ -24,11 +24,32 @@ public class FragmentItemAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private final int iconWidth;
     private final int iconHigh;
+    //由于 图标的尺寸不一样
+    private final IconType iconType;
 
-    public FragmentItemAdapter(Context mContext, int iconWidth, int iconHigh) {
+    /**
+     * 主界面的图标尺寸为：122*125；其他界面的图标尺寸为：144*144
+     */
+    public enum IconType {
+
+        MAIN("122x125"), ITEM("144x144");
+
+        //图标尺寸信息信息提示
+        private String type;
+
+        IconType(String type) {
+            this.type = type;
+        }
+
+
+    }
+
+
+    public FragmentItemAdapter(Context mContext, int iconWidth, int iconHigh, IconType iconType) {
         this.mContext = mContext;
         this.iconWidth = iconWidth;
         this.iconHigh = iconHigh;
+        this.iconType = iconType;
         this.inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.appEntities = new ArrayList<>();
     }
@@ -58,7 +79,16 @@ public class FragmentItemAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.item_layout_main_grideview, null);
+            switch (iconType) {
+                case MAIN:
+                    convertView = inflater.inflate(R.layout.item_layout_main_grideview, null);
+                    break;
+
+                case ITEM:
+                    convertView = inflater.inflate(R.layout.item_layout_item_grideview, null);
+                    break;
+            }
+
             viewHolder = new ViewHolder();
             viewHolder.iv = convertView.findViewById(R.id.icon);
             viewHolder.tv = convertView.findViewById(R.id.name);

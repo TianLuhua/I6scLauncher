@@ -3,11 +3,9 @@ package com.boyue.boyuelauncher.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 /**
  * Created by Tianluhua on 2018\6\27 0027.
@@ -28,6 +26,8 @@ public abstract class LazyLoadFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(setContentView(), container, false);
         isInit = true;
+        /*初始化Fragment中的视图、View*/
+        initView();
         /**初始化的时候去加载数据**/
         isCanLoadData();
         return view;
@@ -74,19 +74,19 @@ public abstract class LazyLoadFragment extends Fragment {
 
     }
 
-    protected void showToast(String message) {
-        if (!TextUtils.isEmpty(message)) {
-            Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
     /**
      * 设置Fragment要显示的布局
      *
      * @return 布局的layoutId
      */
     protected abstract int setContentView();
+
+
+    /**
+     * 舒适化Fragment中的视图
+     */
+
+    protected abstract void initView();
 
     /**
      * 获取设置的布局

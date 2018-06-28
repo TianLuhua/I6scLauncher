@@ -54,7 +54,7 @@ public class WiFiManagerActivity extends AbstractMVPActivity<WiFiManagerView, Wi
         backBtn.setOnClickListener(this);
         TextView tilte = findViewById(R.id.title_bar).findViewById(R.id.title);
         tilte.setText(R.string.wifi_setting);
-        //initView
+        //init
         wifiSColseIcon = findViewById(R.id.wifi_close_icon);
 
         wifiStatusGroup = findViewById(R.id.wifi_enable_note);

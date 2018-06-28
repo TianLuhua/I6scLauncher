@@ -6,8 +6,8 @@
 
     <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
         android:id="@+id/icon"
-        android:layout_width="122dp"
-        android:layout_height="125dp"
+        android:layout_width="132dp"
+        android:layout_height="132dp"
         android:layout_gravity="center_horizontal" />
 
     <TextView

@@ -54,7 +54,7 @@ public class HHT_AR_Fragment extends AbstractMVPFragment<HHT_AR_View, HHT_AR_Per
         iconView = rootView.findViewById(R.id.iocn);
         iconView.setEnlargeMultiple(1.05f);
         displayApps = rootView.findViewById(R.id.display_apps);
-        fragmentItemAdapter = new FragmentItemAdapter(getContext(), 122, 125);
+        fragmentItemAdapter = new FragmentItemAdapter(getContext(), 122, 125, FragmentItemAdapter.IconType.MAIN);
         displayApps.setAdapter(fragmentItemAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

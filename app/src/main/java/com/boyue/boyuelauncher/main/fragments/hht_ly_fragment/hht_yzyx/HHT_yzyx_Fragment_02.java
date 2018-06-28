@@ -21,6 +21,11 @@ public class HHT_yzyx_Fragment_02 extends LazyLoadFragment {
     }
 
     @Override
+    protected void initView() {
+
+    }
+
+    @Override
     protected void lazyLoad() {
 
     }

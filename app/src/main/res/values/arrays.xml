@@ -77,6 +77,48 @@
         <item>@mipmap/hht_bx_item_106</item>
     </string-array>
 
+    <!--宝宝巴士-->
+    <string-array name="hht_bx_baby_bus_items_image_page_01">
+        <item>@mipmap/ic_hht_bx_baby_bus_01</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_02</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_03</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_04</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_05</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_06</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_07</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_08</item>
+    </string-array>
+    <string-array name="hht_bx_baby_bus_items_image_page_02">
+        <item>@mipmap/ic_hht_bx_baby_bus_09</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_10</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_11</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_12</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_13</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_14</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_15</item>
+        <item>@mipmap/ic_hht_bx_baby_bus_16</item>
+    </string-array>
+    <string-array name="hht_bx_baby_bus_items_text_page_01">
+        <item>@string/hht_bx_baby_bus_01</item>
+        <item>@string/hht_bx_baby_bus_02</item>
+        <item>@string/hht_bx_baby_bus_03</item>
+        <item>@string/hht_bx_baby_bus_04</item>
+        <item>@string/hht_bx_baby_bus_05</item>
+        <item>@string/hht_bx_baby_bus_06</item>
+        <item>@string/hht_bx_baby_bus_07</item>
+        <item>@string/hht_bx_baby_bus_08</item>
+    </string-array>
+    <string-array name="hht_bx_baby_bus_items_text_page_02">
+        <item>@string/hht_bx_baby_bus_09</item>
+        <item>@string/hht_bx_baby_bus_10</item>
+        <item>@string/hht_bx_baby_bus_11</item>
+        <item>@string/hht_bx_baby_bus_12</item>
+        <item>@string/hht_bx_baby_bus_13</item>
+        <item>@string/hht_bx_baby_bus_14</item>
+        <item>@string/hht_bx_baby_bus_15</item>
+        <item>@string/hht_bx_baby_bus_16</item>
+    </string-array>
+
     system_settings_items_text_101
     <!--设置-->
     <string-array name="system_settings_items_text">

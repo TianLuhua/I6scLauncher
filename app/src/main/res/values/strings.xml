@@ -337,7 +337,25 @@
     <!--火火兔宝箱-->
     <string name="hht_bx_item_name_101">火火兔育学园</string>
     <string name="hht_bx_item_name_102">爱奇艺少儿</string>
+
     <string name="hht_bx_item_name_103">宝宝巴士</string>
+    <string name="hht_bx_baby_bus_01">动物乐园</string>
+    <string name="hht_bx_baby_bus_02">宝宝幼儿园</string>
+    <string name="hht_bx_baby_bus_03">宝宝学数学</string>
+    <string name="hht_bx_baby_bus_04">宝宝学形状</string>
+    <string name="hht_bx_baby_bus_05">宝宝学ABC</string>
+    <string name="hht_bx_baby_bus_06">宝宝医生</string>
+    <string name="hht_bx_baby_bus_07">宝宝生日派对</string>
+    <string name="hht_bx_baby_bus_08">糖果工厂</string>
+    <string name="hht_bx_baby_bus_09">宝宝小厨房</string>
+    <string name="hht_bx_baby_bus_10">宝宝调色屋</string>
+    <string name="hht_bx_baby_bus_11">宝宝爱整理</string>
+    <string name="hht_bx_baby_bus_12">宝宝钓鱼</string>
+    <string name="hht_bx_baby_bus_13">宝宝超市</string>
+    <string name="hht_bx_baby_bus_14">宝宝出行安全</string>
+    <string name="hht_bx_baby_bus_15">宝宝学水果</string>
+    <string name="hht_bx_baby_bus_16">宝宝爱吃饭</string>
+
     <string name="hht_bx_item_name_104">视频聊天</string>
     <string name="hht_bx_item_name_105">微信</string>
     <string name="hht_bx_item_name_106">语音机器人</string>

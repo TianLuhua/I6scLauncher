@@ -3,6 +3,8 @@ package com.boyue.boyuelauncher.main.fragments;
 import android.support.v4.app.Fragment;
 
 import com.boyue.boyuelauncher.base.AbstractPresenter;
+import com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.baby_bus.Baby_Bus_Fragment_01;
+import com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.baby_bus.Baby_Bus_Fragment_02;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.jdeg.HHT_Klok_Jdeg_01_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.jdeg.HHT_Klok_Jdeg_02_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.jdeg.HHT_Klok_Jdeg_03_Fragment;
@@ -15,9 +17,9 @@ import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.htcz.HHT_
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.htcz.HHT_htcz_Fragment_02;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.syzl.HHT_yszl_Fragment_01;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.zqyy.HHT_zqyy_Fragment_01;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yweg.fragment.HHT_yweg_fragment_01;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yweg.fragment.HHT_yweg_fragment_02;
-import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yweg.fragment.HHT_yweg_fragment_03;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yweg.HHT_yweg_fragment_01;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yweg.HHT_yweg_fragment_02;
+import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yweg.HHT_yweg_fragment_03;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx.HHT_yzyx_Fragment_01;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yzyx.HHT_yzyx_Fragment_02;
 import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjxt.HHT_zjxt_Fragment;
@@ -34,6 +36,7 @@ import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_BABY_BUS;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_KLOK_JDEG;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_KLOK_TTMTV;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YSPY_THCZ;
@@ -161,6 +164,15 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         Fragment hht_zjyy_duoan_02 = HHT_zjyy_Duona_02_Fragment.newInstance();
                         fragments.add(hht_zjyy_duoan_01);
                         fragments.add(hht_zjyy_duoan_02);
+                        getView().setFragments(fragments);
+                        break;
+
+                    //火火兔乐园--宝宝巴士
+                    case HHTLY_BABY_BUS:
+                        Fragment hhly_baby_bus_01 = Baby_Bus_Fragment_01.newInstance();
+                        Fragment hhly_baby_bus_02 = Baby_Bus_Fragment_02.newInstance();
+                        fragments.add(hhly_baby_bus_01);
+                        fragments.add(hhly_baby_bus_02);
                         getView().setFragments(fragments);
 
                         break;

@@ -19,6 +19,11 @@ public class HHT_yszl_Fragment_01 extends LazyLoadFragment {
     }
 
     @Override
+    protected void initView() {
+
+    }
+
+    @Override
     protected void lazyLoad() {
 
     }
@@ -41,8 +46,8 @@ public class HHT_yszl_Fragment_01 extends LazyLoadFragment {
 //    }
 //
 //    @Override
-//    protected void initView() {
-//        super.initView();
+//    protected void init() {
+//        super.init();
 //        titleBar.setTitle(R.string.hht_ly_yspy_yszl);
 //        titleBar.setOnTitleBarClickListener(new TitleBar.OnTitleBarClickListener() {
 //            @Override

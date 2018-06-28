@@ -60,11 +60,12 @@ public class HHT_BX_Fragment extends AbstractMVPFragment<HHT_BX_View, HHT_BX_Per
         iconView = rootView.findViewById(R.id.iocn);
         iconView.setEnlargeMultiple(1.05f);
         displayApps = rootView.findViewById(R.id.display_apps);
-        fragmentItemAdapter = new FragmentItemAdapter(getContext(), 122, 125);
+        fragmentItemAdapter = new FragmentItemAdapter(getContext(), 122, 125,FragmentItemAdapter.IconType.MAIN);
         displayApps.setAdapter(fragmentItemAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                getPresenter().startHHT_BX_Item(position);
             }
         });
         //初始化数据

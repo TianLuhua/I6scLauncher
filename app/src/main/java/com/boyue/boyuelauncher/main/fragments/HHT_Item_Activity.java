@@ -48,6 +48,10 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
     //早教英语--多纳英语
     public static final int HHTXT_ZJYY_ENGLISH = 0x0012;
 
+
+    //在线宝箱--宝宝巴士
+    public static final int HHTLY_BABY_BUS = 0x0013;
+
     private ViewPager viewPager;
     private SystemFragmentPagerAdapter adapter;
     private TitleBar titleBar;
@@ -126,6 +130,9 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
                 break;
             case HHTLY_YSPY_YSZL:
                 titleBar.setTitle(R.string.hht_ly_yspy_yszl);
+                break;
+            case HHTLY_BABY_BUS:
+                titleBar.setTitle(R.string.hht_bx_item_name_103);
                 break;
 
 
