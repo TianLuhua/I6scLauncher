@@ -3,7 +3,6 @@ package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.AppCompatImageView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
+import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ import java.util.List;
 public class HHT_LY_Fragment extends AbstractMVPFragment<HHT_LY_View, HHT_LY_PersenterImp> implements HHT_LY_View {
 
 
-    private AppCompatImageView iocnView;
+    private EnlargeAndNarrowAnimationView iconView;
     private GridView displayApps;
     private FragmentItemAdapter fragmentItemAdapter;
 
@@ -48,7 +48,8 @@ public class HHT_LY_Fragment extends AbstractMVPFragment<HHT_LY_View, HHT_LY_Per
 
 
     private void init(View rootView) {
-        iocnView = rootView.findViewById(R.id.iocn);
+        iconView = rootView.findViewById(R.id.iocn);
+        iconView.setEnlargeMultiple(1.05f);
         displayApps = rootView.findViewById(R.id.display_apps);
         fragmentItemAdapter = new FragmentItemAdapter(getContext(), 122, 125);
         displayApps.setAdapter(fragmentItemAdapter);
@@ -69,8 +70,8 @@ public class HHT_LY_Fragment extends AbstractMVPFragment<HHT_LY_View, HHT_LY_Per
 
     @Override
     public void displayIocn(Drawable icon) {
-        if (icon != null && iocnView != null)
-            iocnView.setImageDrawable(icon);
+        if (icon != null && iconView != null)
+            iconView.setImageDrawable(icon);
     }
 
     @Override
