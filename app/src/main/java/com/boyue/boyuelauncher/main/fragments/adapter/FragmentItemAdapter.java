@@ -40,11 +40,14 @@ public class FragmentItemAdapter extends BaseAdapter {
         IconType(String type) {
             this.type = type;
         }
-
-
     }
 
-
+    /**
+     * @param mContext
+     * @param iconWidth 图标宽
+     * @param iconHigh  图标高
+     * @param iconType  图标类型
+     */
     public FragmentItemAdapter(Context mContext, int iconWidth, int iconHigh, IconType iconType) {
         this.mContext = mContext;
         this.iconWidth = iconWidth;

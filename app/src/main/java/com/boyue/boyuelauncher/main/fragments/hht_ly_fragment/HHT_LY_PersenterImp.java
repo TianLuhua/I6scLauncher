@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.Config;
+import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
@@ -25,7 +26,7 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
 
     public HHT_LY_PersenterImp(Context mContext) {
         this.mContext = mContext;
-        this.hht_ly_mode = new HHT_LY_ModeImp(mContext, new HHT_LY_Mode.CallBack() {
+        this.hht_ly_mode = new HHT_LY_ModeImp(mContext, new ItemDataCallBack() {
             @Override
             public void getIcon(Drawable iconDrawble) {
                 HHT_LY_View view = getView();

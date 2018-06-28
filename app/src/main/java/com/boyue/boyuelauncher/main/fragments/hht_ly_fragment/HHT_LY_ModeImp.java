@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import com.bumptech.glide.Glide;
@@ -17,10 +18,10 @@ import java.util.List;
 public class HHT_LY_ModeImp implements HHT_LY_Mode {
 
     private Context mContext;
-    private HHT_LY_Mode.CallBack callBack;
+    private ItemDataCallBack callBack;
 
 
-    public HHT_LY_ModeImp(Context mContext, HHT_LY_Mode.CallBack callBack) {
+    public HHT_LY_ModeImp(Context mContext, ItemDataCallBack callBack) {
         this.callBack = callBack;
         this.mContext = mContext;
     }

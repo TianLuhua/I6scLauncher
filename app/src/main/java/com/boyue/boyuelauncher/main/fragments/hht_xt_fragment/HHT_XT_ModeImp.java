@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import com.bumptech.glide.Glide;
@@ -17,10 +18,10 @@ import java.util.List;
 public class HHT_XT_ModeImp implements HHT_XT_Mode {
 
     private Context mContext;
-    private CallBack callBack;
+    private ItemDataCallBack callBack;
 
 
-    public HHT_XT_ModeImp(Context mContext, CallBack callBack) {
+    public HHT_XT_ModeImp(Context mContext, ItemDataCallBack callBack) {
         this.callBack = callBack;
         this.mContext = mContext;
     }

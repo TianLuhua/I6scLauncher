@@ -3,6 +3,7 @@ package com.boyue.boyuelauncher.main.fragments.hht_ar_fragment;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 
+import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
@@ -19,7 +20,7 @@ public class HHT_AR_PersenterImp extends HHT_AR_Persenter {
 
     public HHT_AR_PersenterImp(Context mContext) {
         this.mContext = mContext;
-        this.hht_ar_mode = new HHT_AR_ModeImp(mContext, new HHT_AR_Mode.CallBack() {
+        this.hht_ar_mode = new HHT_AR_ModeImp(mContext, new ItemDataCallBack() {
             @Override
             public void getIcon(Drawable iconDrawble) {
                 HHT_AR_View view = getView();

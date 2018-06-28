@@ -118,7 +118,7 @@ public class Baby_Bus_Fragment_02 extends ItemBaseFragment {
 
     }
 
-    //加载图标
+    //异步加载图标
     protected void loadData() {
         ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
             @Override

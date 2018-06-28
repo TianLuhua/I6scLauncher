@@ -17,12 +17,5 @@ public interface HHT_AR_Mode extends BaseMode {
     void getItemIcon();
 
 
-    public interface CallBack {
-
-        void getIcon(Drawable iconDrawble);
-
-        void setItemicon(List<APPEntity> appEntities);
-    }
-
 
 }

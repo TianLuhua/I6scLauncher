@@ -233,7 +233,7 @@ public class Config {
 
         //在线宝箱
         public static final String HHT_ZXBX_HHT_SCHOOL = "";
-        public static final String HHT_ZXBX_AIQIYI_CHILDNER = "";
+        public static final String HHT_ZXBX_AIQIYI_CHILDNER = "com.qiyi.video.child";//com.qiyi.video.child/.WelcomeActivity
         //在线宝箱--宝宝巴士
         public static final String HHT_ZXBX_BABY_BUS_00 = "com.sinyee.babybus.animal";//com.sinyee.babybus.animal/com.babybus.plugin.videoview.activity.BoxVideoActivity
         public static final String HHT_ZXBX_BABY_BUS_01 = "com.sinyee.babybus.kindergarten";//com.sinyee.babybus.kindergarten/com.babybus.plugin.videoview.activity.BoxVideoActivity
