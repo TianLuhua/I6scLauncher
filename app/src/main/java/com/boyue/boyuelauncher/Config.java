@@ -253,8 +253,8 @@ public class Config {
         public static final String HHT_ZXBX_BABY_BUS_15 = "com.sinyee.babybus.food";//com.sinyee.babybus.food/com.babybus.plugin.videoview.activity.BoxVideoActivity
 
 
-        public static final String HHT_ZXBX_MEDIA_CHAT = "";
-        public static final String HHT_ZXBX_WECHAT = "";
+        public static final String HHT_ZXBX_MEDIA_CHAT = "com.tencent.devicedemo";// com.tencent.devicedemo/com.tencent.BooyueFriendListActivity
+        public static final String HHT_ZXBX_WECHAT = "com.tencent.mm";//com.tencent.mm/.app.WeChatSplashActivity
         public static final String HHT_ZXBX_MY_APPLICATION = "";
 
 
