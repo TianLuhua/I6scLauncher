@@ -154,7 +154,7 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
 
     //机器刚刚起来时候，初始化sd卡和u盘的状态
     private boolean sdAndusbIsMounted(String path) {
-        if (new File(path).list() != null) {
+        if (new File(path).list()!=null) {
             LogUtils.e("tlh", "path--->:" + path + "," + "true");
             return true;
         } else {
