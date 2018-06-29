@@ -1,12 +1,14 @@
 package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.syzl;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
 import com.boyue.boyuelauncher.main.fragments.base.ItemBaseFragment;
@@ -17,6 +19,13 @@ import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_01;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_02;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_03;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_04;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_05;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_06;
+
 public class HHT_yszl_Fragment_01 extends ItemBaseFragment {
 
 
@@ -24,6 +33,7 @@ public class HHT_yszl_Fragment_01 extends ItemBaseFragment {
     private FragmentItemAdapter fragmentItemAdapter;
     private ItemDataCallBack callBack;
     private Context mContext;
+    private ArrayList<String> videoPathList;
 
     public static HHT_yszl_Fragment_01 newInstance() {
         return new HHT_yszl_Fragment_01();
@@ -31,8 +41,20 @@ public class HHT_yszl_Fragment_01 extends ItemBaseFragment {
 
     public HHT_yszl_Fragment_01() {
         // Required empty public constructor
+        videoPathList = new ArrayList<>();
+        videoPathList.add(HHT_LY_YSPY_YSZL_01);
+        videoPathList.add(HHT_LY_YSPY_YSZL_02);
+        videoPathList.add(HHT_LY_YSPY_YSZL_03);
+        videoPathList.add(HHT_LY_YSPY_YSZL_04);
+        videoPathList.add(HHT_LY_YSPY_YSZL_05);
+        videoPathList.add(HHT_LY_YSPY_YSZL_06);
     }
 
+
+//    Intent intent = new Intent("com.booyue.android.mediaplayer.video");
+//                    intent.putStringArrayListExtra("videoInfoList", (ArrayList<String>) videoPathList);
+//                    intent.putExtra("position", position);
+//    startActivity(intent);
 
     @Override
     protected int setContentView() {
@@ -47,22 +69,10 @@ public class HHT_yszl_Fragment_01 extends ItemBaseFragment {
         gridLayout.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        break;
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
-                    case 5:
-                        break;
-                    case 6:
-                        break;
-                }
+                Intent intent = new Intent(Config.BoYueAction.BOOYUE_MEDIAPLAYER_VIDEO_ACTION);
+                intent.putStringArrayListExtra("videoInfoList", (ArrayList<String>) videoPathList);
+                intent.putExtra("position", position);
+                getActivity().startActivity(intent);
             }
         });
 

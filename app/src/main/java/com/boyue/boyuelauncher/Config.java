@@ -64,7 +64,8 @@ public class Config {
         public static final String UNACTIVITY_THIRTY_MIN = "android.intent.action.IDLE_THIRTY_MIN";//Intent.UNACTIVITY_THIRTY_MIN
         public static final String UNACTIVITY_SIXTY_MIN = "android.intent.action.IDLE_SIXTY_MIN";//Intent.UNACTIVITY_SIXTY_MIN
 
-        //
+        //播放器Action
+        public static final String BOOYUE_MEDIAPLAYER_VIDEO_ACTION = "com.booyue.android.mediaplayer.video";
     }
 
     /**
@@ -252,6 +253,12 @@ public class Config {
         public static final String HHT_LY_KALAOK_YWEG_ROOT_PATH = "/system/videos/leyuan/yingwenerge/";
         //火火兔乐园---- 艺术培养 ---艺术之旅
         public static final String HHT_LY_YSPY_YSZL_ROOT_PATH = "/system/videos/leyuan/yishupeiyang/yishuzhilv/";
+        public static final String HHT_LY_YSPY_YSZL_01 = HHT_LY_YSPY_YSZL_ROOT_PATH + "sjmh1.mp4";
+        public static final String HHT_LY_YSPY_YSZL_02 = HHT_LY_YSPY_YSZL_ROOT_PATH + "sjmh2.mp4";
+        public static final String HHT_LY_YSPY_YSZL_03 = HHT_LY_YSPY_YSZL_ROOT_PATH + "sjmh3.mp4";
+        public static final String HHT_LY_YSPY_YSZL_04 = HHT_LY_YSPY_YSZL_ROOT_PATH + "sjmh4.mp4";
+        public static final String HHT_LY_YSPY_YSZL_05 = HHT_LY_YSPY_YSZL_ROOT_PATH + "sjmh5.mp4";
+        public static final String HHT_LY_YSPY_YSZL_06 = HHT_LY_YSPY_YSZL_ROOT_PATH + "zmds.mp4";
 
 
         //火火兔乐园 ---- 益智游戏  //air.RabbitTarget/.AppEntry
