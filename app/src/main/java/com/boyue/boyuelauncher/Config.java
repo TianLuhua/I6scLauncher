@@ -250,7 +250,29 @@ public class Config {
         //火火兔乐园---- 卡拉ok ---兔兔MTV
         public static final String HHT_LY_KALAOK_TTMTV_ROOT_PATH = "";
         //火火兔乐园---- 卡拉ok ---英文儿歌
+
         public static final String HHT_LY_KALAOK_YWEG_ROOT_PATH = "/system/videos/leyuan/yingwenerge/";
+        public static final String HHT_LY_KALAOK_YWEG_01 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Green_and_Speckled_Frogs_song.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_02 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Little_Pumpkins_Sitting_On_aGate.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_03 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Ants_go_marching_one_by_one_song.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_04 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Ballet_Song_for_Kids_Down_at_the_Ballet.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_05 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Clap_Your_Hands_Song_for_Kids.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_06 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Count_to_100_Song_for_Kindergarten.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_07 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Dinosaur_Stomp_Song_for_Kids_Party.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_08 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Five_Little_Bunnies_Easter_Bunny_Song.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_09 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Five_Little_Monkeys_Jumping_on_the_Bed.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_10 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Freeze_Dance_for_Kids_Party_Music.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_11 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Freeze_Dance_Game_North_Pole_Christmas.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_12 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Funky_Monkey_Dance_Song_for_Kids_1.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_13 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Halloween_songs5_Little_Pumpkins_Sitting.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_14 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Im_a_Little_Snowman_Song_for_Children.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_15 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Skeleton_Dance_Shake_Demo_Halloween.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_16 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Ten_in_the_Bed_song_for_children.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_17 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Tooty_Ta_Dr_Jean_Tooty_Ta_with_Lyrics.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_18 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Walking_Walking_Song_Hop_Hop.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_19 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Wiggle_It_Wiggle_Dance_Wiggles_Songs.mp4";
+        public static final String HHT_LY_KALAOK_YWEG_20 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Winter_Hokey_Pokey_Song_for_Kids.mp4";
+
         //火火兔乐园---- 艺术培养 ---艺术之旅
         public static final String HHT_LY_YSPY_YSZL_ROOT_PATH = "/system/videos/leyuan/yishupeiyang/yishuzhilv/";
         public static final String HHT_LY_YSPY_YSZL_01 = HHT_LY_YSPY_YSZL_ROOT_PATH + "sjmh1.mp4";

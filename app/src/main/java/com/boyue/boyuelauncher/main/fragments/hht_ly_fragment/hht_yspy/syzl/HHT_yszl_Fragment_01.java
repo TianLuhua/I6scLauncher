@@ -14,6 +14,7 @@ import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
 import com.boyue.boyuelauncher.main.fragments.base.ItemBaseFragment;
 import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
+import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class HHT_yszl_Fragment_01 extends ItemBaseFragment {
     private FragmentItemAdapter fragmentItemAdapter;
     private ItemDataCallBack callBack;
     private Context mContext;
-    private ArrayList<String> videoPathList;
+    private final ArrayList<String> videoPathList;
 
     public static HHT_yszl_Fragment_01 newInstance() {
         return new HHT_yszl_Fragment_01();
@@ -69,10 +70,7 @@ public class HHT_yszl_Fragment_01 extends ItemBaseFragment {
         gridLayout.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(Config.BoYueAction.BOOYUE_MEDIAPLAYER_VIDEO_ACTION);
-                intent.putStringArrayListExtra("videoInfoList", (ArrayList<String>) videoPathList);
-                intent.putExtra("position", position);
-                getActivity().startActivity(intent);
+                ActivityUtils.startBoYueVideoPlayer(videoPathList, position);
             }
         });
 

@@ -9,6 +9,9 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.widget.Toast;
 
+import com.boyue.boyuelauncher.Config;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ActivityUtils {
@@ -149,5 +152,18 @@ public class ActivityUtils {
         return new ComponentName(packageName, className);
     }
 
+    /**
+     * 启动播放器
+     *
+     * @param lists    数据源
+     * @param position 在数据源的位置
+     */
+    public static void startBoYueVideoPlayer(ArrayList<String> lists, int position) {
+        Intent intent = new Intent(Config.BoYueAction.BOOYUE_MEDIAPLAYER_VIDEO_ACTION);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putStringArrayListExtra("videoInfoList", lists);
+        intent.putExtra("position", position);
+        Utils.getApp().startActivity(intent);
+    }
 
 }
