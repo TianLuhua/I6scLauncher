@@ -9,6 +9,13 @@ import com.boyue.boyuelauncher.utils.ActivityUtils;
 
 import java.util.List;
 
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_AR_3D_MAGIC;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_AR_DINOSAUR;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_AR_ENGLISH;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_AR_LAND_ANIMAL;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_AR_MATH;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_AR_OCEAN_ANIMAL;
+
 /**
  * Created by Tianluhua on 2018/5/18.
  */
@@ -46,25 +53,29 @@ public class HHT_AR_PersenterImp extends HHT_AR_Persenter {
     @Override
     public void startHHT_AR_Activity(int position) {
         switch (position) {
+            //火火兔AR---AR英语
             case 0:
+                ActivityUtils.startApplicationWithPackageName(HHT_AR_ENGLISH);
                 break;
             case 1:
+                //火火兔AR---AR数学
+                ActivityUtils.startApplicationWithPackageName(HHT_AR_MATH);
                 break;
             case 2:
                 //火火兔AR---陆地动物
-                ActivityUtils.startApplicationWithPackageName("com.o2design.animal");
+                ActivityUtils.startApplicationWithPackageName(HHT_AR_LAND_ANIMAL);
                 break;
             case 3:
                 //火火兔AR---海洋动物园
-                ActivityUtils.startApplicationWithPackageName("com.o2design.animalofocean");
+                ActivityUtils.startApplicationWithPackageName(HHT_AR_OCEAN_ANIMAL);
                 break;
             case 4:
                 //火火兔AR---恐龙
-                ActivityUtils.startApplicationWithPackageName("com.o2design.Dinosaurs");
+                ActivityUtils.startApplicationWithPackageName(HHT_AR_DINOSAUR);
                 break;
             case 5:
                 //火火兔AR---3D魔幻
-                ActivityUtils.startApplicationWithPackageName("com.simon.MH3D");
+                ActivityUtils.startApplicationWithPackageName(HHT_AR_3D_MAGIC);
                 break;
         }
     }
