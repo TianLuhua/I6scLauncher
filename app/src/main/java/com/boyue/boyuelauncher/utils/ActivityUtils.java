@@ -97,6 +97,40 @@ public class ActivityUtils {
         }
     }
 
+//
+////    Intent intent = new Intent(Intent.ACTION_MAIN);
+////                    intent.addCategory(Intent.CATEGORY_LAUNCHER);
+////    ComponentName cn = new ComponentName("com.wyt.hht7.xx", "com.wyt.hengke.huohuotu.activity.AppActivity");
+////                    intent.setComponent(cn);
+////                    intent.putExtra("appname","拼音学习");
+////
+////    startActivity(intent);
+
+    /**
+     * 根据传入的字符启动格林的apk：数学逻辑   传统国学    多元智能   安全知识    故事王国
+     */
+    public static void startApplicationForGeLin(String value) {
+
+        startApplicationWithComponent("com.wyt.hht7.xx", "com.wyt.hengke.huohuotu.activity.AppActivity", "appname", value);
+    }
+
+
+    /**
+     * 根据包名和类名启动,附带key，value
+     *
+     * @param packageName
+     * @param className
+     */
+    public static void startApplicationWithComponent(String packageName, String className, String key, String value) {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra(key, value);
+        ComponentName cn = createComponentName(packageName, className);
+        intent.setComponent(cn);
+        Utils.getApp().startActivity(intent);
+    }
+
     /**
      * 根据包名和类名启动
      *

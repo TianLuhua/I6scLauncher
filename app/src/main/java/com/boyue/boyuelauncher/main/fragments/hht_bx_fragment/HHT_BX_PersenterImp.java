@@ -11,6 +11,7 @@ import java.util.List;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_AIQIYI_CHILDNER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_HHT_BABY_SCHOOL;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MEDIA_CHAT;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_WECHAT;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
@@ -60,7 +61,9 @@ public class HHT_BX_PersenterImp extends HHT_BX_Persenter {
     @Override
     public void startHHT_BX_Item(int position) {
         switch (position) {
-
+            case 0:
+                ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_HHT_BABY_SCHOOL);
+                break;
             //爱奇艺少儿
             case 1:
                 ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_AIQIYI_CHILDNER);
@@ -75,6 +78,10 @@ public class HHT_BX_PersenterImp extends HHT_BX_Persenter {
                 break;
             //微信
             case 4:
+                ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_WECHAT);
+                break;
+            //微信
+            case 5:
                 ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_WECHAT);
                 break;
         }

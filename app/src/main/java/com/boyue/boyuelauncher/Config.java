@@ -210,10 +210,11 @@ public class Config {
         public static final String HHT_XT_ZJXT_HEALTH_LAUNCHER = "air.RabbitHealth.AppEntry";
 
 
-        public static final String HHT_XT_MATH_LOGIC = "";
-        public static final String HHT_XT_TRANDITIONAL_GX = "";
-        public static final String HHT_XT_DY_INTELLIGENCE = "";
-        public static final String HHT_XT_SAFE_KNOWLEDGE = "";
+        //火火兔学堂：数学逻辑   传统国学    多元智能   安全知识
+        public static final String HHT_XT_MATH_LOGIC = "数学逻辑";
+        public static final String HHT_XT_TRANDITIONAL_GX = "传统国学";
+        public static final String HHT_XT_DY_INTELLIGENCE = "多元智能";
+        public static final String HHT_XT_SAFE_KNOWLEDGE = "安全知识";
 
         //火火兔AR
         public static final String HHT_AR_ENGLISH = "com.o2interaction.educationEnglish";//com.o2interaction.educationEnglish/.MainActivity
@@ -226,13 +227,13 @@ public class Config {
         //火火兔乐园
         public static final String HHT_LY_KLOK = "";
         public static final String HHT_LY_ENGLISH_SING = "";
-        public static final String HHT_LY_KING_STORY = "";
+        public static final String HHT_LY_KING_STORY = "故事王国";
         public static final String HHT_LY_ART_TRAIN = "";
         public static final String HHT_LY_YZ_GAME = "";
         public static final String HHT_LY_BABY_CAMERA = "com.android.camera2";// com.android.camera2/com.android.camera.CameraLauncher
 
         //在线宝箱
-        public static final String HHT_ZXBX_HHT_SCHOOL = "";
+        public static final String HHT_ZXBX_HHT_BABY_SCHOOL = "com.booyue.l1_hht";//com.booyue.l1_hht/.MainActivity
         public static final String HHT_ZXBX_AIQIYI_CHILDNER = "com.qiyi.video.child";//com.qiyi.video.child/.WelcomeActivity
         //在线宝箱--宝宝巴士
         public static final String HHT_ZXBX_BABY_BUS_00 = "com.sinyee.babybus.animal";//com.sinyee.babybus.animal/com.babybus.plugin.videoview.activity.BoxVideoActivity
@@ -255,7 +256,7 @@ public class Config {
 
         public static final String HHT_ZXBX_MEDIA_CHAT = "com.tencent.devicedemo";// com.tencent.devicedemo/com.tencent.BooyueFriendListActivity
         public static final String HHT_ZXBX_WECHAT = "com.tencent.mm";//com.tencent.mm/.app.WeChatSplashActivity
-        public static final String HHT_ZXBX_MY_APPLICATION = "";
+        public static final String HHT_ZXBX_MY_ROBOTE = "";
 
 
         //文件管理器

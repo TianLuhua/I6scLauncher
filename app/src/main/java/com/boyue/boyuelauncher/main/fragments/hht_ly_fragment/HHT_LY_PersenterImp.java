@@ -12,6 +12,7 @@ import java.util.List;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_BABY_CAMERA;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KING_STORY;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YWEG;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YZYX;
@@ -64,6 +65,7 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
                 break;
             //故事王国
             case 2:
+                ActivityUtils.startApplicationForGeLin(HHT_LY_KING_STORY);
                 break;
             //艺术培养
             case 3:

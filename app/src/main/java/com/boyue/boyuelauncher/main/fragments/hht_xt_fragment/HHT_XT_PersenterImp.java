@@ -7,11 +7,14 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
-import com.boyue.boyuelauncher.utils.LogUtils;
 
 import java.util.List;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_DY_INTELLIGENCE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_MATH_LOGIC;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_SAFE_KNOWLEDGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_TRANDITIONAL_GX;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJXT;
 
@@ -55,46 +58,28 @@ public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
     public void startHHT_XT_Activity(int position) {
         switch (position) {
             case 0:
-                //显示早教英语
+                //早教英语
                 ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_ZJYY);
                 break;
             case 1:
-                //显示早教学堂
+                //早教学堂
                 ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTXT_ZJXT);
                 break;
+            case 2:
+                //数学逻辑
+                ActivityUtils.startApplicationForGeLin(HHT_XT_MATH_LOGIC);
+                break;
             case 3:
-
-//                ActivityUtils.startApplicationWithPackageName("");
-
-//
-                LogUtils.e("boyue", "启动播放器");
-//                ArrayList<String> lists = new ArrayList<>();
-//                lists.add("/mnt/usbhost1/bwhht.swf");
-////                lists.add("/mnt/usbhost1/bwhht.swf");
-//                Intent intent = new Intent("com.boyue.boyuelauncher.player");
-////                intent.putStringArrayListExtra("videoInfoList", lists);
-//                intent.putExtra("flashName", "/mnt/usbhost1/bwhht.swf");
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                mContext.startActivity(intent);
-//                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_ZJXT);
-
-
-////                唤起iFlashplayer
-//                Intent flashIntent = new Intent("com.softboy.as2flash");
-//                flashIntent.putExtra("url", "/mnt/usbhost1/bwhht.swf");
-//                mContext.startActivity(flashIntent);
-
-//                唤起F.softboy(as3 - swf - player)
-
-//                com.webgenie.swf.play/com.webgenie.swfplayer.FlashPlayerActivity
-//                ComponentName componentName = new ComponentName("com.webgenie.swf.play", "com.webgenie.swfplayer.FlashPlayerActivity");
-//                Intent intent = new Intent();
-//                intent.putExtra("path", "/mnt/usbhost1/bwhht.swf");
-//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                intent.setComponent(componentName);
-                mContext.startActivity(mContext.getPackageManager().getLaunchIntentForPackage("com.webgenie.swf.play"));
-
-
+                //传统国学
+                ActivityUtils.startApplicationForGeLin(HHT_XT_TRANDITIONAL_GX);
+                break;
+            case 4:
+                //多元智能
+                ActivityUtils.startApplicationForGeLin(HHT_XT_DY_INTELLIGENCE);
+                break;
+            case 5:
+                //安全知识
+                ActivityUtils.startApplicationForGeLin(HHT_XT_SAFE_KNOWLEDGE);
                 break;
         }
     }

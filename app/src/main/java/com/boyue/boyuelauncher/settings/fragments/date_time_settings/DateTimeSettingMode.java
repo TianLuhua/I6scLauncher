@@ -10,7 +10,6 @@ import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class DateTimeSettingMode implements BaseMode {
 
