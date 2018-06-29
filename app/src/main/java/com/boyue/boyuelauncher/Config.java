@@ -186,6 +186,59 @@ public class Config {
         /*----------------------------------火火兔学堂-----------------------------------------------*/
         //早教英语 ----邦尼英语
         public static final String HHT_XT_ZJYY_BANGNI_ROOT_PATH = "/system/videos/xuetang/zaojiaoyingyu/bangni/";
+        /*小班*/
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_01 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Hello_how_are_you.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_02 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Where_is_Bunny.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_03 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Boy_and_girl.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_04 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Stand_up_sit_down.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_05 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Wash_your_hands.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_06 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Nice_food.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_07 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "I_see.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_08 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Whats_this.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_09 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "A_candy_for_you.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_10 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "One_potato.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_11 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Happy.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_12 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Shake.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_13 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Which_one_do_you_like.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_14 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Who_can_do_it.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_15 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "I_want.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_XIAOBAN_16 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Traffic_lights.mp4";
+        /*中班*/
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_01 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "How_do_you_feel.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_02 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Mid_Autumn_Day.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_03 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Taste.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_04 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "What_are_you_wearing.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_05 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "I_see_you.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_06 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Music_man.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_07 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Rain.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_08 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Merry_Christmas.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_09 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "What_shape_is_it.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_10 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Numbers.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_11 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Fly_a_kite.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_12 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Is_it_yours.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_13 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Three_bears.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_14 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "At_home.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_15 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Its_too_hot.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_ZHONGBAN_16 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Who_is_coming.mp4";
+        /*大班*/
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_01 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "A_busy_day.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_02 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Little_rabbits.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_03 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Can_i_help_you.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_04 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Three_little_pigs.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_05 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "I_am_a_bus.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_06 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Bingo.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_07 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Five_little_monkeys.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_08 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Chinese_new_year.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_09 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Fun_to_play.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_10 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Rabbit_and_tortoise.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_11 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "What_is_your_favorite_sport.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_12 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Bears_teeth.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_13 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Happy_mothers_day.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_14 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "A_big_radish_in_the_hole.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_15 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "The_muffin_man.mp4";
+        public static final String HHT_XT_ZJYY_BANGNI_DABAN_16 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Goodbye.mp4";
+
+
         //早教英语 ----多纳英语
         public static final String HHT_XT_ZJYY_DUONA_ROOT_PATH = "/system/videos/xuetang/zaojiaoyingyu/duona/";
         public static final String HHT_XT_ZJYY_DUONA_01 = HHT_XT_ZJYY_DUONA_ROOT_PATH + "zaoshanghao.mp4";
