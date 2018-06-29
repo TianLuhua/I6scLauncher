@@ -12,10 +12,17 @@ import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
 import com.boyue.boyuelauncher.main.fragments.base.ItemBaseFragment;
 import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
+import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_08;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_09;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_10;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_11;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_12;
 
 public class HHT_yzyx_Fragment_02 extends ItemBaseFragment {
 
@@ -49,15 +56,18 @@ public class HHT_yzyx_Fragment_02 extends ItemBaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_09);
                         break;
                     case 1:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_10);
                         break;
                     case 2:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_11);
                         break;
                     case 3:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_12);
                         break;
-                    case 4:
-                        break;
+
 
                 }
             }

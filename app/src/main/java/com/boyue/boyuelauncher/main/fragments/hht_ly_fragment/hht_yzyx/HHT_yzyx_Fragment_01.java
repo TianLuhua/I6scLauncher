@@ -12,10 +12,20 @@ import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
 import com.boyue.boyuelauncher.main.fragments.base.ItemBaseFragment;
 import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
+import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_01;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_02;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_03;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_04;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_05;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_06;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_07;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YZYX_08;
 
 public class HHT_yzyx_Fragment_01 extends ItemBaseFragment {
 
@@ -49,20 +59,28 @@ public class HHT_yzyx_Fragment_01 extends ItemBaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_01);
                         break;
                     case 1:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_02);
                         break;
                     case 2:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_03);
                         break;
                     case 3:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_04);
                         break;
                     case 4:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_05);
                         break;
                     case 5:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_06);
                         break;
                     case 6:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_07);
                         break;
                     case 7:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_08);
                         break;
                 }
             }

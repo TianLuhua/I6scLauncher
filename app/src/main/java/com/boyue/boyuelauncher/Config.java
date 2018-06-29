@@ -184,28 +184,20 @@ public class Config {
     public static class BoYueLauncherResource {
         //火火兔学堂
         //早教英语
-        public static final String HHT_XT_ZJYY = "air.RabbitEng";//air.RabbitEng/.AppEntry
-
 
         //早教学堂
         public static final String HHT_XT_ZJXT_300WORDS_PACKAGE = "air.RabbitRead";//air.RabbitRead/.AppEntry
         public static final String HHT_XT_ZJXT_300WORDS_LAUNCHER = "air.RabbitRead.AppEntry";
-
         public static final String HHT_XT_ZJXT_PINYIN_PACKAGE = "air.RabbitAlpha";//air.RabbitAlpha/.AppEntry
         public static final String HHT_XT_ZJXT_PINYIN_LAUNCHER = "air.RabbitAlpha.AppEntry";
-
         public static final String HHT_XT_ZJXT_ENGLISH_PACKAGE = "air.RabbitEng";// air.RabbitEng/.AppEntry
         public static final String HHT_XT_ZJXT_ENGLISH_LAUNCHER = "air.RabbitEng.AppEntry";
-
         public static final String HHT_XT_ZJXT_MATH_PACKAGE = "air.RabbitMath";//air.RabbitMath/.AppEntry
         public static final String HHT_XT_ZJXT_MATH_PACKAGE_LAUNCHER = "air.RabbitMath.AppEntry";
-
         public static final String HHT_XT_ZJXT_KONWLEGE_PACKAGE = "air.RabbitKnow";//air.RabbitKnow/.AppEntry
         public static final String HHT_XT_ZJXT_KONWLEGE_LAUNCHER = "air.RabbitKnow.AppEntry";
-
         public static final String HHT_XT_ZJXT_POETRY_PACKAGE = "air.RabbitPoem";//air.RabbitPoem/.AppEntry
         public static final String HHT_XT_ZJXT_POETRY_LAUNCHER = "air.RabbitPoem.AppEntry";
-
         public static final String HHT_XT_ZJXT_HEALTH_PACKAGE = "air.RabbitHealth";//air.RabbitHealth/.AppEntry
         public static final String HHT_XT_ZJXT_HEALTH_LAUNCHER = "air.RabbitHealth.AppEntry";
 
@@ -224,13 +216,59 @@ public class Config {
         public static final String HHT_AR_DINOSAUR = "com.o2design.Dinosaurs";
         public static final String HHT_AR_3D_MAGIC = "com.simon.MH3D";
 
-        //火火兔乐园
+        /*----------------------------------火火兔乐园-----------------------------------------------*/
         public static final String HHT_LY_KLOK = "";
         public static final String HHT_LY_ENGLISH_SING = "";
         public static final String HHT_LY_KING_STORY = "故事王国";
         public static final String HHT_LY_ART_TRAIN = "";
         public static final String HHT_LY_YZ_GAME = "";
         public static final String HHT_LY_BABY_CAMERA = "com.android.camera2";// com.android.camera2/com.android.camera.CameraLauncher
+
+        //火火兔乐园---- 卡拉ok ---经典儿歌
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH = "/system/videos/leyuan/kalaOK/jingdian/";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_01 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "fenshuajiang03.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_02 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "yifenqian09.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_03 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "woniuyuhuangliniao07.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_04 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "lingerxiangdingdang04.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_05 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "maliyouzhixiaoyanggao19.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_06 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "liangzhilaohu10.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_07 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "shishangzhiyoumamahao05.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_08 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "shuyazi06.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_09 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "aiwojiubaobaowo18.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_10 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "baluobo15.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_11 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "chuntianzainali01.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_12 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "lanjinling02.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_13 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "shijianzaishuohua17.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_14 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "woyouyigejia13.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_15 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "xiaolongren12.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_16 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "xiaoxingxing08.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_17 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "xiaoyanzi11.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_18 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "zhaopengyou14.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_19 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "zhongtaiyang20.mkv";
+        public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_20 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "zhuoniqiu16.mkv";
+        //火火兔乐园---- 卡拉ok ---兔兔MTV
+        public static final String HHT_LY_KALAOK_TTMTV_ROOT_PATH = "";
+        //火火兔乐园---- 卡拉ok ---英文儿歌
+        public static final String HHT_LY_KALAOK_YWEG_ROOT_PATH = "/system/videos/leyuan/yingwenerge/";
+        //火火兔乐园---- 艺术培养 ---艺术之旅
+        public static final String HHT_LY_YSPY_YSZL_ROOT_PATH = "/system/videos/leyuan/yishupeiyang/yishuzhilv/";
+
+
+        //火火兔乐园 ---- 益智游戏  //air.RabbitTarget/.AppEntry
+        public static final String HHT_LY_YZYX_01 = "air.RabbitLine";// air.RabbitLine/.AppEntry
+        public static final String HHT_LY_YZYX_02 = "air.RabbitPuzzle";//air.RabbitPuzzle/.AppEntry
+        public static final String HHT_LY_YZYX_03 = "air.RabbitFindFruit";//air.RabbitFindFruit/.AppEntry
+        public static final String HHT_LY_YZYX_04 = "air.RabbitRecogAnimal";//air.RabbitRecogAnimal/.AppEntry
+        public static final String HHT_LY_YZYX_05 = "air.RabbitMouse";//air.RabbitMouse/.AppEntry
+        public static final String HHT_LY_YZYX_06 = "air.RabbitDefend";//air.RabbitDefend/.AppEntry
+        public static final String HHT_LY_YZYX_07 = "air.RabbitTarget";//air.RabbitTarget/.AppEntry
+        public static final String HHT_LY_YZYX_08 = "air.RabbitXXL";//air.RabbitXXL/.AppEntry
+        public static final String HHT_LY_YZYX_09 = "air.RabbitPiano";//air.RabbitPiano/.AppEntry
+        public static final String HHT_LY_YZYX_10 = "air.RabbitDinner";//air.RabbitDinner/.AppEntry
+        public static final String HHT_LY_YZYX_11 = "air.RabbitFlopModule";//air.RabbitFlopModule/.AppEntry
+        public static final String HHT_LY_YZYX_12 = "air.RabbitTidyRoom";//air.RabbitTidyRoom/.AppEntry
+
+        /*----------------------------------火火兔乐园-----------------------------------------------*/
 
         //在线宝箱
         public static final String HHT_ZXBX_HHT_BABY_SCHOOL = "com.booyue.l1_hht";//com.booyue.l1_hht/.MainActivity
