@@ -1,11 +1,22 @@
 package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjxt;
 
-import android.support.v7.widget.AppCompatImageView;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.base.LazyLoadFragment;
+import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
+import com.boyue.boyuelauncher.main.fragments.base.ItemBaseFragment;
+import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
+import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
+import com.boyue.boyuelauncher.utils.ThreadPoolManager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_300WORDS_LAUNCHER;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_300WORDS_PACKAGE;
@@ -26,10 +37,13 @@ import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_P
  * Created by Tianluhua on 2018/6/7.
  */
 
-public class HHT_zjxt_Fragment extends LazyLoadFragment implements View.OnClickListener {
+public class HHT_zjxt_Fragment extends ItemBaseFragment {
 
-    private AppCompatImageView item01, item02, item03, item04, item05, item06, item07;
 
+    private GridView gridLayout;
+    private FragmentItemAdapter fragmentItemAdapter;
+    private ItemDataCallBack callBack;
+    private Context mContext;
 
     public static HHT_zjxt_Fragment newInstance() {
         return new HHT_zjxt_Fragment();
@@ -42,66 +56,96 @@ public class HHT_zjxt_Fragment extends LazyLoadFragment implements View.OnClickL
 
     @Override
     protected int setContentView() {
-        return R.layout.activity_hht_zjxt;
+        return R.layout.fragment_base_item;
     }
 
     @Override
-    protected void lazyLoad() {
-        initView();
+    protected void init() {
+        gridLayout = findViewById(R.id.gridlayout);
+        fragmentItemAdapter = new FragmentItemAdapter(getContext(), 144, 144, FragmentItemAdapter.IconType.ITEM);
+        gridLayout.setAdapter(fragmentItemAdapter);
+        gridLayout.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        //学前300字
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_300WORDS_PACKAGE, HHT_XT_ZJXT_300WORDS_LAUNCHER);
+                        break;
+                    case 1:
+                        //学前拼音
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_PINYIN_PACKAGE, HHT_XT_ZJXT_PINYIN_LAUNCHER);
+                        break;
+                    case 2:
+                        //学前英语
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_ENGLISH_PACKAGE, HHT_XT_ZJXT_ENGLISH_LAUNCHER);
+                        break;
+                    case 3:
+                        //基础数学
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_MATH_PACKAGE, HHT_XT_ZJXT_MATH_PACKAGE_LAUNCHER);
+                        break;
+                    case 4:
+                        //认知启蒙
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_KONWLEGE_PACKAGE, HHT_XT_ZJXT_KONWLEGE_LAUNCHER);
+                        break;
+                    case 5:
+                        //古诗16首
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_POETRY_PACKAGE, HHT_XT_ZJXT_POETRY_LAUNCHER);
+                        break;
+                    case 6:
+                        //健康教育
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_HEALTH_PACKAGE, HHT_XT_ZJXT_HEALTH_LAUNCHER);
+                        break;
+                }
+            }
+        });
+
+        callBack = new ItemDataCallBack() {
+            @Override
+            public void getIcon(Drawable iconDrawble) {
+
+            }
+
+            @Override
+            public void setItemicon(final List<APPEntity> appEntities) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        fragmentItemAdapter.setAppEntities(appEntities);
+                    }
+                });
+
+            }
+        };
+        mContext = getContext();
+        loadData();
+
     }
 
+    //异步加载图标
+    protected void loadData() {
 
-    protected void initView() {
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                final List<APPEntity> appEntities = new ArrayList<>();
+                //图标
+                TypedArray icnos = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjxt_items_page01_image);
+                //图标下的文字
+                TypedArray names = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjxt_items_page01_text);
 
-        item01 = findViewById(R.id.hht_xt_zjxt_01_icon);
-        item02 = findViewById(R.id.hht_xt_zjxt_02_icon);
-        item03 = findViewById(R.id.hht_xt_zjxt_03_icon);
-        item04 = findViewById(R.id.hht_xt_zjxt_04_icon);
-        item05 = findViewById(R.id.hht_xt_zjxt_05_icon);
-        item06 = findViewById(R.id.hht_xt_zjxt_06_icon);
-        item07 = findViewById(R.id.hht_xt_zjxt_07_icon);
-        item01.setOnClickListener(this);
-        item02.setOnClickListener(this);
-        item03.setOnClickListener(this);
-        item04.setOnClickListener(this);
-        item05.setOnClickListener(this);
-        item06.setOnClickListener(this);
-        item07.setOnClickListener(this);
+                for (int i = 0; i < names.length(); i++) {
+                    APPEntity appEntity = new APPEntity();
+                    appEntity.setNameRes(names.getResourceId(i, 0));
+                    appEntity.setIconRes(icnos.getResourceId(i, 0));
+                    appEntities.add(appEntity);
+                }
+                icnos.recycle();
+                names.recycle();
+                if (callBack == null) return;
+                callBack.setItemicon(appEntities);
+            }
+        });
+
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.hht_xt_zjxt_01_icon:
-                //学前300字
-                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_300WORDS_PACKAGE, HHT_XT_ZJXT_300WORDS_LAUNCHER);
-                break;
-            case R.id.hht_xt_zjxt_02_icon:
-                //学前拼音
-                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_PINYIN_PACKAGE, HHT_XT_ZJXT_PINYIN_LAUNCHER);
-                break;
-            case R.id.hht_xt_zjxt_03_icon:
-                //学前英语
-                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_ENGLISH_PACKAGE, HHT_XT_ZJXT_ENGLISH_LAUNCHER);
-                break;
-            case R.id.hht_xt_zjxt_04_icon:
-                //基础数学
-                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_MATH_PACKAGE, HHT_XT_ZJXT_MATH_PACKAGE_LAUNCHER);
-                break;
-            case R.id.hht_xt_zjxt_05_icon:
-                //认知启蒙
-                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_KONWLEGE_PACKAGE, HHT_XT_ZJXT_KONWLEGE_LAUNCHER);
-                break;
-            case R.id.hht_xt_zjxt_06_icon:
-                //古诗16首
-                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_POETRY_PACKAGE, HHT_XT_ZJXT_POETRY_LAUNCHER);
-                break;
-            case R.id.hht_xt_zjxt_07_icon:
-                //健康教育
-                ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_HEALTH_PACKAGE, HHT_XT_ZJXT_HEALTH_LAUNCHER);
-                break;
-        }
-    }
-
-
 }

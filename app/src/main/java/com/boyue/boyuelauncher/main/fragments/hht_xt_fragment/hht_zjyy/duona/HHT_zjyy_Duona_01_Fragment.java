@@ -1,17 +1,46 @@
 package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.duona;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
+import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
+import com.boyue.boyuelauncher.main.fragments.base.ItemBaseFragment;
+import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
+import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjxt.HHT_zjxt_Fragment;
+import com.boyue.boyuelauncher.utils.ActivityUtils;
+import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
-public class HHT_zjyy_Duona_01_Fragment extends Fragment implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.List;
 
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_300WORDS_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_300WORDS_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_ENGLISH_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_ENGLISH_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_HEALTH_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_HEALTH_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_KONWLEGE_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_KONWLEGE_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_MATH_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_MATH_PACKAGE_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_PINYIN_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_PINYIN_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_POETRY_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJXT_POETRY_PACKAGE;
+
+public class HHT_zjyy_Duona_01_Fragment extends ItemBaseFragment {
+
+
+    private GridView gridLayout;
+    private FragmentItemAdapter fragmentItemAdapter;
+    private ItemDataCallBack callBack;
+    private Context mContext;
 
     public static HHT_zjyy_Duona_01_Fragment newInstance() {
         return new HHT_zjyy_Duona_01_Fragment();
@@ -21,61 +50,89 @@ public class HHT_zjyy_Duona_01_Fragment extends Fragment implements View.OnClick
         // Required empty public constructor
     }
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_hht_zjyy_duona_01, null);
-        initView(rootView);
-        return rootView;
-    }
-
-
-    private void initView(View rootView) {
-        initItemView(rootView);
-    }
-
-
-    private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03, btn_04, btn_05, btn_06, btn_07, btn_08;
-
-    private void initItemView(View rootView) {
-        btn_01 = rootView.findViewById(R.id.hht_ly_yzyx_01_icon);
-        btn_02 = rootView.findViewById(R.id.hht_ly_yzyx_02_icon);
-        btn_03 = rootView.findViewById(R.id.hht_ly_yzyx_03_icon);
-        btn_04 = rootView.findViewById(R.id.hht_ly_yzyx_04_icon);
-        btn_05 = rootView.findViewById(R.id.hht_ly_yzyx_05_icon);
-        btn_06 = rootView.findViewById(R.id.hht_ly_yzyx_06_icon);
-        btn_07 = rootView.findViewById(R.id.hht_ly_yzyx_07_icon);
-        btn_08 = rootView.findViewById(R.id.hht_ly_yzyx_08_icon);
-        btn_01.setOnClickListener(this);
-        btn_02.setOnClickListener(this);
-        btn_03.setOnClickListener(this);
-        btn_04.setOnClickListener(this);
-        btn_05.setOnClickListener(this);
-        btn_06.setOnClickListener(this);
-        btn_07.setOnClickListener(this);
-        btn_08.setOnClickListener(this);
+    protected int setContentView() {
+        return R.layout.fragment_base_item;
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.hht_ly_yzyx_01_icon:
-                break;
-            case R.id.hht_ly_yzyx_02_icon:
-                break;
-            case R.id.hht_ly_yzyx_03_icon:
-                break;
-            case R.id.hht_ly_yzyx_04_icon:
-                break;
-            case R.id.hht_ly_yzyx_05_icon:
-                break;
-            case R.id.hht_ly_yzyx_06_icon:
-                break;
-            case R.id.hht_ly_yzyx_07_icon:
-                break;
-            case R.id.hht_ly_yzyx_08_icon:
-                break;
-        }
+    protected void init() {
+        gridLayout = findViewById(R.id.gridlayout);
+        fragmentItemAdapter = new FragmentItemAdapter(getContext(), 144, 144, FragmentItemAdapter.IconType.ITEM);
+        gridLayout.setAdapter(fragmentItemAdapter);
+        gridLayout.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
+                    case 8:
+                        break;
+                }
+            }
+        });
+
+        callBack = new ItemDataCallBack() {
+            @Override
+            public void getIcon(Drawable iconDrawble) {
+
+            }
+
+            @Override
+            public void setItemicon(final List<APPEntity> appEntities) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        fragmentItemAdapter.setAppEntities(appEntities);
+                    }
+                });
+
+            }
+        };
+        mContext = getContext();
+        loadData();
+
+    }
+
+    //异步加载图标
+    protected void loadData() {
+
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                final List<APPEntity> appEntities = new ArrayList<>();
+                //图标
+                TypedArray icnos = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjyy_duonaban_items_page01_image);
+                //图标下的文字
+                TypedArray names = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjyy_duonaban_items_page01_text);
+
+                for (int i = 0; i < names.length(); i++) {
+                    APPEntity appEntity = new APPEntity();
+                    appEntity.setNameRes(names.getResourceId(i, 0));
+                    appEntity.setIconRes(icnos.getResourceId(i, 0));
+                    appEntities.add(appEntity);
+                }
+                icnos.recycle();
+                names.recycle();
+                if (callBack == null) return;
+                callBack.setItemicon(appEntities);
+            }
+        });
 
     }
 }

@@ -112,16 +112,12 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
             case HHTXT_ZJXT:
                 titleBar.setTitle(R.string.hht_xt_item_name_102);
                 break;
-
             case HHTLY_YWEG:
                 titleBar.setTitle(R.string.hht_ly_item_name_102);
                 break;
-
             case HHTLY_YZYX:
                 titleBar.setTitle(R.string.hht_ly_yzyx);
                 break;
-
-
             case HHTLY_YSPY_ZQYY:
                 titleBar.setTitle(R.string.hht_ly_yspy_zqyy);
                 break;
@@ -162,9 +158,15 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
     }
 
     @Override
-    public void setFragments(List<Fragment> ttmvDataFragments) {
-        adapter.setFragments(ttmvDataFragments);
-        this.currentPageSize = ttmvDataFragments.size();
+    public void setFragments(final List<Fragment> ttmvDataFragments) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                adapter.setFragments(ttmvDataFragments);
+                currentPageSize = ttmvDataFragments.size();
+            }
+        });
+
 
     }
 

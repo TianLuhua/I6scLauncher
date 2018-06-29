@@ -174,7 +174,6 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         fragments.add(hhly_baby_bus_01);
                         fragments.add(hhly_baby_bus_02);
                         getView().setFragments(fragments);
-
                         break;
 
 
