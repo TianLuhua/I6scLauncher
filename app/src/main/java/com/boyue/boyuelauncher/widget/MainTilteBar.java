@@ -9,6 +9,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.utils.ActivityUtils;
+
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.FILE_MANGER_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.FILE_MANGER_PACKAGE;
 
 /**
  * Created by Tianluhua on 2018/5/16.
@@ -101,12 +105,13 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     @Override
     public void onSDIconClick(View view) {
         Toast.makeText(getContext(), "SD", Toast.LENGTH_SHORT).show();
+        ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE,FILE_MANGER_LAUNCHER);
     }
 
     @Override
     public void onUSBIconClick(View view) {
         Toast.makeText(getContext(), "USB", Toast.LENGTH_SHORT).show();
-
+        ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE,FILE_MANGER_LAUNCHER);
     }
 
     public interface OnTitleBarClickListener {

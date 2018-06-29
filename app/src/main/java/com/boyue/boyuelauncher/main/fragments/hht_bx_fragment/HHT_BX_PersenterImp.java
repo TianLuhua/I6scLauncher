@@ -13,6 +13,7 @@ import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_AIQIYI_CHILDNER;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_HHT_BABY_SCHOOL;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MEDIA_CHAT;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MY_ROBOTE;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_WECHAT;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_BABY_BUS;
@@ -82,7 +83,7 @@ public class HHT_BX_PersenterImp extends HHT_BX_Persenter {
                 break;
             //微信
             case 5:
-                ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_WECHAT);
+                ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_MY_ROBOTE);
                 break;
         }
 
