@@ -270,9 +270,12 @@ public class Config {
 
         /*----------------------------------火火兔乐园-----------------------------------------------*/
 
-        //在线宝箱
+        /*----------------------------------在线宝箱-----------------------------------------------*/
+        //育儿
         public static final String HHT_ZXBX_HHT_BABY_SCHOOL = "com.booyue.l1_hht";//com.booyue.l1_hht/.MainActivity
+        //爱奇艺少儿
         public static final String HHT_ZXBX_AIQIYI_CHILDNER = "com.qiyi.video.child";//com.qiyi.video.child/.WelcomeActivity
+
         //在线宝箱--宝宝巴士
         public static final String HHT_ZXBX_BABY_BUS_00 = "com.sinyee.babybus.animal";//com.sinyee.babybus.animal/com.babybus.plugin.videoview.activity.BoxVideoActivity
         public static final String HHT_ZXBX_BABY_BUS_01 = "com.sinyee.babybus.kindergarten";//com.sinyee.babybus.kindergarten/com.babybus.plugin.videoview.activity.BoxVideoActivity
@@ -291,10 +294,12 @@ public class Config {
         public static final String HHT_ZXBX_BABY_BUS_14 = "com.sinyee.fruit.activity";//com.sinyee.fruit.activity/com.babybus.plugin.videoview.activity.BoxVideoActivity
         public static final String HHT_ZXBX_BABY_BUS_15 = "com.sinyee.babybus.food";//com.sinyee.babybus.food/com.babybus.plugin.videoview.activity.BoxVideoActivity
 
-
+        //语音聊天
         public static final String HHT_ZXBX_MEDIA_CHAT = "com.tencent.devicedemo";// com.tencent.devicedemo/com.tencent.BooyueFriendListActivity
+        //微信
         public static final String HHT_ZXBX_WECHAT = "com.tencent.mm";//com.tencent.mm/.app.WeChatSplashActivity
-        public static final String HHT_ZXBX_MY_ROBOTE = "";
+        //语音机器人
+        public static final String HHT_ZXBX_MY_ROBOTE = "com.aispeech.t6";//com.aispeech.t6/.MainActivity
 
 
         //文件管理器

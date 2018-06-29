@@ -67,8 +67,6 @@ public class HHT_yzyx_Fragment_02 extends ItemBaseFragment {
                     case 3:
                         ActivityUtils.startApplicationWithPackageName(HHT_LY_YZYX_12);
                         break;
-
-
                 }
             }
         });
