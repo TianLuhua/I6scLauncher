@@ -224,7 +224,7 @@ public class Config {
         public static final String HHT_XT_TRANDITIONAL_GX = "传统国学";
         public static final String HHT_XT_DY_INTELLIGENCE = "多元智能";
         public static final String HHT_XT_SAFE_KNOWLEDGE = "安全知识";
-
+        /*----------------------------------火火兔学堂-----------------------------------------------*/
         //火火兔AR
         public static final String HHT_AR_ENGLISH = "com.o2interaction.educationEnglish";//com.o2interaction.educationEnglish/.MainActivity
         public static final String HHT_AR_MATH = "com.o2interaction.educationMath";// com.o2interaction.educationMath/.MainActivity
@@ -232,6 +232,7 @@ public class Config {
         public static final String HHT_AR_OCEAN_ANIMAL = "com.o2design.animalofocean";
         public static final String HHT_AR_DINOSAUR = "com.o2design.Dinosaurs";
         public static final String HHT_AR_3D_MAGIC = "com.simon.MH3D";
+
 
         /*----------------------------------火火兔乐园-----------------------------------------------*/
         public static final String HHT_LY_KLOK = "";
@@ -265,8 +266,9 @@ public class Config {
         public static final String HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_20 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "zhuoniqiu16.mkv";
         //火火兔乐园---- 卡拉ok ---兔兔MTV
         public static final String HHT_LY_KALAOK_TTMTV_ROOT_PATH = "";
-        //火火兔乐园---- 卡拉ok ---英文儿歌
 
+
+        //火火兔乐园---- 卡拉ok ---英文儿歌
         public static final String HHT_LY_KALAOK_YWEG_ROOT_PATH = "/system/videos/leyuan/yingwenerge/";
         public static final String HHT_LY_KALAOK_YWEG_01 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Green_and_Speckled_Frogs_song.mp4";
         public static final String HHT_LY_KALAOK_YWEG_02 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Little_Pumpkins_Sitting_On_aGate.mp4";
