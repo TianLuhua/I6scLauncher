@@ -186,14 +186,16 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
 
     }
 
-    /**
-     * 如果只有一页，那就默认不显示翻页按钮
-     */
-    private void hidePageTurningBtn() {
 
+    private void hidePageTurningBtn() {
+        //如果只有一页，那就默认不显示翻页按钮
         if (currentPageSize == 1) {
             previousPage.setVisibility(View.INVISIBLE);
             nextPage.setVisibility(View.INVISIBLE);
+        }
+        if (currentPageSize > 1) {
+            previousPage.setVisibility(View.INVISIBLE);
+            nextPage.setVisibility(View.VISIBLE);
         }
     }
 
@@ -218,22 +220,24 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-        hidePageTurningBtn();
-
+        LogUtils.e("tlh", "HHT_Item_Activity----onPageScrolled-----position:" + position + ",currentPageSize:" + currentPageSize);
 
         if (0 < position && position < currentPageSize - 1) {
             previousPage.setVisibility(View.VISIBLE);
             nextPage.setVisibility(View.VISIBLE);
         }
 
-        if (position == 0) {
+        if (position == 0 && currentPageSize > 1) {
             previousPage.setVisibility(View.INVISIBLE);
             nextPage.setVisibility(View.VISIBLE);
         }
 
+        if (position == 0 && currentPageSize == 1) {
+            previousPage.setVisibility(View.INVISIBLE);
+            nextPage.setVisibility(View.INVISIBLE);
+        }
 
-        if (position == currentPageSize - 1) {
+        if (position == currentPageSize - 1 && currentPageSize > 1) {
             previousPage.setVisibility(View.VISIBLE);
             nextPage.setVisibility(View.INVISIBLE);
         }
