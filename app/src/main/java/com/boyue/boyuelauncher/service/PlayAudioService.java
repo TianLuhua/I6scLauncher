@@ -90,6 +90,8 @@ public class PlayAudioService extends Service implements MediaPlayer.OnPreparedL
     public void onDestroy() {
         super.onDestroy();
         Log.e("tlh", "onDestroy");
+        mediaPlayer.reset();
+        mediaPlayer=null;
     }
 
 }
