@@ -18,10 +18,10 @@ import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_17;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_18;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_19;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_20;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_17;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_18;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_19;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_20;
 
 public class HHT_Klok_Jdeg_03_Fragment extends ItemBaseFragment {
 
@@ -38,10 +38,10 @@ public class HHT_Klok_Jdeg_03_Fragment extends ItemBaseFragment {
     public HHT_Klok_Jdeg_03_Fragment() {
         // Required empty public constructor
         videoPathList = new ArrayList<>();
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_17);
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_18);
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_19);
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_20);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_17);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_18);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_19);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_20);
     }
 
 

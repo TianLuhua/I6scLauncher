@@ -243,7 +243,7 @@
         <item>@mipmap/ic_hht_ly_klok_ttmtv_04</item>
         <item>@mipmap/ic_hht_ly_klok_ttmtv_05</item>
         <item>@mipmap/ic_hht_ly_klok_ttmtv_06</item>
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_07</item>
+        <item>@mipmap/ic_hht_ly_klok_ttmtv_25</item>
         <item>@mipmap/ic_hht_ly_klok_ttmtv_08</item>
     </string-array>
     <string-array name="hht_ly_kalaok_ttmtv_items_page02_image">
@@ -267,21 +267,10 @@
         <item>@mipmap/ic_hht_ly_klok_ttmtv_24</item>
     </string-array>
     <string-array name="hht_ly_kalaok_ttmtv_items_page04_image">
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_25</item>
+        <item>@mipmap/ic_hht_ly_klok_ttmtv_07</item>
         <item>@mipmap/ic_hht_ly_klok_ttmtv_26</item>
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_27</item>
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_28</item>
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_29</item>
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_30</item>
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_31</item>
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_32</item>
     </string-array>
-    <string-array name="hht_ly_kalaok_ttmtv_items_page05_image">
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_33</item>
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_34</item>
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_35</item>
-        <item>@mipmap/ic_hht_ly_klok_ttmtv_36</item>
-    </string-array>
+
     <string-array name="hht_ly_kalaok_ttmtv_items_page01_text">
         <item>@string/ic_hht_ly_klok_ttmtv_01</item>
         <item>@string/ic_hht_ly_klok_ttmtv_02</item>
@@ -315,19 +304,8 @@
     <string-array name="hht_ly_kalaok_ttmtv_items_page04_text">
         <item>@string/ic_hht_ly_klok_ttmtv_25</item>
         <item>@string/ic_hht_ly_klok_ttmtv_26</item>
-        <item>@string/ic_hht_ly_klok_ttmtv_27</item>
-        <item>@string/ic_hht_ly_klok_ttmtv_28</item>
-        <item>@string/ic_hht_ly_klok_ttmtv_29</item>
-        <item>@string/ic_hht_ly_klok_ttmtv_30</item>
-        <item>@string/ic_hht_ly_klok_ttmtv_31</item>
-        <item>@string/ic_hht_ly_klok_ttmtv_32</item>
     </string-array>
-    <string-array name="hht_ly_kalaok_ttmtv_items_page05_text">
-        <item>@string/ic_hht_ly_klok_ttmtv_33</item>
-        <item>@string/ic_hht_ly_klok_ttmtv_34</item>
-        <item>@string/ic_hht_ly_klok_ttmtv_35</item>
-        <item>@string/ic_hht_ly_klok_ttmtv_36</item>
-    </string-array>
+
 
     <!--火火兔乐园  卡拉ok  经典儿歌-->
     <string-array name="hht_ly_kalaok_jdeg_items_page01_text">

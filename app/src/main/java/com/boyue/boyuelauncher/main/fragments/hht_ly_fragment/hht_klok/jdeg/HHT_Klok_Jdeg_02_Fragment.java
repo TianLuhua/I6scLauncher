@@ -18,15 +18,14 @@ import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_01;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_09;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_10;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_11;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_12;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_13;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_14;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_15;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_16;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_09;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_10;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_11;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_12;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_13;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_14;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_15;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_16;
 
 public class HHT_Klok_Jdeg_02_Fragment extends ItemBaseFragment {
 
@@ -44,14 +43,14 @@ public class HHT_Klok_Jdeg_02_Fragment extends ItemBaseFragment {
     public HHT_Klok_Jdeg_02_Fragment() {
         // Required empty public constructor
         videoPathList = new ArrayList<>();
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_09);
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_10);
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_11);
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_12);
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_13);
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_14);
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_15);
-        videoPathList.add(HHT_LY_KALAOK_JDEG_ROOT_PATH_ITEM_16);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_09);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_10);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_11);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_12);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_13);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_14);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_15);
+        videoPathList.add(HHT_LY_KALAOK_JDEG_ITEM_16);
     }
 
 

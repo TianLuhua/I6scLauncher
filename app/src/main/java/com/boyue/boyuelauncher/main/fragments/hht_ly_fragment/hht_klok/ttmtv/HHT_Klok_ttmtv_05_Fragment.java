@@ -87,26 +87,26 @@ public class HHT_Klok_ttmtv_05_Fragment extends ItemBaseFragment {
     //异步加载图标
     protected void loadData() {
 
-        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
-            @Override
-            public void run() {
-                final List<APPEntity> appEntities = new ArrayList<>();
-                //图标
-                TypedArray icnos = mContext.getResources().obtainTypedArray(R.array.hht_ly_kalaok_ttmtv_items_page05_image);
-                //图标下的文字
-                TypedArray names = mContext.getResources().obtainTypedArray(R.array.hht_ly_kalaok_ttmtv_items_page05_text);
-
-                for (int i = 0; i < names.length(); i++) {
-                    APPEntity appEntity = new APPEntity();
-                    appEntity.setNameRes(names.getResourceId(i, 0));
-                    appEntity.setIconRes(icnos.getResourceId(i, 0));
-                    appEntities.add(appEntity);
-                }
-                icnos.recycle();
-                names.recycle();
-                if (callBack == null) return;
-                callBack.setItemicon(appEntities);
-            }
-        });
+//        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+//            @Override
+//            public void run() {
+//                final List<APPEntity> appEntities = new ArrayList<>();
+//                //图标
+//                TypedArray icnos = mContext.getResources().obtainTypedArray(R.array.hht_ly_kalaok_ttmtv_items_page05_image);
+//                //图标下的文字
+//                TypedArray names = mContext.getResources().obtainTypedArray(R.array.hht_ly_kalaok_ttmtv_items_page05_text);
+//
+//                for (int i = 0; i < names.length(); i++) {
+//                    APPEntity appEntity = new APPEntity();
+//                    appEntity.setNameRes(names.getResourceId(i, 0));
+//                    appEntity.setIconRes(icnos.getResourceId(i, 0));
+//                    appEntities.add(appEntity);
+//                }
+//                icnos.recycle();
+//                names.recycle();
+//                if (callBack == null) return;
+//                callBack.setItemicon(appEntities);
+//            }
+//        });
     }
 }

@@ -69,13 +69,13 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         Fragment ttmtv_02 = HHT_Klok_ttmtv_02_Fragment.newInstance();
                         Fragment ttmtv_03 = HHT_Klok_ttmtv_03_Fragment.newInstance();
                         Fragment ttmtv_04 = HHT_Klok_ttmtv_04_Fragment.newInstance();
-                        Fragment ttmtv_05 = HHT_Klok_ttmtv_05_Fragment.newInstance();
+//                        Fragment ttmtv_05 = HHT_Klok_ttmtv_05_Fragment.newInstance();
                         fragments.clear();
                         fragments.add(ttmtv_01);
                         fragments.add(ttmtv_02);
                         fragments.add(ttmtv_03);
                         fragments.add(ttmtv_04);
-                        fragments.add(ttmtv_05);
+//                        fragments.add(ttmtv_05);
                         getView().setFragments(fragments);
                         break;
                     //火火兔乐园--卡拉ok---经典儿歌

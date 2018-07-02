@@ -12,10 +12,20 @@ import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
 import com.boyue.boyuelauncher.main.fragments.base.ItemBaseFragment;
 import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
+import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_TTMTV_ITEM_17;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_TTMTV_ITEM_18;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_TTMTV_ITEM_19;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_TTMTV_ITEM_20;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_TTMTV_ITEM_21;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_TTMTV_ITEM_22;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_TTMTV_ITEM_23;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_TTMTV_ITEM_24;
 
 public class HHT_Klok_ttmtv_03_Fragment extends ItemBaseFragment {
 
@@ -24,6 +34,7 @@ public class HHT_Klok_ttmtv_03_Fragment extends ItemBaseFragment {
     private FragmentItemAdapter fragmentItemAdapter;
     private ItemDataCallBack callBack;
     private Context mContext;
+    private final ArrayList<String> videoPathList;
 
     public static HHT_Klok_ttmtv_03_Fragment newInstance() {
         return new HHT_Klok_ttmtv_03_Fragment();
@@ -31,6 +42,15 @@ public class HHT_Klok_ttmtv_03_Fragment extends ItemBaseFragment {
 
     public HHT_Klok_ttmtv_03_Fragment() {
         // Required empty public constructor
+        videoPathList = new ArrayList<>();
+        videoPathList.add(HHT_LY_KALAOK_TTMTV_ITEM_17);
+        videoPathList.add(HHT_LY_KALAOK_TTMTV_ITEM_18);
+        videoPathList.add(HHT_LY_KALAOK_TTMTV_ITEM_19);
+        videoPathList.add(HHT_LY_KALAOK_TTMTV_ITEM_20);
+        videoPathList.add(HHT_LY_KALAOK_TTMTV_ITEM_21);
+        videoPathList.add(HHT_LY_KALAOK_TTMTV_ITEM_22);
+        videoPathList.add(HHT_LY_KALAOK_TTMTV_ITEM_23);
+        videoPathList.add(HHT_LY_KALAOK_TTMTV_ITEM_24);
     }
 
 
@@ -47,24 +67,7 @@ public class HHT_Klok_ttmtv_03_Fragment extends ItemBaseFragment {
         gridLayout.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        break;
-                    case 1:
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                    case 4:
-                        break;
-                    case 5:
-                        break;
-                    case 6:
-                        break;
-                    case 7:
-                        break;
-                }
+                ActivityUtils.startBoYueVideoPlayer(videoPathList, position);
             }
         });
 
