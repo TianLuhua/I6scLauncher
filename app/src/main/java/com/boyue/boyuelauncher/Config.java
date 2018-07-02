@@ -181,6 +181,9 @@ public class Config {
 
         //用于保存启动的：火火兔乐园---卡拉ok 加载的是哪个页面的数据
         public static final String HHTLY_KLOK_PAGE_KEY = "page";
+
+        //用于保存 主界面切换时候，播放对应音频的key
+        public static final String HHTLY_AUDIO_KEY = "audio_item";
     }
 
     //Launcher中需要用到的资源

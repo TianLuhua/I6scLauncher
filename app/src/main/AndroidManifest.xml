@@ -141,10 +141,12 @@
             </intent-filter>
         </activity>
 
-
-
         <service android:name=".service.SystemSettingsService" />
-
+        <service android:name=".service.PlayAudioService">
+            <intent-filter>
+                <action android:name="com.boyue.boyuelauncher.service.playaudio.service" />
+            </intent-filter>
+        </service>
     </application>
 
 

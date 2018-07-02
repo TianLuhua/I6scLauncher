@@ -17,12 +17,15 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.main.adapter.MainPagerAdapter;
 import com.boyue.boyuelauncher.receive.SystemReceiver;
+import com.boyue.boyuelauncher.service.PlayAudioService;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.MainTilteBar;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 
 import java.util.List;
+
+import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_AUDIO_KEY;
 
 
 public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp> implements RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener, View.OnClickListener, MainView {
@@ -203,18 +206,27 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
+        Intent intent = new Intent(MainActivity.this, PlayAudioService.class);
         switch (checkedId) {
             case R.id.hht_xt:
                 viewpager.setCurrentItem(0);
+                intent.getIntExtra(HHTLY_AUDIO_KEY, 0);
+                startService(intent);
                 break;
             case R.id.hht_ar:
                 viewpager.setCurrentItem(1);
+                intent.getIntExtra(HHTLY_AUDIO_KEY, 1);
+                startService(intent);
                 break;
             case R.id.hht_ly:
                 viewpager.setCurrentItem(2);
+                intent.getIntExtra(HHTLY_AUDIO_KEY, 2);
+                startService(intent);
                 break;
             case R.id.hht_gx:
                 viewpager.setCurrentItem(3);
+                intent.getIntExtra(HHTLY_AUDIO_KEY, 3);
+                startService(intent);
                 break;
         }
     }
