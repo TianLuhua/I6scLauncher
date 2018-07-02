@@ -1,7 +1,9 @@
 package com.boyue.boyuelauncher.main;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -145,6 +147,14 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         tilteBar.setOnTitleBarClickListener(new MainTilteBar.OnTitleBarClickListener() {
             @Override
             public void onBackClick(View view) {
+
+
+                AudioManager audioMa = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+                audioMa.adjustStreamVolume(AudioManager.STREAM_MUSIC,
+                        AudioManager.ADJUST_SAME, AudioManager.FLAG_PLAY_SOUND
+                                | AudioManager.FLAG_SHOW_UI);
+
+
                 Toast.makeText(MainActivity.this, "Set System volume", Toast.LENGTH_SHORT).show();
             }
 

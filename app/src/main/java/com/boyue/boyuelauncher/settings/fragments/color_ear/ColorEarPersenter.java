@@ -43,9 +43,9 @@ public class ColorEarPersenter extends AbstractPresenter<ColorEarView> {
     public void setColorEarStatus(boolean isOpen) {
 
         Intent intent = new Intent();
-        intent.setAction(isOpen ? COLOR_EAR_OFF : COLOR_EAR_ON);
+        intent.setAction(isOpen ? COLOR_EAR_ON : COLOR_EAR_OFF);
         mContext.sendBroadcast(intent);
-        LogUtils.e("tlh", "setColorEarStatus--action:" + (isOpen ? COLOR_EAR_OFF : COLOR_EAR_ON));
+        LogUtils.e("tlh", "setColorEarStatus--action:" + (isOpen ? COLOR_EAR_ON : COLOR_EAR_OFF));
 
     }
 }
