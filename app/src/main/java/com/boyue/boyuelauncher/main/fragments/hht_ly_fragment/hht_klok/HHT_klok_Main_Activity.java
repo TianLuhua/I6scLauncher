@@ -81,7 +81,7 @@ public class HHT_klok_Main_Activity extends AppCompatActivity implements View.On
             case R.id.hht_xt_klok_04_icon:
                 ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTLY_KLOK_HHTCGS);
                 overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
-                ToastUtil.showShortToast(R.string.ic_hht_ly_klok_hhtcgs);
+                ToastUtil.showShortToast(R.string.hht_ly_klok_hhtcgs);
                 break;
         }
     }

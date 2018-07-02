@@ -2,6 +2,7 @@ package com.boyue.boyuelauncher.main.fragments;
 
 import android.support.v4.app.Fragment;
 
+import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractPresenter;
 import com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.baby_bus.Baby_Bus_Fragment_01;
 import com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.baby_bus.Baby_Bus_Fragment_02;
@@ -37,6 +38,15 @@ import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bangna.HH
 import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bangna.HHT_zjyy_BangNi_04_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bangna.HHT_zjyy_BangNi_05_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bangna.HHT_zjyy_BangNi_06_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bdyy.HHT_zjyy_BaoDi_01_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bdyy.HHT_zjyy_BaoDi_02_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bdyy.HHT_zjyy_BaoDi_03_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bdyy.HHT_zjyy_BaoDi_04_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bdyy.HHT_zjyy_BaoDi_05_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bdyy.HHT_zjyy_BaoDi_06_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bdyy.HHT_zjyy_BaoDi_07_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bdyy.HHT_zjyy_BaoDi_08_Fragment;
+import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.bdyy.HHT_zjyy_BaoDi_09_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.duona.HHT_zjyy_Duona_01_Fragment;
 import com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.duona.HHT_zjyy_Duona_02_Fragment;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
@@ -58,6 +68,7 @@ import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YWE
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YZYX;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJXT;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJYY_BANGNI;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJYY_BAODI;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJYY_ENGLISH;
 
 /**
@@ -104,13 +115,14 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         Fragment hhtcgs_01 = HHT_Klok_hhtcgs_01_Fragment.newInstance();
                         Fragment hhtcgs_02 = HHT_Klok_hhtcgs_02_Fragment.newInstance();
                         Fragment hhtcgs_03 = HHT_Klok_hhtcgs_03_Fragment.newInstance();
+//                        Fragment hhtcgs_04 = HHT_Klok_hhtcgs_04_Fragment.newInstance();
                         fragments.clear();
                         fragments.add(hhtcgs_01);
                         fragments.add(hhtcgs_02);
                         fragments.add(hhtcgs_03);
+//                        fragments.add(hhtcgs_04);
                         getView().setFragments(fragments);
                         break;
-
 
                     //火火兔乐园--英文儿歌
                     case HHTLY_YWEG:
@@ -204,6 +216,28 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         Fragment hht_zjyy_duoan_02 = HHT_zjyy_Duona_02_Fragment.newInstance();
                         fragments.add(hht_zjyy_duoan_01);
                         fragments.add(hht_zjyy_duoan_02);
+                        getView().setFragments(fragments);
+                        break;
+
+                    case HHTXT_ZJYY_BAODI:
+                        Fragment hht_zjyy_baodi_01 = HHT_zjyy_BaoDi_01_Fragment.newInstance();
+                        Fragment hht_zjyy_baodi_02 = HHT_zjyy_BaoDi_02_Fragment.newInstance();
+                        Fragment hht_zjyy_baodi_03 = HHT_zjyy_BaoDi_03_Fragment.newInstance();
+                        Fragment hht_zjyy_baodi_04 = HHT_zjyy_BaoDi_04_Fragment.newInstance();
+                        Fragment hht_zjyy_baodi_05 = HHT_zjyy_BaoDi_05_Fragment.newInstance();
+                        Fragment hht_zjyy_baodi_06 = HHT_zjyy_BaoDi_06_Fragment.newInstance();
+                        Fragment hht_zjyy_baodi_07 = HHT_zjyy_BaoDi_07_Fragment.newInstance();
+                        Fragment hht_zjyy_baodi_08 = HHT_zjyy_BaoDi_08_Fragment.newInstance();
+                        Fragment hht_zjyy_baodi_09 = HHT_zjyy_BaoDi_09_Fragment.newInstance();
+                        fragments.add(hht_zjyy_baodi_01);
+                        fragments.add(hht_zjyy_baodi_02);
+                        fragments.add(hht_zjyy_baodi_03);
+                        fragments.add(hht_zjyy_baodi_04);
+                        fragments.add(hht_zjyy_baodi_05);
+                        fragments.add(hht_zjyy_baodi_06);
+                        fragments.add(hht_zjyy_baodi_07);
+                        fragments.add(hht_zjyy_baodi_08);
+                        fragments.add(hht_zjyy_baodi_09);
                         getView().setFragments(fragments);
                         break;
 

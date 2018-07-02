@@ -101,7 +101,7 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
                 titleBar.setTitle(R.string.hht_ly_klok_jdeg);
                 break;
             case HHTLY_KLOK_HHTCGS:
-                titleBar.setTitle(R.string.ic_hht_ly_klok_hhtcgs);
+                titleBar.setTitle(R.string.hht_ly_klok_hhtcgs);
                 break;
             case HHTXT_ZJYY_BANGNI:
                 titleBar.setTitle(R.string.hht_xt_zjyy_bnyy);
@@ -109,6 +109,10 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
             case HHTXT_ZJYY_ENGLISH:
                 titleBar.setTitle(R.string.hht_xt_zjyy_dnyy);
                 break;
+            case HHTXT_ZJYY_BAODI:
+                titleBar.setTitle(R.string.hht_xt_zjyy_bdyy);
+                break;
+
             case HHTXT_ZJXT:
                 titleBar.setTitle(R.string.hht_xt_item_name_102);
                 break;

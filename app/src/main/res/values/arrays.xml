@@ -176,6 +176,188 @@
         <item>@string/hht_xt_zjyy_dnyy_11</item>
         <item>@string/hht_xt_zjyy_dnyy_12</item>
     </string-array>
+    <!--火火兔学堂  早教英语  宝狄英语-->
+    <string-array name="hht_xt_zjyy_baodi_items_page01_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_01</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_02</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_03</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_04</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_05</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_06</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_07</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_08</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page02_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_09</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_10</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_11</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_12</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_13</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_14</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_25</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_16</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page03_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_17</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_18</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_19</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_20</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_21</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_22</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_23</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_24</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page04_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_25</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_26</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_27</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_28</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_29</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_30</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_21</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_32</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page05_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_33</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_34</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_35</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_36</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_37</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_38</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_39</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_40</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page06_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_41</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_42</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_43</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_44</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_45</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_46</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_47</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_48</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page07_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_49</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_50</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_51</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_52</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_53</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_54</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_55</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_56</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page08_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_57</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_58</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_59</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_60</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_61</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_62</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_63</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_64</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page09_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_65</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_66</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_67</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_68</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_69</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_70</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_71</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bdyy_72</item>
+    </string-array>
+
+    <string-array name="hht_xt_zjyy_baodi_items_page01_text">
+        <item>@string/hht_xt_zjyy_bdyy_01</item>
+        <item>@string/hht_xt_zjyy_bdyy_02</item>
+        <item>@string/hht_xt_zjyy_bdyy_03</item>
+        <item>@string/hht_xt_zjyy_bdyy_04</item>
+        <item>@string/hht_xt_zjyy_bdyy_05</item>
+        <item>@string/hht_xt_zjyy_bdyy_06</item>
+        <item>@string/hht_xt_zjyy_bdyy_07</item>
+        <item>@string/hht_xt_zjyy_bdyy_08</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page02_text">
+        <item>@string/hht_xt_zjyy_bdyy_09</item>
+        <item>@string/hht_xt_zjyy_bdyy_10</item>
+        <item>@string/hht_xt_zjyy_bdyy_11</item>
+        <item>@string/hht_xt_zjyy_bdyy_12</item>
+        <item>@string/hht_xt_zjyy_bdyy_13</item>
+        <item>@string/hht_xt_zjyy_bdyy_14</item>
+        <item>@string/hht_xt_zjyy_bdyy_15</item>
+        <item>@string/hht_xt_zjyy_bdyy_16</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page03_text">
+        <item>@string/hht_xt_zjyy_bdyy_17</item>
+        <item>@string/hht_xt_zjyy_bdyy_18</item>
+        <item>@string/hht_xt_zjyy_bdyy_19</item>
+        <item>@string/hht_xt_zjyy_bdyy_20</item>
+        <item>@string/hht_xt_zjyy_bdyy_21</item>
+        <item>@string/hht_xt_zjyy_bdyy_22</item>
+        <item>@string/hht_xt_zjyy_bdyy_23</item>
+        <item>@string/hht_xt_zjyy_bdyy_24</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page04_text">
+        <item>@string/hht_xt_zjyy_bdyy_25</item>
+        <item>@string/hht_xt_zjyy_bdyy_26</item>
+        <item>@string/hht_xt_zjyy_bdyy_27</item>
+        <item>@string/hht_xt_zjyy_bdyy_28</item>
+        <item>@string/hht_xt_zjyy_bdyy_29</item>
+        <item>@string/hht_xt_zjyy_bdyy_30</item>
+        <item>@string/hht_xt_zjyy_bdyy_31</item>
+        <item>@string/hht_xt_zjyy_bdyy_32</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page05_text">
+        <item>@string/hht_xt_zjyy_bdyy_33</item>
+        <item>@string/hht_xt_zjyy_bdyy_34</item>
+        <item>@string/hht_xt_zjyy_bdyy_35</item>
+        <item>@string/hht_xt_zjyy_bdyy_36</item>
+        <item>@string/hht_xt_zjyy_bdyy_37</item>
+        <item>@string/hht_xt_zjyy_bdyy_38</item>
+        <item>@string/hht_xt_zjyy_bdyy_39</item>
+        <item>@string/hht_xt_zjyy_bdyy_40</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page06_text">
+        <item>@string/hht_xt_zjyy_bdyy_41</item>
+        <item>@string/hht_xt_zjyy_bdyy_42</item>
+        <item>@string/hht_xt_zjyy_bdyy_43</item>
+        <item>@string/hht_xt_zjyy_bdyy_44</item>
+        <item>@string/hht_xt_zjyy_bdyy_45</item>
+        <item>@string/hht_xt_zjyy_bdyy_46</item>
+        <item>@string/hht_xt_zjyy_bdyy_47</item>
+        <item>@string/hht_xt_zjyy_bdyy_48</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page07_text">
+        <item>@string/hht_xt_zjyy_bdyy_49</item>
+        <item>@string/hht_xt_zjyy_bdyy_50</item>
+        <item>@string/hht_xt_zjyy_bdyy_51</item>
+        <item>@string/hht_xt_zjyy_bdyy_52</item>
+        <item>@string/hht_xt_zjyy_bdyy_53</item>
+        <item>@string/hht_xt_zjyy_bdyy_54</item>
+        <item>@string/hht_xt_zjyy_bdyy_55</item>
+        <item>@string/hht_xt_zjyy_bdyy_56</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page08_text">
+        <item>@string/hht_xt_zjyy_bdyy_57</item>
+        <item>@string/hht_xt_zjyy_bdyy_58</item>
+        <item>@string/hht_xt_zjyy_bdyy_59</item>
+        <item>@string/hht_xt_zjyy_bdyy_60</item>
+        <item>@string/hht_xt_zjyy_bdyy_61</item>
+        <item>@string/hht_xt_zjyy_bdyy_62</item>
+        <item>@string/hht_xt_zjyy_bdyy_63</item>
+        <item>@string/hht_xt_zjyy_bdyy_64</item>
+    </string-array>
+    <string-array name="hht_xt_zjyy_baodi_items_page09_text">
+        <item>@string/hht_xt_zjyy_bdyy_65</item>
+        <item>@string/hht_xt_zjyy_bdyy_66</item>
+        <item>@string/hht_xt_zjyy_bdyy_67</item>
+        <item>@string/hht_xt_zjyy_bdyy_68</item>
+        <item>@string/hht_xt_zjyy_bdyy_69</item>
+        <item>@string/hht_xt_zjyy_bdyy_70</item>
+        <item>@string/hht_xt_zjyy_bdyy_71</item>
+        <item>@string/hht_xt_zjyy_bdyy_72</item>
+    </string-array>
 
     <!--火火兔学堂  早教学堂-->
     <string-array name="hht_xt_zjxt_items_page01_image">
@@ -362,13 +544,76 @@
     </string-array>
 
     <!--火火兔乐园  卡拉ok  火火兔唱古诗-->
-    <string-array name="hht_ly_kalaok_hhtcgs_items_page01_image"></string-array>
-    <string-array name="hht_ly_kalaok_hhtcgs_items_page02_image"></string-array>
-    <string-array name="hht_ly_kalaok_hhtcgs_items_page03_image"></string-array>
-    <string-array name="hht_ly_kalaok_hhtcgs_items_page01_text"></string-array>
-    <string-array name="hht_ly_kalaok_hhtcgs_items_page02_text"></string-array>
-    <string-array name="hht_ly_kalaok_hhtcgs_items_page03_text"></string-array>
+    <string-array name="hht_ly_kalaok_hhtcgs_items_page01_image">
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_01</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_02</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_03</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_04</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_05</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_06</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_07</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_08</item>
+    </string-array>
+    <string-array name="hht_ly_kalaok_hhtcgs_items_page02_image">
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_09</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_10</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_11</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_12</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_13</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_14</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_15</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_16</item>
+    </string-array>
+    <string-array name="hht_ly_kalaok_hhtcgs_items_page03_image">
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_16</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_17</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_18</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_19</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_20</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_21</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_22</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_23</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_24</item>
+    </string-array>
+    <string-array name="hht_ly_kalaok_hhtcgs_items_page04_image">
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_25</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_26</item>
+    </string-array>
 
+    <string-array name="hht_ly_kalaok_hhtcgs_items_page01_text">
+        <item>@string/hht_ly_klok_hhtcgs_01</item>
+        <item>@string/hht_ly_klok_hhtcgs_02</item>
+        <item>@string/hht_ly_klok_hhtcgs_03</item>
+        <item>@string/hht_ly_klok_hhtcgs_04</item>
+        <item>@string/hht_ly_klok_hhtcgs_05</item>
+        <item>@string/hht_ly_klok_hhtcgs_06</item>
+        <item>@string/hht_ly_klok_hhtcgs_07</item>
+        <item>@string/hht_ly_klok_hhtcgs_08</item>
+    </string-array>
+    <string-array name="hht_ly_kalaok_hhtcgs_items_page02_text">
+        <item>@string/hht_ly_klok_hhtcgs_09</item>
+        <item>@string/hht_ly_klok_hhtcgs_10</item>
+        <item>@string/hht_ly_klok_hhtcgs_11</item>
+        <item>@string/hht_ly_klok_hhtcgs_12</item>
+        <item>@string/hht_ly_klok_hhtcgs_13</item>
+        <item>@string/hht_ly_klok_hhtcgs_14</item>
+        <item>@string/hht_ly_klok_hhtcgs_15</item>
+        <item>@string/hht_ly_klok_hhtcgs_16</item>
+    </string-array>
+    <string-array name="hht_ly_kalaok_hhtcgs_items_page03_text">
+        <item>@string/hht_ly_klok_hhtcgs_17</item>
+        <item>@string/hht_ly_klok_hhtcgs_18</item>
+        <item>@string/hht_ly_klok_hhtcgs_19</item>
+        <item>@string/hht_ly_klok_hhtcgs_20</item>
+        <item>@string/hht_ly_klok_hhtcgs_21</item>
+        <item>@string/hht_ly_klok_hhtcgs_22</item>
+        <item>@string/hht_ly_klok_hhtcgs_23</item>
+        <item>@string/hht_ly_klok_hhtcgs_24</item>
+    </string-array>
+    <string-array name="hht_ly_kalaok_hhtcgs_items_page04_text">
+        <item>@string/hht_ly_klok_hhtcgs_25</item>
+        <item>@string/hht_ly_klok_hhtcgs_26</item>
+    </string-array>
     <!--火火兔乐园  英文儿歌-->
     <string-array name="hht_ly_yweg_items_page01_text">
         <item>@string/hht_ly_yweg_01</item>

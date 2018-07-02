@@ -67,7 +67,7 @@
             android:id="@+id/hht_xt_zjyy_baodi_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_xt_zjyy_01" />
+            android:src="@mipmap/ic_hht_xt_zjyy_bdyy" />
 
         <TextView
             android:id="@+id/hht_xt_zjyy_baodi_lable"

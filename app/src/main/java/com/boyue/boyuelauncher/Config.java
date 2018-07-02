@@ -237,8 +237,6 @@ public class Config {
         public static final String HHT_XT_ZJYY_BANGNI_DABAN_14 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "A_big_radish_in_the_hole.mp4";
         public static final String HHT_XT_ZJYY_BANGNI_DABAN_15 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "The_muffin_man.mp4";
         public static final String HHT_XT_ZJYY_BANGNI_DABAN_16 = HHT_XT_ZJYY_BANGNI_ROOT_PATH + "Goodbye.mp4";
-
-
         //早教英语 ----多纳英语
         public static final String HHT_XT_ZJYY_DUONA_ROOT_PATH = "/system/videos/xuetang/zaojiaoyingyu/duona/";
         public static final String HHT_XT_ZJYY_DUONA_01 = HHT_XT_ZJYY_DUONA_ROOT_PATH + "zaoshanghao.mp4";
@@ -253,7 +251,80 @@ public class Config {
         public static final String HHT_XT_ZJYY_DUONA_10 = HHT_XT_ZJYY_DUONA_ROOT_PATH + "moxojiamshenmeyanse.mp4";
         public static final String HHT_XT_ZJYY_DUONA_11 = HHT_XT_ZJYY_DUONA_ROOT_PATH + "qudongwuyuan.mp4";
         public static final String HHT_XT_ZJYY_DUONA_12 = HHT_XT_ZJYY_DUONA_ROOT_PATH + "keaidedongwu.mp4";
-
+        //早教英语 ----宝狄英语
+        public static final String HHT_XT_ZJYY_BAODI_ROOT_PATH = "/system/videos/xuetang/zaojiaoyingyu/baodi/";
+        public static final String HHT_XT_ZJYY_BAODI_01 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Bodhis_ABC.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_02 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "A_Day_at_Cafe_Sambolo_1.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_03 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "All_These_Shapes1.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_04 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "America_Song.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_05 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Around_My_Rooms.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_06 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Asia_Song.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_07 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Better_Weather.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_08 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Body_Bop.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_09 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Check_out_my_toy.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_10 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "City_Life_City_Lights.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_11 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Clean_and_Green.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_12 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Colourful_Party.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_13 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Count_on_You.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_14 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Count_with_Bodhi.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_15 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Day_and_Night.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_16 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Dream_Team.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_17 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Dress_You_Up.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_18 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Everyday_Heroes.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_19 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Face_It.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_20 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Family.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_21 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Food.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_22 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Friends_Forever.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_23 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Full_Circle.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_24 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Fun_Family_Day.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_25 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Future_of_the_World.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_26 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Good_Food_Good_for_You.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_27 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "I_Can_Do_It.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_28 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "I_Love_Food.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_29 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Imagine.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_30 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "In_Our_Neighbourhood.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_31 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Its_a_New_Day.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_32 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Lets_Get_Fit.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_33 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Lets_Go_to_School.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_34 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Lets_Have_a_Good_Time.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_35 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Lets_Take_It_from_123.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_36 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Lets_play_ball.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_37 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Make_This_the_Best_Day.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_38 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Meet_Our_Families.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_39 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Mix_and_Match.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_40 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Move_Our_Bodies.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_41 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "My_Heart.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_42 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "My_Home.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_43 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "No_Place_Like_Home.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_44 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Pat_Your_Pet.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_45 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Pet_Sounds.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_46 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Push_Through_Dont_Stop.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_47 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Rainbow_Shining.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_48 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Reap_What_You_Sow.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_49 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "School_Days.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_50 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "See_you_later.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_51 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Sharing_is_Caring.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_52 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Sing_Along_with_Bodhi_and_Friends.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_53 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "So_Much_to_Do.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_54 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Thats_What_We_Like.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_55 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "The_Face_Song.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_56 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "The_Greetings_Song.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_57 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "The_Hello_Song.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_58 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "The_Name_of_the_Game.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_59 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "The_Sounds_of_the_Farm.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_60 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "The_time_is_now.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_61 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Things_That_Go.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_62 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Together.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_63 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Toys_toys_everywhere.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_64 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "We_Are_on_the_Go.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_65 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "We_Can_Be_Anything.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_66 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "We_ll_Be_Your_Shelter.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_67 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Weather_Ready.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_68 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Welcome_to_Our_World.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_69 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Welcome_to_the_Farm.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_70 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "When_I_Grow_Up.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_71 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "With_My_Eyes.mp4";
+        public static final String HHT_XT_ZJYY_BAODI_72 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "Work_Hard_Get_Smart.mp4";
 
         //早教学堂
         public static final String HHT_XT_ZJXT_300WORDS_PACKAGE = "air.RabbitRead";//air.RabbitRead/.AppEntry
@@ -373,6 +444,8 @@ public class Config {
         public static final String HHT_LY_KALAOK_HHTCGS_22 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "dgql22.mp4";
         public static final String HHT_LY_KALAOK_HHTCGS_23 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "jj23.mp4";
         public static final String HHT_LY_KALAOK_HHTCGS_24 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "cgx24.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_25 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "cgx24.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_26 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "cgx24.mp4";
 
         //火火兔乐园---- 卡拉ok ---英文儿歌
         public static final String HHT_LY_KALAOK_YWEG_ROOT_PATH = "/system/videos/leyuan/yingwenerge/";
