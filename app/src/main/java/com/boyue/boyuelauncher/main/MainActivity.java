@@ -7,6 +7,7 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -206,27 +207,19 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        Intent intent = new Intent(MainActivity.this, PlayAudioService.class);
+        LogUtils.e("tlh", "MainActivity---onCheckedChanged");
         switch (checkedId) {
             case R.id.hht_xt:
                 viewpager.setCurrentItem(0);
-                intent.getIntExtra(HHTLY_AUDIO_KEY, 0);
-                startService(intent);
                 break;
             case R.id.hht_ar:
                 viewpager.setCurrentItem(1);
-                intent.getIntExtra(HHTLY_AUDIO_KEY, 1);
-                startService(intent);
                 break;
             case R.id.hht_ly:
                 viewpager.setCurrentItem(2);
-                intent.getIntExtra(HHTLY_AUDIO_KEY, 2);
-                startService(intent);
                 break;
             case R.id.hht_gx:
                 viewpager.setCurrentItem(3);
-                intent.getIntExtra(HHTLY_AUDIO_KEY, 3);
-                startService(intent);
                 break;
         }
     }
@@ -235,7 +228,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
         if (isDragging) {
             if (position == 0 && positionOffset == 0.0 && positionOffsetPixels == 0) {
 
@@ -251,6 +243,9 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     @Override
     public void onPageSelected(int position) {
+        LogUtils.e("tlh", "MainActivity---onPageSelected---position:" + position);
+        startPlayAudio(position);
+        radioGroup.setOnCheckedChangeListener(null);
         switch (position) {
             case 0:
                 radioGroup.check(R.id.hht_xt);
@@ -265,14 +260,25 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
                 radioGroup.check(R.id.hht_gx);
                 break;
         }
-
+        radioGroup.setOnCheckedChangeListener(this);
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
+        LogUtils.e("tlh", "MainActivity---onPageScrollStateChanged---state:" + state);
         isDragging = state == 1;
     }
 
+    /**
+     * 播放选中界面的音频文件
+     *
+     * @param position
+     */
+    private void startPlayAudio(int position) {
+        Intent intent = new Intent(MainActivity.this, PlayAudioService.class);
+        intent.putExtra(HHTLY_AUDIO_KEY, position);
+        startService(intent);
+    }
 
     @Override
     public void onClick(View v) {

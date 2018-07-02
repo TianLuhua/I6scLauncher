@@ -1,12 +1,14 @@
 package com.boyue.boyuelauncher.service;
 
-import android.app.IntentService;
+import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.utils.LogUtils;
 
 import java.io.IOException;
 
@@ -15,74 +17,79 @@ import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_AUDIO_KEY;
 /**
  * Created by Tianluhua on 2018\7\2 0002.
  */
-public class PlayAudioService extends IntentService implements MediaPlayer.OnPreparedListener {
+public class PlayAudioService extends Service implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener {
 
     private MediaPlayer mediaPlayer;
 
-    /**
-     * Creates an IntentService.  Invoked by your subclass's constructor.
-     *
-     * @param name Used to name the worker thread, important only for debugging.
-     */
-    public PlayAudioService(String name) {
-        super(name);
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.setOnPreparedListener(this);
+        mediaPlayer.setOnCompletionListener(this);
+        Log.e("tlh", "onCreate");
+
     }
 
-    public PlayAudioService() {
-        super("Audio");
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
     }
-
 
     @Override
-    protected void onHandleIntent(@Nullable Intent intent) {
-        //在线宝箱
-        if (mediaPlayer == null) {
-            mediaPlayer = new MediaPlayer();
-            mediaPlayer.setOnPreparedListener(this);
-        }
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.e("tlh", "onHandleIntent");
+        stopPlayer();
         switch (intent.getIntExtra(HHTLY_AUDIO_KEY, -1)) {
-            //火火兔学堂
             case 0:
-                stopMediaPlay();
+            //火火兔学堂
                 break;
             //火火兔AR
             case 1:
-                stopMediaPlay();
                 break;
+            //火火兔乐园
             case 2:
-                stopMediaPlay();
-                //火火图乐园
                 break;
+            //在线宝箱
             case 3:
-                stopMediaPlay();
                 try {
-                    LogUtils.e("tlh", "PlayAudioService---onHandleIntent----path:" + "android.resource://" + getPackageName() + "/" + R.raw.hht_zxbx);
-                    mediaPlayer.setDataSource("android.resource://" + getPackageName() + "/" + R.raw.hht_zxbx);
+                    mediaPlayer.setDataSource(PlayAudioService.this, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hht_zxbx));
+                    mediaPlayer.prepare();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 break;
-
-
         }
 
+        return super.onStartCommand(intent, flags, startId);
     }
 
-    private void stopMediaPlay() {
+    private void stopPlayer() {
         if (mediaPlayer == null) return;
         if (mediaPlayer.isPlaying()) {
+            Log.e("tlh", "isPlaying");
             mediaPlayer.stop();
+            mediaPlayer.reset();
         }
     }
 
     @Override
     public void onPrepared(MediaPlayer mp) {
-        mp.start();
+        Log.e("tlh", "onPrepared");
+        mediaPlayer.start();
+    }
+
+    @Override
+    public void onCompletion(MediaPlayer mp) {
+        Log.e("tlh", "onCompletion");
+        stopSelf();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mediaPlayer = null;
+        Log.e("tlh", "onDestroy");
     }
+
 }

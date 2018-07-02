@@ -45,7 +45,7 @@ public class LogUtils {
 			Log.i(tag, msg);
 	}
 
-	public static void e(String tag, String msg) {
+	public static void  e(String tag, String msg) {
 		if (isDebug)
 			Log.i(tag, msg);
 	}
