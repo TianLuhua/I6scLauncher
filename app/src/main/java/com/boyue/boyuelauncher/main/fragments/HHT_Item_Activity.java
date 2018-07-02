@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.adapter.SystemFragmentPagerAdapter;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.widget.TitleBar;
 
 import java.util.List;
@@ -220,6 +221,7 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
 
         hidePageTurningBtn();
 
+
         if (0 < position && position < currentPageSize - 1) {
             previousPage.setVisibility(View.VISIBLE);
             nextPage.setVisibility(View.VISIBLE);
@@ -236,6 +238,8 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
             nextPage.setVisibility(View.INVISIBLE);
         }
 
+        //让滑动和翻页同步
+        currentPage = position;
 
     }
 
@@ -246,6 +250,7 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
 
     @Override
     public void onPageScrollStateChanged(int state) {
+        LogUtils.e("tlh", "HHT_Item_Activity----onPageScrollStateChanged-----state:" + state);
 
     }
 }
