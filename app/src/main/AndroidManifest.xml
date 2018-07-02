@@ -131,6 +131,17 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".main.fragments.hht_bx_fragment.cartoon.HHT_CatToon_Main_Activity"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitleTranslucentTheme">
+            <intent-filter>
+                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.cartoon" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
 
         <service android:name=".service.SystemSettingsService" />
 

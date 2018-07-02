@@ -10,6 +10,7 @@ import com.boyue.boyuelauncher.utils.ActivityUtils;
 import java.util.List;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
+import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_ZXBX_CARTOON;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_AIQIYI_CHILDNER;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_HHT_BABY_SCHOOL;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MEDIA_CHAT;
@@ -67,7 +68,7 @@ public class HHT_BX_PersenterImp extends HHT_BX_Persenter {
                 break;
             //爱奇艺少儿
             case 1:
-                ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_AIQIYI_CHILDNER);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_ZXBX_CARTOON);
                 break;
             //宝宝巴士
             case 2:

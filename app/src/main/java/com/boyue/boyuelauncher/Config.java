@@ -32,6 +32,8 @@ public class Config {
         public static final String ACTIVITY_ACTION_FCMLOCKSCREEN = "com.boyue.boyuelauncher.FCMlockscreen";
         public static final String ACTIVITY_ACTION_PROTECTEYELOCKSCREEN = "com.boyue.boyuelauncher.ProtectEyeLockScreen";
         public static final String ACTIVITY_ACTION_KLOK = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.activity";
+        //在线卡通
+        public static final String ACTIVITY_ACTION_ZXBX_CARTOON = "com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.cartoon";
 
         //重置密码的点击次数
         public static int RESET_PASSWORD = 8;
@@ -537,6 +539,10 @@ public class Config {
         public static final String HHT_ZXBX_HHT_BABY_SCHOOL = "com.booyue.l1_hht";//com.booyue.l1_hht/.MainActivity
         //爱奇艺少儿
         public static final String HHT_ZXBX_AIQIYI_CHILDNER = "com.qiyi.video.child";//com.qiyi.video.child/.WelcomeActivity
+        //小企鹅乐园
+        public static final String HHT_ZXBX_XIAOQIELEYUAN = "com.tencent.qqlivekid";//com.tencent.qqlivekid/.activity.HomeActivity
+        //儿歌多多
+        public static final String HHT_ZXBX_ERGEDUODUO = "com.duoduo.child.story";//com.duoduo.child.story/.ui.activity.MainActivity
 
         //在线宝箱--宝宝巴士
         public static final String HHT_ZXBX_BABY_BUS_00 = "com.sinyee.babybus.animal";//com.sinyee.babybus.animal/com.babybus.plugin.videoview.activity.BoxVideoActivity

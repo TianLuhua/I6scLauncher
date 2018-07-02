@@ -463,7 +463,10 @@
 
     <!--火火兔宝箱-->
     <string name="hht_bx_item_name_101">火火兔育学园</string>
-    <string name="hht_bx_item_name_102">爱奇艺少儿</string>
+    <string name="hht_bx_item_name_102">在线动画</string>
+    <string name="hht_bx_cartoon_aiqiyi">爱奇艺少儿</string>
+    <string name="hht_bx_cartoon_xqely">小企鹅乐园</string>
+    <string name="hht_bx_cartoon_egdd">儿歌多多</string>
 
     <string name="hht_bx_item_name_103">宝宝巴士</string>
     <string name="hht_bx_baby_bus_01">动物乐园</string>
