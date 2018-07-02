@@ -15,7 +15,7 @@ import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_DY_INT
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_MATH_LOGIC;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_SAFE_KNOWLEDGE;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_TRANDITIONAL_GX;
-import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
+import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE_KEY;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJXT;
 
 
@@ -63,7 +63,7 @@ public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
                 break;
             case 1:
                 //早教学堂
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTXT_ZJXT);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTXT_ZJXT);
                 break;
             case 2:
                 //数学逻辑

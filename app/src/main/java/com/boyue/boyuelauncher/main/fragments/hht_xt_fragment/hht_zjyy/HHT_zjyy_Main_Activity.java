@@ -12,11 +12,10 @@ import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 import com.boyue.boyuelauncher.widget.TitleBar;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
-import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
-import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJYY_DABAN;
+import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE_KEY;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJYY_BANGNI;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJYY_BAODI;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJYY_ENGLISH;
-import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJYY_XIAOBAN;
-import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJYY_ZHONGBAN;
 
 public class HHT_zjyy_Main_Activity extends AppCompatActivity implements View.OnClickListener {
 
@@ -61,12 +60,10 @@ public class HHT_zjyy_Main_Activity extends AppCompatActivity implements View.On
 
             }
         });
-        icon01 = findViewById(R.id.hht_xt_zjyy_01_icon);
-        icon02 = findViewById(R.id.hht_xt_zjyy_02_icon);
-        icon03 = findViewById(R.id.hht_xt_zjyy_03_icon);
-        icon04 = findViewById(R.id.hht_xt_zjyy_04_icon);
+        icon02 = findViewById(R.id.hht_xt_zjyy_bangni_icon);
+        icon03 = findViewById(R.id.hht_xt_zjyy_duona_icon);
+        icon04 = findViewById(R.id.hht_xt_zjyy_baodi_icon);
 
-        icon01.setOnClickListener(this);
         icon02.setOnClickListener(this);
         icon03.setOnClickListener(this);
         icon04.setOnClickListener(this);
@@ -76,20 +73,16 @@ public class HHT_zjyy_Main_Activity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         LogUtils.e("tlh", "HHT_zjyy_Main_Activity---onAnimationEnd:" + v.getId());
         switch (v.getId()) {
-            case R.id.hht_xt_zjyy_01_icon:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTXT_ZJYY_XIAOBAN);
+            case R.id.hht_xt_zjyy_bangni_icon:
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTXT_ZJYY_BANGNI);
                 overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
                 break;
-            case R.id.hht_xt_zjyy_02_icon:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTXT_ZJYY_ZHONGBAN);
+            case R.id.hht_xt_zjyy_duona_icon:
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTXT_ZJYY_ENGLISH);
                 overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
                 break;
-            case R.id.hht_xt_zjyy_03_icon:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTXT_ZJYY_DABAN);
-                overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
-                break;
-            case R.id.hht_xt_zjyy_04_icon:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTXT_ZJYY_ENGLISH);
+            case R.id.hht_xt_zjyy_baodi_icon:
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTXT_ZJYY_BAODI);
                 overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
                 break;
         }

@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.zhongban;
+package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.xxhj;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -18,16 +18,22 @@ import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_09;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_10;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_11;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_12;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_13;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_14;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_15;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_16;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_XXHJ_01;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_XXHJ_02;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_XXHJ_03;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_XXHJ_04;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_XXHJ_05;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_XXHJ_06;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_XXHJ_07;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_XXHJ_08;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_01;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_02;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_03;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_04;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_05;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_06;
 
-public class HHT_zjyy_zhongban_02_Fragment extends ItemBaseFragment {
+public class HHT_xxhj_Fragment_01 extends ItemBaseFragment {
 
 
     private GridView gridLayout;
@@ -36,23 +42,29 @@ public class HHT_zjyy_zhongban_02_Fragment extends ItemBaseFragment {
     private Context mContext;
     private final ArrayList<String> videoPathList;
 
-    public static HHT_zjyy_zhongban_02_Fragment newInstance() {
-        return new HHT_zjyy_zhongban_02_Fragment();
+    public static HHT_xxhj_Fragment_01 newInstance() {
+        return new HHT_xxhj_Fragment_01();
     }
 
-    public HHT_zjyy_zhongban_02_Fragment() {
-        // Required empty public constructorvideoPathList
+    public HHT_xxhj_Fragment_01() {
+        // Required empty public constructor
         videoPathList = new ArrayList<>();
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_09);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_10);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_11);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_12);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_13);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_14);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_15);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_16);
+        videoPathList.add(HHT_LY_YSPY_XXHJ_01);
+        videoPathList.add(HHT_LY_YSPY_XXHJ_02);
+        videoPathList.add(HHT_LY_YSPY_XXHJ_03);
+        videoPathList.add(HHT_LY_YSPY_XXHJ_04);
+        videoPathList.add(HHT_LY_YSPY_XXHJ_05);
+        videoPathList.add(HHT_LY_YSPY_XXHJ_06);
+        videoPathList.add(HHT_LY_YSPY_XXHJ_07);
+        videoPathList.add(HHT_LY_YSPY_XXHJ_08);
+
     }
 
+
+//    Intent intent = new Intent("com.booyue.android.mediaplayer.video");
+//                    intent.putStringArrayListExtra("videoInfoList", (ArrayList<String>) videoPathList);
+//                    intent.putExtra("position", position);
+//    startActivity(intent);
 
     @Override
     protected int setContentView() {
@@ -101,9 +113,9 @@ public class HHT_zjyy_zhongban_02_Fragment extends ItemBaseFragment {
             public void run() {
                 final List<APPEntity> appEntities = new ArrayList<>();
                 //图标
-                TypedArray icnos = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjyy_zhongban_items_page02_image);
+                TypedArray icnos = mContext.getResources().obtainTypedArray(R.array.hht_ly_yspy_xxhj_page01_image);
                 //图标下的文字
-                TypedArray names = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjyy_zhongban_items_page02_text);
+                TypedArray names = mContext.getResources().obtainTypedArray(R.array.hht_ly_yspy_xxhj_page01_text);
 
                 for (int i = 0; i < names.length(); i++) {
                     APPEntity appEntity = new APPEntity();

@@ -12,9 +12,7 @@ import com.boyue.boyuelauncher.widget.TitleBar;
 
 import java.util.List;
 
-import javax.xml.validation.Validator;
-
-import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
+import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE_KEY;
 
 /**
  * Created by Tianluhua on 2018/6/26.
@@ -26,33 +24,36 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
     //火火兔乐园---卡拉ok
     public static final int HHTLY_KLOK_TTMTV = 0X001;
     public static final int HHTLY_KLOK_JDEG = 0X002;
+    public static final int HHTLY_KLOK_HHTCGS = 0X003;
 
     //火火兔乐园---艺术培养
-    public static final int HHTLY_YSPY_ZQYY = 0X003;
-    public static final int HHTLY_YSPY_THCZ = 0X004;
-    public static final int HHTLY_YSPY_YSZL = 0X005;
+    public static final int HHTLY_YSPY = 0X0015;
+    public static final int HHTLY_YSPY_ZQYY = 0X004;
+    public static final int HHTLY_YSPY_THCZ = 0X005;
+    public static final int HHTLY_YSPY_YSZL = 0X006;
+    public static final int HHTLY_YSPY_XXHJ = 0X0016;
+    public static final int HHTLY_YSPY_LDEG = 0X0017;
+
 
     //火火兔乐园---益智游戏
-    public static final int HHTLY_YZYX = 0X006;
+    public static final int HHTLY_YZYX = 0X007;
 
     //火火兔乐园---英文儿歌
-    public static final int HHTLY_YWEG = 0X007;
+    public static final int HHTLY_YWEG = 0X008;
 
     //火火兔学堂---早教学堂
-    public static final int HHTXT_ZJXT = 0X008;
+    public static final int HHTXT_ZJXT = 0X009;
 
     //早教英语--小班
-    public static final int HHTXT_ZJYY_XIAOBAN = 0x009;
-    //早教英语--中班
-    public static final int HHTXT_ZJYY_ZHONGBAN = 0x0010;
-    //早教英语--大班
-    public static final int HHTXT_ZJYY_DABAN = 0x0011;
+    public static final int HHTXT_ZJYY_BANGNI = 0x0010;
     //早教英语--多纳英语
     public static final int HHTXT_ZJYY_ENGLISH = 0x0012;
+    //早教英语--宝狄英语
+    public static final int HHTXT_ZJYY_BAODI = 0x0013;
 
 
     //在线宝箱--宝宝巴士
-    public static final int HHTLY_BABY_BUS = 0x0013;
+    public static final int HHTLY_BABY_BUS = 0x0014;
 
     private ViewPager viewPager;
     private SystemFragmentPagerAdapter adapter;
@@ -72,7 +73,7 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
     @Override
     protected void initView() {
         titleBar = findViewById(R.id.title_bar);
-        page = getIntent().getIntExtra(HHTLY_KLOK_PAGE, 0);
+        page = getIntent().getIntExtra(HHTLY_KLOK_PAGE_KEY, 0);
         titleBar.setOnTitleBarClickListener(new TitleBar.OnTitleBarClickListener() {
             @Override
             public void onLeftIconClick(View view) {
@@ -99,14 +100,11 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
             case HHTLY_KLOK_JDEG:
                 titleBar.setTitle(R.string.hht_ly_klok_jdeg);
                 break;
-            case HHTXT_ZJYY_XIAOBAN:
-                titleBar.setTitle(R.string.hht_xt_zjyy_bnyyxb);
+            case HHTLY_KLOK_HHTCGS:
+                titleBar.setTitle(R.string.ic_hht_ly_klok_hhtcgs);
                 break;
-            case HHTXT_ZJYY_ZHONGBAN:
-                titleBar.setTitle(R.string.hht_xt_zjyy_bnyyzb);
-                break;
-            case HHTXT_ZJYY_DABAN:
-                titleBar.setTitle(R.string.hht_xt_zjyy_bnyydb);
+            case HHTXT_ZJYY_BANGNI:
+                titleBar.setTitle(R.string.hht_xt_zjyy_bnyy);
                 break;
             case HHTXT_ZJYY_ENGLISH:
                 titleBar.setTitle(R.string.hht_xt_zjyy_dnyy);
@@ -120,6 +118,10 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
             case HHTLY_YZYX:
                 titleBar.setTitle(R.string.hht_ly_yzyx);
                 break;
+            //艺术培养界面
+            case HHTLY_YSPY:
+                titleBar.setTitle(R.string.hht_ly_yspy);
+                break;
             case HHTLY_YSPY_ZQYY:
                 titleBar.setTitle(R.string.hht_ly_yspy_zqyy);
                 break;
@@ -128,6 +130,12 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
                 break;
             case HHTLY_YSPY_YSZL:
                 titleBar.setTitle(R.string.hht_ly_yspy_yszl);
+                break;
+            case HHTLY_YSPY_XXHJ:
+                titleBar.setTitle(R.string.hht_ly_yspy_xxhj);
+                break;
+            case HHTLY_YSPY_LDEG:
+                titleBar.setTitle(R.string.hht_ly_yspy_ldeg);
                 break;
             case HHTLY_BABY_BUS:
                 titleBar.setTitle(R.string.hht_bx_item_name_103);

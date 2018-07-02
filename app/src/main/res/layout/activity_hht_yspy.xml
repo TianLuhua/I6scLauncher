@@ -4,80 +4,15 @@
     android:layout_height="match_parent"
     android:clipChildren="false">
 
-    <LinearLayout
-        android:id="@+id/hht_xt_yspy_01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="206dp"
-        android:layout_marginTop="212dp"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
-            android:id="@+id/hht_xt_yspy_01_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_ly_yspy_01" />
-
-        <TextView
-            android:id="@+id/hht_xt_yspy_01_lable"
-            style="@style/Stlye_Item_lable_02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/hht_ly_yspy_zqyy" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/hht_xt_yspy_02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="212dp"
-        android:layout_toRightOf="@+id/hht_xt_yspy_01"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
-            android:id="@+id/hht_xt_yspy_02_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_ly_yspy_02" />
-
-        <TextView
-            android:id="@+id/hht_xt_yspy_02_lable"
-            style="@style/Stlye_Item_lable_02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hht_ly_yspy_thcz" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/hht_xt_yspy_03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="212dp"
-        android:layout_toRightOf="@+id/hht_xt_yspy_02"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
-            android:id="@+id/hht_xt_yspy_03_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_ly_yspy_03" />
-
-        <TextView
-            android:id="@+id/hht_xt_yspy_03_lable"
-            style="@style/Stlye_Item_lable_02"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hht_ly_yspy_yszl" />
-    </LinearLayout>
-    <com.boyue.boyuelauncher.widget.TitleBar
-        android:id="@+id/title_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <GridView
+        android:id="@+id/gridlayout"
+        android:layout_width="900dp"
+        android:layout_height="410dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="116dp"
+        android:listSelector="@color/colorTransparent"
+        android:numColumns="4"
+        android:clipChildren="false"
+        android:verticalSpacing="60dp" />
 
 </RelativeLayout>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.boyue.boyuelauncher"
-    >
+    package="com.boyue.boyuelauncher">
     <!--android:sharedUserId="android.uid.system"-->
 
 
@@ -30,11 +29,10 @@
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
 
 
-
     <!-- SDCard中创建与删除文件权限 -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <!-- 向SDCard写入数据权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 
     <application
@@ -109,19 +107,9 @@
 
         <activity
             android:name=".main.fragments.HHT_Item_Activity"
-            android:launchMode="singleTask"
             android:theme="@style/NoTitleTranslucentTheme">
             <intent-filter>
                 <action android:name="com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.activity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".main.fragments.hht_ly_fragment.hht_yspy.HHT_yspy_Activity"
-            android:launchMode="singleTask"
-            android:theme="@style/NoTitleTranslucentTheme">
-            <intent-filter>
-                <action android:name="com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

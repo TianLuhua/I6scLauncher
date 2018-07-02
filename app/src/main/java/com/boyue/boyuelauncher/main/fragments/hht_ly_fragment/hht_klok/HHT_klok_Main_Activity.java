@@ -13,16 +13,15 @@ import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 import com.boyue.boyuelauncher.widget.TitleBar;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
-import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
+import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE_KEY;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_KLOK_HHTCGS;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_KLOK_JDEG;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_KLOK_TTMTV;
 
 public class HHT_klok_Main_Activity extends AppCompatActivity implements View.OnClickListener {
 
 
-
-
-    private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03;
+    private EnlargeAndNarrowAnimationView btn_01, btn_02, btn_03, btn_04;
     private TitleBar titleBar;
 
     @Override
@@ -57,24 +56,32 @@ public class HHT_klok_Main_Activity extends AppCompatActivity implements View.On
         btn_01 = findViewById(R.id.hht_xt_klok_01_icon);
         btn_02 = findViewById(R.id.hht_xt_klok_02_icon);
         btn_03 = findViewById(R.id.hht_xt_klok_03_icon);
+        btn_04 = findViewById(R.id.hht_xt_klok_04_icon);
         btn_01.setOnClickListener(this);
         btn_02.setOnClickListener(this);
         btn_03.setOnClickListener(this);
+        btn_04.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.hht_xt_klok_01_icon:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTLY_KLOK_TTMTV);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTLY_KLOK_TTMTV);
                 overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
                 break;
             case R.id.hht_xt_klok_02_icon:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTLY_KLOK_JDEG);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTLY_KLOK_JDEG);
                 overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
                 break;
             case R.id.hht_xt_klok_03_icon:
                 ToastUtil.showShortToast("打开酷我K歌！");
+                break;
+
+            case R.id.hht_xt_klok_04_icon:
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTLY_KLOK_HHTCGS);
+                overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
+                ToastUtil.showShortToast(R.string.ic_hht_ly_klok_hhtcgs);
                 break;
         }
     }

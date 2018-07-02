@@ -15,7 +15,7 @@ import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_HHT_
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MEDIA_CHAT;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MY_ROBOTE;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_WECHAT;
-import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
+import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE_KEY;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_BABY_BUS;
 
 /**
@@ -71,7 +71,7 @@ public class HHT_BX_PersenterImp extends HHT_BX_Persenter {
                 break;
             //宝宝巴士
             case 2:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTLY_BABY_BUS);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTLY_BABY_BUS);
                 break;
             //语音聊天
             case 3:

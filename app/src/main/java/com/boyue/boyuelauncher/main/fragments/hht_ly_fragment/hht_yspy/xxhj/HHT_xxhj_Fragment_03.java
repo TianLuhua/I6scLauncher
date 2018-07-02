@@ -1,4 +1,4 @@
-package com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.hht_zjyy.daban;
+package com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.xxhj;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -18,16 +18,17 @@ import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_DABAN_09;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_DABAN_10;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_DABAN_11;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_DABAN_12;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_DABAN_13;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_DABAN_14;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_DABAN_15;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_DABAN_16;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_XXHJ_16;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_XXHJ_17;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_XXHJ_18;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_01;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_02;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_03;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_04;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_05;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_YSZL_06;
 
-public class HHT_zjyy_Daban_02_Fragment extends ItemBaseFragment {
+public class HHT_xxhj_Fragment_03 extends ItemBaseFragment {
 
 
     private GridView gridLayout;
@@ -36,23 +37,22 @@ public class HHT_zjyy_Daban_02_Fragment extends ItemBaseFragment {
     private Context mContext;
     private final ArrayList<String> videoPathList;
 
-    public static HHT_zjyy_Daban_02_Fragment newInstance() {
-        return new HHT_zjyy_Daban_02_Fragment();
+    public static HHT_xxhj_Fragment_03 newInstance() {
+        return new HHT_xxhj_Fragment_03();
     }
 
-    public HHT_zjyy_Daban_02_Fragment() {
+    public HHT_xxhj_Fragment_03() {
         // Required empty public constructor
         videoPathList = new ArrayList<>();
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_DABAN_09);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_DABAN_10);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_DABAN_11);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_DABAN_12);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_DABAN_13);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_DABAN_14);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_DABAN_15);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_DABAN_16);
+        videoPathList.add(HHT_LY_YSPY_XXHJ_17);
+        videoPathList.add(HHT_LY_YSPY_XXHJ_18);
     }
 
+
+//    Intent intent = new Intent("com.booyue.android.mediaplayer.video");
+//                    intent.putStringArrayListExtra("videoInfoList", (ArrayList<String>) videoPathList);
+//                    intent.putExtra("position", position);
+//    startActivity(intent);
 
     @Override
     protected int setContentView() {
@@ -101,9 +101,9 @@ public class HHT_zjyy_Daban_02_Fragment extends ItemBaseFragment {
             public void run() {
                 final List<APPEntity> appEntities = new ArrayList<>();
                 //图标
-                TypedArray icnos = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjyy_daban_items_page02_image);
+                TypedArray icnos = mContext.getResources().obtainTypedArray(R.array.hht_ly_yspy_xxhj_page03_image);
                 //图标下的文字
-                TypedArray names = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjyy_daban_items_page02_text);
+                TypedArray names = mContext.getResources().obtainTypedArray(R.array.hht_ly_yspy_xxhj_page03_text);
 
                 for (int i = 0; i < names.length(); i++) {
                     APPEntity appEntity = new APPEntity();
@@ -120,4 +120,3 @@ public class HHT_zjyy_Daban_02_Fragment extends ItemBaseFragment {
 
     }
 }
-

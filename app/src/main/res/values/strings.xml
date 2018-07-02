@@ -142,9 +142,7 @@
     <string name="hht_xt_item_name_106">安全知识</string>
 
     <string name="hht_xt_zjyy">早教英语</string>
-    <string name="hht_xt_zjyy_bnyyxb">邦尼英语小班</string>
-    <string name="hht_xt_zjyy_bnyyzb">邦尼英语中班</string>
-    <string name="hht_xt_zjyy_bnyydb">邦尼英语大班</string>
+    <string name="hht_xt_zjyy_bnyy">邦尼英语</string>
     <string name="hht_xt_zjyy_uniti_01">01单元</string>
     <string name="hht_xt_zjyy_uniti_02">02单元</string>
     <string name="hht_xt_zjyy_uniti_03">03单元</string>
@@ -174,6 +172,7 @@
     <string name="hht_xt_zjyy_dnyy_10">10你喜欢什么颜色</string>
     <string name="hht_xt_zjyy_dnyy_11">11去动物园</string>
     <string name="hht_xt_zjyy_dnyy_12">12可爱的动物</string>
+    <string name="hht_xt_zjyy_bdyy">宝狄英语</string>
 
     <string name="hht_xt_zjxt">早教学堂</string>
     <string name="hht_xt_zjxt_300_words">学前必学300字</string>
@@ -256,6 +255,31 @@
     <string name="ic_hht_ly_klok_ttmtv_25">25.乌衣巷</string>
     <string name="ic_hht_ly_klok_ttmtv_26">26.过大年</string>
 
+    <string name="ic_hht_ly_klok_hhtcgs">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_01">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_02">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_03">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_04">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_05">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_06">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_07">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_08">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_09">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_10">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_11">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_12">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_13">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_14">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_15">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_16">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_17">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_18">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_19">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_20">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_21">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_22">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_23">火火兔唱古诗</string>
+    <string name="ic_hht_ly_klok_hhtcgs_24">火火兔唱古诗</string>
 
     <string name="hht_ly_klok_yceg">原创儿歌</string>
     <string name="hht_ly_klok_kwke">酷我K歌</string>
@@ -310,6 +334,42 @@
     <string name="hht_ly_yspy_yszl_004">世界名画4</string>
     <string name="hht_ly_yspy_yszl_005">世界名画5</string>
     <string name="hht_ly_yspy_yszl_006">著名雕塑欣赏</string>
+
+    <string name="hht_ly_yspy_xxhj">小小画家</string>
+    <string name="hht_ly_yspy_xxhj_01">01.小螃蟹</string>
+    <string name="hht_ly_yspy_xxhj_02">02.小蜜蜂</string>
+    <string name="hht_ly_yspy_xxhj_03">03.小母鸡</string>
+    <string name="hht_ly_yspy_xxhj_04">04.小奶牛</string>
+    <string name="hht_ly_yspy_xxhj_05">05.小鱼</string>
+    <string name="hht_ly_yspy_xxhj_06">06.小猴子</string>
+    <string name="hht_ly_yspy_xxhj_07">07.小猪</string>
+    <string name="hht_ly_yspy_xxhj_08">08.小花猫</string>
+    <string name="hht_ly_yspy_xxhj_09">09.小长颈鹿</string>
+    <string name="hht_ly_yspy_xxhj_10">10.急救包</string>
+    <string name="hht_ly_yspy_xxhj_11">11.青蛙</string>
+    <string name="hht_ly_yspy_xxhj_12">12.乱涂乱画</string>
+    <string name="hht_ly_yspy_xxhj_13">13.彩虹</string>
+    <string name="hht_ly_yspy_xxhj_14">14.爱护树林</string>
+    <string name="hht_ly_yspy_xxhj_15">15.水墨画</string>
+    <string name="hht_ly_yspy_xxhj_16">16.我想要长大</string>
+    <string name="hht_ly_yspy_xxhj_17">17.宇宙</string>
+    <string name="hht_ly_yspy_xxhj_18">18.大公鸡</string>
+
+    <string name="hht_ly_yspy_ldeg">律动儿歌</string>
+    <string name="hht_ly_yspy_ldeg_01">01.铃儿响叮当</string>
+    <string name="hht_ly_yspy_ldeg_02">02.冰糖葫芦</string>
+    <string name="hht_ly_yspy_ldeg_03">03.拍照片</string>
+    <string name="hht_ly_yspy_ldeg_04">04.萤火微光</string>
+    <string name="hht_ly_yspy_ldeg_05">05.恭喜发财</string>
+    <string name="hht_ly_yspy_ldeg_06">06.叮咚来了</string>
+    <string name="hht_ly_yspy_ldeg_07">07.竹蜻蜓</string>
+    <string name="hht_ly_yspy_ldeg_08">08.超级英雄</string>
+    <string name="hht_ly_yspy_ldeg_09">09.旋转木马</string>
+    <string name="hht_ly_yspy_ldeg_10">10.运动歌</string>
+    <string name="hht_ly_yspy_ldeg_11">11.数鸭子</string>
+    <string name="hht_ly_yspy_ldeg_12">12.闹铃叮当响</string>
+    <string name="hht_ly_yspy_ldeg_13">13.欢乐火火兔</string>
+
 
     <string name="hht_ly_yzyx">益智游戏</string>
     <string name="hht_ly_yzyx_hhtlzc">火火兔连连看</string>

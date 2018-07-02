@@ -178,7 +178,7 @@ public class Config {
 
 
         //用于保存启动的：火火兔乐园---卡拉ok 加载的是哪个页面的数据
-        public static final String HHTLY_KLOK_PAGE = "page";
+        public static final String HHTLY_KLOK_PAGE_KEY = "page";
     }
 
     //Launcher中需要用到的资源
@@ -317,6 +317,7 @@ public class Config {
         public static final String HHT_LY_KALAOK_JDEG_ITEM_18 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "zhaopengyou14.mkv";
         public static final String HHT_LY_KALAOK_JDEG_ITEM_19 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "zhongtaiyang20.mkv";
         public static final String HHT_LY_KALAOK_JDEG_ITEM_20 = HHT_LY_KALAOK_JDEG_ROOT_PATH + "zhuoniqiu16.mkv";
+
         //火火兔乐园---- 卡拉ok ---兔兔MTV
         public static final String HHT_LY_KALAOK_TTMTV_ROOT_PATH = "/system/videos/leyuan/kalaOK/yuanchuang/";
         public static final String HHT_LY_KALAOK_TTMTV_ITEM_01 = HHT_LY_KALAOK_TTMTV_ROOT_PATH + "daxiongmao01.mkv";
@@ -345,6 +346,33 @@ public class Config {
         public static final String HHT_LY_KALAOK_TTMTV_ITEM_24 = HHT_LY_KALAOK_TTMTV_ROOT_PATH + "laoshukaihui24.mkv";
         public static final String HHT_LY_KALAOK_TTMTV_ITEM_25 = HHT_LY_KALAOK_TTMTV_ROOT_PATH + "wuyixiang25.mkv";
         public static final String HHT_LY_KALAOK_TTMTV_ITEM_26 = HHT_LY_KALAOK_TTMTV_ROOT_PATH + "daguonian26.mkv";
+
+        //火火兔乐园---- 卡拉ok ----火火兔唱古诗
+        public static final String HHT_LY_KALAOK_HHTCGS_ROOT_PATH = "/system/videos/leyuan/kalaOK/hhtcgs/";
+        public static final String HHT_LY_KALAOK_HHTCGS_01 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "ye01.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_02 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "jys02.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_03 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "yr03.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_04 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "lzc04.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_05 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "cs05.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_06 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "bdd06.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_07 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "glyx07.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_08 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "fdgyclb08.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_09 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "xyzby09.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_10 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "xc10.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_11 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "sx11.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_12 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "jhzs12.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_13 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "zfbdc13.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_14 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "zccsb14.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_15 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "cyxy15.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_16 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "cx16.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_17 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "wlspb17.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_18 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "fqyb18.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_19 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "jpdbxh19.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_20 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "jx20.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_21 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "yzy21.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_22 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "dgql22.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_23 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "jj23.mp4";
+        public static final String HHT_LY_KALAOK_HHTCGS_24 = HHT_LY_KALAOK_HHTCGS_ROOT_PATH + "cgx24.mp4";
 
         //火火兔乐园---- 卡拉ok ---英文儿歌
         public static final String HHT_LY_KALAOK_YWEG_ROOT_PATH = "/system/videos/leyuan/yingwenerge/";
@@ -378,8 +406,44 @@ public class Config {
         public static final String HHT_LY_YSPY_YSZL_05 = HHT_LY_YSPY_YSZL_ROOT_PATH + "sjmh5.mp4";
         public static final String HHT_LY_YSPY_YSZL_06 = HHT_LY_YSPY_YSZL_ROOT_PATH + "zmds.mp4";
 
+        //火火兔乐园---- 艺术培养 ---小小画家
+        public static final String HHT_LY_YSPY_XXHJ_ROOT_PATH = "/system/videos/leyuan/yishupeiyang/xiaoxiaohuajia/";
+        public static final String HHT_LY_YSPY_XXHJ_01 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "xiaopangxie01.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_02 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "xiaomifeng02.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_03 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "xiaomuji03.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_04 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "xiaoniunai04.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_05 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "xiaoyu05.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_06 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "xiaohouzi06.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_07 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "xiaozhu07.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_08 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "xiaohuamao08.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_09 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "changjinglu09.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_10 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "jijiubao10.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_11 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "qingwa11.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_12 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "luantuluanhua12.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_13 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "caihong13.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_14 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "aihusongling14.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_15 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "shuomohua15.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_16 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "woxiangyaozhangda16.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_17 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "yuzhou17.mp4";
+        public static final String HHT_LY_YSPY_XXHJ_18 = HHT_LY_YSPY_XXHJ_ROOT_PATH + "dagongji18.mp4";
 
-        //火火兔乐园 ---- 益智游戏  //air.RabbitTarget/.AppEntry
+        //火火兔乐园---- 艺术培养 ---律动儿歌
+        public static final String HHT_LY_YSPY_LDEG_ROOT_PATH = "/system/videos/leyuan/yishupeiyang/lvdongerge/";
+        public static final String HHT_LY_YSPY_ldeg_01 = HHT_LY_YSPY_LDEG_ROOT_PATH + "lingerxiangdingdang01.mp4";
+        public static final String HHT_LY_YSPY_ldeg_02 = HHT_LY_YSPY_LDEG_ROOT_PATH + "bingtanghulu02.mp4";
+        public static final String HHT_LY_YSPY_ldeg_03 = HHT_LY_YSPY_LDEG_ROOT_PATH + "paizhaopian03.mp4";
+        public static final String HHT_LY_YSPY_ldeg_04 = HHT_LY_YSPY_LDEG_ROOT_PATH + "yinghuoweiguang04.mp4";
+        public static final String HHT_LY_YSPY_ldeg_05 = HHT_LY_YSPY_LDEG_ROOT_PATH + "gongxifacai05.mp4";
+        public static final String HHT_LY_YSPY_ldeg_06 = HHT_LY_YSPY_LDEG_ROOT_PATH + "gudonglaile06.mp4";
+        public static final String HHT_LY_YSPY_ldeg_07 = HHT_LY_YSPY_LDEG_ROOT_PATH + "zhiqingting07.mp4";
+        public static final String HHT_LY_YSPY_ldeg_08 = HHT_LY_YSPY_LDEG_ROOT_PATH + "chaojiyingxiong08.mp4";
+        public static final String HHT_LY_YSPY_ldeg_09 = HHT_LY_YSPY_LDEG_ROOT_PATH + "xuanzhuanmuma09.mp4";
+        public static final String HHT_LY_YSPY_ldeg_10 = HHT_LY_YSPY_LDEG_ROOT_PATH + "yundongge10.mp4";
+        public static final String HHT_LY_YSPY_ldeg_11 = HHT_LY_YSPY_LDEG_ROOT_PATH + "shuyazi11.mp4";
+        public static final String HHT_LY_YSPY_ldeg_12 = HHT_LY_YSPY_LDEG_ROOT_PATH + "naozhongxiangdingdang12.mp4";
+        public static final String HHT_LY_YSPY_ldeg_13 = HHT_LY_YSPY_LDEG_ROOT_PATH + "huanlehht13.mp4";
+
+        //火火兔乐园 ---- 益智游戏
         public static final String HHT_LY_YZYX_01 = "air.RabbitLine";// air.RabbitLine/.AppEntry
         public static final String HHT_LY_YZYX_02 = "air.RabbitPuzzle";//air.RabbitPuzzle/.AppEntry
         public static final String HHT_LY_YZYX_03 = "air.RabbitFindFruit";//air.RabbitFindFruit/.AppEntry

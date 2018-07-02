@@ -13,7 +13,8 @@ import java.util.List;
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_BABY_CAMERA;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KING_STORY;
-import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
+import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE_KEY;
+import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YSPY;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YWEG;
 import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_YZYX;
 
@@ -61,7 +62,7 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
                 break;
             //英文儿歌
             case 1:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTLY_YWEG);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTLY_YWEG);
                 break;
             //故事王国
             case 2:
@@ -69,11 +70,12 @@ public class HHT_LY_PersenterImp extends HHT_LY_Persenter {
                 break;
             //艺术培养
             case 3:
-                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_YSPY);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTLY_YSPY);
+//                ActivityUtils.setActivityConfig(Config.BoYueAction.ACTIVITY_ACTION_HHT_YSPY);
                 break;
             //益智游戏
             case 4:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE, HHTLY_YZYX);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTLY_YZYX);
                 break;
             //宝宝相机
             case 5:
