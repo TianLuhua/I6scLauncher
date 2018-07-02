@@ -12,6 +12,8 @@ import com.boyue.boyuelauncher.widget.TitleBar;
 
 import java.util.List;
 
+import javax.xml.validation.Validator;
+
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE;
 
 /**
@@ -164,10 +166,22 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
             public void run() {
                 adapter.setFragments(ttmvDataFragments);
                 currentPageSize = ttmvDataFragments.size();
+                hidePageTurningBtn();
             }
         });
 
 
+    }
+
+    /**
+     * 如果只有一页，那就默认不显示翻页按钮
+     */
+    private void hidePageTurningBtn() {
+
+        if (currentPageSize == 1) {
+            previousPage.setVisibility(View.INVISIBLE);
+            nextPage.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -192,6 +206,8 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+        hidePageTurningBtn();
+
         if (0 < position && position < currentPageSize - 1) {
             previousPage.setVisibility(View.VISIBLE);
             nextPage.setVisibility(View.VISIBLE);
@@ -206,11 +222,6 @@ public class HHT_Item_Activity extends AbstractMVPActivity<HHT_Item_View, HHT_It
         if (position == currentPageSize - 1) {
             previousPage.setVisibility(View.VISIBLE);
             nextPage.setVisibility(View.INVISIBLE);
-            //如果只有一页，那就默认不显示翻页按钮
-            if (this.currentPageSize == 1) {
-                previousPage.setVisibility(View.INVISIBLE);
-                nextPage.setVisibility(View.INVISIBLE);
-            }
         }
 
 
