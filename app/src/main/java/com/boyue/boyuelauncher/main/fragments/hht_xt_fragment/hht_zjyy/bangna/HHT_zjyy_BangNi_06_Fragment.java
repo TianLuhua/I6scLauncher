@@ -18,14 +18,14 @@ import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_09;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_10;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_11;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_12;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_13;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_14;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_15;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_ZHONGBAN_16;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_41;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_42;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_43;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_44;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_45;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_46;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_47;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XT_ZJYY_BANGNI_48;
 
 public class HHT_zjyy_BangNi_06_Fragment extends ItemBaseFragment {
 
@@ -43,14 +43,14 @@ public class HHT_zjyy_BangNi_06_Fragment extends ItemBaseFragment {
     public HHT_zjyy_BangNi_06_Fragment() {
         // Required empty public constructorvideoPathList
         videoPathList = new ArrayList<>();
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_09);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_10);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_11);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_12);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_13);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_14);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_15);
-        videoPathList.add(HHT_XT_ZJYY_BANGNI_ZHONGBAN_16);
+        videoPathList.add(HHT_XT_ZJYY_BANGNI_41);
+        videoPathList.add(HHT_XT_ZJYY_BANGNI_42);
+        videoPathList.add(HHT_XT_ZJYY_BANGNI_43);
+        videoPathList.add(HHT_XT_ZJYY_BANGNI_44);
+        videoPathList.add(HHT_XT_ZJYY_BANGNI_45);
+        videoPathList.add(HHT_XT_ZJYY_BANGNI_46);
+        videoPathList.add(HHT_XT_ZJYY_BANGNI_47);
+        videoPathList.add(HHT_XT_ZJYY_BANGNI_48);
     }
 
 
@@ -101,9 +101,9 @@ public class HHT_zjyy_BangNi_06_Fragment extends ItemBaseFragment {
             public void run() {
                 final List<APPEntity> appEntities = new ArrayList<>();
                 //图标
-                TypedArray icnos = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjyy_zhongban_items_page02_image);
+                TypedArray icnos = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjyy_bangni_items_page06_image);
                 //图标下的文字
-                TypedArray names = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjyy_zhongban_items_page02_text);
+                TypedArray names = mContext.getResources().obtainTypedArray(R.array.hht_xt_zjyy_bangni_items_page06_text);
 
                 for (int i = 0; i < names.length(); i++) {
                     APPEntity appEntity = new APPEntity();

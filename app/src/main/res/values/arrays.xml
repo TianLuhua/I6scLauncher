@@ -19,128 +19,131 @@
         <item>@mipmap/hht_xt_item_105</item>
     </string-array>
 
-    <!--火火兔学堂  早教英语  邦尼小班-->
-    <string-array name="hht_xt_zjyy_xiaoban_items_page01_image">
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_01</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_02</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_03</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_04</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_05</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_06</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_07</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_08</item>
+    <!--火火兔学堂  早教英语  邦尼英语-->
+    <string-array name="hht_xt_zjyy_bangni_items_page01_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_01</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_02</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_03</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_04</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_05</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_06</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_07</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_08</item>
     </string-array>
-    <string-array name="hht_xt_zjyy_xiaoban_items_page02_image">
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_09</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_10</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_11</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_12</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_13</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_14</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_15</item>
-        <item>@mipmap/ic_hht_xt_zjyy_01_unit_16</item>
+    <string-array name="hht_xt_zjyy_bangni_items_page02_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_09</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_10</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_11</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_12</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_13</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_14</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_15</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_16</item>
     </string-array>
-    <string-array name="hht_xt_zjyy_xiaoban_items_page01_text">
-        <item>@string/hht_xt_zjyy_uniti_01</item>
-        <item>@string/hht_xt_zjyy_uniti_02</item>
-        <item>@string/hht_xt_zjyy_uniti_03</item>
-        <item>@string/hht_xt_zjyy_uniti_04</item>
-        <item>@string/hht_xt_zjyy_uniti_05</item>
-        <item>@string/hht_xt_zjyy_uniti_06</item>
-        <item>@string/hht_xt_zjyy_uniti_07</item>
-        <item>@string/hht_xt_zjyy_uniti_08</item>
+
+    <string-array name="hht_xt_zjyy_bangni_items_page03_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_17</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_18</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_19</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_20</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_21</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_22</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_23</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_24</item>
     </string-array>
-    <string-array name="hht_xt_zjyy_xiaoban_items_page02_text">
-        <item>@string/hht_xt_zjyy_uniti_09</item>
-        <item>@string/hht_xt_zjyy_uniti_10</item>
-        <item>@string/hht_xt_zjyy_uniti_11</item>
-        <item>@string/hht_xt_zjyy_uniti_12</item>
-        <item>@string/hht_xt_zjyy_uniti_13</item>
-        <item>@string/hht_xt_zjyy_uniti_14</item>
-        <item>@string/hht_xt_zjyy_uniti_15</item>
-        <item>@string/hht_xt_zjyy_uniti_16</item>
+    <string-array name="hht_xt_zjyy_bangni_items_page04_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_25</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_26</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_27</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_28</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_29</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_30</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_31</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_32</item>
     </string-array>
-    <!--火火兔学堂  早教英语  邦尼中班-->
-    <string-array name="hht_xt_zjyy_zhongban_items_page01_image">
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_01</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_02</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_03</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_04</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_05</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_06</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_07</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_08</item>
+
+    <string-array name="hht_xt_zjyy_bangni_items_page05_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_33</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_34</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_35</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_36</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_37</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_38</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_39</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_40</item>
     </string-array>
-    <string-array name="hht_xt_zjyy_zhongban_items_page02_image">
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_09</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_10</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_11</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_12</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_13</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_14</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_15</item>
-        <item>@mipmap/ic_hht_xt_zjyy_02_unit_16</item>
+
+    <string-array name="hht_xt_zjyy_bangni_items_page06_image">
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_41</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_42</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_43</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_44</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_45</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_46</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_47</item>
+        <item>@mipmap/ic_hht_xt_zjyy_bangni_48</item>
     </string-array>
-    <string-array name="hht_xt_zjyy_zhongban_items_page01_text">
-        <item>@string/hht_xt_zjyy_uniti_01</item>
-        <item>@string/hht_xt_zjyy_uniti_02</item>
-        <item>@string/hht_xt_zjyy_uniti_03</item>
-        <item>@string/hht_xt_zjyy_uniti_04</item>
-        <item>@string/hht_xt_zjyy_uniti_05</item>
-        <item>@string/hht_xt_zjyy_uniti_06</item>
-        <item>@string/hht_xt_zjyy_uniti_07</item>
-        <item>@string/hht_xt_zjyy_uniti_08</item>
+
+    <string-array name="hht_xt_zjyy_bangni_items_page01_text">
+        <item>@string/hht_xt_zjyy_bnyy_01</item>
+        <item>@string/hht_xt_zjyy_bnyy_02</item>
+        <item>@string/hht_xt_zjyy_bnyy_03</item>
+        <item>@string/hht_xt_zjyy_bnyy_04</item>
+        <item>@string/hht_xt_zjyy_bnyy_05</item>
+        <item>@string/hht_xt_zjyy_bnyy_06</item>
+        <item>@string/hht_xt_zjyy_bnyy_07</item>
+        <item>@string/hht_xt_zjyy_bnyy_08</item>
     </string-array>
-    <string-array name="hht_xt_zjyy_zhongban_items_page02_text">
-        <item>@string/hht_xt_zjyy_uniti_09</item>
-        <item>@string/hht_xt_zjyy_uniti_10</item>
-        <item>@string/hht_xt_zjyy_uniti_11</item>
-        <item>@string/hht_xt_zjyy_uniti_12</item>
-        <item>@string/hht_xt_zjyy_uniti_13</item>
-        <item>@string/hht_xt_zjyy_uniti_14</item>
-        <item>@string/hht_xt_zjyy_uniti_15</item>
-        <item>@string/hht_xt_zjyy_uniti_16</item>
+    <string-array name="hht_xt_zjyy_bangni_items_page02_text">
+        <item>@string/hht_xt_zjyy_bnyy_09</item>
+        <item>@string/hht_xt_zjyy_bnyy_10</item>
+        <item>@string/hht_xt_zjyy_bnyy_11</item>
+        <item>@string/hht_xt_zjyy_bnyy_12</item>
+        <item>@string/hht_xt_zjyy_bnyy_13</item>
+        <item>@string/hht_xt_zjyy_bnyy_14</item>
+        <item>@string/hht_xt_zjyy_bnyy_15</item>
+        <item>@string/hht_xt_zjyy_bnyy_16</item>
     </string-array>
-    <!--火火兔学堂  早教英语  邦尼大班-->
-    <string-array name="hht_xt_zjyy_daban_items_page01_image">
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_01</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_02</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_03</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_04</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_05</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_06</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_07</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_08</item>
+
+    <string-array name="hht_xt_zjyy_bangni_items_page03_text">
+        <item>@string/hht_xt_zjyy_bnyy_17</item>
+        <item>@string/hht_xt_zjyy_bnyy_18</item>
+        <item>@string/hht_xt_zjyy_bnyy_19</item>
+        <item>@string/hht_xt_zjyy_bnyy_20</item>
+        <item>@string/hht_xt_zjyy_bnyy_21</item>
+        <item>@string/hht_xt_zjyy_bnyy_22</item>
+        <item>@string/hht_xt_zjyy_bnyy_23</item>
+        <item>@string/hht_xt_zjyy_bnyy_24</item>
     </string-array>
-    <string-array name="hht_xt_zjyy_daban_items_page02_image">
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_09</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_10</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_11</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_12</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_13</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_14</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_15</item>
-        <item>@mipmap/ic_hht_xt_zjyy_03_unit_16</item>
+    <string-array name="hht_xt_zjyy_bangni_items_page04_text">
+        <item>@string/hht_xt_zjyy_bnyy_25</item>
+        <item>@string/hht_xt_zjyy_bnyy_26</item>
+        <item>@string/hht_xt_zjyy_bnyy_27</item>
+        <item>@string/hht_xt_zjyy_bnyy_28</item>
+        <item>@string/hht_xt_zjyy_bnyy_29</item>
+        <item>@string/hht_xt_zjyy_bnyy_30</item>
+        <item>@string/hht_xt_zjyy_bnyy_31</item>
+        <item>@string/hht_xt_zjyy_bnyy_32</item>
     </string-array>
-    <string-array name="hht_xt_zjyy_daban_items_page01_text">
-        <item>@string/hht_xt_zjyy_uniti_01</item>
-        <item>@string/hht_xt_zjyy_uniti_02</item>
-        <item>@string/hht_xt_zjyy_uniti_03</item>
-        <item>@string/hht_xt_zjyy_uniti_04</item>
-        <item>@string/hht_xt_zjyy_uniti_05</item>
-        <item>@string/hht_xt_zjyy_uniti_06</item>
-        <item>@string/hht_xt_zjyy_uniti_07</item>
-        <item>@string/hht_xt_zjyy_uniti_08</item>
+    <string-array name="hht_xt_zjyy_bangni_items_page05_text">
+        <item>@string/hht_xt_zjyy_bnyy_33</item>
+        <item>@string/hht_xt_zjyy_bnyy_34</item>
+        <item>@string/hht_xt_zjyy_bnyy_35</item>
+        <item>@string/hht_xt_zjyy_bnyy_36</item>
+        <item>@string/hht_xt_zjyy_bnyy_37</item>
+        <item>@string/hht_xt_zjyy_bnyy_38</item>
+        <item>@string/hht_xt_zjyy_bnyy_39</item>
+        <item>@string/hht_xt_zjyy_bnyy_40</item>
     </string-array>
-    <string-array name="hht_xt_zjyy_daban_items_page02_text">
-        <item>@string/hht_xt_zjyy_uniti_09</item>
-        <item>@string/hht_xt_zjyy_uniti_10</item>
-        <item>@string/hht_xt_zjyy_uniti_11</item>
-        <item>@string/hht_xt_zjyy_uniti_12</item>
-        <item>@string/hht_xt_zjyy_uniti_13</item>
-        <item>@string/hht_xt_zjyy_uniti_14</item>
-        <item>@string/hht_xt_zjyy_uniti_15</item>
-        <item>@string/hht_xt_zjyy_uniti_16</item>
+    <string-array name="hht_xt_zjyy_bangni_items_page06_text">
+        <item>@string/hht_xt_zjyy_bnyy_41</item>
+        <item>@string/hht_xt_zjyy_bnyy_42</item>
+        <item>@string/hht_xt_zjyy_bnyy_43</item>
+        <item>@string/hht_xt_zjyy_bnyy_44</item>
+        <item>@string/hht_xt_zjyy_bnyy_45</item>
+        <item>@string/hht_xt_zjyy_bnyy_46</item>
+        <item>@string/hht_xt_zjyy_bnyy_47</item>
+        <item>@string/hht_xt_zjyy_bnyy_48</item>
     </string-array>
 
     <!--火火兔学堂  早教英语  多纳英语-->
