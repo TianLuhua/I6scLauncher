@@ -80,7 +80,7 @@
     </style>
 
     <style name="Stlye_system_factory_setting_text">
-        <item name="android:textColor">#f42a2a</item>
+        <item name="android:textColor">@color/color_2a</item>
         <item name="android:textSize">22sp</item>
     </style>
 

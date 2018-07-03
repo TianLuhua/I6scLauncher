@@ -140,6 +140,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name=".settings.fragments.advance_settings.system_update.SystemUpdateActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/NoTitleTranslucentTheme">
+            <intent-filter>
+                <action android:name="com.boyue.boyuelauncher.settings.fragments.advance_settings.system_update" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <service android:name=".service.SystemSettingsService" />
         <service android:name=".service.PlayAudioService">

@@ -31,7 +31,10 @@ public class AdvanceSettingMode implements BaseMode {
         String deviceModle = getDeviceModel();
         String firmwareVersion = getFirmwareVersion();
 
-        callBack.setSystemParameter(builder.toString(), deviceModle, firmwareVersion);
+        //检查系统是否有更新
+        boolean hasUpdateVersion = true;
+
+        callBack.setSystemParameter(builder.toString(), deviceModle, firmwareVersion, hasUpdateVersion);
     }
 
 
@@ -95,7 +98,7 @@ public class AdvanceSettingMode implements BaseMode {
 
     public static interface CallBack {
 
-        void setSystemParameter(String capacity, String deviceModle, String firmwareVersion);
+        void setSystemParameter(String capacity, String deviceModle, String firmwareVersion, boolean hasUpdateVersion);
 
     }
 }

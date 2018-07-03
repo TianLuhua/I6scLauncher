@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/bg_hht">
+
+    <TextView
+        android:id="@+id/update_note"
+        style="@style/Stlye_system_factory_setting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="207dp"
+        android:layout_marginTop="107dp"
+        android:text="@string/firmware_version_update_note" />
+
+    <TextView
+        android:id="@+id/update_currentversion"
+        style="@style/Stlye_system_setting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/update_note"
+        android:layout_marginStart="207dp"
+        android:layout_marginTop="15dp" />
+
+    <ImageView
+        android:id="@+id/upddate_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="246dp"
+        android:src="@mipmap/logo_system_settings_advance_update_system" />
+
+
+    <SeekBar
+        android:id="@+id/updating"
+        style="@style/Style_CustomSeekbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/upddate_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp" />
+
+    <Button
+        android:id="@+id/update_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/upddate_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp" />
+
+
+    <TextView
+        android:id="@+id/update_success"
+        style="@style/Stlye_system_setting_date_time_disable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/update_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12sp"
+        android:text="@string/update_success" />
+
+    <com.boyue.boyuelauncher.widget.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

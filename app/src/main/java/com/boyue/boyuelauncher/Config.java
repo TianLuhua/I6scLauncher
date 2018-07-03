@@ -32,6 +32,10 @@ public class Config {
         public static final String ACTIVITY_ACTION_FCMLOCKSCREEN = "com.boyue.boyuelauncher.FCMlockscreen";
         public static final String ACTIVITY_ACTION_PROTECTEYELOCKSCREEN = "com.boyue.boyuelauncher.ProtectEyeLockScreen";
         public static final String ACTIVITY_ACTION_KLOK = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_klok.activity";
+        //固件升级界面
+        public static final String ACTIVITY_SYSTEM_UPDATE = "com.boyue.boyuelauncher.settings.fragments.advance_settings.system_update";
+
+
         //在线卡通
         public static final String ACTIVITY_ACTION_ZXBX_CARTOON = "com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.cartoon";
 
@@ -68,6 +72,7 @@ public class Config {
 
         //播放器Action
         public static final String BOOYUE_MEDIAPLAYER_VIDEO_ACTION = "com.booyue.android.mediaplayer.video";
+
     }
 
     /**
@@ -177,6 +182,9 @@ public class Config {
 
         //用于保存护眼传感器的状态
         public static final String PROTECT_EYE_SENSOR_ENABLE_KEY = "protect_eye_sensor_enable_key";
+
+        //用于保存耳灯
+        public static final String DEFAULT_LED_KEY = "default_led_key";
 
 
         //用于保存启动的：火火兔乐园---卡拉ok 加载的是哪个页面的数据

@@ -4,27 +4,24 @@ import android.content.Context;
 import android.os.CpuUsageInfo;
 
 import com.boyue.boyuelauncher.base.BaseMode;
+import com.boyue.boyuelauncher.utils.SPUtils;
+
+import static com.boyue.boyuelauncher.Config.PassWordKey.DEFAULT_LED_KEY;
 
 public class ColorEarMode implements BaseMode {
 
-    private Context mContext;
     private CallBack callBack;
-    private int colorEarStatus;
+    private SPUtils spUtils;
 
-    public ColorEarMode(Context mContext, CallBack callBack) {
-        this.mContext = mContext;
+    public ColorEarMode(Context mContext, CallBack callBack, SPUtils spUtils) {
         this.callBack = callBack;
+        this.spUtils = spUtils;
     }
 
     public void getColorEarStatus() {
 
-        this.colorEarStatus = 1;
-        /**
-         * 这里需要和驱动交互,默认开启
-         */
-
         if (callBack == null) return;
-        callBack.colorEarStatus(colorEarStatus);
+        callBack.colorEarStatus(spUtils.getInt(DEFAULT_LED_KEY));
 
 
     }
@@ -37,6 +34,7 @@ public class ColorEarMode implements BaseMode {
 
     @Override
     public void onDestroy() {
-
+        spUtils = null;
+        callBack = null;
     }
 }

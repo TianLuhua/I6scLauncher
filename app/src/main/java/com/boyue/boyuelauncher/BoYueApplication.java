@@ -7,7 +7,12 @@ import com.boyue.boyuelauncher.service.SystemSettingsService;
 import com.boyue.boyuelauncher.utils.LockScreenUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
+import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import com.boyue.boyuelauncher.utils.Utils;
+
+import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_OFF;
+import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_ON;
+import static com.boyue.boyuelauncher.Config.PassWordKey.DEFAULT_LED_KEY;
 
 
 /**
@@ -23,7 +28,7 @@ public class BoYueApplication extends Application {
         super.onCreate();
         Utils.init(this);
         //初始化系统SharedPreferences
-        SPUtils spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
+        final SPUtils spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
         //如何没有存储默认密码，系统就默认为：default
         String bootPwd = spUtils.getString(Config.PassWordKey.BOOT_PWD_NAME);
 
@@ -45,6 +50,8 @@ public class BoYueApplication extends Application {
             spUtils.put(Config.PassWordKey.ONTIME_SHUTDOWN_KEY, Config.Settings.VALUE_NEVER);
             //默认开启护眼关闭护眼传感器
             spUtils.put(Config.PassWordKey.PROTECT_EYE_SENSOR_ENABLE_KEY, false);
+            //刷机第一次，耳灯默认是开启的状态
+            spUtils.put(DEFAULT_LED_KEY, 1);
         }
 //        spUtils.clear();//清空sp中的数据
         LogUtils.e("tlh", "SPUtils:" + spUtils.getAll().toString());
@@ -71,13 +78,23 @@ public class BoYueApplication extends Application {
             //好像什么都不要做，系统直接给广播
         }
 
-
         //通知SystemSettingsService，恢复关机前护眼传感器的状态、
         if (spUtils.getBoolean(Config.PassWordKey.PROTECT_EYE_SENSOR_ENABLE_KEY)) {
             Intent intent = new Intent(getApplicationContext(), SystemSettingsService.class);
             intent.setAction(Config.BoYueAction.PROTECTSENSOR_ACTION_OPEN);
             startService(intent);
         }
+
+
+        //初始化耳灯状态
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent();
+                intent.setAction(spUtils.getInt(DEFAULT_LED_KEY) == 1 ? COLOR_EAR_ON : COLOR_EAR_OFF);
+                Utils.getApp().sendBroadcast(intent);
+            }
+        });
 
 
     }

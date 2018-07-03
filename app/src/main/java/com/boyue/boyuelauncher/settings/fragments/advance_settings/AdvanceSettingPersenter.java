@@ -16,10 +16,10 @@ public class AdvanceSettingPersenter extends AbstractPresenter<AdvanceSettingVie
         this.mode = new AdvanceSettingMode(new AdvanceSettingMode.CallBack() {
 
             @Override
-            public void setSystemParameter(String capacity, String deviceModle, String firmwareVersion) {
+            public void setSystemParameter(String capacity, String deviceModle, String firmwareVersion,boolean hasUpdateVersion) {
                 AdvanceSettingView view = getView();
                 if (view == null) return;
-                view.setSystemParameter(capacity, deviceModle, firmwareVersion);
+                view.setSystemParameter(capacity, deviceModle, firmwareVersion,hasUpdateVersion);
             }
         });
     }

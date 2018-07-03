@@ -4,5 +4,5 @@ import com.boyue.boyuelauncher.base.BaseView;
 
 public interface AdvanceSettingView extends BaseView {
 
-    void setSystemParameter(String capacity, String deviceModle, String firmwareVersion);
+    void setSystemParameter(String capacity, String deviceModle, String firmwareVersion, boolean hasUpdateVersion);
 }

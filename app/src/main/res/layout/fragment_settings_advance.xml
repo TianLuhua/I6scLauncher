@@ -57,6 +57,14 @@
             android:text="@string/firmware_version" />
 
         <TextView
+            android:id="@+id/version_update"
+            style="@style/Stlye_system_factory_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="130dp" />
+
+        <TextView
             android:id="@+id/firmware_version_value"
             style="@style/Stlye_system_setting_date_time_enable"
             android:layout_width="wrap_content"
