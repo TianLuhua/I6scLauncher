@@ -6,6 +6,7 @@ import android.provider.Settings;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.base.BaseMode;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
 import com.boyue.boyuelauncher.utils.Utils;
 
@@ -22,7 +23,7 @@ public class AutoShueDownMode implements BaseMode {
     public AutoShueDownMode(Context mContext, CallBack callBack, SPUtils spUtils) {
         this.mContext = mContext;
         this.callBack = callBack;
-        this.resolver = Utils.getApp().getContentResolver();
+        this.resolver = mContext.getContentResolver();
         this.spUtils = spUtils;
     }
 
@@ -36,12 +37,13 @@ public class AutoShueDownMode implements BaseMode {
         int autoShtDownTime = spUtils.getInt(Config.PassWordKey.AUTO_SHUTDOWN_KEY);
 
         if (callBack == null) return;
-        callBack.setInitView(currentScreenTimeout, shtDownTime,autoShtDownTime);
+        callBack.setInitView(currentScreenTimeout, shtDownTime, autoShtDownTime);
 
     }
 
     public boolean setScreenTimeout(int screenTimeout) {
         boolean isSuccess = Settings.System.putInt(resolver, SCREEN_OFF_TIMEOUT, screenTimeout);
+        LogUtils.e("tlh", "AutoShueDownMode---setScreenTimeout---screenTimeout:" + screenTimeout + ",isSuccess:" + isSuccess);
         return isSuccess;
     }
 

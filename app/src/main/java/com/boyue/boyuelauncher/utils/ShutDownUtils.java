@@ -1,6 +1,7 @@
 package com.boyue.boyuelauncher.utils;
 
 import android.content.Context;
+import android.content.Intent;
 
 import java.lang.reflect.Method;
 
@@ -9,7 +10,7 @@ import java.lang.reflect.Method;
  */
 public class ShutDownUtils {
 
-    public static void shutdown() {
+    public static void shutDownWithReflex() {
         try {
             // 获得ServiceManager类
             Class<?> ServiceManager = Class
@@ -28,12 +29,19 @@ public class ShutDownUtils {
             // 调用asInterface方法获取IPowerManager对象
             Object oIPowerManager = asInterface.invoke(null, oRemoteService);
             // 获得shutdown()方法
-            Method shutdown = oIPowerManager.getClass().getMethod("shutdown",
+            Method shutdown = oIPowerManager.getClass().getMethod("shutDownWithReflex",
                     boolean.class, boolean.class);
             // 调用shutdown()方法
             shutdown.invoke(oIPowerManager, false, true);
         } catch (Exception e) {
             LogUtils.e("SystemStatusSetting", e.toString());
         }
+    }
+
+    public static void shutDownWithAction() {
+        Intent intent = new Intent("android.intent.action.ACTION_REQUEST_SHUTDOWN");
+        intent.putExtra("android.intent.extra.KEY_CONFIRM", false);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Utils.getApp().startActivity(intent);
     }
 }

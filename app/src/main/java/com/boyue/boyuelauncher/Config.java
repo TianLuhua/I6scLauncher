@@ -143,8 +143,8 @@ public class Config {
      */
     public static class Settings {
         public static final int VALUE_NEVER = Integer.MAX_VALUE;
-        public static final int VALUE_1M = 60000;
-        //        public static final int VALUE_1M = 1000;
+//        public static final int VALUE_1M = 60000;
+                public static final int VALUE_1M = 1000;
         public static final int VALUE_5M = VALUE_1M * 5;
         public static final int VALUE_10M = VALUE_1M * 10;
         public static final int VALUE_15M = VALUE_1M * 15;

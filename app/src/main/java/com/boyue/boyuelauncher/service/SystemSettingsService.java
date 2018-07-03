@@ -57,7 +57,7 @@ public class SystemSettingsService extends Service {
                 ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
                     @Override
                     public void run() {
-                        ShutDownUtils.shutdown();
+                        ShutDownUtils.shutDownWithAction();
                     }
                 });
 

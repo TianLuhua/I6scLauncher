@@ -72,7 +72,7 @@ public class SystemReceiver extends BroadcastReceiver {
             case Config.BoYueAction.UNACTIVITY_SIXTY_MIN:
                 //接收到系统对应时间的广播，查看用户是否设置了自动关机的时间，没有的话不执行关机
                 if (spUtils.getInt(Config.PassWordKey.AUTO_SHUTDOWN_KEY) != Config.Settings.VALUE_NEVER)
-                    ShutDownUtils.shutdown();
+                    ShutDownUtils.shutDownWithAction();
                 break;
 
 
