@@ -26,6 +26,8 @@ import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordD
 
 import java.util.List;
 
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XXKT_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XXKT_PACKAGE;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_AUDIO_KEY;
 
 
@@ -294,6 +296,8 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     private void startXiaoxue_ketang() {
         Toast.makeText(MainActivity.this, "小学课堂！", Toast.LENGTH_SHORT).show();
+        ActivityUtils.startApplicationWithComponent(HHT_XXKT_PACKAGE,HHT_XXKT_LAUNCHER);
+
     }
 
 
