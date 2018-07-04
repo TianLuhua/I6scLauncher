@@ -9,4 +9,6 @@ public interface SystemUpdateView extends BaseView {
 
     void setCurrentVersion(String currentVersion);
 
+    void setSystemUpdateProgress(int progress);
+
 }

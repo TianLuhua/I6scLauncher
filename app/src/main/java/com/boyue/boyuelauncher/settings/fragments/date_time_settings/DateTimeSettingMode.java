@@ -54,8 +54,9 @@ public class DateTimeSettingMode implements BaseMode {
         ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
             @Override
             public void run() {
-                android.provider.Settings.Global.putInt(resolver,
-                        android.provider.Settings.Global.AUTO_TIME, autoDateTime ? 1 : 0);
+                //tlh
+//                android.provider.Settings.Global.putInt(resolver,
+//                        android.provider.Settings.Global.AUTO_TIME, autoDateTime ? 1 : 0);
             }
         });
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/bg_hht">
@@ -30,15 +31,19 @@
         android:layout_marginTop="246dp"
         android:src="@mipmap/logo_system_settings_advance_update_system" />
 
-
-    <SeekBar
+    <!--style="@style/SeekBar_NoThumb"-->
+    <com.boyue.boyuelauncher.widget.TextProgressBar
         android:id="@+id/updating"
-        style="@style/Style_CustomSeekbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="178dp"
+        android:layout_height="56dp"
         android:layout_below="@+id/upddate_logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30sp" />
+        android:layout_marginTop="30sp"
+        android:progressDrawable="@drawable/seekbar_ota_update"
+        custom:text="@string/updating"
+        custom:textColor="@color/color_fff"
+        custom:textSize="24sp" />
 
     <Button
         android:id="@+id/update_btn"
@@ -46,16 +51,21 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/upddate_logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30sp" />
+        android:layout_marginTop="30sp"
+        android:background="@drawable/select_settings_advance_systemupdate"
+        android:text="@string/update_one_key"
+        android:textColor="@color/color_fff"
+        android:textSize="24sp"/>
 
 
     <TextView
-        android:id="@+id/update_success"
+        android:id="@+id/load_success"
         style="@style/Stlye_system_setting_date_time_disable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/update_btn"
         android:layout_centerHorizontal="true"
+        android:visibility="invisible"
         android:layout_marginTop="12sp"
         android:text="@string/update_success" />
 

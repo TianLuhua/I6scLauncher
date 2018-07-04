@@ -175,5 +175,9 @@
         <item name="android:thumb">@mipmap/thumb_system_setting</item>
     </style>
 
+    <style name="SeekBar_NoThumb" parent="">
+        <item name="android:progressDrawable">@drawable/seekbar_ota_update</item>
+        <item name="android:thumb">@null</item>
+    </style>
 
 </resources>
