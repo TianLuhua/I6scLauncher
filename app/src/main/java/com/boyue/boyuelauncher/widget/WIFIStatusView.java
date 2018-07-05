@@ -11,14 +11,11 @@ import android.net.wifi.WifiManager;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import android.util.Log;
-
-import com.boyue.boyuelauncher.utils.LogUtils;
 
 /**
  * Created by Tianluhua on 2018/6/10.
  */
-public class WIFIStatusView extends EnlargeAndNarrowAnimationView {
+public class WIFIStatusView extends AppCompatImageView {
 
     private WifiManager wifiManager;
 

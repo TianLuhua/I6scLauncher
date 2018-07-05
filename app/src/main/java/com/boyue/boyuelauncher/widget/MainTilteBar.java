@@ -3,6 +3,8 @@ package com.boyue.boyuelauncher.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -25,6 +27,9 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     private WIFIStatusView wifiStatusView;
 
     private SDAndUSBStatusView sdAndUSBStatusView;
+    private Animation settingBtnAnimation;
+    private Animation wifiBtnAnimation;
+
 
     public MainTilteBar(Context context) {
         this(context, null);
@@ -51,6 +56,8 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
         //SDAndUSBStatusView
         sdAndUSBStatusView = findViewById(R.id.ic_media);
         sdAndUSBStatusView.setOnTitleBarClickListener(this);
+        settingBtnAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
+        wifiBtnAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
     }
 
     private OnTitleBarClickListener onTitleBarClickListener;
@@ -68,10 +75,12 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
                 break;
 
             case R.id.ic_settings:
+                settingsButton.startAnimation(settingBtnAnimation);
                 if (onTitleBarClickListener != null)
                     onTitleBarClickListener.onSettingsClick(v);
                 break;
             case R.id.ic_wifistatusview:
+                wifiStatusView.startAnimation(wifiBtnAnimation);
                 if (onTitleBarClickListener != null)
                     onTitleBarClickListener.onWiFiManagerClick(v);
                 break;
@@ -105,13 +114,13 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     @Override
     public void onSDIconClick(View view) {
         Toast.makeText(getContext(), "SD", Toast.LENGTH_SHORT).show();
-        ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE,FILE_MANGER_LAUNCHER);
+        ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE, FILE_MANGER_LAUNCHER);
     }
 
     @Override
     public void onUSBIconClick(View view) {
         Toast.makeText(getContext(), "USB", Toast.LENGTH_SHORT).show();
-        ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE,FILE_MANGER_LAUNCHER);
+        ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE, FILE_MANGER_LAUNCHER);
     }
 
     public interface OnTitleBarClickListener {

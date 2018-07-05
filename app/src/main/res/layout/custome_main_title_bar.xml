@@ -34,7 +34,7 @@
         android:layout_toStartOf="@+id/ic_settings"
         android:gravity="center_vertical" />
 
-    <com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView
+    <ImageView
         android:id="@+id/ic_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
