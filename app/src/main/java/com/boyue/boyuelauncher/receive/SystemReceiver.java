@@ -68,11 +68,21 @@ public class SystemReceiver extends BroadcastReceiver {
                 break;
             //15、30、60分钟用户无操作,系统自动关机
             case Config.BoYueAction.UNACTIVITY_FIFTEEN_MIN:
-            case Config.BoYueAction.UNACTIVITY_THIRTY_MIN:
-            case Config.BoYueAction.UNACTIVITY_SIXTY_MIN:
-                //接收到系统对应时间的广播，查看用户是否设置了自动关机的时间，没有的话不执行关机
-                if (spUtils.getInt(Config.PassWordKey.AUTO_SHUTDOWN_KEY) != Config.Settings.VALUE_NEVER)
+                if (spUtils.getInt(Config.PassWordKey.AUTO_SHUTDOWN_KEY) == Config.Settings.VALUE_15M) {
                     ShutDownUtils.shutDownWithAction();
+                }
+                break;
+            case Config.BoYueAction.UNACTIVITY_THIRTY_MIN:
+                if (spUtils.getInt(Config.PassWordKey.AUTO_SHUTDOWN_KEY) == Config.Settings.VALUE_30M) {
+                    ShutDownUtils.shutDownWithAction();
+                }
+
+                break;
+            case Config.BoYueAction.UNACTIVITY_SIXTY_MIN:
+
+                if (spUtils.getInt(Config.PassWordKey.AUTO_SHUTDOWN_KEY) == Config.Settings.VALUE_60M) {
+                    ShutDownUtils.shutDownWithAction();
+                }
                 break;
 
 

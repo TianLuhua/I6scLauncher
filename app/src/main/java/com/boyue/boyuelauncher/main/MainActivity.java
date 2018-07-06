@@ -41,7 +41,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     private ImageView xiaoxue_ketang;
 
     private MainPagerAdapter adapter;
-    private SystemReceiver systemReceiver;
+
 
 
     @Override
@@ -55,27 +55,13 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     @Override
     protected void onResume() {
         super.onResume();
-        //注册 弹窗广播：usb连接、U盘插入、电量不足、话筒插入....
-        systemReceiver = new SystemReceiver(this);
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_USB_MOUNTED);
-        filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_POWER_CONNECTED);
-        filter.addAction(Config.BoYueAction.ACTION_MIC_IN);
-        filter.addAction(Intent.ACTION_BATTERY_LOW);
-
-        //一段时间屏幕无操作的系统广播
-        filter.addAction(Config.BoYueAction.UNACTIVITY_FIFTEEN_MIN);
-        filter.addAction(Config.BoYueAction.UNACTIVITY_THIRTY_MIN);
-        filter.addAction(Config.BoYueAction.UNACTIVITY_SIXTY_MIN);
-
-        registerReceiver(systemReceiver, filter);
-
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        unregisterReceiver(systemReceiver);
+//        unregisterReceiver(systemReceiver);
+//        LogUtils.e("tlh", "MainActivity---nregisterReceiver");
     }
 
     @Override

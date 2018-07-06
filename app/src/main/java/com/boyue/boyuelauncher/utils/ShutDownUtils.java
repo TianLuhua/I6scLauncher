@@ -39,9 +39,16 @@ public class ShutDownUtils {
     }
 
     public static void shutDownWithAction() {
-        Intent intent = new Intent("android.intent.action.ACTION_REQUEST_SHUTDOWN");
-        intent.putExtra("android.intent.extra.KEY_CONFIRM", false);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        Utils.getApp().startActivity(intent);
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                LogUtils.e("tlh","ShutDownUtils---shutDownWithAction-----关机----关机---！！！");
+                Intent intent = new Intent("android.intent.action.ACTION_REQUEST_SHUTDOWN");
+                intent.putExtra("android.intent.extra.KEY_CONFIRM", false);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Utils.getApp().startActivity(intent);
+            }
+        });
+
     }
 }
