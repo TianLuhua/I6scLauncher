@@ -76,6 +76,7 @@ public class Config {
         //控制系统音量相关
         public static final String BOOYUE_STREAMMAXVOLUME_ACTION = "com.booyue.android.stream.max";
         public static final String BOOYUE_STREAMMAXVOLUME_KEY = "maxVolume";
+        public static final String BOOYUE_BOOTMAXVOLUME_KEY = "bootMaxVolume";
 
     }
 

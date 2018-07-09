@@ -1,7 +1,9 @@
 package com.boyue.boyuelauncher;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 
 import com.boyue.boyuelauncher.service.SystemSettingsService;
 import com.boyue.boyuelauncher.utils.LockScreenUtils;
@@ -10,6 +12,8 @@ import com.boyue.boyuelauncher.utils.SPUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import com.boyue.boyuelauncher.utils.Utils;
 
+import static com.boyue.boyuelauncher.Config.BoYueAction.BOOYUE_BOOTMAXVOLUME_KEY;
+import static com.boyue.boyuelauncher.Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY;
 import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_OFF;
 import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_ON;
 import static com.boyue.boyuelauncher.Config.PassWordKey.DEFAULT_LED_KEY;
@@ -23,6 +27,8 @@ public class BoYueApplication extends Application {
 
     public static String TAG = BoYueApplication.class.getSimpleName();
 
+    private AudioManager audioManager;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -31,6 +37,7 @@ public class BoYueApplication extends Application {
         final SPUtils spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
         //如何没有存储默认密码，系统就默认为：default
         String bootPwd = spUtils.getString(Config.PassWordKey.BOOT_PWD_NAME);
+        this.audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         //存储默认值，理论上只会在机器刷机启动的第一次调用，除非恢复出厂、删除系统SP
         if (SPUtils.DEFAULT_STRING.equals(bootPwd)) {
@@ -52,6 +59,9 @@ public class BoYueApplication extends Application {
             spUtils.put(Config.PassWordKey.PROTECT_EYE_SENSOR_ENABLE_KEY, false);
             //刷机第一次，耳灯默认是开启的状态
             spUtils.put(DEFAULT_LED_KEY, 1);
+            //默认系统最大音量和开机音量值
+            spUtils.put(BOOYUE_STREAMMAXVOLUME_KEY, audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
+            spUtils.put(BOOYUE_BOOTMAXVOLUME_KEY, audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
         }
 //        spUtils.clear();//清空sp中的数据
         LogUtils.e("tlh", "SPUtils:" + spUtils.getAll().toString());

@@ -1,6 +1,5 @@
 package com.boyue.boyuelauncher.settings.fragments.volume_settings;
 
-import android.app.ActivityManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -20,9 +19,8 @@ public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView
     private TextView maxVolumeLeve;
 
     //限制开机最大音量
-    private SeekBar powerOffMaxVolumeSeekBar;
-    private TextView powerOffMaxVolumeLeve;
-    private ActivityManager am;
+    private SeekBar bootMaxVolumeSeekBar;
+    private TextView bootfMaxVolumeLeve;
 
 
     public static VolumeSettingFragment newInstance() {
@@ -48,9 +46,8 @@ public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView
         maxVolumeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                LogUtils.e("tlh", "maxVolumeSeekBar:" + progress);
+                LogUtils.e("tlh", "maxVolumeSeekBar:" + progress + fromUser);
                 maxVolumeLeve.setText(String.valueOf(progress));
-                getPresenter().setSystMaxVolume(progress);
             }
 
             @Override
@@ -60,18 +57,17 @@ public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                getPresenter().setSystemMaxVolume(seekBar.getProgress());
             }
         });
         maxVolumeLeve = rootview.findViewById(R.id.max_volume_leve);
 
-
-        powerOffMaxVolumeSeekBar = rootview.findViewById(R.id.power_off_max_volume);
-        powerOffMaxVolumeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        bootMaxVolumeSeekBar = rootview.findViewById(R.id.power_off_max_volume);
+        bootMaxVolumeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 LogUtils.e("tlh", "powerOffMaxVolumeSeekBar:" + progress);
-                powerOffMaxVolumeLeve.setText(String.valueOf(progress));
+                bootfMaxVolumeLeve.setText(String.valueOf(progress));
             }
 
             @Override
@@ -81,13 +77,11 @@ public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                getPresenter().setSystemBootMaxVolume(seekBar.getProgress());
             }
         });
-        powerOffMaxVolumeLeve = rootview.findViewById(R.id.power_off_max_volume_leve);
-        getPresenter().getSystMaxVolume();
-
-
+        bootfMaxVolumeLeve = rootview.findViewById(R.id.power_off_max_volume_leve);
+        getPresenter().getSystemMaxVolume();
     }
 
     @Override
@@ -97,10 +91,13 @@ public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView
 
 
     @Override
-    public void setSystMaxVolume(int systMaxVolume, int currentSystVolume, int bootMaxVolume, int currentBootVolume) {
-        maxVolumeSeekBar.setMax(systMaxVolume);
-        maxVolumeSeekBar.setProgress(currentSystVolume);
-        powerOffMaxVolumeSeekBar.setMax(bootMaxVolume);
-        powerOffMaxVolumeSeekBar.setProgress(currentBootVolume);
+    public void setSystMaxVolume(int systemMaxVolume, int currentMaxStreamVolume, int bootMaxVolume, int currentBootMaxVolume) {
+        //系统最大音量相关(系统允许的和用户设定的)
+        maxVolumeSeekBar.setMax(systemMaxVolume);
+        maxVolumeSeekBar.setProgress(currentMaxStreamVolume);
+
+        //开机最大音量相关(系统允许的和用户设定的)
+        bootMaxVolumeSeekBar.setMax(bootMaxVolume);
+        bootMaxVolumeSeekBar.setProgress(currentBootMaxVolume);
     }
 }
