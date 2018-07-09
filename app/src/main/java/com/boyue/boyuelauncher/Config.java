@@ -73,6 +73,10 @@ public class Config {
         //播放器Action
         public static final String BOOYUE_MEDIAPLAYER_VIDEO_ACTION = "com.booyue.android.mediaplayer.video";
 
+        //控制系统音量相关
+        public static final String BOOYUE_STREAMMAXVOLUME_ACTION = "com.booyue.android.stream.max";
+        public static final String BOOYUE_STREAMMAXVOLUME_KEY = "maxVolume";
+
     }
 
     /**

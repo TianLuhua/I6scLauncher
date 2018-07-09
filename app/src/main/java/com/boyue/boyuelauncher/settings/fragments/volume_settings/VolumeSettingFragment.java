@@ -1,5 +1,6 @@
 package com.boyue.boyuelauncher.settings.fragments.volume_settings;
 
+import android.app.ActivityManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView
     //限制开机最大音量
     private SeekBar powerOffMaxVolumeSeekBar;
     private TextView powerOffMaxVolumeLeve;
+    private ActivityManager am;
 
 
     public static VolumeSettingFragment newInstance() {
