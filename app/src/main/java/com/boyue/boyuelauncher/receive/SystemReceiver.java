@@ -53,7 +53,8 @@ public class SystemReceiver extends BroadcastReceiver {
             //usb连接
             case Config.BoYueAction.COM_BOYUE_ACTION_POWER_CONNECTED:
                 LogUtils.e("tlh", "SystemReceiver---onReceive:" + "usb连接了！");
-                showUSBConnectedDialog();
+                //有充电的apk了，似乎这个框框没什么意义
+//                showUSBConnectedDialog();
                 break;
 
             //电量过低
