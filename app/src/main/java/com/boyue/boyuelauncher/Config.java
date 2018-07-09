@@ -558,7 +558,7 @@ public class Config {
         //小企鹅乐园
         public static final String HHT_ZXBX_XIAOQIELEYUAN = "com.tencent.qqlivekid";//com.tencent.qqlivekid/.activity.HomeActivity
         //儿歌多多
-        public static final String HHT_ZXBX_ERGEDUODUO = "com.duoduo.child.story";//com.duoduo.child.story/.ui.activity.MainActivity
+        public static final String HHT_ZXBX_ERGEDUODUO = "com.duoduo.child.storyhd";//com.duoduo.child.storyhd/.tablet.TabletMainActivity
 
         //在线宝箱--宝宝巴士
         public static final String HHT_ZXBX_BABY_BUS_00 = "com.sinyee.babybus.animal";//com.sinyee.babybus.animal/com.babybus.plugin.videoview.activity.BoxVideoActivity
