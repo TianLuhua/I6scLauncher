@@ -1,6 +1,7 @@
 package com.boyue.boyuelauncher.utils;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.lang.reflect.Method;
 
@@ -44,7 +45,7 @@ public class SystemPropertiesUtils {
     /**
      * 根据给定的Key返回String类型的值
      *
-     * @param key     获取指定信息所需的key
+     * @param key 获取指定信息所需的key
      * @return 返回一个String类型的值，如果不存在该key则返回空字符串
      */
     public static String getString(String key) {
@@ -167,6 +168,30 @@ public class SystemPropertiesUtils {
             result = def;
         }
         return result;
+    }
+
+
+    public static void set(String key, String value) {
+        try {
+            ClassLoader classLoader = Utils.getApp().getClassLoader();
+            Class SystemProperties = classLoader.loadClass("android.os.SystemProperties");
+            //参数类型
+            Class[] paramTypes = new Class[2];
+            paramTypes[0] = String.class;
+            paramTypes[1] = String.class;
+            Method set = SystemProperties.getMethod("set", paramTypes);
+            //参数
+            Object[] params = new Object[2];
+            params[0] = new String(key);
+            params[1] = new String(value);
+            set.invoke(SystemProperties, params);
+        } catch (IllegalArgumentException e) {
+            //e.printStackTrace();
+            //如果key超过32个字符则抛出该异常
+            Log.e("tlh", TAG + ":" + e.getMessage());
+        } catch (Exception e) {
+            Log.e("tlh", TAG + ":" + e.getMessage());
+        }
     }
 
 

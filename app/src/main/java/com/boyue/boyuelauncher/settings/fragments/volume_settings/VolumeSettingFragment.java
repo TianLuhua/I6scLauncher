@@ -2,6 +2,7 @@ package com.boyue.boyuelauncher.settings.fragments.volume_settings;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,7 +78,15 @@ public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                getPresenter().setSystemBootMaxVolume(seekBar.getProgress());
+
+                //最大开机音量受到系统最音量的限制
+                int systemVoluem = getPresenter().getSystemCurrentMaxStreamVolume();
+                if (seekBar.getProgress() > systemVoluem) {
+                    seekBar.setProgress(systemVoluem);
+                    getPresenter().setSystemBootMaxVolume(systemVoluem);
+                } else {
+                    getPresenter().setSystemBootMaxVolume(seekBar.getProgress());
+                }
             }
         });
         bootfMaxVolumeLeve = rootview.findViewById(R.id.power_off_max_volume_leve);
@@ -92,6 +101,9 @@ public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView
 
     @Override
     public void setSystMaxVolume(int systemMaxVolume, int currentMaxStreamVolume, int bootMaxVolume, int currentBootMaxVolume) {
+
+
+        LogUtils.e("tlh", "systemMaxVolume:" + systemMaxVolume + ",currentMaxStreamVolume:" + currentMaxStreamVolume + ",bootMaxVolume:" + bootMaxVolume + ",currentBootMaxVolume:" + currentBootMaxVolume);
         //系统最大音量相关(系统允许的和用户设定的)
         maxVolumeSeekBar.setMax(systemMaxVolume);
         maxVolumeSeekBar.setProgress(currentMaxStreamVolume);

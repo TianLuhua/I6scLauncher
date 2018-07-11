@@ -76,7 +76,9 @@ public class Config {
         //控制系统音量相关
         public static final String BOOYUE_STREAMMAXVOLUME_ACTION = "com.booyue.android.stream.max";
         public static final String BOOYUE_STREAMMAXVOLUME_KEY = "maxVolume";
-        public static final String BOOYUE_BOOTMAXVOLUME_KEY = "bootMaxVolume";
+
+        //用于保存开机音量的key
+        public static final String BOOT_VOLUME = "hw.boot.volume";
 
     }
 
@@ -197,6 +199,7 @@ public class Config {
 
         //用于保存 主界面切换时候，播放对应音频的key
         public static final String HHTLY_AUDIO_KEY = "audio_item";
+
     }
 
     //Launcher中需要用到的资源

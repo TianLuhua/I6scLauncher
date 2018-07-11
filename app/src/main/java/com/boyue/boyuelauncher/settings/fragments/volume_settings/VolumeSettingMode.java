@@ -5,9 +5,12 @@ import android.media.AudioManager;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.base.BaseMode;
+import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
+import com.boyue.boyuelauncher.utils.SystemPropertiesUtils;
 
-import static com.boyue.boyuelauncher.Config.BoYueAction.BOOYUE_BOOTMAXVOLUME_KEY;
+import static com.boyue.boyuelauncher.Config.BoYueAction.BOOT_VOLUME;
+
 
 public class VolumeSettingMode implements BaseMode {
 
@@ -49,21 +52,26 @@ public class VolumeSettingMode implements BaseMode {
         return audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
     }
 
-    //系统设置的开机音量最大值
+
+    //当前开机音量的最大值
     public int getSystemBootMaxVolume() {
         return audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
     }
 
 
-    //用户设置的开机音量最大值
+    //获取用户设置的开机音量最大值
     public int getSystemurrentBootMaxVolume() {
-        return spUtils.getInt(BOOYUE_BOOTMAXVOLUME_KEY);
+        float volume = Float.valueOf(SystemPropertiesUtils.getString(BOOT_VOLUME, "" + 0.5));
+        return (int) (volume * 15);
     }
 
-    //当前开机音量的最大值
-    public int getSystemCurrentBootVolume() {
-        return audioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+    //用户设置的开机音量最大值
+    public void setSystemurrentBootMaxVolume(int volume) {
+        float temp = volume / 15;
+        LogUtils.e("tlh", "VolumeSettingMode---setSystemurrentBootMaxVolume:" + temp);
+        SystemPropertiesUtils.set(BOOT_VOLUME, "" + temp);
     }
+
 
     @Override
     public void onDestroy() {

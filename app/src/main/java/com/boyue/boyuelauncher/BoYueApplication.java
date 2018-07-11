@@ -12,7 +12,6 @@ import com.boyue.boyuelauncher.utils.SPUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import com.boyue.boyuelauncher.utils.Utils;
 
-import static com.boyue.boyuelauncher.Config.BoYueAction.BOOYUE_BOOTMAXVOLUME_KEY;
 import static com.boyue.boyuelauncher.Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY;
 import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_OFF;
 import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_ON;
@@ -61,7 +60,6 @@ public class BoYueApplication extends Application {
             spUtils.put(DEFAULT_LED_KEY, 1);
             //默认系统最大音量和开机音量值
             spUtils.put(BOOYUE_STREAMMAXVOLUME_KEY, audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
-            spUtils.put(BOOYUE_BOOTMAXVOLUME_KEY, audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
         }
 //        spUtils.clear();//清空sp中的数据
         LogUtils.e("tlh", "SPUtils:" + spUtils.getAll().toString());

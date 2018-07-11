@@ -3,7 +3,6 @@ package com.boyue.boyuelauncher.settings.fragments.volume_settings;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
-import android.widget.ProgressBar;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.base.AbstractPresenter;
@@ -41,6 +40,15 @@ public class VolumeSettingPersenter extends AbstractPresenter<VolumeSettingView>
     }
 
     public void setSystemMaxVolume(final int progress) {
+
+        //如果系统档当前的音量大于用户设置的最大音量，就将当前的音量设置成用户设置的音量值
+        if (mode.getSystemCurrentStreamVolume() > progress) {
+            audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+        }
+        //将用户设置的最大音量保存至sp
+        spUtils.put(Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY, progress);
+
+        //通知驱动层，
         ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
             @Override
             public void run() {
@@ -50,32 +58,16 @@ public class VolumeSettingPersenter extends AbstractPresenter<VolumeSettingView>
                 LogUtils.e("tlh", "com.booyue.android.stream.max---Action:" + progress);
             }
         });
-
-        //将用户设置的最大音量保存至sp
-        spUtils.put(Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY, progress);
-
-
-        //如果系统档当前的音量大于用户设置的最大音量，就将当前的音量设置成用户设置的音量值
-        if (mode.getSystemCurrentStreamVolume() > progress) {
-             setSystemCurrentVolume(progress);
-        }
     }
 
-    private void setSystemCurrentVolume(int currentVolume) {
-        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, currentVolume, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
-    }
 
+    public int getSystemCurrentMaxStreamVolume() {
+        return mode.getSystemCurrentMaxStreamVolume();
+    }
 
     //保存用户设置的开机音量最大值
     public void setSystemBootMaxVolume(int bootMaxVolume) {
-
-        spUtils.put(Config.BoYueAction.BOOYUE_BOOTMAXVOLUME_KEY, bootMaxVolume);
-
-        //如果系统档当前的开机音量大于用户设置的最大开机音量，就将当前的音量设置成用户设置的音量值
-        if (mode.getSystemCurrentBootVolume() > bootMaxVolume) {
-
-        }
-
+        mode.setSystemurrentBootMaxVolume(bootMaxVolume);
     }
 
     @Override
