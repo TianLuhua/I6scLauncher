@@ -58,7 +58,12 @@ public class VolumeSettingFragment extends AbstractMVPFragment<VolumeSettingView
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                getPresenter().setSystemMaxVolume(seekBar.getProgress());
+                int volume = seekBar.getProgress();
+                getPresenter().setSystemMaxVolume(volume);
+                if (getPresenter().getSystemurrentBootMaxVolume() > volume) {
+                    bootMaxVolumeSeekBar.setProgress(volume);
+                }
+
             }
         });
         maxVolumeLeve = rootview.findViewById(R.id.max_volume_leve);

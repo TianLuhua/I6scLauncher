@@ -65,6 +65,10 @@ public class VolumeSettingPersenter extends AbstractPresenter<VolumeSettingView>
         return mode.getSystemCurrentMaxStreamVolume();
     }
 
+    public int getSystemurrentBootMaxVolume() {
+        return mode.getSystemurrentBootMaxVolume();
+    }
+
     //保存用户设置的开机音量最大值
     public void setSystemBootMaxVolume(int bootMaxVolume) {
         mode.setSystemurrentBootMaxVolume(bootMaxVolume);
