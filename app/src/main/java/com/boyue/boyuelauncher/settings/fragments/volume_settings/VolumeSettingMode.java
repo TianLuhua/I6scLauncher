@@ -67,9 +67,11 @@ public class VolumeSettingMode implements BaseMode {
 
     //用户设置的开机音量最大值
     public void setSystemurrentBootMaxVolume(int volume) {
-        float temp = volume / 15;
-        LogUtils.e("tlh", "VolumeSettingMode---setSystemurrentBootMaxVolume:" + temp);
-        SystemPropertiesUtils.set(BOOT_VOLUME, "" + temp);
+        float temp = (float) volume / 15;
+        //保留一位小数
+        float i = ((float) (Math.round(temp * 10)) / 10);
+        LogUtils.e("tlh", "VolumeSettingMode---setSystemurrentBootMaxVolume:" + volume + "," + i);
+        SystemPropertiesUtils.set(BOOT_VOLUME, "" + i);
     }
 
 
