@@ -176,15 +176,10 @@ public class SystemPropertiesUtils {
             ClassLoader classLoader = Utils.getApp().getClassLoader();
             Class SystemProperties = classLoader.loadClass("android.os.SystemProperties");
             //参数类型
-            Class[] paramTypes = new Class[2];
-            paramTypes[0] = String.class;
-            paramTypes[1] = String.class;
-            Method set = SystemProperties.getMethod("set", paramTypes);
+            Method set = SystemProperties.getMethod("set", String.class, String.class);
             //参数
-            Object[] params = new Object[2];
-            params[0] = new String(key);
-            params[1] = new String(value);
-            set.invoke(SystemProperties, params);
+            set.invoke(SystemProperties, key, value);
+            LogUtils.e("tlh", "SystemPropertiesUtils---set:" + key + ",value:" + value);
         } catch (IllegalArgumentException e) {
             //e.printStackTrace();
             //如果key超过32个字符则抛出该异常

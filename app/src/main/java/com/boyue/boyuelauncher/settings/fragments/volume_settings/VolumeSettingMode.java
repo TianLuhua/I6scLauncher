@@ -62,6 +62,7 @@ public class VolumeSettingMode implements BaseMode {
     //获取用户设置的开机音量最大值
     public int getSystemurrentBootMaxVolume() {
         float volume = Float.valueOf(SystemPropertiesUtils.getString(BOOT_VOLUME, "" + 0.5));
+        LogUtils.e("tlh", "VolumeSettingMode---getSystemurrentBootMaxVolume:" + volume);
         return (int) (volume * 15);
     }
 
