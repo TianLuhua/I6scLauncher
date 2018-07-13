@@ -11,6 +11,7 @@ import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import com.boyue.boyuelauncher.utils.Utils;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY;
 import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_OFF;
@@ -31,6 +32,7 @@ public class BoYueApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        CrashReport.initCrashReport(getApplicationContext(), "0708b7aed2", false);
         Utils.init(this);
         //初始化系统SharedPreferences
         final SPUtils spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);

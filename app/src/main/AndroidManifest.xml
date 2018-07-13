@@ -13,7 +13,6 @@
 
     <!-- 以下是使用wifi访问网络所需的权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
@@ -34,11 +33,16 @@
     <!-- 向SDCard写入数据权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!--Bugly权限-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
 
     <application
         android:name=".BoYueApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/hht"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -151,12 +155,12 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".service.SystemSettingsService" >
+        <service android:name=".service.SystemSettingsService">
             <intent-filter>
                 <action android:name="com.boyue.boyuelauncher.service.playaudio" />
             </intent-filter>
         </service>
-        <service android:name=".service.PlayAudioService"/>
+        <service android:name=".service.PlayAudioService" />
     </application>
 
 
