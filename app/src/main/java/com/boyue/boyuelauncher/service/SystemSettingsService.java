@@ -52,9 +52,7 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
     @Override
     public void onCreate() {
         super.onCreate();
-        mediaPlayer = new MediaPlayer();
-        mediaPlayer.setOnPreparedListener(this);
-        mediaPlayer.setOnCompletionListener(this);
+
 
     }
 
@@ -121,6 +119,12 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
 
             //播放背景音乐：在线宝箱、护眼提示音
             case Config.BoYueAction.PLAYAUDIO:
+                if (mediaPlayer == null) {
+                    LogUtils.e("tlh", "mediaPlayer == null");
+                    mediaPlayer = new MediaPlayer();
+                    mediaPlayer.setOnPreparedListener(this);
+                    mediaPlayer.setOnCompletionListener(this);
+                }
                 stopPlayer();
                 switch (intent.getIntExtra(HHTLY_AUDIO_KEY, -1)) {
                     case HHT_XT:
@@ -208,7 +212,10 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
     @Override
     public void onCompletion(MediaPlayer mp) {
         //stopSelf();
-        mediaPlayer.reset();
+        Log.e("tlh", "onCompletion");
+        if (mediaPlayer == null) return;
+        mediaPlayer.release();
+        mediaPlayer = null;
     }
 
     @Override
@@ -222,8 +229,6 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
     public void onDestroy() {
         super.onDestroy();
         Log.e("tlh", "onDestroy");
-        if (mediaPlayer == null) return;
-        mediaPlayer.release();
-        mediaPlayer = null;
+
     }
 }
