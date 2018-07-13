@@ -15,7 +15,6 @@ import android.util.Log;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
-import com.boyue.boyuelauncher.main.MainActivity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ScreenUtils;

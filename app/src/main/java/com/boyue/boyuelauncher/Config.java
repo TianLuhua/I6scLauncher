@@ -78,7 +78,7 @@ public class Config {
         public static final String BOOYUE_STREAMMAXVOLUME_KEY = "maxVolume";
 
         //用于保存开机音量的key
-        public static final String BOOT_VOLUME = "hw.boot.volume";
+        public static final String BOOT_VOLUME = "persist.sys.bootvol";
 
         //用于启动播放背景音乐的Action
         public static final String PLAYAUDIO = "com.boyue.boyuelauncher.service.playaudio";
