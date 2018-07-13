@@ -21,6 +21,7 @@ import com.boyue.boyuelauncher.receive.SystemReceiver;
 import com.boyue.boyuelauncher.service.PlayAudioService;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.PlayAudioUtils;
 import com.boyue.boyuelauncher.widget.MainTilteBar;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 
@@ -28,6 +29,7 @@ import java.util.List;
 
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XXKT_LAUNCHER;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XXKT_PACKAGE;
+import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_ZXBX;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_AUDIO_KEY;
 
 
@@ -41,7 +43,6 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     private ImageView xiaoxue_ketang;
 
     private MainPagerAdapter adapter;
-
 
 
     @Override
@@ -245,6 +246,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
                 radioGroup.check(R.id.hht_ly);
                 break;
             case 3:
+
                 radioGroup.check(R.id.hht_gx);
                 break;
         }
@@ -263,7 +265,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
      * @param position
      */
     private void startPlayAudio(int position) {
-        Intent intent = new Intent(MainActivity.this, PlayAudioService.class);
+        Intent intent = new Intent(Config.BoYueAction.PLAYAUDIO);
         intent.putExtra(HHTLY_AUDIO_KEY, position);
         startService(intent);
     }
@@ -282,7 +284,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
 
     private void startXiaoxue_ketang() {
         Toast.makeText(MainActivity.this, "小学课堂！", Toast.LENGTH_SHORT).show();
-        ActivityUtils.startApplicationWithComponent(HHT_XXKT_PACKAGE,HHT_XXKT_LAUNCHER);
+        ActivityUtils.startApplicationWithComponent(HHT_XXKT_PACKAGE, HHT_XXKT_LAUNCHER);
 
     }
 

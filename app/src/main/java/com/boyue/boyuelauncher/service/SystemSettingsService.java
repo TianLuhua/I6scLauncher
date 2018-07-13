@@ -18,6 +18,7 @@ import com.boyue.boyuelauncher.utils.ScreenUtils;
 import com.boyue.boyuelauncher.utils.ShutDownUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
+import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_PROTECT_EYE;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_AUDIO_KEY;
 
 
@@ -124,8 +125,8 @@ public class SystemSettingsService extends Service {
         LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
         if (distance == 0.0)
             //播放提示音
-            startPlayAudio(4);
-            ScreenUtils.setScreenBrightness(20);
+            startPlayAudio(HHT_PROTECT_EYE);
+        ScreenUtils.setScreenBrightness(20);
         if (distance == 5.0)
             ScreenUtils.setScreenBrightness(200);
     }
@@ -136,7 +137,7 @@ public class SystemSettingsService extends Service {
      * @param position
      */
     private void startPlayAudio(int position) {
-        Intent intent = new Intent(getApplication(), PlayAudioService.class);
+        Intent intent = new Intent(Config.BoYueAction.PLAYAUDIO);
         intent.putExtra(HHTLY_AUDIO_KEY, position);
         startService(intent);
     }

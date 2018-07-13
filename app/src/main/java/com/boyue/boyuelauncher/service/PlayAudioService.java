@@ -12,6 +12,11 @@ import com.boyue.boyuelauncher.R;
 
 import java.io.IOException;
 
+import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_AR;
+import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_LY;
+import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_PROTECT_EYE;
+import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_XT;
+import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_ZXBX;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_AUDIO_KEY;
 
 /**
@@ -42,17 +47,17 @@ public class PlayAudioService extends Service implements MediaPlayer.OnPreparedL
         Log.e("tlh", "onHandleIntent");
         stopPlayer();
         switch (intent.getIntExtra(HHTLY_AUDIO_KEY, -1)) {
-            case 0:
+            case HHT_XT:
                 //火火兔学堂
                 break;
             //火火兔AR
-            case 1:
+            case HHT_AR:
                 break;
             //火火兔乐园
-            case 2:
+            case HHT_LY:
                 break;
             //在线宝箱
-            case 3:
+            case HHT_ZXBX:
                 try {
                     mediaPlayer.setDataSource(PlayAudioService.this, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hht_zxbx));
                     mediaPlayer.prepare();
@@ -61,7 +66,7 @@ public class PlayAudioService extends Service implements MediaPlayer.OnPreparedL
                 }
                 break;
             //护眼提示音
-            case 4:
+            case HHT_PROTECT_EYE:
                 try {
                     mediaPlayer.setDataSource(PlayAudioService.this, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hht_protext_eye));
                     mediaPlayer.prepare();
@@ -100,7 +105,7 @@ public class PlayAudioService extends Service implements MediaPlayer.OnPreparedL
     public void onDestroy() {
         super.onDestroy();
         Log.e("tlh", "onDestroy");
-        mediaPlayer.reset();
+        mediaPlayer.release();
         mediaPlayer = null;
     }
 

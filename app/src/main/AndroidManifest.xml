@@ -154,7 +154,7 @@
         <service android:name=".service.SystemSettingsService" />
         <service android:name=".service.PlayAudioService">
             <intent-filter>
-                <action android:name="com.boyue.boyuelauncher.service.playaudio.service" />
+                <action android:name="com.boyue.boyuelauncher.service.playaudio" />
             </intent-filter>
         </service>
     </application>

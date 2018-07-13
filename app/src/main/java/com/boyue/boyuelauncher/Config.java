@@ -80,16 +80,27 @@ public class Config {
         //用于保存开机音量的key
         public static final String BOOT_VOLUME = "hw.boot.volume";
 
+        //用于启动播放背景音乐的Action
+        public static final String PLAYAUDIO = "com.boyue.boyuelauncher.service.playaudio";
+
     }
 
     /**
      * Handler相关的what值
      */
     public static class HandlerGlod {
-        public static final int ACTIVITY_CLEANCACHE_START_CLEANCACHE = 0X00001;
-        public static final int ACTIVITY_CLEANCACHE_END_CLEANCACHE = 0X00002;
-        public static final int ACTIVITY_PROTECTEYELOCKSCREENACTIVITY_DELAY = 0X00003;
 
+        //播放背景音乐所用到的flag
+        public static final int HHT_XT = 0X00000;//火火兔学堂
+        public static final int HHT_AR = 0X00001;//火火兔AR
+        public static final int HHT_LY = 0X00002; //火火兔乐园
+        public static final int HHT_ZXBX = 0X00003;//在线宝箱
+        public static final int HHT_PROTECT_EYE = 0X00004;//护眼
+
+
+        public static final int ACTIVITY_CLEANCACHE_START_CLEANCACHE = 0X00005;
+        public static final int ACTIVITY_CLEANCACHE_END_CLEANCACHE = 0X00006;
+        public static final int ACTIVITY_PROTECTEYELOCKSCREENACTIVITY_DELAY = 0X00007;
     }
 
     /**
@@ -103,7 +114,7 @@ public class Config {
     }
 
     /**
-     * 系统涉及到的敏感权限申请,可能升级见到Android M
+     * 系统涉及到的敏感权限申请,可能升级到Android M
      */
     public static class Permission {
         public static final String LOCATION_PERMISSION = Manifest.permission.ACCESS_FINE_LOCATION;
