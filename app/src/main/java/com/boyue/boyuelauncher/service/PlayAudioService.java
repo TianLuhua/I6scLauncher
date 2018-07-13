@@ -43,7 +43,7 @@ public class PlayAudioService extends Service implements MediaPlayer.OnPreparedL
         stopPlayer();
         switch (intent.getIntExtra(HHTLY_AUDIO_KEY, -1)) {
             case 0:
-            //火火兔学堂
+                //火火兔学堂
                 break;
             //火火兔AR
             case 1:
@@ -59,6 +59,16 @@ public class PlayAudioService extends Service implements MediaPlayer.OnPreparedL
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                break;
+            //护眼提示音
+            case 4:
+                try {
+                    mediaPlayer.setDataSource(PlayAudioService.this, Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hht_protext_eye));
+                    mediaPlayer.prepare();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 break;
         }
 
@@ -91,7 +101,7 @@ public class PlayAudioService extends Service implements MediaPlayer.OnPreparedL
         super.onDestroy();
         Log.e("tlh", "onDestroy");
         mediaPlayer.reset();
-        mediaPlayer=null;
+        mediaPlayer = null;
     }
 
 }

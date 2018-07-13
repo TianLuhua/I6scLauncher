@@ -11,11 +11,14 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 
 import com.boyue.boyuelauncher.Config;
+import com.boyue.boyuelauncher.main.MainActivity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ScreenUtils;
 import com.boyue.boyuelauncher.utils.ShutDownUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
+
+import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_AUDIO_KEY;
 
 
 /**
@@ -120,11 +123,23 @@ public class SystemSettingsService extends Service {
         float distance = event.values[0];
         LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
         if (distance == 0.0)
+            //播放提示音
+            startPlayAudio(4);
             ScreenUtils.setScreenBrightness(20);
         if (distance == 5.0)
             ScreenUtils.setScreenBrightness(200);
     }
 
+    /**
+     * 播放选中界面的音频文件
+     *
+     * @param position
+     */
+    private void startPlayAudio(int position) {
+        Intent intent = new Intent(getApplication(), PlayAudioService.class);
+        intent.putExtra(HHTLY_AUDIO_KEY, position);
+        startService(intent);
+    }
 
     @Override
     public void onDestroy() {
