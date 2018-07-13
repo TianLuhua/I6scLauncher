@@ -7,10 +7,14 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.boyue.boyuelauncher.Config;
+import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.MainActivity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
@@ -18,14 +22,20 @@ import com.boyue.boyuelauncher.utils.ScreenUtils;
 import com.boyue.boyuelauncher.utils.ShutDownUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
+import java.io.IOException;
+
+import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_AR;
+import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_LY;
 import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_PROTECT_EYE;
+import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_XT;
+import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_ZXBX;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_AUDIO_KEY;
 
 
 /**
  * 主要用来定时休息和自动关机、护眼传感器的响应
  */
-public class SystemSettingsService extends Service {
+public class SystemSettingsService extends Service implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener {
 
     public static String TAG = SystemSettingsService.class.getSimpleName();
 
@@ -35,9 +45,16 @@ public class SystemSettingsService extends Service {
     private SensorEventListener mGnPSensorEventListener;
 
 
+    //播放背景音乐相关
+    private MediaPlayer mediaPlayer;
+
+
     @Override
     public void onCreate() {
         super.onCreate();
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.setOnPreparedListener(this);
+        mediaPlayer.setOnCompletionListener(this);
 
     }
 
@@ -102,6 +119,42 @@ public class SystemSettingsService extends Service {
                 }
                 break;
 
+            //播放背景音乐：在线宝箱、护眼提示音
+            case Config.BoYueAction.PLAYAUDIO:
+                stopPlayer();
+                switch (intent.getIntExtra(HHTLY_AUDIO_KEY, -1)) {
+                    case HHT_XT:
+                        //火火兔学堂
+                        break;
+                    //火火兔AR
+                    case HHT_AR:
+                        break;
+                    //火火兔乐园
+                    case HHT_LY:
+                        break;
+                    //在线宝箱
+                    case HHT_ZXBX:
+                        try {
+                            mediaPlayer.setDataSource(getApplication(), Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hht_zxbx));
+                            mediaPlayer.prepare();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    //护眼提示音
+                    case HHT_PROTECT_EYE:
+                        try {
+                            mediaPlayer.setDataSource(getApplication(), Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.hht_protext_eye));
+                            mediaPlayer.prepare();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        break;
+                }
+
+                break;
+
         }
         return START_STICKY;
 
@@ -142,8 +195,35 @@ public class SystemSettingsService extends Service {
         startService(intent);
     }
 
+
+    private void stopPlayer() {
+        if (mediaPlayer == null) return;
+        if (mediaPlayer.isPlaying()) {
+            Log.e("tlh", "isPlaying");
+            mediaPlayer.stop();
+            mediaPlayer.reset();
+        }
+    }
+
+    @Override
+    public void onCompletion(MediaPlayer mp) {
+        //stopSelf();
+        mediaPlayer.reset();
+    }
+
+    @Override
+    public void onPrepared(MediaPlayer mp) {
+        Log.e("tlh", "onPrepared");
+        if (mediaPlayer == null) return;
+        mediaPlayer.start();
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Log.e("tlh", "onDestroy");
+        if (mediaPlayer == null) return;
+        mediaPlayer.release();
+        mediaPlayer = null;
     }
 }

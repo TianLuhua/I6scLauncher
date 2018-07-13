@@ -151,12 +151,12 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".service.SystemSettingsService" />
-        <service android:name=".service.PlayAudioService">
+        <service android:name=".service.SystemSettingsService" >
             <intent-filter>
                 <action android:name="com.boyue.boyuelauncher.service.playaudio" />
             </intent-filter>
         </service>
+        <service android:name=".service.PlayAudioService"/>
     </application>
 
 
