@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
+import android.provider.Settings;
 
 import com.boyue.boyuelauncher.service.SystemSettingsService;
 import com.boyue.boyuelauncher.utils.LockScreenUtils;
@@ -13,6 +14,7 @@ import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import com.boyue.boyuelauncher.utils.Utils;
 import com.tencent.bugly.crashreport.CrashReport;
 
+import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 import static com.boyue.boyuelauncher.Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY;
 import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_OFF;
 import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_ON;
@@ -44,24 +46,36 @@ public class BoYueApplication extends Application {
         if (SPUtils.DEFAULT_STRING.equals(bootPwd)) {
             //初始化默认密码
             spUtils.put(Config.PassWordKey.BOOT_PWD_NAME, Config.PassWordKey.DEFAULT_BOOTPWD);
+
             //默认不启用密码
             spUtils.put(Config.PassWordKey.PWD_IS_ENABLE, false);
+
             //默认不启用防沉迷密码
             spUtils.put(Config.PassWordKey.FCM_PWD_NAME, false);
+
             //默认关闭启定时休息
             spUtils.put(Config.PassWordKey.REGULAR_REST_KEY, Config.Settings.VALUE_NEVER);
+
+            //默认屏幕休眠为从不休眠
+            Settings.System.putInt(getContentResolver(), SCREEN_OFF_TIMEOUT, Config.Settings.VALUE_NEVER);
+
             //默认关闭定时锁定
             spUtils.put(Config.PassWordKey.TIMING_LOCKING_KEY, Config.Settings.VALUE_NEVER);
+
             //默认关闭自动关机
             spUtils.put(Config.PassWordKey.AUTO_SHUTDOWN_KEY, Config.Settings.VALUE_NEVER);
+
             //默认关闭定时关机
             spUtils.put(Config.PassWordKey.ONTIME_SHUTDOWN_KEY, Config.Settings.VALUE_NEVER);
+
             //默认开启护眼关闭护眼传感器
             spUtils.put(Config.PassWordKey.PROTECT_EYE_SENSOR_ENABLE_KEY, false);
-//            //刷机第一次，耳灯默认是开启的状态
-//            spUtils.put(DEFAULT_LED_KEY, 1);
-//            //默认系统最大音量和开机音量值
-//            spUtils.put(BOOYUE_STREAMMAXVOLUME_KEY, audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
+
+            //刷机第一次，耳灯默认是开启的状态
+            spUtils.put(DEFAULT_LED_KEY, 1);
+
+            //默认系统最大音量和开机音量值
+            spUtils.put(BOOYUE_STREAMMAXVOLUME_KEY, audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
         }
 //        spUtils.clear();//清空sp中的数据
         LogUtils.e("tlh", "SPUtils:" + spUtils.getAll().toString());
