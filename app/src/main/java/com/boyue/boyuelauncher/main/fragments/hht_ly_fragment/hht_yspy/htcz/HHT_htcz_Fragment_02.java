@@ -14,10 +14,13 @@ import com.boyue.boyuelauncher.main.fragments.base.ItemBaseFragment;
 import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.hht_yspy.syzl.HHT_yszl_Fragment_01;
+import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_YSPY_HTCZ_09;
 
 public class HHT_htcz_Fragment_02 extends ItemBaseFragment {
 
@@ -51,6 +54,7 @@ public class HHT_htcz_Fragment_02 extends ItemBaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
+                        ActivityUtils.startApplicationWithPackageName(HHT_LY_YSPY_HTCZ_09);
                         break;
 
                 }

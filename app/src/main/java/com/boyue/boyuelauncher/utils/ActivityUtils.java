@@ -68,6 +68,7 @@ public class ActivityUtils {
             packageinfo = manager.getPackageInfo(packagename, 0);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
+            Toast.makeText(Utils.getApp(), "Not Found Package", Toast.LENGTH_SHORT).show();
         }
         if (packageinfo == null) {
             return;

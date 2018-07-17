@@ -392,11 +392,7 @@ public class Config {
 
 
         /*----------------------------------火火兔乐园-----------------------------------------------*/
-        public static final String HHT_LY_KLOK = "";
-        public static final String HHT_LY_ENGLISH_SING = "";
         public static final String HHT_LY_KING_STORY = "故事王国";
-        public static final String HHT_LY_ART_TRAIN = "";
-        public static final String HHT_LY_YZ_GAME = "";
         public static final String HHT_LY_BABY_CAMERA = "com.android.camera2";// com.android.camera2/com.android.camera.CameraLauncher
 
         //火火兔乐园---- 卡拉ok ---经典儿歌
@@ -502,6 +498,25 @@ public class Config {
         public static final String HHT_LY_KALAOK_YWEG_18 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Walking_Walking_Song_Hop_Hop.mp4";
         public static final String HHT_LY_KALAOK_YWEG_19 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Wiggle_It_Wiggle_Dance_Wiggles_Songs.mp4";
         public static final String HHT_LY_KALAOK_YWEG_20 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "Winter_Hokey_Pokey_Song_for_Kids.mp4";
+
+        //火火兔乐园---- 艺术培养 ---智趣音乐
+        public static final String HHT_LY_YSPY_ZQYY_01 = "";
+        public static final String HHT_LY_YSPY_ZQYY_02 = "";
+        public static final String HHT_LY_YSPY_ZQYY_03 = "";
+        public static final String HHT_LY_YSPY_ZQYY_04 = "";
+        public static final String HHT_LY_YSPY_ZQYY_05 = "";
+        public static final String HHT_LY_YSPY_ZQYY_06 = "";
+        public static final String HHT_LY_YSPY_ZQYY_07 = "";
+        //火火兔乐园---- 艺术培养 ---画图创作
+        public static final String HHT_LY_YSPY_HTCZ_01 = "";
+        public static final String HHT_LY_YSPY_HTCZ_02 = "";
+        public static final String HHT_LY_YSPY_HTCZ_03 = "";
+        public static final String HHT_LY_YSPY_HTCZ_04 = "";
+        public static final String HHT_LY_YSPY_HTCZ_05 = "";
+        public static final String HHT_LY_YSPY_HTCZ_06 = "";
+        public static final String HHT_LY_YSPY_HTCZ_07 = "";
+        public static final String HHT_LY_YSPY_HTCZ_08 = "";
+        public static final String HHT_LY_YSPY_HTCZ_09 = "";
 
         //火火兔乐园---- 艺术培养 ---艺术之旅
         public static final String HHT_LY_YSPY_YSZL_ROOT_PATH = "/system/videos/leyuan/yishupeiyang/yishuzhilv/";
