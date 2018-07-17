@@ -103,9 +103,19 @@ public class BoYueApplication extends Application {
                 Intent intent = new Intent();
                 intent.setAction(spUtils.getInt(DEFAULT_LED_KEY) == 1 ? COLOR_EAR_ON : COLOR_EAR_OFF);
                 Utils.getApp().sendBroadcast(intent);
+                LogUtils.e("tlh", "BoYueApplication---初始化耳灯状态：" + spUtils.getInt(DEFAULT_LED_KEY));
             }
         });
 
-
+        //初始化最系统大音量值
+        ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_ACTION);
+                intent.putExtra(Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY, spUtils.getInt(Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY));
+                Utils.getApp().sendBroadcast(intent);
+                LogUtils.e("tlh", "BoYueApplication---初始化最系统大音量值：" +spUtils.getInt(Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY));
+            }
+        });
     }
 }
