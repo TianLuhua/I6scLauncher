@@ -32,7 +32,7 @@ public class AdvanceSettingMode implements BaseMode {
         String firmwareVersion = getFirmwareVersion();
 
         //检查系统是否有更新
-        boolean hasUpdateVersion = true;
+        boolean hasUpdateVersion = false;
 
         callBack.setSystemParameter(builder.toString(), deviceModle, firmwareVersion, hasUpdateVersion);
     }
