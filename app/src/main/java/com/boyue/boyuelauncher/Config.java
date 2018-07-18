@@ -40,7 +40,11 @@ public class Config {
         public static final String ACTIVITY_ACTION_ZXBX_CARTOON = "com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.cartoon";
 
         //重置密码的点击次数
-        public static int RESET_PASSWORD = 8;
+        public static int RESET_PASSWORD_CLICK_NUMBER = 8;
+
+        //连续点击，调出系统Settings
+        public static int REQUST_SYSTEM_SETITNGS_CLICK_NUMBER = 8;
+        public static String REQUST_SYSTEM_SETITNGS_PASSWORD = "0001";
 
         //自定义连接usb充电的Action
         public static final String COM_BOYUE_ACTION_POWER_CONNECTED = "com.boyue.action.action_power_connected";
@@ -111,6 +115,7 @@ public class Config {
         public static final String SETTING_ENABLE_FCM_PASSWORD = "setting_enable_fcm_password";
         public static final String SETTING_FCM_CHANGEPASSWORD = "setting_fcm_changepassword";
         public static final String SETTING_FACTORY_SETTING = "Setting_Factory_Setting";
+        public static final String REQUST_SYSTEM_SETTINGS = "requst_system_settings";
     }
 
     /**

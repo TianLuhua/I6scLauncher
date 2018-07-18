@@ -15,9 +15,7 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
-import org.w3c.dom.Text;
-
-import static com.boyue.boyuelauncher.Config.BoYueAction.RESET_PASSWORD;
+import static com.boyue.boyuelauncher.Config.BoYueAction.RESET_PASSWORD_CLICK_NUMBER;
 
 
 /**
@@ -176,7 +174,7 @@ public class Setting_FCM_ChangePassWordDialog extends DialogFragment implements 
                 notfication.delete();
 
                 clickDeleteButtonCounter++;
-                if (clickDeleteButtonCounter == RESET_PASSWORD) {
+                if (clickDeleteButtonCounter == RESET_PASSWORD_CLICK_NUMBER) {
                     notfication.reSetPassWord();
                 }
                 //避免删除pwdBuilder中的密码时候，数组下标溢出

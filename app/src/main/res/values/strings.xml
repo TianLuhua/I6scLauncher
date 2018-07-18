@@ -109,6 +109,7 @@
     <string name="update_one_key">一键升级</string>
     <string name="immediately_reboot">立即重启</string>
     <string name="update_success">升级成功！请点击按钮重启或者稍后手动重启。</string>
+    <string name="requst_system_settings">请输入密码</string>
 
 
     <string name="free_capacity">内置存储剩余空间</string>

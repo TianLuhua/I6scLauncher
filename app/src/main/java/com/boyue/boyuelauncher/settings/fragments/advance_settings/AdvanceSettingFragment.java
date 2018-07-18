@@ -10,16 +10,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.VerticalImageSpan;
+import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Factory_SettingDialog;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_SYSTEM_UPDATE;
+import static com.boyue.boyuelauncher.Config.BoYueAction.REQUST_SYSTEM_SETITNGS_CLICK_NUMBER;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.FILE_MANGER_LAUNCHER;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.FILE_MANGER_PACKAGE;
 
@@ -31,6 +35,9 @@ public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingVi
     private RelativeLayout factorySettingSwitch;
     private RelativeLayout fileManager;
     private TextView versionUpdateText;
+
+    private RelativeLayout device_model;
+    private int requst_system_settings_has_clicked = 0;
 
 
     public static AdvanceSettingFragment newInstance() {
@@ -62,6 +69,11 @@ public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingVi
         factorySettingSwitch.setOnClickListener(this);
         versionUpdateText = rootview.findViewById(R.id.version_update);
         versionUpdateText.setOnClickListener(this);
+
+        //连续点击启动系统Settings
+        device_model = rootview.findViewById(R.id.device_model);
+        device_model.setOnClickListener(this);
+
         getPresenter().getSystemParameter();
     }
 
@@ -74,8 +86,8 @@ public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingVi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.factory_setting:
-                final Setting_Factory_SettingDialog dialog = new Setting_Factory_SettingDialog();
-                dialog.setNotification(new Setting_Factory_SettingDialog.Notification() {
+                final Setting_Factory_SettingDialog factorySettingDialog = new Setting_Factory_SettingDialog();
+                factorySettingDialog.setNotification(new Setting_Factory_SettingDialog.Notification() {
                     @Override
                     public void onLeftClick(View v) {
                         //恢复出厂设置
@@ -84,10 +96,10 @@ public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingVi
 
                     @Override
                     public void onRightClick(View v) {
-                        dialog.dismiss();
+                        factorySettingDialog.dismiss();
                     }
                 });
-                dialog.show(getFragmentManager(), Config.DialogGlod.SETTING_FACTORY_SETTING);
+                factorySettingDialog.show(getFragmentManager(), Config.DialogGlod.SETTING_FACTORY_SETTING);
                 break;
             case R.id.file_manager:
                 LogUtils.e("tlh", "AdvanceSettingFragment---file_manger");
@@ -96,6 +108,50 @@ public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingVi
             case R.id.version_update:
                 //启动固件升级界面
                 ActivityUtils.setActivityConfig(ACTIVITY_SYSTEM_UPDATE);
+                break;
+            case R.id.device_model:
+                //启动系统Settings界面，需要密码验证
+                requst_system_settings_has_clicked++;
+                if (requst_system_settings_has_clicked == REQUST_SYSTEM_SETITNGS_CLICK_NUMBER) {
+                    requst_system_settings_has_clicked = 0;
+                    final Setting_FCM_ChangePassWordDialog dialog = new Setting_FCM_ChangePassWordDialog();
+                    dialog.setCancelable(false);
+                    dialog.setNotfication(new Setting_FCM_ChangePassWordDialog.Notfication() {
+                        @Override
+                        public void inputNumber(int number) {
+                            LogUtils.e("tlh", "inputNumber:" + number);
+                        }
+
+                        @Override
+                        public void cancel() {
+                            LogUtils.e("tlh", "cancel");
+                            dialog.dismiss();
+                        }
+
+                        @Override
+                        public void delete() {
+                            LogUtils.e("tlh", "delete");
+                        }
+
+                        @Override
+                        public void reSetPassWord() {
+
+                        }
+
+                        @Override
+                        public void hasInputNumbers(String pwd) {
+                            LogUtils.e("tlh", "hasInputNumbers:" + pwd);
+                            dialog.cleanPwdStatus();
+                            if (getPresenter().matchRequstSystemSettingPassword(pwd)) {
+                                getPresenter().startSystemSettings();
+                                dialog.dismiss();
+                            } else {
+                                dialog.setTieltT(R.string.input_pwd_error, R.color.color_red);
+                            }
+                        }
+                    });
+                    dialog.show(getFragmentManager(), Config.DialogGlod.REQUST_SYSTEM_SETTINGS);
+                }
                 break;
         }
 
