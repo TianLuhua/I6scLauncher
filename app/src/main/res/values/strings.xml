@@ -302,8 +302,8 @@
 
 
     <!--火火兔AR-->
-    <string name="hht_ar_item_name_101">AR英语</string>
-    <string name="hht_ar_item_name_102">AR数学</string>
+    <string name="hht_ar_item_name_101">奇趣字母秀</string>
+    <string name="hht_ar_item_name_102">奇趣数字秀</string>
     <string name="hht_ar_item_name_103">陆地动物</string>
     <string name="hht_ar_item_name_104">海洋动物</string>
     <string name="hht_ar_item_name_105">恐龙</string>

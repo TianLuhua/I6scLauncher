@@ -388,8 +388,8 @@ public class Config {
         public static final String HHT_XT_SAFE_KNOWLEDGE = "安全知识";
         /*----------------------------------火火兔学堂-----------------------------------------------*/
         //火火兔AR
-        public static final String HHT_AR_ENGLISH = "com.o2interaction.educationEnglish";//com.o2interaction.educationEnglish/.MainActivity
-        public static final String HHT_AR_MATH = "com.o2interaction.educationMath";// com.o2interaction.educationMath/.MainActivity
+        public static final String HHT_AR_ENGLISH = "com.ti.letter";//com.ti.letter/.APPBridge
+        public static final String HHT_AR_MATH = "com.xwb.shuzi";// com.xwb.shuzi/.APPBridge
         public static final String HHT_AR_LAND_ANIMAL = "com.o2design.animal";
         public static final String HHT_AR_OCEAN_ANIMAL = "com.o2design.animalofocean";
         public static final String HHT_AR_DINOSAUR = "com.o2design.Dinosaurs";
