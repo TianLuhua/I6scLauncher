@@ -11,6 +11,7 @@ import com.boyue.boyuelauncher.utils.LockScreenUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
+import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.utils.Utils;
 import com.tencent.bugly.crashreport.CrashReport;
 
@@ -34,7 +35,10 @@ public class BoYueApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        ToastUtil.isShowToast = false;
+        //初始化Bugly
         CrashReport.initCrashReport(getApplicationContext(), "0708b7aed2", false);
+        //初始化Utils
         Utils.init(this);
         //初始化系统SharedPreferences
         final SPUtils spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
@@ -128,7 +132,7 @@ public class BoYueApplication extends Application {
                 Intent intent = new Intent(Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_ACTION);
                 intent.putExtra(Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY, spUtils.getInt(Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY));
                 Utils.getApp().sendBroadcast(intent);
-                LogUtils.e("tlh", "BoYueApplication---初始化最系统大音量值：" +spUtils.getInt(Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY));
+                LogUtils.e("tlh", "BoYueApplication---初始化最系统大音量值：" + spUtils.getInt(Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY));
             }
         });
     }

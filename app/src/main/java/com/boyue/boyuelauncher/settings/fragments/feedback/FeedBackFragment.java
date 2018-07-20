@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
@@ -74,12 +75,14 @@ public class FeedBackFragment extends AbstractMVPFragment<FeedBackView, FeedBack
         if (NetworkUtils.isWifiConnected()) {
             String commtString = feedBackText.getText().toString();
             if (TextUtils.isEmpty(commtString)) {
-                ToastUtil.showShortToast("请填写反馈意见!");
+                Toast.makeText(getContext(), "请填写反馈意见!", Toast.LENGTH_SHORT).show();
+//                ToastUtil.showShortToast("请填写反馈意见!");
             } else {
                 getPresenter().feedBackCommit(commtString, null);
             }
         } else {
-            ToastUtil.showShortToast("请检查网络!");
+//            ToastUtil.showShortToast("请检查网络!");
+            Toast.makeText(getContext(), "请检查网络!", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -89,7 +92,8 @@ public class FeedBackFragment extends AbstractMVPFragment<FeedBackView, FeedBack
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                ToastUtil.showShortToast("反馈意见失败!");
+                Toast.makeText(getContext(), "反馈意见失败!", Toast.LENGTH_SHORT).show();
+//                ToastUtil.showShortToast("反馈意见失败!");
             }
         });
 
@@ -101,7 +105,8 @@ public class FeedBackFragment extends AbstractMVPFragment<FeedBackView, FeedBack
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                ToastUtil.showShortToast("反馈意见成功!");
+//                ToastUtil.showShortToast("反馈意见成功!");
+                Toast.makeText(getContext(), "反馈意见成功!", Toast.LENGTH_SHORT).show();
                 feedBackText.getText().clear();
             }
         });

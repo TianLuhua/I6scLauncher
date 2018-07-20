@@ -30,10 +30,10 @@ public class ActivityUtils {
                 Utils.getApp().startActivity(intent);
 
             } catch (ActivityNotFoundException e) {
-                Toast.makeText(Utils.getApp(), "Start Activity Error", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast( "Start Activity Error", Toast.LENGTH_SHORT);
             }
         } else {
-            Toast.makeText(Utils.getApp(), "Not Found Activity", Toast.LENGTH_SHORT).show();
+            ToastUtil.showToast( "Not Found Activity", Toast.LENGTH_SHORT);
         }
     }
 

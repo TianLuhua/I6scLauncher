@@ -14,6 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
@@ -312,7 +313,8 @@ public class FCMSettingFragment extends AbstractMVPFragment<FCMSettingView, FCMS
                                 StringBuilder builder = new StringBuilder();
                                 builder.append(getString(R.string.modify_pwd_ok));
                                 builder.append(pwd);
-                                ToastUtil.showLongToast(builder.toString());
+                                Toast.makeText(getContext(), builder.toString(), Toast.LENGTH_LONG).show();
+//                                ToastUtil.showLongToast(builder.toString());
                                 dialog.dismiss();
 
                             } else {

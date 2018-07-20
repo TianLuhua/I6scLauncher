@@ -2,12 +2,10 @@ package com.boyue.boyuelauncher.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -17,19 +15,18 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPActivity;
 import com.boyue.boyuelauncher.main.adapter.MainPagerAdapter;
-import com.boyue.boyuelauncher.receive.SystemReceiver;
-import com.boyue.boyuelauncher.service.PlayAudioService;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
-import com.boyue.boyuelauncher.utils.PlayAudioUtils;
+import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.MainTilteBar;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 
 import java.util.List;
 
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.FILE_MANGER_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.FILE_MANGER_PACKAGE;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XXKT_LAUNCHER;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_XXKT_PACKAGE;
-import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_ZXBX;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_AUDIO_KEY;
 
 
@@ -140,40 +137,35 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         tilteBar.setOnTitleBarClickListener(new MainTilteBar.OnTitleBarClickListener() {
             @Override
             public void onBackClick(View view) {
-
-
                 AudioManager audioMa = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
                 audioMa.adjustStreamVolume(AudioManager.STREAM_MUSIC,
                         AudioManager.ADJUST_SAME, AudioManager.FLAG_PLAY_SOUND
                                 | AudioManager.FLAG_SHOW_UI);
-
-
-                Toast.makeText(MainActivity.this, "Set System volume", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast("Set System volume", Toast.LENGTH_SHORT);
             }
 
             @Override
             public void onSettingsClick(View view) {
-                Toast.makeText(MainActivity.this, "SETTINGS", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast("SETTINGS", Toast.LENGTH_SHORT);
                 startSettings();
-
             }
 
             @Override
             public void onWiFiManagerClick(View view) {
-                Toast.makeText(MainActivity.this, "WIFI", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast("WIFI", Toast.LENGTH_SHORT);
                 startWiFiManager();
-
             }
 
             @Override
             public void onSDIconClick(View view) {
-                Toast.makeText(MainActivity.this, "SD", Toast.LENGTH_SHORT).show();
+                ToastUtil.showToast("SD", Toast.LENGTH_SHORT);
+                ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE, FILE_MANGER_LAUNCHER);
             }
 
             @Override
             public void onUSBIconClick(View view) {
-                Toast.makeText(MainActivity.this, "USB", Toast.LENGTH_SHORT).show();
-
+                ToastUtil.showToast("USB", Toast.LENGTH_SHORT);
+                ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE, FILE_MANGER_LAUNCHER);
             }
         });
     }
@@ -283,7 +275,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     }
 
     private void startXiaoxue_ketang() {
-        Toast.makeText(MainActivity.this, "小学课堂！", Toast.LENGTH_SHORT).show();
+        ToastUtil.showToast("小学课堂！", Toast.LENGTH_SHORT);
         ActivityUtils.startApplicationWithComponent(HHT_XXKT_PACKAGE, HHT_XXKT_LAUNCHER);
 
     }

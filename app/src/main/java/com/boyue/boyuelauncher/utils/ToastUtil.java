@@ -11,8 +11,10 @@ public class ToastUtil {
     protected static Toast toast = null;
     private static long oneTime = 0;
     private static long twoTime = 0;
+    public static boolean isShowToast = true;
 
     public static void showToast(String s, int duration) {
+        if (!isShowToast) return;
         if (toast == null) {
             toast = Toast.makeText(Utils.getApp(), s, duration);
             toast.show();

@@ -119,7 +119,7 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
             ToastUtil.showShortToast("已经配置----启动连接：" + true);
         } else {//新的连接
             if (wifiType != 0) {//需要密码
-                final Setting_WiFi_AddNetworkDialog build = new Setting_WiFi_AddNetworkDialog((WiFiManagerActivity)getView(), R.style.Stlye_wifi_settings_dialog);
+                final Setting_WiFi_AddNetworkDialog build = new Setting_WiFi_AddNetworkDialog((WiFiManagerActivity) getView(), R.style.Stlye_wifi_settings_dialog);
                 final AlertDialog dialog = build.create();
                 build.setTitleText(R.string.connect_network);
                 build.setBtnString(R.string.cancel, R.string.ok);
@@ -223,7 +223,8 @@ public class WiFiManagerPersenterImp extends WiFiManagerPersenter implements WiF
      * @param model
      */
     private void isConfiged(List<WifiConfiguration> isConfigedList, WifiModel model) {
-
+        if (isConfigedList == null)
+            return;
         for (WifiConfiguration existingConfig : isConfigedList) {
             //系统保存的WiFi的名字带有引号，所以这里需要在名字首末添加分号，需要用：\" 转义
             if (existingConfig.SSID.equals("\"" + model.getWifiName() + "\"")) {
