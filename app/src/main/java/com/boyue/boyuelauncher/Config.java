@@ -132,8 +132,8 @@ public class Config {
      * 挂载外设路径
      */
     public static class MountPath {
-        public static final String USB_PATH = "/storage/usbhost1";
-        public static final String SD_PATH = "/storage/extsd";
+        public static final String USB_PATH = "/mnt/usbhost1";
+        public static final String SD_PATH = "/mnt/extsd";
     }
 
     /**
