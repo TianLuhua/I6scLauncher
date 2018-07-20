@@ -10,6 +10,7 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
@@ -43,6 +44,8 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
     //定义监听器
     private SensorEventListener mGnPSensorEventListener;
 
+    private PowerManager powerManager;
+
 
     //播放背景音乐相关
     private MediaPlayer mediaPlayer;
@@ -51,8 +54,7 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
     @Override
     public void onCreate() {
         super.onCreate();
-
-
+        powerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
     }
 
     @Override
@@ -181,7 +183,8 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
         LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
         if (distance == 0.0)
             //播放提示音
-            startPlayAudio(HHT_PROTECT_EYE);
+            if (powerManager.isScreenOn())
+                startPlayAudio(HHT_PROTECT_EYE);
         ScreenUtils.setScreenBrightness(20);
         if (distance == 5.0)
             ScreenUtils.setScreenBrightness(200);
