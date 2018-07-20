@@ -205,7 +205,7 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
     private void stopPlayer() {
         if (mediaPlayer == null) return;
         if (mediaPlayer.isPlaying()) {
-            Log.e("tlh", "isPlaying");
+            LogUtils.e("tlh", "isPlaying");
             mediaPlayer.stop();
             mediaPlayer.reset();
         }
@@ -214,7 +214,7 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
     @Override
     public void onCompletion(MediaPlayer mp) {
         //stopSelf();
-        Log.e("tlh", "onCompletion");
+        LogUtils.e("tlh", "onCompletion");
         if (mediaPlayer == null) return;
         mediaPlayer.release();
         mediaPlayer = null;
@@ -222,7 +222,7 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
 
     @Override
     public void onPrepared(MediaPlayer mp) {
-        Log.e("tlh", "onPrepared");
+        LogUtils.e("tlh", "onPrepared");
         if (mediaPlayer == null) return;
         mediaPlayer.start();
     }
@@ -230,7 +230,7 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.e("tlh", "onDestroy");
+        LogUtils.e("tlh", "onDestroy");
 
     }
 }
