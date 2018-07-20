@@ -4,6 +4,9 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
+import com.boyue.boyuelauncher.main.fragments.base.ItemMode;
+import com.boyue.boyuelauncher.main.fragments.base.ItemPersenter;
+import com.boyue.boyuelauncher.main.fragments.base.ItemView;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
@@ -19,10 +22,10 @@ import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_AR_OCEAN_
 /**
  * Created by Tianluhua on 2018/5/18.
  */
-public class HHT_AR_PersenterImp extends HHT_AR_Persenter {
+public class HHT_AR_PersenterImp extends ItemPersenter {
 
     private Context mContext;
-    private HHT_AR_Mode hht_ar_mode;
+    private ItemMode hht_ar_mode;
 
 
     public HHT_AR_PersenterImp(Context mContext) {
@@ -30,7 +33,7 @@ public class HHT_AR_PersenterImp extends HHT_AR_Persenter {
         this.hht_ar_mode = new HHT_AR_ModeImp(mContext, new ItemDataCallBack() {
             @Override
             public void getIcon(Drawable iconDrawble) {
-                HHT_AR_View view = getView();
+                ItemView view = getView();
                 if (view != null) {
                     view.displayIocn(iconDrawble);
                 }
@@ -51,7 +54,7 @@ public class HHT_AR_PersenterImp extends HHT_AR_Persenter {
     }
 
     @Override
-    public void startHHT_AR_Activity(int position) {
+    public void startHHT_Activity(int position) {
         switch (position) {
             //火火兔AR---AR英语
             case 0:
@@ -86,4 +89,12 @@ public class HHT_AR_PersenterImp extends HHT_AR_Persenter {
         hht_ar_mode.getItemIcon();
 
     }
+
+    @Override
+    public void detachView() {
+        super.detachView();
+        if (hht_ar_mode != null)
+            hht_ar_mode.onDestroy();
+    }
+
 }

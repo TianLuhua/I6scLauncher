@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
+import com.boyue.boyuelauncher.main.fragments.base.ItemMode;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
@@ -16,7 +17,7 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HHT_AR_ModeImp implements HHT_AR_Mode {
+public class HHT_AR_ModeImp implements ItemMode {
 
     private Context mContext;
     private ItemDataCallBack callBack;
@@ -68,6 +69,9 @@ public class HHT_AR_ModeImp implements HHT_AR_Mode {
 
     @Override
     public void onDestroy() {
-
+        if (mContext != null)
+            mContext = null;
+        if (callBack != null)
+            callBack = null;
     }
 }

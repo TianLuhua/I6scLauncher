@@ -5,6 +5,9 @@ import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
+import com.boyue.boyuelauncher.main.fragments.base.ItemMode;
+import com.boyue.boyuelauncher.main.fragments.base.ItemPersenter;
+import com.boyue.boyuelauncher.main.fragments.base.ItemView;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
@@ -22,10 +25,10 @@ import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTXT_ZJX
 /**
  * Created by Tianluhua on 2018/5/18.
  */
-public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
+public class HHT_XT_PersenterImp extends ItemPersenter {
 
     private Context mContext;
-    private HHT_XT_Mode hht_xt_mode;
+    private ItemMode hht_xt_mode;
 
 
     public HHT_XT_PersenterImp(Context mContext) {
@@ -33,7 +36,7 @@ public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
         this.hht_xt_mode = new HHT_XT_ModeImp(mContext, new ItemDataCallBack() {
             @Override
             public void getIcon(Drawable iconDrawble) {
-                HHT_XT_View view = getView();
+                ItemView view = getView();
                 if (view != null) {
                     view.displayIocn(iconDrawble);
                 }
@@ -55,7 +58,7 @@ public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
     }
 
     @Override
-    public void startHHT_XT_Activity(int position) {
+    public void startHHT_Activity(int position) {
         switch (position) {
             case 0:
                 //早教英语
@@ -90,4 +93,10 @@ public class HHT_XT_PersenterImp extends HHT_XT_Persenter {
         hht_xt_mode.getItemIcon();
     }
 
+    @Override
+    public void detachView() {
+        super.detachView();
+        if (hht_xt_mode != null)
+            hht_xt_mode.onDestroy();
+    }
 }

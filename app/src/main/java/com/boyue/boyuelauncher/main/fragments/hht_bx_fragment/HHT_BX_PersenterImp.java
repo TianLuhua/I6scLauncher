@@ -4,6 +4,9 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 import com.boyue.boyuelauncher.main.fragments.base.ItemDataCallBack;
+import com.boyue.boyuelauncher.main.fragments.base.ItemMode;
+import com.boyue.boyuelauncher.main.fragments.base.ItemPersenter;
+import com.boyue.boyuelauncher.main.fragments.base.ItemView;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 
@@ -22,10 +25,10 @@ import static com.boyue.boyuelauncher.main.fragments.HHT_Item_Activity.HHTLY_BAB
 /**
  * Created by Tianluhua on 2018/5/18.
  */
-public class HHT_BX_PersenterImp extends HHT_BX_Persenter {
+public class HHT_BX_PersenterImp extends ItemPersenter {
 
     private Context mContext;
-    private HHT_BX_Mode hht_bx_mode;
+    private ItemMode hht_bx_mode;
 
 
     public HHT_BX_PersenterImp(Context mContext) {
@@ -33,7 +36,7 @@ public class HHT_BX_PersenterImp extends HHT_BX_Persenter {
         this.hht_bx_mode = new HHT_BX_ModeImp(mContext, new ItemDataCallBack() {
             @Override
             public void getIcon(Drawable iconDrawble) {
-                HHT_BX_View view = getView();
+                ItemView view = getView();
                 if (view != null) {
                     view.displayIocn(iconDrawble);
                 }
@@ -61,7 +64,7 @@ public class HHT_BX_PersenterImp extends HHT_BX_Persenter {
     }
 
     @Override
-    public void startHHT_BX_Item(int position) {
+    public void startHHT_Activity(int position) {
         switch (position) {
             case 0:
                 ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_HHT_BABY_SCHOOL);
@@ -88,6 +91,13 @@ public class HHT_BX_PersenterImp extends HHT_BX_Persenter {
                 break;
         }
 
+    }
+
+    @Override
+    public void detachView() {
+        super.detachView();
+        if (hht_bx_mode != null)
+            hht_bx_mode.onDestroy();
     }
 
 }

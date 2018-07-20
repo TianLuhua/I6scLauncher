@@ -12,6 +12,7 @@ import android.widget.GridView;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
+import com.boyue.boyuelauncher.main.fragments.base.ItemView;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 
@@ -21,8 +22,7 @@ import java.util.List;
  * Created by Tianluhua on 2018/4/3.
  */
 
-public class HHT_XT_Fragment extends AbstractMVPFragment<HHT_XT_View, HHT_XT_PersenterImp> implements HHT_XT_View {
-
+public class HHT_XT_Fragment extends AbstractMVPFragment<ItemView, HHT_XT_PersenterImp> implements ItemView {
 
     private EnlargeAndNarrowAnimationView iconView;
     private GridView displayApps;
@@ -50,12 +50,12 @@ public class HHT_XT_Fragment extends AbstractMVPFragment<HHT_XT_View, HHT_XT_Per
         iconView = rootView.findViewById(R.id.iocn);
         iconView.setEnlargeMultiple(1.05f);
         displayApps = rootView.findViewById(R.id.display_apps);
-        fragmentItemAdapter = new FragmentItemAdapter(getContext(), 122, 125,FragmentItemAdapter.IconType.MAIN);
+        fragmentItemAdapter = new FragmentItemAdapter(getContext(), 122, 125, FragmentItemAdapter.IconType.MAIN);
         displayApps.setAdapter(fragmentItemAdapter);
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                getPresenter().startHHT_XT_Activity(position);
+                getPresenter().startHHT_Activity(position);
             }
         });
 

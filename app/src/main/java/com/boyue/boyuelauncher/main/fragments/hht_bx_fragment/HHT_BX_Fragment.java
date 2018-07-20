@@ -13,6 +13,7 @@ import android.widget.SimpleAdapter;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.main.fragments.adapter.FragmentItemAdapter;
+import com.boyue.boyuelauncher.main.fragments.base.ItemView;
 import com.boyue.boyuelauncher.main.fragments.entity.APPEntity;
 import com.boyue.boyuelauncher.widget.EnlargeAndNarrowAnimationView;
 
@@ -23,9 +24,7 @@ import java.util.List;
  * Created by Tianluhua on 2018/4/3.
  */
 
-public class HHT_BX_Fragment extends AbstractMVPFragment<HHT_BX_View, HHT_BX_PersenterImp> implements HHT_BX_View {
-    public static final String INTERFACE_RESULT = HHT_BX_Fragment.class.getName() + "NR";
-
+public class HHT_BX_Fragment extends AbstractMVPFragment<ItemView, HHT_BX_PersenterImp> implements ItemView {
 
     private EnlargeAndNarrowAnimationView iconView;
     private GridView displayApps;
@@ -65,7 +64,7 @@ public class HHT_BX_Fragment extends AbstractMVPFragment<HHT_BX_View, HHT_BX_Per
         displayApps.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                getPresenter().startHHT_BX_Item(position);
+                getPresenter().startHHT_Activity(position);
             }
         });
         //初始化数据
