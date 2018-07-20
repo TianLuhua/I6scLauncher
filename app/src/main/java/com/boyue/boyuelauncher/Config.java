@@ -166,8 +166,8 @@ public class Config {
      */
     public static class Settings {
         public static final int VALUE_NEVER = Integer.MAX_VALUE;
-        //        public static final int VALUE_1M = 60000;
-        public static final int VALUE_1M = 1000;
+        public static final int VALUE_1M = 60000;
+        //        public static final int VALUE_1M = 1000;
         public static final int VALUE_5M = VALUE_1M * 5;
         public static final int VALUE_10M = VALUE_1M * 10;
         public static final int VALUE_15M = VALUE_1M * 15;
@@ -451,6 +451,9 @@ public class Config {
         public static final String HHT_LY_KALAOK_TTMTV_ITEM_24 = HHT_LY_KALAOK_TTMTV_ROOT_PATH + "laoshukaihui24.mkv";
         public static final String HHT_LY_KALAOK_TTMTV_ITEM_25 = HHT_LY_KALAOK_TTMTV_ROOT_PATH + "wuyixiang25.mkv";
         public static final String HHT_LY_KALAOK_TTMTV_ITEM_26 = HHT_LY_KALAOK_TTMTV_ROOT_PATH + "daguonian26.mkv";
+
+        //火火兔乐园---- 卡拉ok ----酷我K歌
+        public static final String HHT_LY_KALAOK_KUWOKGE_PACKAGE = "cn.kuwo.sing.tv";//cn.kuwo.sing.tv/.activity.WelcomeActivity
 
         //火火兔乐园---- 卡拉ok ----火火兔唱古诗
         public static final String HHT_LY_KALAOK_HHTCGS_ROOT_PATH = "/system/videos/leyuan/kalaOK/hhtcgs/";
