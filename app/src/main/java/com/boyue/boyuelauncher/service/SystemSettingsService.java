@@ -133,7 +133,7 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
                             } else if (distance == 5.0) {
                                 LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
                                 message.what = PROTECT_EYE_ON;
-                                mHandler.sendMessage(message);
+                                mHandler.sendMessageDelayed(message,PROTECT_EYE_DELAY);
                             }
                         }
                     }
