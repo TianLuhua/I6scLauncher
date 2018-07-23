@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  */
 public final class ThreadPoolManager {
 
-    private static ThreadPoolManager sThreadPoolManager = new ThreadPoolManager();
+    private static ThreadPoolManager sThreadPoolManager;
 
     private static final int SIZE_CORE_POOL = 5;
 
@@ -28,6 +28,14 @@ public final class ThreadPoolManager {
     private static final int PERIOD_TASK_QOS = 1000;
 
     public static ThreadPoolManager newInstance() {
+
+        if (sThreadPoolManager == null) {
+            synchronized (ThreadPoolManager.class) {
+                if (sThreadPoolManager == null) {
+                    sThreadPoolManager = new ThreadPoolManager();
+                }
+            }
+        }
         return sThreadPoolManager;
     }
 
