@@ -9,10 +9,11 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
@@ -24,6 +25,7 @@ import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.io.IOException;
 
+import static android.hardware.SensorManager.SENSOR_DELAY_NORMAL;
 import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_AR;
 import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_LY;
 import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_PROTECT_EYE;
@@ -39,6 +41,11 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
 
     public static String TAG = SystemSettingsService.class.getSimpleName();
 
+    public final static int PROTECT_EYE_OFF = 0X000;
+    public final static int PROTECT_EYE_ON = 0X005;
+    public final static int PROTECT_EYE_DELAY = 1000;
+
+
     private SensorManager mSensorMgr;
     private Sensor mGnPSensor;
     //定义监听器
@@ -49,6 +56,27 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
 
     //播放背景音乐相关
     private MediaPlayer mediaPlayer;
+
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case PROTECT_EYE_OFF:
+                    //播放提示音(息屏的情况下不激活)
+                    if (powerManager.isScreenOn()) {
+                        startPlayAudio(HHT_PROTECT_EYE);
+                        ScreenUtils.setScreenBrightness(20);
+                    }
+                    break;
+
+                case PROTECT_EYE_ON:
+                    if (ScreenUtils.getScreenBrightness() <= 20)
+                        ScreenUtils.setScreenBrightness(200);
+                    break;
+            }
+
+        }
+    };
 
 
     @Override
@@ -93,7 +121,20 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
                     @Override
                     public void onSensorChanged(SensorEvent event) {
                         if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-                            getDistance(event);
+                            Message message = mHandler.obtainMessage();
+                            mHandler.removeMessages(PROTECT_EYE_OFF);
+                            mHandler.removeMessages(PROTECT_EYE_ON);
+                            float distance = event.values[0];
+                            if (distance == 0.0) {
+                                LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
+                                message.what = PROTECT_EYE_OFF;
+                                mHandler.sendMessageDelayed(message, PROTECT_EYE_DELAY);
+
+                            } else if (distance == 5.0) {
+                                LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
+                                message.what = PROTECT_EYE_ON;
+                                mHandler.sendMessage(message);
+                            }
                         }
                     }
 
@@ -104,7 +145,7 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
 
                 };
                 //在传感器管理类中注册距离传感器的监听器
-                mSensorMgr.registerListener(mGnPSensorEventListener, mGnPSensor, 12000);
+                mSensorMgr.registerListener(mGnPSensorEventListener, mGnPSensor, SENSOR_DELAY_NORMAL);
                 break;
             case Config.BoYueAction.PROTECTSENSOR_ACTION_CLOSE:
 
@@ -181,13 +222,16 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
     private void getDistance(SensorEvent event) {
         float distance = event.values[0];
         LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
-        if (distance == 0.0)
+        if (distance == 0.0) {
             //播放提示音
             if (powerManager.isScreenOn())
                 startPlayAudio(HHT_PROTECT_EYE);
-        ScreenUtils.setScreenBrightness(20);
+            ScreenUtils.setScreenBrightness(20);
+        }
+
         if (distance == 5.0)
-            ScreenUtils.setScreenBrightness(200);
+            if (ScreenUtils.getScreenBrightness() <= 20)
+                ScreenUtils.setScreenBrightness(200);
     }
 
     /**
