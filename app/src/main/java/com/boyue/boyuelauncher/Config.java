@@ -18,9 +18,11 @@ public class Config {
      * 启动相关Activity的Action
      */
     public static class BoYueAction {
-        public static final String ACTIVITY_ACTION_CLEANCACHE = "com.boyue.boyurlauncher.activity.action.cleancache";
-        public static final String ACTIVITY_ACTION_WIFIMANAGER = "com.boyue.boyurlauncher.activity.action.wifimanager";
-        public static final String ACTIVITY_ACTION_SETTINGS = "com.boyue.boyurlauncher.activity.action.settings";
+        public static final String ACTIVITY_ACTION_CLEANCACHE = "com.boyue.boyuelauncher.activity.action.cleancache";
+
+        //这个action不能随便修改，第三方的apk也要使用可能。
+        public static final String ACTIVITY_ACTION_WIFIMANAGER = "com.boyue.boyuelauncher.activity.action.wifimanager";
+        public static final String ACTIVITY_ACTION_SETTINGS = "com.boyue.boyuelauncher.activity.action.settings";
         public static final String ACTIVITY_ACTION_HHT_ZJYY = "com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_zjyy";
         public static final String ACTIVITY_ACTION_HHT_ZJXT = "com.boyue.boyuelauncher.main.fragments.hht_xt_fragment.HHT_zjxt";
         public static final String ACTIVITY_ACTION_HHT_KLOK = "com.boyue.boyuelauncher.main.fragments.hht_ly_fragment.HHT_klok";
