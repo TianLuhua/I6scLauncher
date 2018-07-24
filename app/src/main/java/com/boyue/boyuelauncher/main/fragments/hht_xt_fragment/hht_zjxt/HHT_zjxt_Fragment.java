@@ -69,32 +69,32 @@ public class HHT_zjxt_Fragment extends ItemBaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        //学前300字
-                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_300WORDS_PACKAGE, HHT_XT_ZJXT_300WORDS_LAUNCHER);
-                        break;
-                    case 1:
-                        //学前拼音
-                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_PINYIN_PACKAGE, HHT_XT_ZJXT_PINYIN_LAUNCHER);
-                        break;
-                    case 2:
                         //学前英语
                         ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_ENGLISH_PACKAGE, HHT_XT_ZJXT_ENGLISH_LAUNCHER);
                         break;
-                    case 3:
-                        //基础数学
-                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_MATH_PACKAGE, HHT_XT_ZJXT_MATH_PACKAGE_LAUNCHER);
+                    case 1:
+                        //健康教育
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_HEALTH_PACKAGE, HHT_XT_ZJXT_HEALTH_LAUNCHER);
                         break;
-                    case 4:
+                    case 2:
                         //认知启蒙
                         ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_KONWLEGE_PACKAGE, HHT_XT_ZJXT_KONWLEGE_LAUNCHER);
                         break;
+                    case 3:
+                        //学前300字
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_300WORDS_PACKAGE, HHT_XT_ZJXT_300WORDS_LAUNCHER);
+                        break;
+                    case 4:
+                        //基础数学
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_MATH_PACKAGE, HHT_XT_ZJXT_MATH_PACKAGE_LAUNCHER);
+                        break;
                     case 5:
-                        //古诗16首
-                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_POETRY_PACKAGE, HHT_XT_ZJXT_POETRY_LAUNCHER);
+                        //学前拼音
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_PINYIN_PACKAGE, HHT_XT_ZJXT_PINYIN_LAUNCHER);
                         break;
                     case 6:
-                        //健康教育
-                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_HEALTH_PACKAGE, HHT_XT_ZJXT_HEALTH_LAUNCHER);
+                        //古诗16首
+                        ActivityUtils.startApplicationWithComponent(HHT_XT_ZJXT_POETRY_PACKAGE, HHT_XT_ZJXT_POETRY_LAUNCHER);
                         break;
                 }
             }

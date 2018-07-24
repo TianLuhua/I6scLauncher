@@ -364,22 +364,24 @@
 
     <!--火火兔学堂  早教学堂-->
     <string-array name="hht_xt_zjxt_items_page01_image">
-        <item>@mipmap/ic_hht_xt_zjxt_01</item>
-        <item>@mipmap/ic_hht_xt_zjxt_02</item>
         <item>@mipmap/ic_hht_xt_zjxt_03</item>
-        <item>@mipmap/ic_hht_xt_zjxt_04</item>
-        <item>@mipmap/ic_hht_xt_zjxt_05</item>
-        <item>@mipmap/ic_hht_xt_zjxt_06</item>
         <item>@mipmap/ic_hht_xt_zjxt_07</item>
+        <item>@mipmap/ic_hht_xt_zjxt_05</item>
+        <item>@mipmap/ic_hht_xt_zjxt_01</item>
+        <item>@mipmap/ic_hht_xt_zjxt_04</item>
+        <item>@mipmap/ic_hht_xt_zjxt_02</item>
+        <item>@mipmap/ic_hht_xt_zjxt_06</item>
+
     </string-array>
     <string-array name="hht_xt_zjxt_items_page01_text">
-        <item>@string/hht_xt_zjxt_300_words</item>
-        <item>@string/hht_xt_zjxt_xqpy</item>
         <item>@string/hht_xt_zjxt_xqyy</item>
-        <item>@string/hht_xt_zjxt_jcsx</item>
-        <item>@string/hht_xt_zjxt_rsqm</item>
-        <item>@string/hht_xt_zjxt_16_poetry</item>
         <item>@string/hht_xt_zjxt_jkjy</item>
+        <item>@string/hht_xt_zjxt_rsqm</item>
+        <item>@string/hht_xt_zjxt_300_words</item>
+        <item>@string/hht_xt_zjxt_jcsx</item>
+        <item>@string/hht_xt_zjxt_xqpy</item>
+        <item>@string/hht_xt_zjxt_16_poetry</item>
+
     </string-array>
 
 
