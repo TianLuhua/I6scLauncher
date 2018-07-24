@@ -169,7 +169,7 @@ public class Config {
     public static class Settings {
         public static final int VALUE_NEVER = Integer.MAX_VALUE;
         public static final int VALUE_1M = 60000;
-        //        public static final int VALUE_1M = 1000;
+//                public static final int VALUE_1M = 1000;
         public static final int VALUE_5M = VALUE_1M * 5;
         public static final int VALUE_10M = VALUE_1M * 10;
         public static final int VALUE_15M = VALUE_1M * 15;
@@ -177,7 +177,7 @@ public class Config {
         public static final int VALUE_30M = VALUE_1M * 30;
         public static final int VALUE_40M = VALUE_1M * 40;
         public static final int VALUE_60M = VALUE_1M * 60;
-        public static final int VALUE_120M = VALUE_1M * 12;
+        public static final int VALUE_120M = VALUE_1M * 120;
     }
 
     /**
