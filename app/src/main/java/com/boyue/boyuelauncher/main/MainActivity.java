@@ -6,6 +6,7 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -315,4 +316,11 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
         super.onDestroy();
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //主界面响应Back按键
+        if (keyCode == KeyEvent.KEYCODE_BACK)
+            return false;
+        return super.onKeyDown(keyCode, event);
+    }
 }
