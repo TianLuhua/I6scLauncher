@@ -18,18 +18,6 @@ import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_HHTCGS_24;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_HHTCGS_25;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_HHTCGS_26;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_01;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_02;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_03;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_04;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_05;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_06;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_07;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_LY_KALAOK_JDEG_ITEM_08;
-
 public class HHT_Klok_hhtcgs_04_Fragment extends ItemBaseFragment {
 
 
@@ -46,8 +34,6 @@ public class HHT_Klok_hhtcgs_04_Fragment extends ItemBaseFragment {
     public HHT_Klok_hhtcgs_04_Fragment() {
         // Required empty public constructor
         videoPathList = new ArrayList<>();
-        videoPathList.add(HHT_LY_KALAOK_HHTCGS_25);
-        videoPathList.add(HHT_LY_KALAOK_HHTCGS_26);
     }
 
 

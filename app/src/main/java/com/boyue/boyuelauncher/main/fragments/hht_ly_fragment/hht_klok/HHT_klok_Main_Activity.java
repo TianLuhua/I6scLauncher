@@ -76,12 +76,12 @@ public class HHT_klok_Main_Activity extends AppCompatActivity implements View.On
                 overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
                 break;
             case R.id.hht_xt_klok_03_icon:
-                ActivityUtils.startApplicationWithPackageName(HHT_LY_KALAOK_KUWOKGE_PACKAGE);
+                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTLY_KLOK_HHTCGS);
+                overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
                 break;
 
             case R.id.hht_xt_klok_04_icon:
-                ActivityUtils.setActivityConfig(ACTIVITY_ACTION_KLOK, HHTLY_KLOK_PAGE_KEY, HHTLY_KLOK_HHTCGS);
-                overridePendingTransition(R.anim.activity_in_alpha_0_to_1, R.anim.activity_out_alpha_1_to_0);
+                ActivityUtils.startApplicationWithPackageName(HHT_LY_KALAOK_KUWOKGE_PACKAGE);
                 break;
         }
     }

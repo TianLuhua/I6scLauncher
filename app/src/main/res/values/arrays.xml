@@ -550,14 +550,14 @@
 
     <!--火火兔乐园  卡拉ok  火火兔唱古诗-->
     <string-array name="hht_ly_kalaok_hhtcgs_items_page01_image">
-        <item>@mipmap/ic_hht_ly_klok_hhtcgs_01</item>
-        <item>@mipmap/ic_hht_ly_klok_hhtcgs_02</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_08</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_25</item>
         <item>@mipmap/ic_hht_ly_klok_hhtcgs_03</item>
         <item>@mipmap/ic_hht_ly_klok_hhtcgs_04</item>
         <item>@mipmap/ic_hht_ly_klok_hhtcgs_05</item>
         <item>@mipmap/ic_hht_ly_klok_hhtcgs_06</item>
         <item>@mipmap/ic_hht_ly_klok_hhtcgs_07</item>
-        <item>@mipmap/ic_hht_ly_klok_hhtcgs_08</item>
+        <item>@mipmap/ic_hht_ly_klok_hhtcgs_01</item>
     </string-array>
     <string-array name="hht_ly_kalaok_hhtcgs_items_page02_image">
         <item>@mipmap/ic_hht_ly_klok_hhtcgs_09</item>
@@ -570,7 +570,6 @@
         <item>@mipmap/ic_hht_ly_klok_hhtcgs_16</item>
     </string-array>
     <string-array name="hht_ly_kalaok_hhtcgs_items_page03_image">
-        <item>@mipmap/ic_hht_ly_klok_hhtcgs_16</item>
         <item>@mipmap/ic_hht_ly_klok_hhtcgs_17</item>
         <item>@mipmap/ic_hht_ly_klok_hhtcgs_18</item>
         <item>@mipmap/ic_hht_ly_klok_hhtcgs_19</item>
@@ -586,14 +585,14 @@
     </string-array>
 
     <string-array name="hht_ly_kalaok_hhtcgs_items_page01_text">
-        <item>@string/hht_ly_klok_hhtcgs_01</item>
+        <item>@string/hht_ly_klok_hhtcgs_08</item>
         <item>@string/hht_ly_klok_hhtcgs_02</item>
         <item>@string/hht_ly_klok_hhtcgs_03</item>
         <item>@string/hht_ly_klok_hhtcgs_04</item>
         <item>@string/hht_ly_klok_hhtcgs_05</item>
         <item>@string/hht_ly_klok_hhtcgs_06</item>
         <item>@string/hht_ly_klok_hhtcgs_07</item>
-        <item>@string/hht_ly_klok_hhtcgs_08</item>
+        <item>@string/hht_ly_klok_hhtcgs_01</item>
     </string-array>
     <string-array name="hht_ly_kalaok_hhtcgs_items_page02_text">
         <item>@string/hht_ly_klok_hhtcgs_09</item>

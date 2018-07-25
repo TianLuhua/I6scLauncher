@@ -67,7 +67,7 @@
             android:id="@+id/hht_xt_klok_03_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_ly_klok_03" />
+            android:src="@mipmap/ic_hht_ly_klok_hhtcgs" />
 
         <TextView
             android:id="@+id/hht_xt_klok_03_lable"
@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_ly_klok_kwke" />
+            android:text="@string/hht_ly_klok_hhtcgs" />
     </LinearLayout>
 
     <LinearLayout
@@ -92,7 +92,7 @@
             android:id="@+id/hht_xt_klok_04_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_hht_ly_klok_hhtcgs" />
+            android:src="@mipmap/ic_hht_ly_klok_03" />
 
         <TextView
             android:id="@+id/hht_xt_zjyy_04_lable"
@@ -100,7 +100,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@string/hht_ly_klok_hhtcgs" />
+            android:text="@string/hht_ly_klok_kwke" />
+
     </LinearLayout>
 
     <com.boyue.boyuelauncher.widget.TitleBar
