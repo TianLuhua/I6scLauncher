@@ -9,6 +9,8 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 
 import com.boyue.boyuelauncher.Config;
@@ -22,6 +24,8 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
 
     private AppCompatImageView sDView;
     private AppCompatImageView uSBView;
+    private Animation usbAnimation;
+    private Animation sdAnimation;
 
     public SDAndUSBStatusView(Context context) {
         super(context);
@@ -44,6 +48,8 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
         uSBView = findViewById(R.id.usb);
         sDView.setOnClickListener(this);
         uSBView.setOnClickListener(this);
+        usbAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
+        sdAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
 
         //初始化sd卡和u盘的状态
         sDView.setVisibility(sdAndusbIsMounted(Config.MountPath.SD_PATH) ? View.VISIBLE : View.INVISIBLE);
@@ -74,13 +80,17 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sd:
-                if (sDView.getVisibility() == View.VISIBLE)
+                if (sDView.getVisibility() == View.VISIBLE){
+                    sDView.startAnimation(sdAnimation);
                     onSDAndUSDViewClickListener.onSDIconClick(v);
+                }
                 break;
 
             case R.id.usb:
-                if (uSBView.getVisibility() == View.VISIBLE)
+                if (uSBView.getVisibility() == View.VISIBLE){
+                    uSBView.startAnimation(usbAnimation);
                     onSDAndUSDViewClickListener.onUSBIconClick(v);
+                }
                 break;
         }
 
@@ -154,7 +164,7 @@ public class SDAndUSBStatusView extends RelativeLayout implements View.OnClickLi
 
     //机器刚刚起来时候，初始化sd卡和u盘的状态
     private boolean sdAndusbIsMounted(String path) {
-        if (new File(path).list()!=null) {
+        if (new File(path).list() != null) {
             LogUtils.e("tlh", "path--->:" + path + "," + "true");
             return true;
         } else {
