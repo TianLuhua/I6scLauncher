@@ -1,6 +1,11 @@
 package com.boyue.boyuelauncher.widget;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.Uri;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
@@ -9,19 +14,26 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.utils.LogUtils;
+
+import java.io.File;
 
 /**
  * Created by Tianluhua on 2018/5/16.
  */
-public class MainTilteBar extends RelativeLayout implements View.OnClickListener, SDAndUSBStatusView.OnSDAndUSDViewClickListener {
+public class MainTilteBar extends RelativeLayout implements View.OnClickListener {
 
-    private TextView volumeNumberView;
     private RelativeLayout bg_volumeNumberView;
+    private TextView volumeNumberView;
     private ImageView settingsButton;
     private WIFIStatusView wifiStatusView;
+    private AppCompatImageView sDView;
+    private AppCompatImageView uSBView;
 
-    private SDAndUSBStatusView sdAndUSBStatusView;
+    private Animation usbAnimation;
+    private Animation sdAnimation;
     private Animation settingBtnAnimation;
     private Animation wifiBtnAnimation;
 
@@ -39,6 +51,22 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
         initView(context);
     }
 
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_MEDIA_MOUNTED);
+        filter.addAction(Intent.ACTION_MEDIA_UNMOUNTED);
+        filter.addDataScheme("file");
+        getContext().registerReceiver(mediaMountedReceiver, filter);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        getContext().unregisterReceiver(mediaMountedReceiver);
+    }
+
     private void initView(Context mContext) {
         View.inflate(mContext, R.layout.custome_main_title_bar, this);
         volumeNumberView = findViewById(R.id.ic_set_system_volume);
@@ -48,11 +76,22 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
         settingsButton.setOnClickListener(this);
         wifiStatusView = findViewById(R.id.ic_wifistatusview);
         wifiStatusView.setOnClickListener(this);
+
+        sDView = findViewById(R.id.sd);
+        uSBView = findViewById(R.id.usb);
+        sDView.setOnClickListener(this);
+        uSBView.setOnClickListener(this);
+        usbAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
+        sdAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
         //SDAndUSBStatusView
-        sdAndUSBStatusView = findViewById(R.id.ic_media);
-        sdAndUSBStatusView.setOnTitleBarClickListener(this);
+//        sdAndUSBStatusView = findViewById(R.id.ic_media);
+//        sdAndUSBStatusView.setOnTitleBarClickListener(this);
         settingBtnAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
         wifiBtnAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
+
+        //初始化sd卡和u盘的状态
+        sDView.setVisibility(sdAndusbIsMounted(Config.MountPath.SD_PATH) ? View.VISIBLE : View.INVISIBLE);
+        uSBView.setVisibility(sdAndusbIsMounted(Config.MountPath.USB_PATH) ? View.VISIBLE : View.INVISIBLE);
     }
 
     private OnTitleBarClickListener onTitleBarClickListener;
@@ -79,6 +118,21 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
                 if (onTitleBarClickListener != null)
                     onTitleBarClickListener.onWiFiManagerClick(v);
                 break;
+            case R.id.sd:
+                if (sDView.getVisibility() == View.VISIBLE) {
+                    sDView.startAnimation(sdAnimation);
+                    if (onTitleBarClickListener != null)
+                        onTitleBarClickListener.onSDIconClick(v);
+                }
+                break;
+            case R.id.usb:
+                if (uSBView.getVisibility() == View.VISIBLE) {
+                    uSBView.startAnimation(usbAnimation);
+                    if (onTitleBarClickListener != null)
+                        onTitleBarClickListener.onUSBIconClick(v);
+                }
+                break;
+
             default:
                 break;
         }
@@ -93,21 +147,73 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     public void setVolumeMumberColor(int volumeMumberColor) {
         if (volumeNumberView == null) return;
         volumeNumberView.setTextColor(volumeMumberColor);
-
     }
 
-    @Override
-    public void onSDIconClick(View view) {
-        if (onTitleBarClickListener != null)
-            onTitleBarClickListener.onSDIconClick(view);
+    private final BroadcastReceiver mediaMountedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent == null) return;
+            String action = intent.getAction();
+            Uri uri = intent.getData();
+            String mountPath = uri.getPath();
+
+            if (action.equals(Intent.ACTION_MEDIA_MOUNTED)) {
+
+                LogUtils.e("tlh", "ACTION_MEDIA_MOUNTED+mountPath:" + mountPath);
+
+                if (Config.MountPath.SD_PATH.equals(mountPath)) {
+                    setShowSD(true);
+                } else if (Config.MountPath.USB_PATH.equals(mountPath)) {
+                    setShowUSB(true);
+                    //U盘挂载广播
+                    context.sendBroadcast(new Intent(Config.BoYueAction.COM_BOYUE_ACTION_USB_MOUNTED));
+                }
+
+
+            } else if (action.equals(Intent.ACTION_MEDIA_UNMOUNTED)) {
+
+                LogUtils.e("tlh", "ACTION_MEDIA_UNMOUNTED+mountPath:" + mountPath);
+
+                if (Config.MountPath.SD_PATH.equals(mountPath)) {
+                    setShowSD(false);
+                } else if (Config.MountPath.USB_PATH.equals(mountPath)) {
+                    setShowUSB(false);
+                }
+            }
+        }
+    };
+
+    //机器刚刚起来时候，初始化sd卡和u盘的状态
+    private boolean sdAndusbIsMounted(String path) {
+        if (new File(path).list() != null) {
+            LogUtils.e("tlh", "path--->:" + path + "," + "true");
+            return true;
+        } else {
+            LogUtils.e("tlh", "path--->:" + path + "," + "false");
+            return false;
+        }
     }
 
-    @Override
-    public void onUSBIconClick(View view) {
-        if (onTitleBarClickListener != null)
-            onTitleBarClickListener.onUSBIconClick(view);
-
+    /**
+     * 显示sd卡的图标
+     *
+     * @param showSD
+     */
+    public void setShowSD(boolean showSD) {
+        LogUtils.e("tlh", "setShowSD:" + showSD);
+        sDView.setVisibility(showSD ? View.VISIBLE : View.INVISIBLE);
     }
+
+    /**
+     * 显示usb的图标
+     *
+     * @param showUSB
+     */
+    public void setShowUSB(boolean showUSB) {
+        LogUtils.e("tlh", "setShowUSB:" + showUSB);
+        uSBView.setVisibility(showUSB ? View.VISIBLE : View.INVISIBLE);
+    }
+
 
     public interface OnTitleBarClickListener {
 
