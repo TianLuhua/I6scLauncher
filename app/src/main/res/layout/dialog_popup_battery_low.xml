@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="117dp"
         android:layout_marginTop="52dp"
-        android:src="@mipmap/ic_input_u" />
+        android:src="@mipmap/ic_input_battery_low" />
 
     <TextView
         android:id="@+id/lable"
@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/icon"
-        android:text="@string/usb_mounted"
+        android:text="@string/battery_low"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="31dp" />
 

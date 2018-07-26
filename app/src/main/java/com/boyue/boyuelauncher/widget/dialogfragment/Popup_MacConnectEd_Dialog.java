@@ -6,7 +6,7 @@ public class Popup_MacConnectEd_Dialog extends Popup_Only_Icon_Dialog {
 
     @Override
     protected int getIconRes() {
-        return R.mipmap.ic_input_mac;
+        return R.mipmap.ic_input_mic;
     }
 
     @Override
