@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
+import com.boyue.boyuelauncher.utils.FileUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
 import java.io.File;
@@ -90,8 +91,10 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
         wifiBtnAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
 
         //初始化sd卡和u盘的状态
-        sDView.setVisibility(sdAndusbIsMounted(Config.MountPath.SD_PATH) ? View.VISIBLE : View.INVISIBLE);
-        uSBView.setVisibility(sdAndusbIsMounted(Config.MountPath.USB_PATH) ? View.VISIBLE : View.INVISIBLE);
+        setShowSD(FileUtils.hasFile(Config.MountPath.SD_PATH) ? true : false);
+        setShowUSB(FileUtils.hasFile(Config.MountPath.USB_PATH) ? true : false);
+//        sDView.setVisibility(sdAndusbIsMounted(Config.MountPath.SD_PATH) ? View.VISIBLE : View.INVISIBLE);
+//        uSBView.setVisibility(sdAndusbIsMounted(Config.MountPath.USB_PATH) ? View.VISIBLE : View.INVISIBLE);
     }
 
     private OnTitleBarClickListener onTitleBarClickListener;
@@ -127,9 +130,12 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
                 break;
             case R.id.usb:
                 if (uSBView.getVisibility() == View.VISIBLE) {
+                    LogUtils.e("tlh", "uSBView----VISIBLE" );
                     uSBView.startAnimation(usbAnimation);
                     if (onTitleBarClickListener != null)
                         onTitleBarClickListener.onUSBIconClick(v);
+                }else {
+                    LogUtils.e("tlh", "uSBView----INVISIBLE" );
                 }
                 break;
 
@@ -182,17 +188,6 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
             }
         }
     };
-
-    //机器刚刚起来时候，初始化sd卡和u盘的状态
-    private boolean sdAndusbIsMounted(String path) {
-        if (new File(path).list() != null) {
-            LogUtils.e("tlh", "path--->:" + path + "," + "true");
-            return true;
-        } else {
-            LogUtils.e("tlh", "path--->:" + path + "," + "false");
-            return false;
-        }
-    }
 
     /**
      * 显示sd卡的图标
