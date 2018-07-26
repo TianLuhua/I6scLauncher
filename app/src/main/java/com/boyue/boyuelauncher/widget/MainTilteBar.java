@@ -24,14 +24,14 @@ import java.io.File;
 /**
  * Created by Tianluhua on 2018/5/16.
  */
-public class MainTilteBar extends RelativeLayout implements View.OnClickListener {
+public class MainTilteBar extends RelativeLayout implements View.OnClickListener, Animation.AnimationListener {
 
     private RelativeLayout bg_volumeNumberView;
     private TextView volumeNumberView;
     private ImageView settingsButton;
     private WIFIStatusView wifiStatusView;
-    private AppCompatImageView sDView;
-    private AppCompatImageView uSBView;
+    private ImageView sDView;
+    private ImageView uSBView;
 
     private Animation usbAnimation;
     private Animation sdAnimation;
@@ -83,18 +83,16 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
         sDView.setOnClickListener(this);
         uSBView.setOnClickListener(this);
         usbAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
+
+        usbAnimation.setAnimationListener(this);
         sdAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
-        //SDAndUSBStatusView
-//        sdAndUSBStatusView = findViewById(R.id.ic_media);
-//        sdAndUSBStatusView.setOnTitleBarClickListener(this);
+
         settingBtnAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
         wifiBtnAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
 
         //初始化sd卡和u盘的状态
         setShowSD(FileUtils.hasFile(Config.MountPath.SD_PATH) ? true : false);
         setShowUSB(FileUtils.hasFile(Config.MountPath.USB_PATH) ? true : false);
-//        sDView.setVisibility(sdAndusbIsMounted(Config.MountPath.SD_PATH) ? View.VISIBLE : View.INVISIBLE);
-//        uSBView.setVisibility(sdAndusbIsMounted(Config.MountPath.USB_PATH) ? View.VISIBLE : View.INVISIBLE);
     }
 
     private OnTitleBarClickListener onTitleBarClickListener;
@@ -130,12 +128,8 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
                 break;
             case R.id.usb:
                 if (uSBView.getVisibility() == View.VISIBLE) {
-                    LogUtils.e("tlh", "uSBView----VISIBLE" );
+                    LogUtils.e("tlh", "uSBView----VISIBLE");
                     uSBView.startAnimation(usbAnimation);
-                    if (onTitleBarClickListener != null)
-                        onTitleBarClickListener.onUSBIconClick(v);
-                }else {
-                    LogUtils.e("tlh", "uSBView----INVISIBLE" );
                 }
                 break;
 
@@ -177,9 +171,7 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
 
 
             } else if (action.equals(Intent.ACTION_MEDIA_UNMOUNTED)) {
-
                 LogUtils.e("tlh", "ACTION_MEDIA_UNMOUNTED+mountPath:" + mountPath);
-
                 if (Config.MountPath.SD_PATH.equals(mountPath)) {
                     setShowSD(false);
                 } else if (Config.MountPath.USB_PATH.equals(mountPath)) {
@@ -207,6 +199,29 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     public void setShowUSB(boolean showUSB) {
         LogUtils.e("tlh", "setShowUSB:" + showUSB);
         uSBView.setVisibility(showUSB ? View.VISIBLE : View.INVISIBLE);
+    }
+
+    /**
+     * 清除动画，不然会影响到正常显示
+     */
+    public void cleanUSBAnimation() {
+        uSBView.clearAnimation();
+    }
+
+    @Override
+    public void onAnimationStart(Animation animation) {
+
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+        if (animation == usbAnimation)
+            onTitleBarClickListener.onUSBIconClick(null);
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
     }
 
 

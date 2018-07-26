@@ -25,7 +25,7 @@
             android:textSize="22sp" />
     </RelativeLayout>
 
-    <android.support.v7.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/usb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
         android:layout_toLeftOf="@+id/sd"
         android:src="@mipmap/ic_top_bar_usb" />
 
-    <android.support.v7.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/sd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

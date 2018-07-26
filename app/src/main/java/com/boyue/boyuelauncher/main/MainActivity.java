@@ -166,6 +166,7 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
             @Override
             public void onUSBIconClick(View view) {
                 ToastUtil.showToast("USB", Toast.LENGTH_SHORT);
+                tilteBar.cleanUSBAnimation();
                 ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE, FILE_MANGER_LAUNCHER);
             }
         });
