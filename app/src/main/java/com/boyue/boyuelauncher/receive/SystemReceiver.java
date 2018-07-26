@@ -14,8 +14,6 @@ import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
 import com.boyue.boyuelauncher.utils.ShutDownUtils;
-import com.boyue.boyuelauncher.widget.dialogfragment.Popup_MacConnectEd_Dialog;
-import com.boyue.boyuelauncher.widget.dialogfragment.Popup_USBMounted_Dialog;
 
 
 /**
@@ -42,8 +40,8 @@ public class SystemReceiver extends BroadcastReceiver {
 
     public SystemReceiver() {
         this.spUtils = SPUtils.getInstance(Config.PassWordKey.SPNMAE);
-        wl = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.TYPE_TOAST, 0, PixelFormat.TRANSPARENT);
+        wl = new WindowManager.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.TYPE_TOAST, 0, PixelFormat.TRANSPARENT);
         wl.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                 | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
         wl.gravity = Gravity.CENTER;
@@ -111,7 +109,7 @@ public class SystemReceiver extends BroadcastReceiver {
 
     private void showUSBMountedDialog() {
         isShowUSBConntectDialog = true;
-        View v = layoutInflater.inflate(R.layout.dialog_popup_only_icon_lable, null);
+        View v = layoutInflater.inflate(R.layout.dialog_popup_usbmount, null);
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@mipmap/bg_popu_dialog">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
 
-    <ImageView
-        android:id="@+id/icon"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="117dp"
-        android:layout_marginTop="52dp"
-        android:src="@mipmap/ic_input_mic" />
+        android:layout_centerInParent="true"
+        android:background="@mipmap/bg_popu_dialog">
 
-    <TextView
-        android:id="@+id/lable"
-        style="@style/Stlye_system_setting_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/icon"
-        android:text="@string/mac_connected"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp" />
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="117dp"
+            android:layout_marginTop="52dp"
+            android:src="@mipmap/ic_input_mic" />
 
-
+        <TextView
+            android:id="@+id/lable"
+            style="@style/Stlye_system_setting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="31dp"
+            android:text="@string/mac_connected" />
+    </RelativeLayout>
 </RelativeLayout>

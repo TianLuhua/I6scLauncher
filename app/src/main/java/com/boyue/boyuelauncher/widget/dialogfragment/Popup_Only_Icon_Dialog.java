@@ -23,7 +23,7 @@ public abstract class Popup_Only_Icon_Dialog extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootVire = inflater.inflate(R.layout.dialog_popup_only_icon_lable, null, false);
+        View rootVire = inflater.inflate(R.layout.dialog_popup_usbmount, null, false);
         initView(rootVire);
         return rootVire;
     }
