@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
-import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
@@ -18,8 +17,6 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.FileUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
-
-import java.io.File;
 
 /**
  * Created by Tianluhua on 2018/5/16.
@@ -82,13 +79,18 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
         uSBView = findViewById(R.id.usb);
         sDView.setOnClickListener(this);
         uSBView.setOnClickListener(this);
-        usbAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
 
+        usbAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
         usbAnimation.setAnimationListener(this);
+
         sdAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
+        sdAnimation.setAnimationListener(this);
 
         settingBtnAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
+        settingBtnAnimation.setAnimationListener(this);
+
         wifiBtnAnimation = AnimationUtils.loadAnimation(mContext, R.anim.small_xysize);
+        wifiBtnAnimation.setAnimationListener(this);
 
         //初始化sd卡和u盘的状态
         setShowSD(FileUtils.hasFile(Config.MountPath.SD_PATH) ? true : false);
@@ -111,19 +113,15 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
 
             case R.id.ic_settings:
                 settingsButton.startAnimation(settingBtnAnimation);
-                if (onTitleBarClickListener != null)
-                    onTitleBarClickListener.onSettingsClick(v);
                 break;
+
             case R.id.ic_wifistatusview:
                 wifiStatusView.startAnimation(wifiBtnAnimation);
-                if (onTitleBarClickListener != null)
-                    onTitleBarClickListener.onWiFiManagerClick(v);
+
                 break;
             case R.id.sd:
                 if (sDView.getVisibility() == View.VISIBLE) {
                     sDView.startAnimation(sdAnimation);
-                    if (onTitleBarClickListener != null)
-                        onTitleBarClickListener.onSDIconClick(v);
                 }
                 break;
             case R.id.usb:
@@ -208,6 +206,21 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
         uSBView.clearAnimation();
     }
 
+    public void cleanSDAnimation() {
+        sDView.clearAnimation();
+    }
+
+    /**
+     * 清除动画，不然会影响到正常显示
+     */
+    public void cleanWIFIAnimation() {
+        wifiStatusView.clearAnimation();
+    }
+
+    public void cleanSettingBtnAnimation() {
+        settingsButton.clearAnimation();
+    }
+
     @Override
     public void onAnimationStart(Animation animation) {
 
@@ -215,8 +228,25 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
 
     @Override
     public void onAnimationEnd(Animation animation) {
-        if (animation == usbAnimation)
-            onTitleBarClickListener.onUSBIconClick(null);
+        if (animation == usbAnimation) {
+            if (onTitleBarClickListener != null)
+                onTitleBarClickListener.onUSBIconClick(null);
+        }
+
+        if (animation == sdAnimation) {
+            if (onTitleBarClickListener != null)
+                onTitleBarClickListener.onSDIconClick(null);
+        }
+        if (animation == wifiBtnAnimation) {
+            if (onTitleBarClickListener != null)
+                onTitleBarClickListener.onWiFiManagerClick(null);
+        }
+
+        if (animation == settingBtnAnimation) {
+            if (onTitleBarClickListener != null)
+                onTitleBarClickListener.onSettingsClick(null);
+        }
+
     }
 
     @Override
