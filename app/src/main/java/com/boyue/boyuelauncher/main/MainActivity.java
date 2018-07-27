@@ -148,28 +148,24 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
             @Override
             public void onSettingsClick(View view) {
                 ToastUtil.showToast("SETTINGS", Toast.LENGTH_SHORT);
-                tilteBar.cleanSettingBtnAnimation();
                 startSettings();
             }
 
             @Override
             public void onWiFiManagerClick(View view) {
                 ToastUtil.showToast("WIFI", Toast.LENGTH_SHORT);
-                tilteBar.cleanWIFIAnimation();
                 startWiFiManager();
             }
 
             @Override
             public void onSDIconClick(View view) {
                 ToastUtil.showToast("SD", Toast.LENGTH_SHORT);
-                tilteBar.cleanSDAnimation();
                 ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE, FILE_MANGER_LAUNCHER);
             }
 
             @Override
             public void onUSBIconClick(View view) {
                 ToastUtil.showToast("USB", Toast.LENGTH_SHORT);
-                tilteBar.cleanUSBAnimation();
                 ActivityUtils.startApplicationWithComponent(FILE_MANGER_PACKAGE, FILE_MANGER_LAUNCHER);
             }
         });

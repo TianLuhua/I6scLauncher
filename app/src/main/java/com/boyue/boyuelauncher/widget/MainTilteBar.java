@@ -199,28 +199,6 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
         uSBView.setVisibility(showUSB ? View.VISIBLE : View.INVISIBLE);
     }
 
-    /**
-     * 清除动画，不然会影响到正常显示
-     */
-    public void cleanUSBAnimation() {
-        uSBView.clearAnimation();
-    }
-
-    public void cleanSDAnimation() {
-        sDView.clearAnimation();
-    }
-
-    /**
-     * 清除动画，不然会影响到正常显示
-     */
-    public void cleanWIFIAnimation() {
-        wifiStatusView.clearAnimation();
-    }
-
-    public void cleanSettingBtnAnimation() {
-        settingsButton.clearAnimation();
-    }
-
     @Override
     public void onAnimationStart(Animation animation) {
 
@@ -229,20 +207,24 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
     @Override
     public void onAnimationEnd(Animation animation) {
         if (animation == usbAnimation) {
+            uSBView.clearAnimation();
             if (onTitleBarClickListener != null)
                 onTitleBarClickListener.onUSBIconClick(null);
         }
 
         if (animation == sdAnimation) {
+            sDView.clearAnimation();
             if (onTitleBarClickListener != null)
                 onTitleBarClickListener.onSDIconClick(null);
         }
         if (animation == wifiBtnAnimation) {
+            wifiStatusView.clearAnimation();
             if (onTitleBarClickListener != null)
                 onTitleBarClickListener.onWiFiManagerClick(null);
         }
 
         if (animation == settingBtnAnimation) {
+            settingsButton.clearAnimation();
             if (onTitleBarClickListener != null)
                 onTitleBarClickListener.onSettingsClick(null);
         }
