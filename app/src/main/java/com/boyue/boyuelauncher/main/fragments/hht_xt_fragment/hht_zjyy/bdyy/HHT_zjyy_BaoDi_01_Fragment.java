@@ -68,7 +68,7 @@ public class HHT_zjyy_BaoDi_01_Fragment extends ItemBaseFragment {
         gridLayout.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ActivityUtils.startBoYueVideoPlayer(videoPathList, position);
+                ActivityUtils.startBoYueVideoPlayer(videoPathList.get(position));
             }
         });
 

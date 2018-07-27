@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.widget.Toast;
 
 import com.boyue.boyuelauncher.Config;
@@ -168,6 +169,17 @@ public class ActivityUtils {
         Utils.getApp().startActivity(intent);
     }
 
+    /**
+     * 启动播放器
+     *
+     * @param path
+     */
+    public static void startBoYueVideoPlayer(String path) {
+        Intent openVideo = new Intent(Intent.ACTION_VIEW);
+        openVideo.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        openVideo.setDataAndType(Uri.parse(path), "video/*");
+        Utils.getApp().startActivity(openVideo);
+    }
 
     /**
      * 获取栈顶的Activity
