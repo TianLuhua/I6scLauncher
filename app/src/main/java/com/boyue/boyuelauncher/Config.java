@@ -630,5 +630,10 @@ public class Config {
 
     }
 
+    public static class ActivityName {
+        //视屏通话的Activity
+        public static final String BOOYUE_VIDEOCHATACTIVITY = "com.tencent.BooyueVideoChatActivitySF";
+
+    }
 
 }

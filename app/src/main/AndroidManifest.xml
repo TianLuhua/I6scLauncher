@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-    package="com.boyue.boyuelauncher">
+    package="com.boyue.boyuelauncher"
+    android:sharedUserId="android.uid.system">
     <!--android:sharedUserId="android.uid.system"-->
 
     <!-- 网络请求权限 -->
@@ -37,6 +38,11 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <uses-permission android:name="android.permission.UPDATE_DEVICE_STATS" />
+
+    <!--获取栈顶的Activity权限-->
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
 
     <application

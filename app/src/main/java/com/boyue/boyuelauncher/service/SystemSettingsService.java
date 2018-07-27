@@ -62,8 +62,10 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case PROTECT_EYE_OFF:
-                    //播放提示音(息屏的情况下不激活)
-                    if (powerManager.isScreenOn()) {
+                    //播放提示音(息屏的情况下不激活);如何在视屏通话的话，护眼也不生效
+                    String currentActivity = ActivityUtils.getTopActivity(SystemSettingsService.this);
+                    LogUtils.e("tlh", "SystemSettingsService---PROTECT_EYE_OFF-----currentActivity:" + currentActivity);
+                    if (powerManager.isScreenOn() && !Config.ActivityName.BOOYUE_VIDEOCHATACTIVITY.equals(currentActivity)) {
                         startPlayAudio(HHT_PROTECT_EYE);
                         ScreenUtils.setScreenBrightness(20);
                     }
@@ -133,7 +135,7 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
                             } else if (distance == 5.0) {
                                 LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
                                 message.what = PROTECT_EYE_ON;
-                                mHandler.sendMessageDelayed(message,PROTECT_EYE_DELAY);
+                                mHandler.sendMessageDelayed(message, PROTECT_EYE_DELAY);
                             }
                         }
                     }

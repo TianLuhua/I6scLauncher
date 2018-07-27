@@ -1,5 +1,6 @@
 package com.boyue.boyuelauncher.utils;
 
+import android.app.ActivityManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
@@ -30,10 +31,10 @@ public class ActivityUtils {
                 Utils.getApp().startActivity(intent);
 
             } catch (ActivityNotFoundException e) {
-                ToastUtil.showToast( "Start Activity Error", Toast.LENGTH_SHORT);
+                ToastUtil.showToast("Start Activity Error", Toast.LENGTH_SHORT);
             }
         } else {
-            ToastUtil.showToast( "Not Found Activity", Toast.LENGTH_SHORT);
+            ToastUtil.showToast("Not Found Activity", Toast.LENGTH_SHORT);
         }
     }
 
@@ -165,6 +166,22 @@ public class ActivityUtils {
         intent.putStringArrayListExtra("videoInfoList", lists);
         intent.putExtra("position", position);
         Utils.getApp().startActivity(intent);
+    }
+
+
+    /**
+     * 获取栈顶的Activity
+     *
+     * @param context
+     * @return
+     */
+    public static String getTopActivity(Context context) {
+        android.app.ActivityManager manager = (android.app.ActivityManager) context.getSystemService(context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> runningTaskInfos = manager.getRunningTasks(1);
+        if (runningTaskInfos != null) {
+            return (runningTaskInfos.get(0).topActivity).getShortClassName();
+        } else
+            return "";
     }
 
 }

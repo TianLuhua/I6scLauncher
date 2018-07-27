@@ -18,12 +18,12 @@ public class LockScreenUtils {
         ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
             @Override
             public void run() {
-                LogUtils.e("tlh", "LockScreenUtils---starRegularRestAlarm---time:" + time);
+                LogUtils.e("tlh", "LockScreenUtils---starRegularRestAlarm--Action:" + action + ",time:" + time);
                 AlarmManager am = (AlarmManager) Utils.getApp().getSystemService(Context.ALARM_SERVICE);
                 Intent intent = new Intent(Utils.getApp(), SystemSettingsService.class);
                 intent.setAction(action);
                 PendingIntent pendingIntent = PendingIntent.getService(Utils.getApp(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, time + SystemClock.elapsedRealtime(), time, pendingIntent);
+                am.setWindow(AlarmManager.ELAPSED_REALTIME_WAKEUP, time + SystemClock.elapsedRealtime(), time, pendingIntent);
             }
         });
     }
