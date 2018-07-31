@@ -73,7 +73,7 @@ public class SystemReceiver extends BroadcastReceiver {
             case Intent.ACTION_BATTERY_LOW:
                 LogUtils.e("tlh", "SystemReceiver---onReceive:" + "电量过低，请连接充电器！");
                 if (!isShowBatteryLogDialog) {
-                    showBatteryLowDialog();
+//                    showBatteryLowDialog();
                 }
 
                 break;
