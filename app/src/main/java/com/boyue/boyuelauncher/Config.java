@@ -354,7 +354,7 @@ public class Config {
         public static final String HHT_XT_ZJYY_BAODI_59 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "f8The_Sounds_of_the_Farm" + MediaFromart.MP4;
         public static final String HHT_XT_ZJYY_BAODI_60 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "f9The_time_is_now" + MediaFromart.MP4;
         public static final String HHT_XT_ZJYY_BAODI_61 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "g0Things_That_Go" + MediaFromart.MP4;
-        public static final String HHT_XT_ZJYY_BAODI_62 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "g2Together" + MediaFromart.MP4;
+        public static final String HHT_XT_ZJYY_BAODI_62 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "g1Together" + MediaFromart.MP4;
         public static final String HHT_XT_ZJYY_BAODI_63 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "g2Toys_toys_everywhere" + MediaFromart.MP4;
         public static final String HHT_XT_ZJYY_BAODI_64 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "g3We_Are_on_the_Go" + MediaFromart.MP4;
         public static final String HHT_XT_ZJYY_BAODI_65 = HHT_XT_ZJYY_BAODI_ROOT_PATH + "g4We_Can_Be_Anything" + MediaFromart.MP4;
