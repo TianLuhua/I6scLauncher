@@ -22,10 +22,13 @@ import java.lang.ref.WeakReference;
 /**
  * Created by Tianluhua on 2018/5/14.
  */
-public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, CleanCachePersenter> implements CleanCacheView {
+public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, CleanCachePersenter> implements CleanCacheView, Animation.AnimationListener {
 
 
     private String totalCacheSize;
+    private Animation rocketAnimation;
+    private View rocket;
+
 
     private Handler mHandler = new CleanCacheHandler(this);
 
@@ -54,54 +57,34 @@ public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, Clea
 
     @Override
     protected CleanCachePersenter createPresenter() {
-        return new CleanCachePersenter();
+        return new CleanCachePersenter(getApplicationContext());
     }
 
     private void launcherTheRocket() {
-        mHandler.postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                final View rocket = findViewById(R.id.rocket);
-                Animation rocketAnimation = AnimationUtils.loadAnimation(
-                        getApplicationContext(), R.anim.activity_cleancache_rocket);
-                rocketAnimation
-                        .setAnimationListener(new VisibilityAnimationListener(
-                                rocket));
-                rocket.startAnimation(rocketAnimation);
-
-
-            }
-        }, 150);
+        rocketAnimation = AnimationUtils.loadAnimation(
+                getApplicationContext(), R.anim.activity_cleancache_rocket);
+        rocketAnimation.setAnimationListener(this);
+        rocket = findViewById(R.id.rocket);
+        rocket.setAnimation(rocketAnimation);
+        rocketAnimation.start();
     }
 
-    public class VisibilityAnimationListener implements Animation.AnimationListener {
-
-        private View mVisibilityView;
-
-        public VisibilityAnimationListener(View view) {
-            mVisibilityView = view;
-        }
-
-
-        @Override
-        public void onAnimationStart(Animation animation) {
-            mHandler.sendEmptyMessage(Config.HandlerGlod.ACTIVITY_CLEANCACHE_START_CLEANCACHE);
-
-        }
-
-        @Override
-        public void onAnimationEnd(Animation animation) {
-
-            LogUtils.e("tlh", "onAnimationEnd");
-            if (mVisibilityView.getId() == R.id.rocket)
-                mHandler.sendEmptyMessage(Config.HandlerGlod.ACTIVITY_CLEANCACHE_END_CLEANCACHE);
-        }
-
-        @Override
-        public void onAnimationRepeat(Animation animation) {
-        }
+    @Override
+    public void onAnimationStart(Animation animation) {
+        mHandler.sendEmptyMessage(Config.HandlerGlod.ACTIVITY_CLEANCACHE_START_CLEANCACHE);
     }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+        LogUtils.e("tlh", "onAnimationEnd");
+        mHandler.sendEmptyMessage(Config.HandlerGlod.ACTIVITY_CLEANCACHE_END_CLEANCACHE);
+    }
+
+    @Override
+    public void onAnimationRepeat(Animation animation) {
+
+    }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -128,14 +111,17 @@ public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, Clea
             if (activity == null) return;
             switch (msg.what) {
                 case Config.HandlerGlod.ACTIVITY_CLEANCACHE_START_CLEANCACHE:
+
                     try {
-                        activity.totalCacheSize = DataCleanManager.getTotalCacheSize(activity.getApplicationContext());
-                        DataCleanManager.clearAllCache(activity.getApplicationContext());
+                        //原本方法
+                        // activity.totalCacheSize = DataCleanManager.getTotalCacheSize(activity.gApplicationContext());?
+                        //DataCleanManager.clearAllCache(activity.getApplicationContext());
+                        activity.totalCacheSize = DataCleanManager.getFormatSize(activity.getPresenter().getSystemCaches());
+                        activity.getPresenter().cleanSystemCache();
                     } catch (Exception e) {
                         e.printStackTrace();
-                        activity.totalCacheSize = "0.0Byte";
+                        activity.totalCacheSize = "0.00yte";
                     }
-
                     break;
 
                 case Config.HandlerGlod.ACTIVITY_CLEANCACHE_END_CLEANCACHE:

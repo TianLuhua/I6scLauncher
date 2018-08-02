@@ -1,13 +1,11 @@
-// IPackageDataObserver.aidl
-package com.boyue.boyuelauncher;
+package android.content.pm;
 
-// Declare any non-default types here with import statements
-
-interface IPackageDataObserver {
-    /**
-     * Demonstrates some basic types that you can use as parameters
-     * and return values in AIDL.
-     */
-    void basicTypes(int anInt, long aLong, boolean aBoolean, float aFloat,
-            double aDouble, String aString);
-}
+ /**
+  * API for package data change related callbacks from the Package Manager.
+  * Some usage scenarios include deletion of cache directory, generate
+  * statistics related to code, data, cache usage(TODO)
+  * {@hide}
+  */
+ oneway interface IPackageDataObserver {
+     void onRemoveCompleted(in String packageName, boolean succeeded);
+ }
