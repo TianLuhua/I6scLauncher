@@ -114,9 +114,9 @@ public class CleanCacheActivity extends AbstractMVPActivity<CleanCacheView, Clea
 
                     try {
                         //原本方法
-                        // activity.totalCacheSize = DataCleanManager.getTotalCacheSize(activity.gApplicationContext());?
-                        //DataCleanManager.clearAllCache(activity.getApplicationContext());
-                        activity.totalCacheSize = DataCleanManager.getFormatSize(activity.getPresenter().getSystemCaches());
+                        activity.totalCacheSize = DataCleanManager.getTotalCacheSize(activity.getApplicationContext());
+                        DataCleanManager.clearAllCache(activity.getApplicationContext());
+//                        activity.totalCacheSize = DataCleanManager.getFormatSize(activity.getPresenter().getSystemCaches());
                         activity.getPresenter().cleanSystemCache();
                     } catch (Exception e) {
                         e.printStackTrace();
