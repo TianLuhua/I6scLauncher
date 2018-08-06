@@ -621,7 +621,12 @@ public class Config {
         //微信
         public static final String HHT_ZXBX_WECHAT = "com.tencent.mm";//com.tencent.mm/.app.WeChatSplashActivity
         //语音机器人
+
         public static final String HHT_ZXBX_MY_ROBOTE = "com.aispeech.t6";//com.aispeech.t6/.MainActivity
+        public static final String HHT_ZXBX_MY_DAEMON_PACKGE = "com.aispeech.aios";
+        public static final String HHT_ZXBX_MY_DAEMON_LAUNCHER = "com.aispeech.aios.MainActivity";
+        public static final String HHT_ZXBX_MY_ADAPTER_PACKAGE = "com.aispeech.adapter";
+        public static final String HHT_ZXBX_MY_ADAPTER_LAUNCHER = "com.aispeech.adapter.MainActivity";
 
 
         //文件管理器

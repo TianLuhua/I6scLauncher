@@ -14,9 +14,12 @@ import java.util.List;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_KLOK;
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_ACTION_ZXBX_CARTOON;
-import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_AIQIYI_CHILDNER;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_HHT_BABY_SCHOOL;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MEDIA_CHAT;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MY_ADAPTER_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MY_ADAPTER_PACKAGE;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MY_DAEMON_LAUNCHER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MY_DAEMON_PACKGE;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MY_ROBOTE;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_WECHAT;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_KLOK_PAGE_KEY;
@@ -85,8 +88,10 @@ public class HHT_BX_PersenterImp extends ItemPersenter {
             case 4:
                 ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_WECHAT);
                 break;
-            //微信
+            //语音机器人
             case 5:
+                ActivityUtils.startApplicationWithComponent(HHT_ZXBX_MY_DAEMON_PACKGE, HHT_ZXBX_MY_DAEMON_LAUNCHER);
+                ActivityUtils.startApplicationWithComponent(HHT_ZXBX_MY_ADAPTER_PACKAGE, HHT_ZXBX_MY_ADAPTER_LAUNCHER);
                 ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_MY_ROBOTE);
                 break;
         }
