@@ -526,6 +526,7 @@ public class Config {
         public static final String HHT_LY_YSPY_HTCZ_08 = "";
         public static final String HHT_LY_YSPY_HTCZ_09 = "";
 
+
         //火火兔乐园---- 艺术培养 ---艺术之旅
         public static final String HHT_LY_YSPY_YSZL_ROOT_PATH = "/system/videos/leyuan/yishupeiyang/yishuzhilv/";
         public static final String HHT_LY_YSPY_YSZL_01 = HHT_LY_YSPY_YSZL_ROOT_PATH + "a0sjmh1" + MediaFromart.MP4;
@@ -620,14 +621,17 @@ public class Config {
         public static final String HHT_ZXBX_MEDIA_CHAT = "com.tencent.devicedemo";// com.tencent.devicedemo/com.tencent.BooyueFriendListActivity
         //微信
         public static final String HHT_ZXBX_WECHAT = "com.tencent.mm";//com.tencent.mm/.app.WeChatSplashActivity
-        //语音机器人
 
-        public static final String HHT_ZXBX_MY_ROBOTE = "com.aispeech.t6";//com.aispeech.t6/.MainActivity
+        //语音机器人
+        public static final String HHT_ZXBX_MY_DAEMON = "com.aispeech.aios/.MainActivity";
         public static final String HHT_ZXBX_MY_DAEMON_PACKGE = "com.aispeech.aios";
         public static final String HHT_ZXBX_MY_DAEMON_LAUNCHER = "com.aispeech.aios.MainActivity";
+        public static final String HHT_ZXBX_MY_ADAPTER = "com.aispeech.adapter/.MainActivity";
         public static final String HHT_ZXBX_MY_ADAPTER_PACKAGE = "com.aispeech.adapter";
         public static final String HHT_ZXBX_MY_ADAPTER_LAUNCHER = "com.aispeech.adapter.MainActivity";
-
+        public static final String HHT_ZXBX_MY_ROBOTE = "com.aispeech.t6/.MainActivity";
+        public static final String HHT_ZXBX_MY_ROBOTE_PACKGE = "com.aispeech.t6";
+        public static final String HHT_ZXBX_MY_ROBOTE_LAUNCHER = "com.aispeech.t6.MainActivity";
 
         //文件管理器
         public static final String FILE_MANGER_PACKAGE = "com.softwinner.explore";

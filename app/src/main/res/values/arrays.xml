@@ -881,8 +881,8 @@
         <item>@string/hht_bx_item_name_102</item>
         <item>@string/hht_bx_item_name_103</item>
         <item>@string/hht_bx_item_name_104</item>
-        <item>@string/hht_bx_item_name_105</item>
         <item>@string/hht_bx_item_name_106</item>
+        <item>@string/hht_bx_item_name_105</item>
     </string-array>
 
     <string-array name="hht_bx_items_image">
@@ -890,8 +890,8 @@
         <item>@mipmap/hht_bx_item_102</item>
         <item>@mipmap/hht_bx_item_103</item>
         <item>@mipmap/hht_bx_item_104</item>
-        <item>@mipmap/hht_bx_item_105</item>
         <item>@mipmap/hht_bx_item_106</item>
+        <item>@mipmap/hht_bx_item_105</item>
     </string-array>
 
     <!--宝宝巴士-->
