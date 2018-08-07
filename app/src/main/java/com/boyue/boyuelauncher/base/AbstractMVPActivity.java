@@ -1,17 +1,11 @@
 package com.boyue.boyuelauncher.base;
 
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
-import android.view.WindowManager;
 
-import com.boyue.boyuelauncher.Config;
-import com.boyue.boyuelauncher.receive.SystemReceiver;
 import com.boyue.boyuelauncher.utils.HideSystemUIUtils;
-import com.boyue.boyuelauncher.utils.LogUtils;
 
 /**
  * Created by Tianluhua on 2018/5/11.

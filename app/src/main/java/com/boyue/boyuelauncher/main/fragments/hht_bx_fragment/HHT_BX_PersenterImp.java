@@ -92,22 +92,15 @@ public class HHT_BX_PersenterImp extends ItemPersenter {
                     @Override
                     public void run() {
                         try {
-                            Process daemon = Runtime.getRuntime().exec("am start -n " + HHT_ZXBX_MY_DAEMON);
-                            if (daemon.waitFor() == 0) {
-                                LogUtils.e("boyue", "boyue------daemon-----");
-                                Process adapter = Runtime.getRuntime().exec("am start -n " + HHT_ZXBX_MY_ADAPTER);
-                                if (adapter.waitFor() == 0) {
-                                    LogUtils.e("boyue", "boyue------adapter-----");
-                                    Process t6 = Runtime.getRuntime().exec("am start -n " + HHT_ZXBX_MY_ROBOTE);
-                                    if (t6.waitFor() == 0) {
-                                        LogUtils.e("boyue", "boyue------t6-----");
-                                    }
-                                }
+                            Process t6 = Runtime.getRuntime().exec("am start -n " + HHT_ZXBX_MY_ROBOTE);
+                            if (t6.waitFor() == 0) {
+                                LogUtils.e("boyue", "t6启动哦成功！");
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
                             Toast.makeText(mContext, "启动语音机器人失败！", Toast.LENGTH_SHORT).show();
                         }
+
                     }
                 });
 

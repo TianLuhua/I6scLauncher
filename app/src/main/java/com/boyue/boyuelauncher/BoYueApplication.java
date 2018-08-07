@@ -138,22 +138,25 @@ public class BoYueApplication extends Application {
             }
         });
 
-        //注册 弹窗广播：usb连接、U盘插入、电量不足、话筒插入....
-        SystemReceiver systemReceiver = new SystemReceiver();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_USB_MOUNTED);
-        filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_POWER_CONNECTED);
-        filter.addAction(Config.BoYueAction.ACTION_MIC_IN);
-        filter.addAction(Intent.ACTION_BATTERY_LOW);
-
-        //一段时间屏幕无操作的系统广播
-        filter.addAction(Config.BoYueAction.UNACTIVITY_FIFTEEN_MIN);
-        filter.addAction(Config.BoYueAction.UNACTIVITY_THIRTY_MIN);
-        filter.addAction(Config.BoYueAction.UNACTIVITY_SIXTY_MIN);
-
-        registerReceiver(systemReceiver, filter);
-        LogUtils.e("tlh", "BoYueApplication---registerReceiver");
-
-
+//        //注册 弹窗广播：usb连接、U盘插入、电量不足、话筒插入....
+//        SystemReceiver systemReceiver = new SystemReceiver();
+//        IntentFilter filter = new IntentFilter();
+//        filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_USB_MOUNTED);
+//        filter.addAction(Config.BoYueAction.COM_BOYUE_ACTION_POWER_CONNECTED);
+//
+//        filter.addAction(Config.BoYueAction.ACTION_MIC_IN);
+//        filter.addAction(Intent.ACTION_BATTERY_LOW);
+//
+//        //监听系统开机,启动语音机器人的相关服务
+//        filter.addAction(Intent.ACTION_BOOT_COMPLETED);
+//
+//        //一段时间屏幕无操作的系统广播
+//        filter.addAction(Config.BoYueAction.UNACTIVITY_FIFTEEN_MIN);
+//        filter.addAction(Config.BoYueAction.UNACTIVITY_THIRTY_MIN);
+//        filter.addAction(Config.BoYueAction.UNACTIVITY_SIXTY_MIN);
+//
+//        registerReceiver(systemReceiver, filter);
+//        LogUtils.e("tlh", "BoYueApplication---registerReceiver");
+//
     }
 }

@@ -8,12 +8,17 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
 import com.boyue.boyuelauncher.utils.SPUtils;
 import com.boyue.boyuelauncher.utils.ShutDownUtils;
+import com.boyue.boyuelauncher.utils.ThreadPoolManager;
+
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MY_ADAPTER;
+import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.HHT_ZXBX_MY_DAEMON;
 
 
 /**
@@ -33,6 +38,7 @@ public class SystemReceiver extends BroadcastReceiver {
     private boolean isShowMicDialog;
 
 
+    private Context mContext;
     private SPUtils spUtils;
     private WindowManager windowManager;
     private LayoutInflater layoutInflater;
@@ -51,7 +57,7 @@ public class SystemReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent == null) return;
         String action = intent.getAction();
-        LogUtils.e("tlh", "SystemReceiver---onReceive--action:" + action);
+        this.mContext = context;
         windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         layoutInflater = LayoutInflater.from(context);
         switch (action) {
@@ -101,6 +107,26 @@ public class SystemReceiver extends BroadcastReceiver {
                 if (spUtils.getInt(Config.PassWordKey.AUTO_SHUTDOWN_KEY) == Config.Settings.VALUE_60M) {
                     ShutDownUtils.shutDownWithAction();
                 }
+                break;
+            case Intent.ACTION_BOOT_COMPLETED:
+                ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Process daemon = Runtime.getRuntime().exec("am start -n " + HHT_ZXBX_MY_DAEMON);
+                            if (daemon.waitFor() == 0) {
+                                LogUtils.e("boyue", "boyue------daemon启动成功！-----");
+                                Process adapter = Runtime.getRuntime().exec("am start -n " + HHT_ZXBX_MY_ADAPTER);
+                                if (adapter.waitFor() == 0) {
+                                    LogUtils.e("boyue", "boyue------adapter启动成功！-----");
+                                }
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Toast.makeText(mContext, "启动语音机器人服务失败！", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
                 break;
 
 

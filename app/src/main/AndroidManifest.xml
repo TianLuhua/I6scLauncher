@@ -45,7 +45,7 @@
     <!--获取栈顶的Activity权限-->
     <uses-permission android:name="android.permission.GET_TASKS" />
 
-    <permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+    <permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
 
 
     <application
@@ -170,6 +170,25 @@
             </intent-filter>
         </service>
         <service android:name=".service.PlayAudioService" />
+
+        <receiver android:name=".receive.SystemReceiver">
+            <intent-filter android:priority="2147483647">
+                <!--自定义u盘挂载广播-->
+                <action android:name="com.boyue.action.usb.mounted" />
+                <!--自定义连接充电器广播-->
+                <action android:name="com.boyue.action.action_power_connected" />
+                <!--mic连接广播-->
+                <action android:name="android.intent.action.MIC_IN" />
+                <!--低电量广播-->
+                <action android:name="android.intent.action.BATTERY_LOW" />
+                <!--监听开机广播，如果不启动语音机器人相关服务，第一次启动语音机器人会没有声音-->
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!--系统无操作广播 15m,30m,60m-->
+                <action android:name="android.intent.action.IDLE_FIFTEEN_MIN" />
+                <action android:name="android.intent.action.IDLE_THIRTY_MIN" />
+                <action android:name="android.intent.action.IDLE_SIXTY_MIN" />
+            </intent-filter>
+        </receiver>
     </application>
 
 
