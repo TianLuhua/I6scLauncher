@@ -226,7 +226,8 @@ public class MainActivity extends AbstractMVPActivity<MainView, MainPresenterImp
     @Override
     public void onPageSelected(int position) {
         LogUtils.e("tlh", "MainActivity---onPageSelected---position:" + position);
-        startPlayAudio(position);
+        //tlh 2018.08.07 禁止掉每页滑动时候的背景音乐
+        //startPlayAudio(position);
         radioGroup.setOnCheckedChangeListener(null);
         switch (position) {
             case 0:

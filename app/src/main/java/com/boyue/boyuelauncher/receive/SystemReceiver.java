@@ -109,24 +109,24 @@ public class SystemReceiver extends BroadcastReceiver {
                 }
                 break;
             case Intent.ACTION_BOOT_COMPLETED:
-                ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Process daemon = Runtime.getRuntime().exec("am start -n " + HHT_ZXBX_MY_DAEMON);
-                            if (daemon.waitFor() == 0) {
-                                LogUtils.e("boyue", "boyue------daemon启动成功！-----");
-                                Process adapter = Runtime.getRuntime().exec("am start -n " + HHT_ZXBX_MY_ADAPTER);
-                                if (adapter.waitFor() == 0) {
-                                    LogUtils.e("boyue", "boyue------adapter启动成功！-----");
-                                }
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Toast.makeText(mContext, "启动语音机器人服务失败！", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+//                ThreadPoolManager.newInstance().addExecuteTask(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        try {
+//                            Process daemon = Runtime.getRuntime().exec("am start -n " + HHT_ZXBX_MY_DAEMON);
+//                            if (daemon.waitFor() == 0) {
+//                                LogUtils.e("boyue", "boyue------daemon启动成功！-----");
+//                                Process adapter = Runtime.getRuntime().exec("am start -n " + HHT_ZXBX_MY_ADAPTER);
+//                                if (adapter.waitFor() == 0) {
+//                                    LogUtils.e("boyue", "boyue------adapter启动成功！-----");
+//                                }
+//                            }
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                            Toast.makeText(mContext, "启动语音机器人服务失败！", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
                 break;
 
 

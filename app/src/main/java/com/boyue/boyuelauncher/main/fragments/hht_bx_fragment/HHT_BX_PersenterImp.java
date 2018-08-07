@@ -84,6 +84,15 @@ public class HHT_BX_PersenterImp extends ItemPersenter {
                 break;
             //语音聊天
             case 3:
+                //am force-stop com.aispeech.aios
+                //am force-stop com.aispeech.adapter
+                try {
+                    Runtime.getRuntime().exec("am force-stop com.aispeech.aios");
+                    Runtime.getRuntime().exec("am force-stop com.aispeech.adapter");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    LogUtils.e("boyue", "t6服务停止失败！");
+                }
                 ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_MEDIA_CHAT);
                 break;
             //语音机器人
