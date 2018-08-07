@@ -117,9 +117,9 @@ public class HHT_BX_PersenterImp extends ItemPersenter {
 //                ActivityUtils.startApplicationWithComponent(HHT_ZXBX_MY_ADAPTER_PACKAGE, HHT_ZXBX_MY_ADAPTER_LAUNCHER);
 //                ActivityUtils.startApplicationWithComponent(HHT_ZXBX_MY_ROBOTE_PACKGE, HHT_ZXBX_MY_ROBOTE_LAUNCHER);
                 break;
-            //微信
+            //微信 ，不要求内置
             case 5:
-                ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_WECHAT);
+//                ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_WECHAT);
                 break;
         }
 
