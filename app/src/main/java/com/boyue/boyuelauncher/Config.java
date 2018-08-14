@@ -44,9 +44,10 @@ public class Config {
         //重置密码的点击次数
         public static int RESET_PASSWORD_CLICK_NUMBER = 8;
 
-        //连续点击，调出系统Settings
+        //连续点击，调出系统Settings、计算器
         public static int REQUST_SYSTEM_SETITNGS_CLICK_NUMBER = 8;
         public static String REQUST_SYSTEM_SETITNGS_PASSWORD = "0001";
+        public static String REQUST_SYSTEM_CACULATER_PASSWORD = "0002";
 
         //自定义连接usb充电的Action
         public static final String COM_BOYUE_ACTION_POWER_CONNECTED = "com.boyue.action.action_power_connected";
@@ -508,23 +509,73 @@ public class Config {
         public static final String HHT_LY_KALAOK_YWEG_20 = HHT_LY_KALAOK_YWEG_ROOT_PATH + "b9Winter_Hokey_Pokey_Song_for_Kids" + MediaFromart.MP4;
 
         //火火兔乐园---- 艺术培养 ---智趣音乐
-        public static final String HHT_LY_YSPY_ZQYY_01 = "";
-        public static final String HHT_LY_YSPY_ZQYY_02 = "";
-        public static final String HHT_LY_YSPY_ZQYY_03 = "";
-        public static final String HHT_LY_YSPY_ZQYY_04 = "";
+        /**
+         * 宝宝认乐器 air.BabyInstrument/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_ZQYY_01 = "air.BabyInstrument";
+        /**
+         * 宝宝爱伴奏 air.BabyAccompaniment/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_ZQYY_02 = "air.BabyAccompaniment";
+        /**
+         * 乐器猜猜乐 air.BabyGuessInstru/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_ZQYY_03 = "air.BabyGuessInstru";
+        /**
+         * 快乐弹弹弹  air.BabyPiano/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_ZQYY_04 = "air.BabyPiano";
+        /**
+         * 跟我学乐谱
+         */
         public static final String HHT_LY_YSPY_ZQYY_05 = "";
-        public static final String HHT_LY_YSPY_ZQYY_06 = "";
-        public static final String HHT_LY_YSPY_ZQYY_07 = "";
+        /**
+         * 小小钢琴家 air.BabyPianist/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_ZQYY_06 = "air.BabyPianist";
+        /**
+         * 宝宝猜儿歌  air.BabyGuessSong/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_ZQYY_07 = "air.BabyGuessSong";
+
+
         //火火兔乐园---- 艺术培养 ---画图创作
-        public static final String HHT_LY_YSPY_HTCZ_01 = "";
-        public static final String HHT_LY_YSPY_HTCZ_02 = "";
-        public static final String HHT_LY_YSPY_HTCZ_03 = "";
-        public static final String HHT_LY_YSPY_HTCZ_04 = "";
-        public static final String HHT_LY_YSPY_HTCZ_05 = "";
-        public static final String HHT_LY_YSPY_HTCZ_06 = "";
-        public static final String HHT_LY_YSPY_HTCZ_07 = "";
-        public static final String HHT_LY_YSPY_HTCZ_08 = "";
-        public static final String HHT_LY_YSPY_HTCZ_09 = "";
+        /**
+         * 宝宝学画画  air.BabyDraw/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_HTCZ_01 = "air.BabyDraw";
+        /**
+         * 场景涂色 air.BabySceneDraw/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_HTCZ_02 = "air.BabySceneDraw";
+        /**
+         * 飞机设计师 air.BabyPlane/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_HTCZ_03 = "air.BabyPlane";
+        /**
+         * 火火兔爱装扮 air.BabyDress/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_HTCZ_04 = "air.BabyDress";
+        /**
+         * 趣味涂涂乐 air.BabyFunnyDraw/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_HTCZ_05 = "air.BabyFunnyDraw";
+        /**
+         * 我的爸爸妈妈  air.BabyFamily/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_HTCZ_06 = "air.BabyFamily";
+        /**
+         * 童话天地  air.BabyDrawParty/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_HTCZ_07 = "air.BabyDrawParty";
+        /**
+         * 我画你猜    air.DrawAndGuess/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_HTCZ_08 = "air.DrawAndGuess";
+        /**
+         * 美味蛋糕  air.BabyMakeCake/.AppEntry
+         */
+        public static final String HHT_LY_YSPY_HTCZ_09 = "air.BabyMakeCake";
 
 
         //火火兔乐园---- 艺术培养 ---艺术之旅

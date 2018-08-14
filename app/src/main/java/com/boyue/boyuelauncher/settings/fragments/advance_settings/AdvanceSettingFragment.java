@@ -145,6 +145,9 @@ public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingVi
                             if (getPresenter().matchRequstSystemSettingPassword(pwd)) {
                                 getPresenter().startSystemSettings();
                                 dialog.dismiss();
+                            } else if (getPresenter().matchRequstSystemCaculaterPassword(pwd)) {
+                                getPresenter().startSystemCaculater();
+                                dialog.dismiss();
                             } else {
                                 dialog.setTieltT(R.string.input_pwd_error, R.color.color_red);
                             }

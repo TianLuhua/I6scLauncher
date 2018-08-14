@@ -55,8 +55,8 @@ public class DateTimeSettingMode implements BaseMode {
             @Override
             public void run() {
                 //tlh
-                android.provider.Settings.Global.putInt(resolver,
-                        android.provider.Settings.Global.AUTO_TIME, autoDateTime ? 1 : 0);
+//                android.provider.Settings.Global.putInt(resolver,
+//                        android.provider.Settings.Global.AUTO_TIME, autoDateTime ? 1 : 0);
             }
         });
 

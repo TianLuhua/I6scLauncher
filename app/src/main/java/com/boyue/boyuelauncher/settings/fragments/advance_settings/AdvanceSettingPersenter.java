@@ -8,6 +8,7 @@ import com.boyue.boyuelauncher.base.AbstractPresenter;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.REQUST_SYSTEM_SETITNGS_PASSWORD;
+import static com.boyue.boyuelauncher.Config.BoYueAction.REQUST_SYSTEM_CACULATER_PASSWORD;
 
 public class AdvanceSettingPersenter extends AbstractPresenter<AdvanceSettingView> {
 
@@ -56,6 +57,7 @@ public class AdvanceSettingPersenter extends AbstractPresenter<AdvanceSettingVie
         return result;
     }
 
+
     //启动系统原生设置
     public void startSystemSettings() {
         LogUtils.e("tlh", "startSystemSettings");
@@ -63,4 +65,22 @@ public class AdvanceSettingPersenter extends AbstractPresenter<AdvanceSettingVie
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mcontext.startActivity(intent);
     }
+
+
+    //启动计算器密码配对，初始密码：0002
+    public boolean matchRequstSystemCaculaterPassword(String pwd) {
+        boolean result = false;
+        if (REQUST_SYSTEM_CACULATER_PASSWORD.equals(pwd))
+            result = true;
+        return result;
+    }
+
+    public void startSystemCaculater() {
+        LogUtils.e("tlh", "startSystemCaculater");
+        Intent intent = new Intent();
+        intent.setClassName("com.android.calculator2", "com.android.calculator2.Calculator");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        mcontext.startActivity(intent);
+    }
+
 }
