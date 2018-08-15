@@ -84,15 +84,14 @@ public class HHT_BX_PersenterImp extends ItemPersenter {
                 break;
             //语音聊天
             case 3:
-                //am force-stop com.aispeech.aios
-                //am force-stop com.aispeech.adapter
-                try {
-                    Runtime.getRuntime().exec("am force-stop com.aispeech.aios");
-                    Runtime.getRuntime().exec("am force-stop com.aispeech.adapter");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    LogUtils.e("boyue", "t6服务停止失败！");
-                }
+                //应系统组需求关闭语音机器人相关服务
+//                try {
+//                    Runtime.getRuntime().exec("am force-stop com.aispeech.aios");
+//                    Runtime.getRuntime().exec("am force-stop com.aispeech.adapter");
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                    LogUtils.e("boyue", "t6服务停止失败！");
+//                }
                 ActivityUtils.startApplicationWithPackageName(HHT_ZXBX_MEDIA_CHAT);
                 break;
             //语音机器人
@@ -101,6 +100,8 @@ public class HHT_BX_PersenterImp extends ItemPersenter {
                     @Override
                     public void run() {
                         try {
+                            //应系统组需求延时3秒启动
+                            Thread.sleep(3000);
                             Process t6 = Runtime.getRuntime().exec("am start -n " + HHT_ZXBX_MY_ROBOTE);
                             if (t6.waitFor() == 0) {
                                 LogUtils.e("boyue", "t6启动哦成功！");
