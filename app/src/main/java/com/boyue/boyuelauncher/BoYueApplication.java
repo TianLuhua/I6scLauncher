@@ -21,6 +21,7 @@ import static android.provider.Settings.System.SCREEN_OFF_TIMEOUT;
 import static com.boyue.boyuelauncher.Config.BoYueAction.BOOYUE_STREAMMAXVOLUME_KEY;
 import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_OFF;
 import static com.boyue.boyuelauncher.Config.BoYueAction.COLOR_EAR_ON;
+import static com.boyue.boyuelauncher.Config.Bugly.BUGLY_KEY;
 import static com.boyue.boyuelauncher.Config.PassWordKey.DEFAULT_LED_KEY;
 
 
@@ -39,7 +40,7 @@ public class BoYueApplication extends Application {
         super.onCreate();
         ToastUtil.isShowToast = false;
         //初始化Bugly
-        CrashReport.initCrashReport(getApplicationContext(), "0708b7aed2", false);
+        CrashReport.initCrashReport(getApplicationContext(), BUGLY_KEY, false);
         //初始化Utils
         Utils.init(this);
         //初始化系统SharedPreferences
