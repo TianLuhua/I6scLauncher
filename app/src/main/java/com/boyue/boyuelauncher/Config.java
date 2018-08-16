@@ -658,7 +658,7 @@ public class Config {
         public static final String HHT_ZXBX_BABY_BUS_03 = "com.sinyee.education.shape";//com.sinyee.education.shape/com.babybus.plugin.videoview.activity.BoxVideoActivity
         public static final String HHT_ZXBX_BABY_BUS_04 = "com.sinyee.babybus.abc";//com.sinyee.babybus.abc/com.babybus.plugin.videoview.activity.BoxVideoActivity
         public static final String HHT_ZXBX_BABY_BUS_05 = "com.sinyee.babybus.babyhospital";//com.sinyee.babybus.babyhospital/com.babybus.plugin.videoview.activity.BoxVideoActivity
-        public static final String HHT_ZXBX_BABY_BUS_06 = "com.sinyee.babybus.birtypartyhda";//com.sinyee.babybus.birtypartyhda/com.babybus.plugin.videoview.activity.BoxVideoActivity
+        public static final String HHT_ZXBX_BABY_BUS_06 = "com.sinyee.babybus.birthdayparty";//com.sinyee.babybus.birthdayparty/com.sinyee.babybus.SplashAct
         public static final String HHT_ZXBX_BABY_BUS_07 = "com.sinyee.babybus.candy";//com.sinyee.babybus.candy/com.sinyee.babybus.Main
         public static final String HHT_ZXBX_BABY_BUS_08 = "com.sinyee.babybus.chef";//com.sinyee.babybus.chef/com.sinyee.babybus.Main
         public static final String HHT_ZXBX_BABY_BUS_09 = "com.sinyee.babybus.magichouse";//com.sinyee.babybus.magichouse/com.babybus.plugin.videoview.activity.BoxVideoActivity
