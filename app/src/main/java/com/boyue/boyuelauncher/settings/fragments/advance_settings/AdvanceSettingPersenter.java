@@ -7,8 +7,9 @@ import android.provider.Settings;
 import com.boyue.boyuelauncher.base.AbstractPresenter;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
-import static com.boyue.boyuelauncher.Config.BoYueAction.REQUST_SYSTEM_SETITNGS_PASSWORD;
-import static com.boyue.boyuelauncher.Config.BoYueAction.REQUST_SYSTEM_CACULATER_PASSWORD;
+import static com.boyue.boyuelauncher.Config.PassWordKey.REQUST_SYSTEM_CACULATER_PASSWORD;
+import static com.boyue.boyuelauncher.Config.PassWordKey.REQUST_SYSTEM_SETITNGS_PASSWORD;
+
 
 public class AdvanceSettingPersenter extends AbstractPresenter<AdvanceSettingView> {
 

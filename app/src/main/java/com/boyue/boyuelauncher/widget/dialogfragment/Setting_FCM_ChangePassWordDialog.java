@@ -15,7 +15,7 @@ import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.utils.LogUtils;
 
-import static com.boyue.boyuelauncher.Config.BoYueAction.RESET_PASSWORD_CLICK_NUMBER;
+import static com.boyue.boyuelauncher.Config.PassWordKey.RESET_PASSWORD_CLICK_NUMBER;
 
 
 /**

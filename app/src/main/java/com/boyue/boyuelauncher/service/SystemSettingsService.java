@@ -32,6 +32,7 @@ import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_PROTECT_EYE;
 import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_XT;
 import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_ZXBX;
 import static com.boyue.boyuelauncher.Config.PassWordKey.HHTLY_AUDIO_KEY;
+import static com.boyue.boyuelauncher.Config.Screen.DEFAULT_BRIGHTNESS;
 
 
 /**
@@ -66,15 +67,17 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
                     //播放提示音(息屏的情况下不激活);如何在视屏通话的话，护眼也不生效
                     String currentActivity = ActivityUtils.getTopActivity(SystemSettingsService.this);
                     LogUtils.e("tlh", "SystemSettingsService---PROTECT_EYE_OFF-----currentActivity:" + currentActivity);
+                    //获取护眼前屏幕的亮度，用户取消护眼时候恢复屏幕亮度
+                    systemScreenBrightness = ScreenUtils.getScreenBrightness();
                     if (powerManager.isScreenOn() && !Config.ActivityName.BOOYUE_VIDEOCHATACTIVITY.equals(currentActivity)) {
                         startPlayAudio(HHT_PROTECT_EYE);
-                        systemScreenBrightness = ScreenUtils.getScreenBrightness();
-                        ScreenUtils.setScreenBrightness(20);
+                        //默认激活护眼的屏幕亮度为20
+                        ScreenUtils.setScreenBrightness(DEFAULT_BRIGHTNESS);
                     }
                     break;
 
                 case PROTECT_EYE_ON:
-                    if (ScreenUtils.getScreenBrightness() <= 20)
+                    if (ScreenUtils.getScreenBrightness() <= systemScreenBrightness)
                         ScreenUtils.setScreenBrightness(systemScreenBrightness);
                     break;
             }
@@ -115,38 +118,40 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
 
                 break;
             case Config.BoYueAction.PROTECTSENSOR_ACTION_OPEN:
-
-                LogUtils.e("tlh", "PROTECTSENSOR_ACTION");
+                LogUtils.e("tlh", "PROTECTSENSOR_ACTION_OPEN");
                 //获取传感器管理类及距离传感器
-                mSensorMgr = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-                mGnPSensor = mSensorMgr.getDefaultSensor(Sensor.TYPE_PROXIMITY);
-                mGnPSensorEventListener = new SensorEventListener() {
-                    @Override
-                    public void onSensorChanged(SensorEvent event) {
-                        if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
-                            Message message = mHandler.obtainMessage();
-                            mHandler.removeMessages(PROTECT_EYE_OFF);
-                            mHandler.removeMessages(PROTECT_EYE_ON);
-                            float distance = event.values[0];
-                            if (distance == 0.0) {
-                                LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
-                                message.what = PROTECT_EYE_OFF;
-                                mHandler.sendMessageDelayed(message, PROTECT_EYE_DELAY);
+                if (mSensorMgr == null)
+                    mSensorMgr = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+                if (mGnPSensor == null)
+                    mGnPSensor = mSensorMgr.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+                if (mGnPSensorEventListener == null)
+                    mGnPSensorEventListener = new SensorEventListener() {
+                        @Override
+                        public void onSensorChanged(SensorEvent event) {
+                            if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
+                                Message message = mHandler.obtainMessage();
+                                mHandler.removeMessages(PROTECT_EYE_OFF);
+                                mHandler.removeMessages(PROTECT_EYE_ON);
+                                float distance = event.values[0];
+                                if (distance == 0.0) {
+                                    LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
+                                    message.what = PROTECT_EYE_OFF;
+                                    mHandler.sendMessageDelayed(message, PROTECT_EYE_DELAY);
 
-                            } else if (distance == 5.0) {
-                                LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
-                                message.what = PROTECT_EYE_ON;
-                                mHandler.sendMessageDelayed(message, PROTECT_EYE_DELAY);
+                                } else if (distance == 5.0) {
+                                    LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
+                                    message.what = PROTECT_EYE_ON;
+                                    mHandler.sendMessageDelayed(message, PROTECT_EYE_DELAY);
+                                }
                             }
                         }
-                    }
 
-                    @Override
-                    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+                        @Override
+                        public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
-                    }
+                        }
 
-                };
+                    };
                 //在传感器管理类中注册距离传感器的监听器
                 mSensorMgr.registerListener(mGnPSensorEventListener, mGnPSensor, SENSOR_DELAY_NORMAL);
                 break;

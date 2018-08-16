@@ -10,22 +10,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.boyue.boyuelauncher.Config;
 import com.boyue.boyuelauncher.R;
 import com.boyue.boyuelauncher.base.AbstractMVPFragment;
 import com.boyue.boyuelauncher.utils.ActivityUtils;
 import com.boyue.boyuelauncher.utils.LogUtils;
-import com.boyue.boyuelauncher.utils.ToastUtil;
 import com.boyue.boyuelauncher.widget.VerticalImageSpan;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_FCM_ChangePassWordDialog;
 import com.boyue.boyuelauncher.widget.dialogfragment.Setting_Factory_SettingDialog;
 
 import static com.boyue.boyuelauncher.Config.BoYueAction.ACTIVITY_SYSTEM_UPDATE;
-import static com.boyue.boyuelauncher.Config.BoYueAction.REQUST_SYSTEM_SETITNGS_CLICK_NUMBER;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.FILE_MANGER_LAUNCHER;
 import static com.boyue.boyuelauncher.Config.BoYueLauncherResource.FILE_MANGER_PACKAGE;
+import static com.boyue.boyuelauncher.Config.PassWordKey.REQUST_SYSTEM_SETITNGS_CLICK_NUMBER;
 
 public class AdvanceSettingFragment extends AbstractMVPFragment<AdvanceSettingView, AdvanceSettingPersenter> implements AdvanceSettingView, View.OnClickListener {
 

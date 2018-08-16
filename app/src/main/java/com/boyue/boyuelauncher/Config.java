@@ -37,17 +37,8 @@ public class Config {
         //固件升级界面
         public static final String ACTIVITY_SYSTEM_UPDATE = "com.boyue.boyuelauncher.settings.fragments.advance_settings.system_update";
 
-
         //在线卡通
         public static final String ACTIVITY_ACTION_ZXBX_CARTOON = "com.boyue.boyuelauncher.main.fragments.hht_bx_fragment.cartoon";
-
-        //重置密码的点击次数
-        public static int RESET_PASSWORD_CLICK_NUMBER = 8;
-
-        //连续点击，调出系统Settings、计算器
-        public static int REQUST_SYSTEM_SETITNGS_CLICK_NUMBER = 8;
-        public static String REQUST_SYSTEM_SETITNGS_PASSWORD = "0001";
-        public static String REQUST_SYSTEM_CACULATER_PASSWORD = "0002";
 
         //自定义连接usb充电的Action
         public static final String COM_BOYUE_ACTION_POWER_CONNECTED = "com.boyue.action.action_power_connected";
@@ -140,11 +131,14 @@ public class Config {
     }
 
     /**
-     * 屏幕相关参数
+     * 屏幕亮度相关参数
      */
     public static class Screen {
         public static final int SCREEN_BRIGHTNESS_MIN = 125;
         public static final int SCREEN_BRIGHTNESS_MAX = 255;
+        ////默认激活护眼的屏幕亮度为20
+        public static final int DEFAULT_BRIGHTNESS = 20;
+
     }
 
     /**
@@ -218,6 +212,13 @@ public class Config {
 
         //用于保存 主界面切换时候，播放对应音频的key
         public static final String HHTLY_AUDIO_KEY = "audio_item";
+
+        //重置密码的点击次数
+        public static int RESET_PASSWORD_CLICK_NUMBER = 8;
+        //连续点击，调出系统Settings、计算器
+        public static int REQUST_SYSTEM_SETITNGS_CLICK_NUMBER = 8;
+        public static String REQUST_SYSTEM_SETITNGS_PASSWORD = "0001";
+        public static String REQUST_SYSTEM_CACULATER_PASSWORD = "0002";
 
     }
 
