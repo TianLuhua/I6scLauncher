@@ -22,11 +22,11 @@ public abstract class AbstractMVPActivity<V extends BaseView, P extends Abstract
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        HideSystemUIUtils.hideSystemUI(this);
-        //在清单配置文件强制activity横屏导致启动应用慢的问题
-        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        //保持屏幕常亮状态，系统屏幕休眠也会失效
+//        HideSystemUIUtils.hideSystemUI(this);
+//        //在清单配置文件强制activity横屏导致启动应用慢的问题
+//        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+//            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//        //保持屏幕常亮状态，系统屏幕休眠也会失效
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         if (mPresenter == null) {

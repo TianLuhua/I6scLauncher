@@ -58,8 +58,12 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".main.MainActivity"
-            android:screenOrientation="landscape"
-            android:theme="@style/NoTitleTranslucentTheme">
+            android:clearTaskOnLaunch="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="nosensor"
+            android:stateNotNeeded="true"
+            android:theme="@style/NoTitleTranslucentTheme"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
