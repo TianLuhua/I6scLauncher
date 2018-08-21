@@ -4,8 +4,13 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 
 import com.boyue.boyuelauncher.utils.HideSystemUIUtils;
+import com.boyue.boyuelauncher.utils.LogUtils;
+import com.boyue.boyuelauncher.utils.ScreenUtils;
+
+import static com.boyue.boyuelauncher.Config.Screen.DEFAULT_BRIGHTNESS;
 
 /**
  * Created by Tianluhua on 2018/5/11.
@@ -71,6 +76,18 @@ public abstract class AbstractMVPActivity<V extends BaseView, P extends Abstract
 
         return super.onKeyDown(keyCode, event);
 
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+
+
+        //激活护眼设置，屏幕操作无效
+        if (ScreenUtils.getScreenBrightness() <= DEFAULT_BRIGHTNESS) {
+            return true;
+        }
+
+        return super.dispatchTouchEvent(ev);
     }
 
     @Override
