@@ -48,12 +48,18 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
 
 
     private SensorManager mSensorMgr;
+    //定义一个护眼传感器（实际为距离感应器）
     private Sensor mGnPSensor;
     //定义监听器
     private SensorEventListener mGnPSensorEventListener;
+    //激活距离感应器
+    private final float PROXIMITY_ON = 0.0f;
+    //释放距离感应器
+    private final float PROXIMITY_OFF = 5.0f;
+    //激活护眼感应器前，屏幕亮度值
+    private int systemScreenBrightness;
 
     private PowerManager powerManager;
-    private int systemScreenBrightness;
 
 
     //播放背景音乐相关
@@ -67,8 +73,6 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
                     //播放提示音(息屏的情况下不激活);如何在视屏通话的话，护眼也不生效
                     String currentActivity = ActivityUtils.getTopActivity(SystemSettingsService.this);
                     LogUtils.e("tlh", "SystemSettingsService---PROTECT_EYE_OFF-----currentActivity:" + currentActivity);
-                    //获取护眼前屏幕的亮度，用户取消护眼时候恢复屏幕亮度
-                    systemScreenBrightness = ScreenUtils.getScreenBrightness();
                     if (powerManager.isScreenOn() && !Config.ActivityName.BOOYUE_VIDEOCHATACTIVITY.equals(currentActivity)) {
                         startPlayAudio(HHT_PROTECT_EYE);
                         //默认激活护眼的屏幕亮度为20
@@ -77,8 +81,9 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
                     break;
 
                 case PROTECT_EYE_ON:
-                    if (ScreenUtils.getScreenBrightness() <= systemScreenBrightness)
+                    if (ScreenUtils.getScreenBrightness() <= systemScreenBrightness) {
                         ScreenUtils.setScreenBrightness(systemScreenBrightness);
+                    }
                     break;
             }
 
@@ -133,16 +138,18 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
                                 mHandler.removeMessages(PROTECT_EYE_OFF);
                                 mHandler.removeMessages(PROTECT_EYE_ON);
                                 float distance = event.values[0];
-                                if (distance == 0.0) {
+                                if (distance == PROXIMITY_ON) {
                                     LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
+                                    //获取护眼前屏幕的亮度，用户取消护眼时候恢复屏幕亮度
+                                    systemScreenBrightness = ScreenUtils.getScreenBrightness();
                                     message.what = PROTECT_EYE_OFF;
                                     mHandler.sendMessageDelayed(message, PROTECT_EYE_DELAY);
-
-                                } else if (distance == 5.0) {
+                                } else if (distance == PROXIMITY_OFF) {
                                     LogUtils.e("tlh", "SystemSettingsService---getDistance:" + distance);
                                     message.what = PROTECT_EYE_ON;
-                                    mHandler.sendMessageDelayed(message, PROTECT_EYE_DELAY);
+                                    mHandler.sendMessageDelayed(message, 0);
                                 }
+
                             }
                         }
 
