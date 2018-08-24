@@ -24,6 +24,7 @@ import com.boyue.boyuelauncher.utils.ShutDownUtils;
 import com.boyue.boyuelauncher.utils.ThreadPoolManager;
 
 import java.io.IOException;
+import java.lang.ref.WeakReference;
 
 import static android.hardware.SensorManager.SENSOR_DELAY_NORMAL;
 import static com.boyue.boyuelauncher.Config.HandlerGlod.HHT_AR;
@@ -65,30 +66,7 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
     //播放背景音乐相关
     private MediaPlayer mediaPlayer;
 
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case PROTECT_EYE_OFF:
-                    //播放提示音(息屏的情况下不激活);如何在视屏通话的话，护眼也不生效
-                    String currentActivity = ActivityUtils.getTopActivity(SystemSettingsService.this);
-                    LogUtils.e("tlh", "SystemSettingsService---PROTECT_EYE_OFF-----currentActivity:" + currentActivity);
-                    if (powerManager.isScreenOn() && !Config.ActivityName.BOOYUE_VIDEOCHATACTIVITY.equals(currentActivity)) {
-                        startPlayAudio(HHT_PROTECT_EYE);
-                        //默认激活护眼的屏幕亮度为20
-                        ScreenUtils.setScreenBrightness(DEFAULT_BRIGHTNESS);
-                    }
-                    break;
-
-                case PROTECT_EYE_ON:
-                    if (ScreenUtils.getScreenBrightness() <= systemScreenBrightness) {
-                        ScreenUtils.setScreenBrightness(systemScreenBrightness);
-                    }
-                    break;
-            }
-
-        }
-    };
+    private Handler mHandler = new SystemSettingsServiceHandle(this);
 
 
     @Override
@@ -272,4 +250,43 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
         LogUtils.e("tlh", "onDestroy");
 
     }
+
+    /**
+     * 系统建议写成static类型
+     */
+    static class SystemSettingsServiceHandle extends Handler {
+
+        private WeakReference<SystemSettingsService> wfSystemSettingsService;
+
+        public SystemSettingsServiceHandle(SystemSettingsService systemSettingsService) {
+            this.wfSystemSettingsService = new WeakReference<>(systemSettingsService);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            SystemSettingsService ss = wfSystemSettingsService.get();
+            if (ss == null)
+                return;
+            switch (msg.what) {
+                case PROTECT_EYE_OFF:
+                    //播放提示音(息屏的情况下不激活);如何在视屏通话的话，护眼也不生效
+                    String currentActivity = ActivityUtils.getTopActivity(ss);
+                    LogUtils.e("tlh", "SystemSettingsService---PROTECT_EYE_OFF-----currentActivity:" + currentActivity);
+                    if (ss.powerManager.isScreenOn() && !Config.ActivityName.BOOYUE_VIDEOCHATACTIVITY.equals(currentActivity)) {
+                        ss.startPlayAudio(HHT_PROTECT_EYE);
+                        //默认激活护眼的屏幕亮度为20
+                        ScreenUtils.setScreenBrightness(DEFAULT_BRIGHTNESS);
+                    }
+                    break;
+
+                case PROTECT_EYE_ON:
+                    if (ScreenUtils.getScreenBrightness() <= ss.systemScreenBrightness) {
+                        ScreenUtils.setScreenBrightness(ss.systemScreenBrightness);
+                    }
+                    break;
+            }
+        }
+    }
+
+
 }
