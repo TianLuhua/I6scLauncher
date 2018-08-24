@@ -8,15 +8,62 @@ android {
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    //配置签名信息
+    signingConfigs {
+        release {
+            storeFile file(STOREFILE_PATH)
+            storePassword STOREPASSWORD
+            keyAlias KEYALIAS
+            keyPassword KEYPASSWORD
+            v2SigningEnabled false
+        }
+    }
+
     buildTypes {
         release {
+            //使用release的签名信息
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    applicationVariants.all { variant ->
+        if (variant.buildType.name.equals('release')) {
+            variant.outputs.all { output ->
+                def appName = 'HHTLauncehr'
+                def releaseApkName = "${appName}_v${variant.versionName}_${buildTime()}_release.apk"
+                outputFileName = releaseApkName
+            }
+        } else if (variant.buildType.name.equals('debug')) {
+            variant.outputs.all { output ->
+                def appName = 'HHTLauncehr'
+                def releaseApkName = "${appName}_v${variant.versionName}_${buildTime()}_debug.apk"
+                outputFileName = releaseApkName
+            }
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+}
+
+def buildTime() {
+    def date = new Date()
+    def formattedDate = date.format("yyyyMMdd")
+    return formattedDate
 }
 
 dependencies {
