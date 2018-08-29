@@ -688,6 +688,9 @@ public class Config {
         //文件管理器
         public static final String FILE_MANGER_PACKAGE = "com.softwinner.explore";
         public static final String FILE_MANGER_LAUNCHER = "com.softwinner.explore.Main";
+        //系统充电
+        public static final String CHARGER_PACKAGE = "com.example.administrator.charger";
+        public static final String CHARGER_LAUNCHER = "com.example.administrator.changer.MainActivity";
 
     }
 
