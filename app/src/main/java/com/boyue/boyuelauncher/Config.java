@@ -527,9 +527,9 @@ public class Config {
          */
         public static final String HHT_LY_YSPY_ZQYY_04 = "air.BabyPiano";
         /**
-         * 跟我学乐谱
+         * 跟我学乐谱 air.BabyLearnMusic/.AppEntry
          */
-        public static final String HHT_LY_YSPY_ZQYY_05 = "";
+        public static final String HHT_LY_YSPY_ZQYY_05 = "air.BabyLearnMusic";
         /**
          * 小小钢琴家 air.BabyPianist/.AppEntry
          */
