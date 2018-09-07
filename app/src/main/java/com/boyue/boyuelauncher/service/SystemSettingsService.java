@@ -78,6 +78,9 @@ public class SystemSettingsService extends Service implements MediaPlayer.OnPrep
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        if (intent == null)
+            return START_STICKY;
+
         switch (intent.getAction()) {
             case Config.BoYueAction.ONTIME_LOCKSCREEN_ACTION:
                 LogUtils.e("tlh", "ONTIME_LOCKSCREEN_ACTION");
