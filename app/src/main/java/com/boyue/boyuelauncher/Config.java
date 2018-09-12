@@ -626,7 +626,7 @@ public class Config {
         public static final String HHT_LY_YSPY_ldeg_13 = HHT_LY_YSPY_LDEG_ROOT_PATH + "b2huanlehht13" + MediaFromart.MP4;
 
         //火火兔乐园 ---- 益智游戏
-        public static final String HHT_LY_YZYX_01 = "air.RabbitLine";// air.RabbitLine/.AppEntry
+        public static final String HHT_LY_YZYX_01 = "air.RabbitLineUp";// air.RabbitLine/.AppEntry
         public static final String HHT_LY_YZYX_02 = "air.RabbitPuzzle";//air.RabbitPuzzle/.AppEntry
         public static final String HHT_LY_YZYX_03 = "air.RabbitFindFruit";//air.RabbitFindFruit/.AppEntry
         public static final String HHT_LY_YZYX_04 = "air.RabbitRecogAnimal";//air.RabbitRecogAnimal/.AppEntry
