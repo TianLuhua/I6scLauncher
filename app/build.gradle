@@ -39,13 +39,13 @@ android {
     applicationVariants.all { variant ->
         if (variant.buildType.name.equals('release')) {
             variant.outputs.all { output ->
-                def appName = 'HHTLauncehr'
+                def appName = 'HHTLauncher'
                 def releaseApkName = "${appName}_v${variant.versionName}_${buildTime()}_release.apk"
                 outputFileName = releaseApkName
             }
         } else if (variant.buildType.name.equals('debug')) {
             variant.outputs.all { output ->
-                def appName = 'HHTLauncehr'
+                def appName = 'HHTLauncher'
                 def releaseApkName = "${appName}_v${variant.versionName}_${buildTime()}_debug.apk"
                 outputFileName = releaseApkName
             }

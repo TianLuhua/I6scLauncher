@@ -55,6 +55,7 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_MEDIA_MOUNTED);
         filter.addAction(Intent.ACTION_MEDIA_UNMOUNTED);
+        filter.addAction(Intent.ACTION_MEDIA_REMOVED);
         filter.addDataScheme("file");
         getContext().registerReceiver(mediaMountedReceiver, filter);
     }
@@ -167,8 +168,8 @@ public class MainTilteBar extends RelativeLayout implements View.OnClickListener
                     context.sendBroadcast(new Intent(Config.BoYueAction.COM_BOYUE_ACTION_USB_MOUNTED));
                 }
 
-
-            } else if (action.equals(Intent.ACTION_MEDIA_UNMOUNTED)) {
+                //有些U盘和SD卡只发送Intent.ACTION_MEDIA_REMOVED广播
+            } else if (action.equals(Intent.ACTION_MEDIA_UNMOUNTED) || action.equals(Intent.ACTION_MEDIA_REMOVED)) {
                 LogUtils.e("tlh", "ACTION_MEDIA_UNMOUNTED+mountPath:" + mountPath);
                 if (Config.MountPath.SD_PATH.equals(mountPath)) {
                     setShowSD(false);
