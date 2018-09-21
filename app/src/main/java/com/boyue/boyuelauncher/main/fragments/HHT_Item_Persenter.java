@@ -83,6 +83,9 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
             @Override
             public void run() {
                 List<Fragment> fragments = new ArrayList<>();
+                HHT_Item_View view = getView();
+                if (view == null)
+                    return;
                 switch (currentPage) {
                     //火火兔乐园--卡拉ok---兔兔MTV
                     case HHTLY_KLOK_TTMTV:
@@ -97,7 +100,7 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         fragments.add(ttmtv_03);
                         fragments.add(ttmtv_04);
 //                        fragments.add(ttmtv_05);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
                     //火火兔乐园--卡拉ok---经典儿歌
                     case HHTLY_KLOK_JDEG:
@@ -108,7 +111,7 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         fragments.add(jdeg_01);
                         fragments.add(jdeg_02);
                         fragments.add(jdeg_03);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
                     //火火兔乐园--卡拉ok---经典儿歌
                     case HHTLY_KLOK_HHTCGS:
@@ -121,7 +124,7 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         fragments.add(hhtcgs_02);
                         fragments.add(hhtcgs_03);
 //                        fragments.add(hhtcgs_04);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
 
                     //火火兔乐园--英文儿歌
@@ -132,25 +135,25 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         fragments.add(hhtly_yweg_01);
                         fragments.add(hhtly_yweg_02);
                         fragments.add(hhtly_yweg_03);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
 
                     case HHTLY_YSPY:
                         Fragment hhtly_syp = HHT_yspy_Fragment.newInstance();
                         fragments.add(hhtly_syp);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
                     //火火兔乐园--艺术培养--智趣音乐
                     case HHTLY_YSPY_ZQYY:
                         Fragment hhtly_yspy_zqyy = HHT_zqyy_Fragment_01.newInstance();
                         fragments.add(hhtly_yspy_zqyy);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
                     //火火兔乐园--艺术培养--艺术之旅
                     case HHTLY_YSPY_YSZL:
                         Fragment hhtly_yspy_yszl = HHT_yszl_Fragment_01.newInstance();
                         fragments.add(hhtly_yspy_yszl);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
                     //火火兔乐园--艺术培养--画图创作
                     case HHTLY_YSPY_THCZ:
@@ -158,7 +161,7 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         Fragment hhtly_yspy_htcz_02 = HHT_htcz_Fragment_02.newInstance();
                         fragments.add(hhtly_yspy_htcz_01);
                         fragments.add(hhtly_yspy_htcz_02);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
                     //火火兔乐园--艺术培养--小小画家
                     case HHTLY_YSPY_XXHJ:
@@ -168,7 +171,7 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         fragments.add(hhtly_yspy_xxhj_01);
                         fragments.add(hhtly_yspy_xxhj_02);
                         fragments.add(hhtly_yspy_xxhj_03);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
                     //火火兔乐园--艺术培养--律动儿歌
                     case HHTLY_YSPY_LDEG:
@@ -176,7 +179,7 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         Fragment hhtly_yspy_ldeg_02 = HHT_ldeg_Fragment_02.newInstance();
                         fragments.add(hhtly_yspy_ldeg_01);
                         fragments.add(hhtly_yspy_ldeg_02);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
 
                     //火火兔乐园--益智游戏
@@ -185,14 +188,14 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         Fragment hhtly_yzyx_02 = HHT_yzyx_Fragment_02.newInstance();
                         fragments.add(hhtly_yzyx_01);
                         fragments.add(hhtly_yzyx_02);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
 
                     //早教学堂
                     case HHTXT_ZJXT:
                         Fragment hht_zjxt = HHT_zjxt_Fragment.newInstance();
                         fragments.add(hht_zjxt);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
                     //早教英语--邦尼英语
                     case HHTXT_ZJYY_BANGNI:
@@ -208,7 +211,7 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         fragments.add(hht_zjyy_bangni_04);
                         fragments.add(hht_zjyy_bangni_05);
                         fragments.add(hht_zjyy_bangni_06);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
                     //早教英语--多纳英语
                     case HHTXT_ZJYY_ENGLISH:
@@ -216,7 +219,7 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         Fragment hht_zjyy_duoan_02 = HHT_zjyy_Duona_02_Fragment.newInstance();
                         fragments.add(hht_zjyy_duoan_01);
                         fragments.add(hht_zjyy_duoan_02);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
 
                     case HHTXT_ZJYY_BAODI:
@@ -238,7 +241,7 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         fragments.add(hht_zjyy_baodi_07);
                         fragments.add(hht_zjyy_baodi_08);
                         fragments.add(hht_zjyy_baodi_09);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
 
                     //火火兔乐园--宝宝巴士
@@ -247,7 +250,7 @@ public class HHT_Item_Persenter extends AbstractPresenter<HHT_Item_View> {
                         Fragment hhly_baby_bus_02 = Baby_Bus_Fragment_02.newInstance();
                         fragments.add(hhly_baby_bus_01);
                         fragments.add(hhly_baby_bus_02);
-                        getView().setFragments(fragments);
+                        view.setFragments(fragments);
                         break;
 
 
