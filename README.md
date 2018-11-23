@@ -1,2 +1,2 @@
 # BoYueLauncher
-I6s+ Launcher
+I6sc Launcher
